@@ -99,22 +99,22 @@ class CreateRestCentersTest extends TestCase
     }
 
     /** @test */
-    // function features_can_be_attached_to_a_rest_center()
-    // {
-    //     $this->withoutExceptionHandling();
+    function features_can_be_attached_to_a_rest_center()
+    {
+        $this->withoutExceptionHandling();
 
-    //     $restCenter = factory('App\RestCenter')->make();
+        $restCenter = factory('App\RestCenter')->make();
 
-    //     $features = Feature::all();
+        $features = Feature::all()
+            ->map(function ($feature) {
+                return [
+                    $feature->id => array_first($feature->options)
+                ];
+            })
+            ->flatten(1);
 
-    //     $features = array_flatten($features->map(function ($feature) {
-    //         return [
-    //             $feature->id => array_first($feature->options)
-    //         ];
-    //     }));
+        $this->post(route('admin.rest-centers.store'), $restCenter->toArray() + [ 'features' => $features ]);
 
-    //     $this->post(route('admin.rest-centers.store'), $restCenter->toArray() + [ 'features' => $features ]);
-
-    //     $this->assertNotEquals(0, RestCenter::first()->features->count());
-    // }
+        $this->assertNotEquals(0, RestCenter::first()->features->count());
+    }
 }

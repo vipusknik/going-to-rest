@@ -20,35 +20,55 @@
                 <form action="{{ route('admin.rest-centers.store') }}" method="post">
                     @csrf
 
-                    <div class="border-b-2 pb-6 border-grey-light">
+                    <div class="mb-6 pb-6 border-b border-grey-light">
                         <div class="field-body flex mb-4">
                             <div class="field w-1/3">
                               <label class="label">Название</label>
                               <div class="control">
-                                <input class="input" type="text" name="name" placeholder="База отдыха">
+                                <input class="input {{ $errors->has('name') ? ' is-danger' : '' }}"
+                                       type="text"
+                                       name="name"
+                                       value="{{ old('name') }}"
+                                       placeholder="База отдыха">
                               </div>
+                              @if ($errors->has('name'))
+                                <p class="help is-danger">{{ $errors->first('name') }}</p>
+                              @endif
                             </div>
 
                             <div class="field w-1/3">
                               <label class="label">Водоем</label>
                               <div class="control">
-                                <div class="select w-full">
+                                <div class="select w-full {{ $errors->has('reservoir_id') ? ' is-danger' : '' }}">
                                   <select name="reservoir_id" class="w-full">
                                     @foreach ($reservoirs as $reservoir)
-                                        <option value="{{ $reservoir->id }}">
+                                        <option value="{{ $reservoir->id }}"
+                                                {{ (old('reservoir_id') == $reservoir->id) ? 'selected' : '' }}>
                                             {{ $reservoir->name }}
                                         </option>
                                     @endforeach
                                   </select>
                                 </div>
                               </div>
+
+                              @if ($errors->has('reservoir_id'))
+                                <p class="help is-danger">{{ $errors->first('reservoir_id') }}</p>
+                              @endif
                             </div>
 
                             <div class="field w-1/3">
                               <label class="label">Расположение</label>
                               <div class="control">
-                                <input class="input" type="text" name="location" placeholder="Расположение">
+                                <input class="input {{ $errors->has('location') ? ' is-danger' : '' }}"
+                                       type="text"
+                                       name="location"
+                                       value="{{ old('location') }}"
+                                       placeholder="Расположение">
                               </div>
+
+                              @if ($errors->has('location'))
+                                <p class="help is-danger">{{ $errors->first('location') }}</p>
+                              @endif
                             </div>
                         </div>
 
@@ -58,8 +78,16 @@
                           </label>
 
                           <div class="control">
-                            <input class="input" type="text" name="contacts" placeholder="Контакты">
+                            <input class="input {{ $errors->has('contacts') ? ' is-danger' : '' }}"
+                                   type="text"
+                                   name="contacts"
+                                   value="{{ old('contacts') }}"
+                                   placeholder="Контакты">
                           </div>
+
+                          @if ($errors->has('location'))
+                            <p class="help is-danger">{{ $errors->first('contacts') }}</p>
+                          @endif
                         </div>
 
                         <div class="mb-6">
@@ -70,10 +98,11 @@
                                       <label class="block text-indigo-light label w-1/5">{{ $feature->name }}</label>
                                       <div class="control w-1/5 mr-6">
                                         <div class="select w-full">
-                                          <select name="reservoir_id" class="w-full">
-                                            <option value="">выбрать</option>
+                                          <select name="features[{{ $feature->id }}]" class="w-full">
+                                            <option value="">не выбрано</option>
                                             @foreach ($feature->options as $option)
-                                                <option value="{{ '' }}">
+                                                <option value="{{ $option }}"
+                                                        {{ (old("features.{$feature->id}") == $option) ? 'selected' : '' }}>
                                                     {{ $option }}
                                                 </option>
                                             @endforeach
@@ -82,9 +111,9 @@
 
                                       </div>
 
-                                      <div class="control w-1/5">
+                                      {{-- <div class="control w-1/5">
                                         <input class="input" type="text" name="contacts" placeholder="другая опция">
-                                      </div>
+                                      </div> --}}
                                     </div>
                                 @endforeach
                             </div>
@@ -93,74 +122,16 @@
                         <div class="field">
                           <label class="label">Описание</label>
                           <div class="control">
-                            <textarea class="textarea h-64" name="description" placeholder="Описание базы"></textarea>
+                            <textarea class="textarea h-64"
+                                      name="description"
+                                      placeholder="Описание базы">{{ old('description') }}</textarea>
                           </div>
                         </div>
                     </div>
 
-                    <div class="field">
-                      <label class="label">Username</label>
-                      <div class="control has-icons-left has-icons-right">
-                        <input class="input is-success" type="text" placeholder="Text input" value="bulma">
-                        <span class="icon is-small is-left">
-                          <i class="fas fa-user"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                          <i class="fas fa-check"></i>
-                        </span>
-                      </div>
-                      <p class="help is-success">This username is available</p>
-                    </div>
-
-                    <div class="field">
-                      <label class="label">Email</label>
-                      <div class="control has-icons-left has-icons-right">
-                        <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
-                        <span class="icon is-small is-left">
-                          <i class="fas fa-envelope"></i>
-                        </span>
-                        <span class="icon is-small is-right">
-                          <i class="fas fa-exclamation-triangle"></i>
-                        </span>
-                      </div>
-                      <p class="help is-danger">This email is invalid</p>
-                    </div>
-
-                    <div class="field">
-                      <label class="label">Message</label>
-                      <div class="control">
-                        <textarea class="textarea" placeholder="Textarea"></textarea>
-                      </div>
-                    </div>
-
-                    <div class="field">
-                      <div class="control">
-                        <label class="checkbox">
-                          <input type="checkbox">
-                          I agree to the <a href="#">terms and conditions</a>
-                        </label>
-                      </div>
-                    </div>
-
-                    <div class="field">
-                      <div class="control">
-                        <label class="radio">
-                          <input type="radio" name="question">
-                          Yes
-                        </label>
-                        <label class="radio">
-                          <input type="radio" name="question">
-                          No
-                        </label>
-                      </div>
-                    </div>
-
                     <div class="field is-grouped">
                       <div class="control">
-                        <button class="button is-link">Submit</button>
-                      </div>
-                      <div class="control">
-                        <button class="button is-text">Cancel</button>
+                        <button class="button is-link">Сохранить</button>
                       </div>
                     </div>
                 </form>

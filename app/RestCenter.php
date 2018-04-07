@@ -13,6 +13,20 @@ class RestCenter extends Model
      */
     protected $guarded = [  ];
 
+    public function attachFeatures($features)
+    {
+        $features = collect($features)
+            ->filter()
+            ->map(function ($item, $key) {
+                return [ $key => [ 'option' => $item ] ];
+            })
+            ->flatten(1);
+
+        $this->features()->attach($features);
+
+        return $this;
+    }
+
     /**
      * Get all of the features for the rest center.
      */

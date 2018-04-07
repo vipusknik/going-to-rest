@@ -49,7 +49,8 @@ class RestCentersController extends Controller
      */
     public function store(RestCentersRequest $request)
     {
-        $restCenter = RestCenter::create($request->except('features'));
+        $restCenter = RestCenter::create($request->except('features'))
+            ->attachFeatures($request->features);
 
         return;
     }

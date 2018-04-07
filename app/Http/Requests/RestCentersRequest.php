@@ -30,4 +30,17 @@ class RestCentersRequest extends FormRequest
             'location'      => 'required'
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Название - обязательное поле',
+            'name.unique'   => 'Это название уже занято',
+
+            'reservoir_id.required'   => 'Водоем - обязательное поле',
+            'reservoir_id.exists'     => 'Водоем не найден',
+
+            'location.required' => 'Расположение - обязательное поле',
+        ];
+    }
 }
