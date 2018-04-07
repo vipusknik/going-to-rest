@@ -1,5 +1,12 @@
 <?php
 
-Route::get('/', function () {
-    return view('welcome');
+/**
+ * Admin  routes
+ */
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
+
+    /**
+     * Rest centers
+     */
+    Route::resource('rest-centers', 'RestCentersController');
 });
