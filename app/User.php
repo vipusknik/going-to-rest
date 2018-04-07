@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function isAdmin()
+    {
+        return in_array(auth()->user()->email, config('going-to-rest.admins'));
+    }
 }
