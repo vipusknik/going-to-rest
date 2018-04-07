@@ -16,7 +16,7 @@ class CreateRestCentersTable extends Migration
         Schema::create('rest_centers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
-            $table->json('contacts')->nullable();
+            $table->string('contacts')->nullable();
             $table->string('location');
             $table->text('accomodation')->nullable();
             $table->integer('reservoir_id')->unsigned();

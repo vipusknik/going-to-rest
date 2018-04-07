@@ -8,5 +8,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     /**
      * Rest centers
      */
-    Route::resource('rest-centers', 'RestCentersController');
+    Route::resource('rest-centers', 'RestCentersController', [ 'as' => 'admin' ]);
 });

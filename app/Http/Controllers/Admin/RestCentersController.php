@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\RestCenter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Validation\Rule;
 
 use App\Reservoir;
 use App\Feature;
@@ -43,7 +44,17 @@ class RestCentersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => [ 'required', Rule::unique('rest_centers', 'name') ],
+            'reservoir_id' => [ 'required', Rule::exists('reservoirs', 'id') ],
+            'location' => 'required'
+        ]);
+
+        $restCenter = RestCenter::create($request->except([ 'features' ]));
+
+        $restCenter->features()->attach($request->features);
+
+        return;
     }
 
     /**

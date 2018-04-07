@@ -12,4 +12,7 @@ class Feature extends Model
      * @var array
      */
     protected $guarded = [  ];
+
+
+    protected $casts = [ 'options' => 'json' ];
 }

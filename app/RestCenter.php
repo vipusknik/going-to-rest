@@ -12,4 +12,12 @@ class RestCenter extends Model
      * @var array
      */
     protected $guarded = [  ];
+
+    /**
+     * Get all of the features for the rest center.
+     */
+    public function features()
+    {
+        return $this->morphToMany(Feature::class, 'featurable');
+    }
 }

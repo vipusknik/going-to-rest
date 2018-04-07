@@ -18,12 +18,6 @@
         <a class="navbar-item" href="admin.html">
           Пляж
         </a>
-        <a class="navbar-item" href="admin.html">
-          Payments
-        </a>
-        <a class="navbar-item" href="admin.html">
-          Exceptions
-        </a>
       </div>
     </div>
   </div>
