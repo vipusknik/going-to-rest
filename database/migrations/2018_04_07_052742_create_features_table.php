@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReservoirsTable extends Migration
+class CreateFeaturesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateReservoirsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservoirs', function (Blueprint $table) {
+        Schema::create('features', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->json('options')->nullable();
+            $table->string('belongs_to');
+            $table->string('category')->nullable();
         });
     }
 
@@ -26,6 +29,6 @@ class CreateReservoirsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reservoirs');
+        Schema::dropIfExists('features');
     }
 }
