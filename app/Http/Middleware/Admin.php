@@ -19,6 +19,6 @@ class Admin
             return $next($request);
         }
 
-        abort(403, 'У Вас нет разрешения на это действие.');
+        return redirect('/login');
     }
 }

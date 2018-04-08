@@ -27,7 +27,7 @@ class CreateRestCentersTest extends TestCase
     {
         $this->signIn();
         $this->get(route('admin.rest-centers.create'))
-            ->assertStatus(403);
+            ->assertRedirect('/login');
 
         $this->signInAdmin();
         $this->get(route('admin.rest-centers.create'))
@@ -101,14 +101,12 @@ class CreateRestCentersTest extends TestCase
     /** @test */
     function features_can_be_attached_to_a_rest_center()
     {
-        $this->withoutExceptionHandling();
-
         $restCenter = factory('App\RestCenter')->make();
 
         $features = Feature::all()
             ->map(function ($feature) {
                 return [
-                    $feature->id => array_first($feature->options)
+                    $feature->id => array_random($feature->options)
                 ];
             })
             ->flatten(1);
