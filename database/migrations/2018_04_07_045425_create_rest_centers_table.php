@@ -17,6 +17,8 @@ class CreateRestCentersTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('contacts')->nullable();
+            $table->string('email')->nullable();
+            $table->string('site_link')->nullable();
             $table->string('location');
             $table->text('accomodation')->nullable();
             $table->integer('reservoir_id')->unsigned();
