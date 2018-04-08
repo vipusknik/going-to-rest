@@ -16,15 +16,19 @@ class RestCenter extends Model
     public function attachFeatures($features)
     {
         $features = collect($features)
-            ->filter()
             ->map(function ($item, $key) {
-                return [ $key => [ 'option' => $item ] ];
+                return [ $key => [ 'description' => $item ] ];
             })
             ->flatten(1);
 
         $this->features()->attach($features);
 
         return $this;
+    }
+
+    public function reservoir()
+    {
+        return $this->belongsTo(Reservoir::class);
     }
 
     /**
