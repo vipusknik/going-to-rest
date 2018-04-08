@@ -15,8 +15,7 @@ class CreateFeaturesTable extends Migration
     {
         Schema::create('features', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->json('options')->nullable();
+            $table->string('name');
             $table->string('belongs_to');
             $table->string('category')->nullable();
         });
