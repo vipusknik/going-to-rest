@@ -17,7 +17,7 @@ class CreateFeaturablesTable extends Migration
             $table->integer('feature_id');
             $table->string('featurable_type');
             $table->integer('featurable_id');
-            $table->string('description');
+            $table->string('description')->nullable();
         });
     }
 

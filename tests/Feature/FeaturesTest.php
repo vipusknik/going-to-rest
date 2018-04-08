@@ -69,6 +69,8 @@ class FeaturesTest extends TestCase
     /** @test */
     function a_new_feature_requires_a_belongs_to_attribute()
     {
+        $this->withoutExceptionHandling();
+
         $feature = make('App\Feature', ['belongs_to' => '']);
 
         $this->post(route('admin.features.store'), $feature->toArray())

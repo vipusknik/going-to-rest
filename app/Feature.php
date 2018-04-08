@@ -13,6 +13,5 @@ class Feature extends Model
      */
     protected $guarded = [  ];
 
-
-    protected $casts = [ 'options' => 'json' ];
+    public $timestamps = null;
 }
