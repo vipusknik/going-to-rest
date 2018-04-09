@@ -111,27 +111,24 @@
                             <label class="label">Ссылка на сайт</label>
 
                             <div class="control">
-                              <input class="input {{ $errors->has('site_link') ? ' is-danger' : '' }}"
+                              <input class="input"
                                      type="text"
                                      name="site_link"
                                      value="{{ old('site_link') }}"
                                      placeholder="Ссылка на сайт">
                             </div>
-
-                            @if ($errors->has('site_link'))
-                              <p class="help is-danger">{{ $errors->first('site_link') }}</p>
-                            @endif
                           </div>
                         </div>
 
-                        <attach-features :features-initial="{{ json_encode($features) }}" class="mb-6"></attach-features>
+                        <attach-features :features-initial="{{ json_encode($features) }}" class="mb-6">
+                        </attach-features>
 
                         <div class="field">
                           <label class="label">Описание</label>
                           <div class="control">
                             <wysiwig name="description"
-                                         value="{{ old('description') }}"
-                                         placeholder="Описание базы">
+                                     value="{{ old('description') }}"
+                                     placeholder="Описание базы">
                             </wysiwig>
                           </div>
                         </div>

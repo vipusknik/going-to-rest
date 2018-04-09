@@ -12,9 +12,6 @@
     </div>
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item" href="admin.html">
-          Главная
-        </a>
         <a class="navbar-item" href="{{ route('admin.rest-centers.index') }}">
           Пляж
         </a>

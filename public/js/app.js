@@ -1951,6 +1951,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['restCenter'],
@@ -2869,7 +2874,7 @@ var render = function() {
           "a",
           {
             staticClass: "button is-small bg-grey-lighter",
-            attrs: { title: "Удаление базы отдыха" },
+            attrs: { title: "Удалить базу отдыха" },
             on: {
               click: function($event) {
                 $event.preventDefault()
@@ -2905,14 +2910,37 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
+      _c("div", { staticClass: "mb-4" }, [
+        _c(
+          "div",
+          { staticClass: "flex flex-wrap" },
+          _vm._l(_vm.restCenter.features, function(feature) {
+            return _c(
+              "div",
+              {
+                staticClass:
+                  "text-xs px-1 my-1 mr-2 bg-green-lighter border border-green rounded-sm"
+              },
+              [
+                _vm._v(
+                  "\n                    " +
+                    _vm._s(feature.name) +
+                    " " +
+                    _vm._s(feature.pivot.description) +
+                    "\n                "
+                )
+              ]
+            )
+          })
+        )
+      ]),
+      _vm._v(" "),
       _c("div", [
         _c("div", {
           staticClass: "text-sm",
           domProps: { innerHTML: _vm._s(_vm.restCenter.description) }
         })
-      ]),
-      _vm._v(" "),
-      _c("div")
+      ])
     ])
   ])
 }

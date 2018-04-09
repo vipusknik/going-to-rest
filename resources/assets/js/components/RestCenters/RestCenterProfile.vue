@@ -6,7 +6,7 @@
                     <i class="fas fa-edit"></i>
                 </a>
 
-                <a @click.prevent="onDestroy" class="button is-small bg-grey-lighter" title="Удаление базы отдыха">
+                <a @click.prevent="onDestroy" class="button is-small bg-grey-lighter" title="Удалить базу отдыха">
                     <i class="fa fa-trash"></i>
                 </a>
             </div>
@@ -26,12 +26,17 @@
                 </div>
             </div>
 
-            <div>
-                <div v-html="restCenter.description" class="text-sm"></div>
+            <div class="mb-4">
+                <div class="flex flex-wrap">
+                    <div v-for="feature in restCenter.features"
+                         class="text-xs px-1 my-1 mr-2 bg-green-lighter border border-green rounded-sm">
+                        {{ feature.name }} {{ feature.pivot.description }}
+                    </div>
+                </div>
             </div>
 
             <div>
-                <!--  -->
+                <div v-html="restCenter.description" class="text-sm"></div>
             </div>
         </div>
     </div>
