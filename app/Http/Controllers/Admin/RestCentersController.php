@@ -22,8 +22,18 @@ class RestCentersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->expectsJson()) {
+            $query = $request->input('query');
+
+            $restCenters = RestCenter::where('name', 'like', "%$query%")
+                ->with('reservoir')
+                ->get();
+
+            return compact('restCenters');
+        }
+
         $restCenters = RestCenter::with('reservoir')->latest()->get();
         $reservoirs = Reservoir::all();
 

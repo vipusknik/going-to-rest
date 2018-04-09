@@ -2027,7 +2027,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: ['reservoirs']
+    props: ['reservoirs'],
+
+    data: function data() {
+        return {
+            query: ''
+        };
+    },
+
+
+    watch: {
+        query: function query() {
+            var _this = this;
+
+            axios.get('/admin/rest-centers?query=' + this.query).then(function (response) {
+                _this.$parent.restCenters = response.data.restCenters;
+            }).catch(function (error) {
+                return console.log(error);
+            });
+        }
+    }
 });
 
 /***/ }),
@@ -3415,13 +3434,35 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("div", { staticClass: "mb-6" }, [
+      _c("input", {
+        directives: [
+          {
+            name: "model",
+            rawName: "v-model",
+            value: _vm.query,
+            expression: "query"
+          }
+        ],
+        staticClass: "w-full p-2 border border-grey rounded-sm",
+        attrs: { type: "text", placeholder: "Поиск ..." },
+        domProps: { value: _vm.query },
+        on: {
+          input: function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.query = $event.target.value
+          }
+        }
+      })
+    ]),
     _vm._v(" "),
     _c(
       "div",
       { staticClass: "whitespace-no-wrap" },
       [
-        _vm._m(1),
+        _vm._m(0),
         _vm._v(" "),
         _vm._l(_vm.reservoirs, function(reservoir) {
           return _c("div", { staticClass: "px-2 py-1" }, [
@@ -3431,6 +3472,7 @@ var render = function() {
             }),
             _vm._v(" "),
             _c("label", {
+              staticClass: "cursor-pointer",
               attrs: { for: reservoir.name },
               domProps: { textContent: _vm._s(reservoir.name) }
             })
@@ -3442,17 +3484,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "mb-6" }, [
-      _c("input", {
-        staticClass: "w-full p-2 border border-grey rounded-sm",
-        attrs: { type: "text", name: "", placeholder: "Поиск ..." }
-      })
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

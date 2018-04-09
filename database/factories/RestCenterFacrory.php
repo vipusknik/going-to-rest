@@ -6,12 +6,12 @@ use App\Reservoir;
 
 $factory->define(App\RestCenter::class, function (Faker $faker) {
     return [
-        'name' => $faker->unique()->sentence,
-        'contacts' => '870703265472, 872368923',
+        'name' => $faker->unique()->company,
+        'contacts' => implode(',', [ $faker->phoneNumber, $faker->phoneNumber, $faker->phoneNumber ]),
         'email' => $faker->email,
         'site_link' => $faker->url,
-        'location' => $faker->sentence,
-        'reservoir_id' => Reservoir::first()->id,
-        'description' => $faker->paragraph
+        'location' => $faker->address,
+        'reservoir_id' => Reservoir::inRandomOrder()->first()->id,
+        'description' => $faker->randomHtml(100,3)
     ];
 });
