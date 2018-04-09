@@ -1,28 +1,25 @@
 <template>
 	<div>
 		<div class="flex bg-white border border-grey-light">
-			<div class="w-1/6 h-64 p-4 border-r border-grey-light bg-grey-lighter">
+			<div class="w-1/6 h-screen p-4 border-r border-grey-light bg-grey-lighter">
 				<aside>
-					<div class="mb-3">
-						<a href="/admin/rest-centers/create"
-						   class="
-						   		block
-						   		text-white
-						   		text-center
-						   		font-semibold
-						   		px-6
-						   		py-1
-						   		bg-indigo
-						   		rounded-sm
-						   		hover:opacity-9
-						   ">
-							Новая база
-						</a>
-					</div>
-
-					<div>
-						HI
-					</div>
+					<div class="mb-6 pb-6 border-b border-grey">
+			            <a href="/admin/rest-centers/create"
+			               class="
+			                    block
+			                    text-white
+			                    text-center
+			                    font-semibold
+			                    px-6
+			                    py-1
+			                    bg-indigo
+			                    rounded-sm
+			                    hover:opacity-9
+			               ">
+			                Новая база
+			            </a>
+			        </div>
+					<search-panel :reservoirs="reservoirs"></search-panel>
 				</aside>
 			</div>
 
@@ -55,10 +52,11 @@
 </template>
 
 <script>
+	import SearchPanel from './SearchPanel.vue';
 	import RestCenterProfile from './RestCenterProfile.vue';
 
 	export default {
-		components: { RestCenterProfile, },
+		components: { SearchPanel, RestCenterProfile },
 
 		props: [ 'restCentersInitial', 'reservoirs' ],
 

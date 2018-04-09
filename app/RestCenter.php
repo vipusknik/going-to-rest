@@ -13,6 +13,11 @@ class RestCenter extends Model
      */
     protected $guarded = [  ];
 
+    public function getContactsAttribute($contacts)
+    {
+        return explode(',', $contacts);
+    }
+
     public function attachFeatures($features)
     {
         $attachableFeatures = [];
