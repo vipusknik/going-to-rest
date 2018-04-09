@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class RestCentersTableSeeder extends Seeder
+class AccomodationsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,6 @@ class RestCentersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory('App\RestCenter', 20)->create();
+        factory('App\Accomodation', 10)->create();
     }
 }

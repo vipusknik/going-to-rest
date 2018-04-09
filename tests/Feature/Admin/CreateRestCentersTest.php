@@ -18,8 +18,6 @@ class CreateRestCentersTest extends TestCase
         parent::setUp();
 
         $this->signInAdmin();
-
-        app(\DatabaseSeeder::class)->run();
     }
 
     /** @test */
@@ -101,7 +99,10 @@ class CreateRestCentersTest extends TestCase
     /** @test */
     function features_can_be_attached_to_a_rest_center()
     {
-        $restCenter = factory('App\RestCenter')->make();
+        $this->withoutExceptionHandling();
+
+        $restCenter = make('App\RestCenter');
+        create('App\Feature', [], 30);
 
         $features = [];
 

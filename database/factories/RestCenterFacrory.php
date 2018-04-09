@@ -11,7 +11,7 @@ $factory->define(App\RestCenter::class, function (Faker $faker) {
         'email' => $faker->email,
         'site_link' => $faker->url,
         'location' => $faker->address,
-        'reservoir_id' => Reservoir::inRandomOrder()->first()->id,
-        'description' => $faker->randomHtml(100,3)
+        'reservoir_id' => factory('App\Reservoir')->create()->id,
+        'description' => $faker->randomHtml(100, 3)
     ];
 });
