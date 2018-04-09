@@ -16,6 +16,7 @@ class CreateRestCentersTable extends Migration
         Schema::create('rest_centers', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->string('slug')->unique();
             $table->string('contacts')->nullable();
             $table->string('email')->nullable();
             $table->string('site_link')->nullable();

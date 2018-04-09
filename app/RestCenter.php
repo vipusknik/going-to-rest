@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 class RestCenter extends Model
 {
+    use Sluggable;
+
     /**
      * The attributes that aren't mass assignable.
      *
@@ -13,9 +16,33 @@ class RestCenter extends Model
      */
     protected $guarded = [  ];
 
+    /**
+     * Get the route key for the model.
+     *
+     * @return string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function sluggable()
+    {
+        return [
+            'slug' => [
+                'source' => 'name'
+            ]
+        ];
+    }
+
     public function getContactsAttribute($contacts)
     {
         return explode(',', $contacts);
+    }
+
+    public function setContactsAttribute($contacts)
+    {
+        return implode(',', (array) $contacts);
     }
 
     public function attachFeatures($features)
@@ -29,6 +56,11 @@ class RestCenter extends Model
         $this->features()->attach($attachableFeatures);
 
         return $this;
+    }
+
+    public function accomodations()
+    {
+        return $this->hasMany(Accomodation::class);
     }
 
     public function reservoir()
