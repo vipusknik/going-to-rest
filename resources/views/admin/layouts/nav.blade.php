@@ -16,6 +16,16 @@
           Пляж
         </a>
       </div>
+
+      <div class="navbar-end">
+        <a class="navbar-item" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+          Выйти
+        </a>
+
+        <form action="/logout" method="post" id="logout-form">
+          @csrf
+        </form>
+      </div>
     </div>
   </div>
 </nav>
