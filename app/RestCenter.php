@@ -15,13 +15,13 @@ class RestCenter extends Model
 
     public function attachFeatures($features)
     {
-        $features = collect($features)
-            ->map(function ($item, $key) {
-                return [ $key => [ 'description' => $item ] ];
-            })
-            ->flatten(1);
+        $attachableFeatures = [];
 
-        $this->features()->attach($features);
+        foreach ($features as $id => $description) {
+            $attachableFeatures[$id] = [ 'description' => $description ];
+        }
+
+        $this->features()->attach($attachableFeatures);
 
         return $this;
     }

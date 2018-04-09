@@ -27,7 +27,7 @@ class CreateRestCentersTest extends TestCase
     {
         $this->signIn();
         $this->get(route('admin.rest-centers.create'))
-            ->assertRedirect('/login');
+            ->assertStatus(403);
 
         $this->signInAdmin();
         $this->get(route('admin.rest-centers.create'))
@@ -103,16 +103,14 @@ class CreateRestCentersTest extends TestCase
     {
         $restCenter = factory('App\RestCenter')->make();
 
-        $features = Feature::all()
-            ->map(function ($feature) {
-                return [
-                    $feature->id => array_random($feature->options)
-                ];
-            })
-            ->flatten(1);
+        $features = [];
+
+        foreach (Feature::inRandomOrder()->get() as $feature) {
+            $features[$feature->id] = array_random([ 'word', null ]);
+        }
 
         $this->post(route('admin.rest-centers.store'), $restCenter->toArray() + [ 'features' => $features ]);
 
-        $this->assertNotEquals(0, RestCenter::first()->features->count());
+        $this->assertEquals(Feature::all()->count(), RestCenter::first()->features->count());
     }
 }

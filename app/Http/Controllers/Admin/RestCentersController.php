@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\RestCenter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RestCentersRequest;
 
+use App\RestCenter;
 use App\Reservoir;
 use App\Feature;
 
@@ -24,7 +24,10 @@ class RestCentersController extends Controller
      */
     public function index()
     {
-        //
+        $restCenters = RestCenter::with('reservoir')->latest()->get();
+        $reservoirs = Reservoir::all();
+
+        return view('admin.rest-centers.index', compact('restCenters', 'reservoirs'));
     }
 
     /**
@@ -52,7 +55,7 @@ class RestCentersController extends Controller
         $restCenter = RestCenter::create($request->except('features'))
             ->attachFeatures($request->features);
 
-        return;
+        return redirect()->route('admin.rest-centers.index');
     }
 
     /**
@@ -63,7 +66,9 @@ class RestCentersController extends Controller
      */
     public function show(RestCenter $restCenter)
     {
-        //
+        $restCenter->load('reservoir', 'features');
+
+        return compact('restCenter');
     }
 
     /**
@@ -97,6 +102,8 @@ class RestCentersController extends Controller
      */
     public function destroy(RestCenter $restCenter)
     {
-        //
+        $restCenter->delete();
+
+        return response([], 200);
     }
 }
