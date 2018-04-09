@@ -3308,6 +3308,10 @@ button,
   opacity: 0 !important;
 }
 
+.opacity-9 {
+  opacity: .9 !important;
+}
+
 .opacity-25 {
   opacity: .25 !important;
 }
@@ -3321,6 +3325,30 @@ button,
 }
 
 .opacity-100 {
+  opacity: 1 !important;
+}
+
+.hover\:opacity-0:hover {
+  opacity: 0 !important;
+}
+
+.hover\:opacity-9:hover {
+  opacity: .9 !important;
+}
+
+.hover\:opacity-25:hover {
+  opacity: .25 !important;
+}
+
+.hover\:opacity-50:hover {
+  opacity: .5 !important;
+}
+
+.hover\:opacity-75:hover {
+  opacity: .75 !important;
+}
+
+.hover\:opacity-100:hover {
   opacity: 1 !important;
 }
 
@@ -7299,6 +7327,10 @@ button,
     opacity: 0 !important;
   }
 
+  .sm\:opacity-9 {
+    opacity: .9 !important;
+  }
+
   .sm\:opacity-25 {
     opacity: .25 !important;
   }
@@ -7312,6 +7344,30 @@ button,
   }
 
   .sm\:opacity-100 {
+    opacity: 1 !important;
+  }
+
+  .sm\:hover\:opacity-0:hover {
+    opacity: 0 !important;
+  }
+
+  .sm\:hover\:opacity-9:hover {
+    opacity: .9 !important;
+  }
+
+  .sm\:hover\:opacity-25:hover {
+    opacity: .25 !important;
+  }
+
+  .sm\:hover\:opacity-50:hover {
+    opacity: .5 !important;
+  }
+
+  .sm\:hover\:opacity-75:hover {
+    opacity: .75 !important;
+  }
+
+  .sm\:hover\:opacity-100:hover {
     opacity: 1 !important;
   }
 
@@ -11268,6 +11324,10 @@ button,
     opacity: 0 !important;
   }
 
+  .md\:opacity-9 {
+    opacity: .9 !important;
+  }
+
   .md\:opacity-25 {
     opacity: .25 !important;
   }
@@ -11281,6 +11341,30 @@ button,
   }
 
   .md\:opacity-100 {
+    opacity: 1 !important;
+  }
+
+  .md\:hover\:opacity-0:hover {
+    opacity: 0 !important;
+  }
+
+  .md\:hover\:opacity-9:hover {
+    opacity: .9 !important;
+  }
+
+  .md\:hover\:opacity-25:hover {
+    opacity: .25 !important;
+  }
+
+  .md\:hover\:opacity-50:hover {
+    opacity: .5 !important;
+  }
+
+  .md\:hover\:opacity-75:hover {
+    opacity: .75 !important;
+  }
+
+  .md\:hover\:opacity-100:hover {
     opacity: 1 !important;
   }
 
@@ -15237,6 +15321,10 @@ button,
     opacity: 0 !important;
   }
 
+  .lg\:opacity-9 {
+    opacity: .9 !important;
+  }
+
   .lg\:opacity-25 {
     opacity: .25 !important;
   }
@@ -15250,6 +15338,30 @@ button,
   }
 
   .lg\:opacity-100 {
+    opacity: 1 !important;
+  }
+
+  .lg\:hover\:opacity-0:hover {
+    opacity: 0 !important;
+  }
+
+  .lg\:hover\:opacity-9:hover {
+    opacity: .9 !important;
+  }
+
+  .lg\:hover\:opacity-25:hover {
+    opacity: .25 !important;
+  }
+
+  .lg\:hover\:opacity-50:hover {
+    opacity: .5 !important;
+  }
+
+  .lg\:hover\:opacity-75:hover {
+    opacity: .75 !important;
+  }
+
+  .lg\:hover\:opacity-100:hover {
     opacity: 1 !important;
   }
 
@@ -19206,6 +19318,10 @@ button,
     opacity: 0 !important;
   }
 
+  .xl\:opacity-9 {
+    opacity: .9 !important;
+  }
+
   .xl\:opacity-25 {
     opacity: .25 !important;
   }
@@ -19219,6 +19335,30 @@ button,
   }
 
   .xl\:opacity-100 {
+    opacity: 1 !important;
+  }
+
+  .xl\:hover\:opacity-0:hover {
+    opacity: 0 !important;
+  }
+
+  .xl\:hover\:opacity-9:hover {
+    opacity: .9 !important;
+  }
+
+  .xl\:hover\:opacity-25:hover {
+    opacity: .25 !important;
+  }
+
+  .xl\:hover\:opacity-50:hover {
+    opacity: .5 !important;
+  }
+
+  .xl\:hover\:opacity-75:hover {
+    opacity: .75 !important;
+  }
+
+  .xl\:hover\:opacity-100:hover {
     opacity: 1 !important;
   }
 

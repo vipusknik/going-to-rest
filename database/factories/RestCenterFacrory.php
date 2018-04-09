@@ -8,6 +8,8 @@ $factory->define(App\RestCenter::class, function (Faker $faker) {
     return [
         'name' => $faker->unique()->sentence,
         'contacts' => '870703265472, 872368923',
+        'email' => $faker->email,
+        'site_link' => $faker->url,
         'location' => $faker->sentence,
         'reservoir_id' => Reservoir::first()->id,
         'description' => $faker->paragraph

@@ -8,7 +8,6 @@
 						   class="
 						   		block
 						   		text-white
-						   		text-white
 						   		text-center
 						   		font-semibold
 						   		px-6
@@ -29,7 +28,6 @@
 
 			<div class="flex w-5/6">
 				<div class="w-2/5 p-6 border-r border-grey-light">
-
 					<!-- List -->
 					<div class="border border-grey-light shadow">
 						<div v-for="restCenter in restCenters"
@@ -48,38 +46,8 @@
 				</div>
 
 				<div class="w-3/5 p-4">
-					<div v-if="selectedRestCenter !== null">
-						<div class="action-buttons mb-8">
-						    <div class="control is-grouped">
-						    	<a class="button is-small bg-grey-lighter" title="Перейти в редактирование">
-						    		<i class="fas fa-edit"></i>
-						    	</a>
-
-						    	<a @click="destroy" class="button is-small bg-grey-lighter" title="Удаление базы отдыха">
-						    		<i class="fa fa-trash"></i>
-						    	</a>
-						    </div>
-						</div>
-
-						<!-- Rest center info -->
-						<div class="p-4 border border-grey-light rounded">
-							<div class="mb-4 pb-4 border-b border-grey-light">
-								<div class="mb-1">
-									<h3 class="text-base text-black font-semibold">
-										{{ selectedRestCenter.name }}
-									</h3>
-								</div>
-
-								<div class="text-base text-grey-dark">
-									{{ selectedRestCenter.reservoir.name }}, {{ selectedRestCenter.location }}
-								</div>
-							</div>
-
-							<div>
-								<div v-html="selectedRestCenter.description" class="text-sm"></div>
-							</div>
-						</div>
-					</div>
+					<rest-center-profile v-if="selectedRestCenter" :rest-center="selectedRestCenter" @destroyed="remove">
+					</rest-center-profile>
 				</div>
 			</div>
 		</div>
@@ -87,7 +55,11 @@
 </template>
 
 <script>
+	import RestCenterProfile from './RestCenterProfile.vue';
+
 	export default {
+		components: { RestCenterProfile, },
+
 		props: [ 'restCentersInitial', 'reservoirs' ],
 
 		data() {
@@ -105,20 +77,9 @@
 					});
 			},
 
-			destroy() {
-				if (! confirm('Удалить базу отдыха?')) return;
-
-				this.restCenters.splice();
-
-				axios.delete(`/admin/rest-centers/${this.selectedRestCenter.id}`)
-					.then(response => {
-						let index = this.restCenters.indexOf(this.selectedRestCenter);
-						this.restCenters.splice(index, 1);
-					});
-			},
-
-			getClass() {
-				return { 'bg-red': restCenter == selectedRestCenter }
+			remove(restCenter) {
+				let index = this.restCenters.indexOf(restCenter);
+                this.restCenters.splice(index, 1);
 			}
 		}
 	}

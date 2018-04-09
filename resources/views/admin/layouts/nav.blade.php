@@ -1,4 +1,4 @@
-<nav class="navbar is-white">
+<nav class="navbar is-white m-0">
   <div class="container">
     <div class="navbar-brand">
       <a class="navbar-item brand-text" href="../">
@@ -15,7 +15,7 @@
         <a class="navbar-item" href="admin.html">
           Главная
         </a>
-        <a class="navbar-item" href="admin.html">
+        <a class="navbar-item" href="{{ route('admin.rest-centers.index') }}">
           Пляж
         </a>
       </div>

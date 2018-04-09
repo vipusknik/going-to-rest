@@ -3,7 +3,7 @@
 @section ('title', 'Добавление базы отдыха')
 
 @section ('content')
-    <div>
+    <div class="container mx-auto mt-3">
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
@@ -72,59 +72,67 @@
                             </div>
                         </div>
 
-                        <div class="field mb-6">
-                          <label class="label">
-                            Контакты <span class="text-sm text-grey-dark">(укажите через запятую)</span>
-                          </label>
+                        <div class="flex mb-6">
+                          <div class="field w-1/3 mr-3">
+                            <label class="label">
+                              Телефоны <span class="text-sm text-grey-dark">(укажите через запятую)</span>
+                            </label>
 
-                          <div class="control">
-                            <input class="input {{ $errors->has('contacts') ? ' is-danger' : '' }}"
-                                   type="text"
-                                   name="contacts"
-                                   value="{{ old('contacts') }}"
-                                   placeholder="Контакты">
+                            <div class="control">
+                              <input class="input {{ $errors->has('contacts') ? ' is-danger' : '' }}"
+                                     type="text"
+                                     name="contacts"
+                                     value="{{ old('contacts') }}"
+                                     placeholder="Телефоны">
+                            </div>
+
+                            @if ($errors->has('contacts'))
+                              <p class="help is-danger">{{ $errors->first('contacts') }}</p>
+                            @endif
                           </div>
 
-                          @if ($errors->has('location'))
-                            <p class="help is-danger">{{ $errors->first('contacts') }}</p>
-                          @endif
-                        </div>
+                          <div class="field w-1/3 mr-3">
+                            <label class="label">Email</label>
 
-                        <div class="mb-6">
-                            <h3 class="text-base text-black font-bold">Удобства</h3>
-                            <div class="p-4 border border-grey-light rounded">
-                                @foreach ($features->where('belongs_to', 'rest_center')->where('category', 'facilities') as $feature)
-                                    <div class="field flex">
-                                      <label class="block text-indigo-light label w-1/5">{{ $feature->name }}</label>
-                                      <div class="control w-1/5 mr-6">
-                                        <div class="select w-full">
-                                          <select name="features[{{ $feature->id }}]" class="w-full">
-                                            <option value="">не выбрано</option>
-                                            @foreach ($feature->options as $option)
-                                                <option value="{{ $option }}"
-                                                        {{ (old("features.{$feature->id}") == $option) ? 'selected' : '' }}>
-                                                    {{ $option }}
-                                                </option>
-                                            @endforeach
-                                          </select>
-                                        </div>
-
-                                      </div>
-
-                                      {{-- <div class="control w-1/5">
-                                        <input class="input" type="text" name="contacts" placeholder="другая опция">
-                                      </div> --}}
-                                    </div>
-                                @endforeach
+                            <div class="control">
+                              <input class="input {{ $errors->has('email') ? ' is-danger' : '' }}"
+                                     type="email"
+                                     name="email"
+                                     value="{{ old('email') }}"
+                                     placeholder="Email">
                             </div>
+
+                            @if ($errors->has('email'))
+                              <p class="help is-danger">{{ $errors->first('email') }}</p>
+                            @endif
+                          </div>
+
+                          <div class="field w-1/3">
+                            <label class="label">Ссылка на сайт</label>
+
+                            <div class="control">
+                              <input class="input {{ $errors->has('site_link') ? ' is-danger' : '' }}"
+                                     type="text"
+                                     name="site_link"
+                                     value="{{ old('site_link') }}"
+                                     placeholder="Ссылка на сайт">
+                            </div>
+
+                            @if ($errors->has('site_link'))
+                              <p class="help is-danger">{{ $errors->first('site_link') }}</p>
+                            @endif
+                          </div>
                         </div>
+
+                        <attach-features :features-initial="{{ json_encode($features) }}" class="mb-6"></attach-features>
 
                         <div class="field">
                           <label class="label">Описание</label>
                           <div class="control">
-                            <textarea class="textarea h-64"
-                                      name="description"
-                                      placeholder="Описание базы">{{ old('description') }}</textarea>
+                            <wysiwig name="description"
+                                         value="{{ old('description') }}"
+                                         placeholder="Описание базы">
+                            </wysiwig>
                           </div>
                         </div>
                     </div>
