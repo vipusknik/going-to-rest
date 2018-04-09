@@ -38,8 +38,7 @@ class RestCentersController extends Controller
     public function create()
     {
         $reservoirs = Reservoir::all();
-
-        $features = Feature::all();
+        $features = Feature::where('belongs_to', Feature::OF_REST_CENTER)->get();
 
         return view('admin.rest-centers.create', compact('reservoirs', 'features'));
     }

@@ -36,6 +36,7 @@ class RestCenter extends Model
      */
     public function features()
     {
-        return $this->morphToMany(Feature::class, 'featurable');
+        return $this->morphToMany(Feature::class, 'featurable')
+            ->withPivot('description');
     }
 }
