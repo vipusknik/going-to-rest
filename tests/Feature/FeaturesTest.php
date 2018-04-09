@@ -49,12 +49,12 @@ class FeaturesTest extends TestCase
         $this->post(route('admin.features.store'), $restCenterFeature->toArray())
             ->assertStatus(200);
 
+        $this->post(route('admin.features.store'), $restCenterFeature->toArray())
+            ->assertSessionHasErrors('name');
+
         $accomodationFeature = make('App\Feature', ['name' => 'Купание', 'belongs_to' => 'accomodation']);
         $this->post(route('admin.features.store'), $accomodationFeature->toArray())
             ->assertStatus(200);
-
-        $this->post(route('admin.features.store'), $restCenterFeature->toArray())
-            ->assertSessionHasErrors('name');
     }
 
     /** @test */
@@ -69,7 +69,7 @@ class FeaturesTest extends TestCase
     /** @test */
     function a_new_feature_requires_a_belongs_to_attribute()
     {
-        $this->withoutExceptionHandling();
+        // $this->withoutExceptionHandling();
 
         $feature = make('App\Feature', ['belongs_to' => '']);
 
