@@ -25,7 +25,7 @@
             ]); ?>
         </script>
 
-        <div id="app">
+        <div id="app" class="antialiased">
             @include ('admin.layouts.nav')
 
             @yield('content')
