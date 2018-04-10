@@ -43,7 +43,7 @@ class RestCenter extends Model
 
     public function setContactsAttribute($contacts)
     {
-        return implode(',', (array) $contacts);
+        $this->attributes['contacts'] = implode(',', (array) $contacts);
     }
 
     public function accomodations()
