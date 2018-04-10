@@ -99,8 +99,6 @@ class CreateRestCentersTest extends TestCase
     /** @test */
     function features_can_be_attached_to_a_rest_center()
     {
-        $this->withoutExceptionHandling();
-
         $restCenter = make('App\RestCenter');
         create('App\Feature', [], 30);
 

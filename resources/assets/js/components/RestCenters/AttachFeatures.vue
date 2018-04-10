@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <h3 class="text-black text-base font-semibold">Выберите удобства и варианты досуга</h3>
+            <h3 class="text-black text-base font-semibold">{{ heading }}</h3>
             <div class="flex p-2 border border-grey-light">
                 <div class="w-1/3 class border-r border-grey-light">
                     <div>
@@ -12,7 +12,7 @@
                              class="m-1 p-1 hover:bg-grey cursor-pointer">
                         </div>
 
-                        <new-feature-form></new-feature-form>
+                        <new-feature-form :belongs-to="belongsTo"></new-feature-form>
                     </div>
                 </div>
 
@@ -36,7 +36,23 @@
     export default {
         components: { SelectedFeature, NewFeatureForm },
 
-        props: [ 'features-initial' ],
+        props: {
+            featuresInitial: {
+                type: Array,
+                required: true
+            },
+
+            heading: {
+                type: String,
+                required: false,
+                default: ''
+            },
+
+            belongsTo: {
+                type: String,
+                required: true
+            }
+        },
 
         data() {
             return {

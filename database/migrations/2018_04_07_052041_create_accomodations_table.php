@@ -19,7 +19,7 @@ class CreateAccomodationsTable extends Migration
             $table->integer('guest_count');
             $table->integer('price_per_day');
             $table->string('type');
-            $table->text('description');
+            $table->text('description')->nullable();
 
             $table->foreign('rest_center_id')
               ->references('id')->on('rest_centers')

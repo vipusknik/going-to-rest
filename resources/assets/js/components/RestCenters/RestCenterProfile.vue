@@ -51,11 +51,24 @@
                 </div>
             </div>
 
-            <div class="mb-4">
+            <div v-if="restCenter.features.length" class="mb-4">
                 <div class="flex flex-wrap">
                     <div v-for="feature in restCenter.features"
                          class="text-xs px-1 my-1 mr-2 bg-green-lighter border border-green rounded-sm">
                         {{ feature.name }} {{ feature.pivot.description }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <div class="flex">
+                    <div v-if="restCenter.accomodations.length"></div>
+                    <div class="w-full p-1" v-else>
+                        <div class="flex p-2 border border-red-lighter rounded-sm bg-yellow">
+                            <span class="mr-2"><i class="fas fa-exclamation text-yellow-darker"></i></span>
+                            <span class="text-black font-bold">Размещений нет!</span>
+                            <a :href="`/admin/rest-centers/${restCenter.slug}/accomodations`" class="ml-auto">добавить</a>
+                        </div>
                     </div>
                 </div>
             </div>

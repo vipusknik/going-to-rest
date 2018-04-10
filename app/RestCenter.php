@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Traits\HasFeatures;
 
 class RestCenter extends Model
 {
-    use Sluggable;
+    use Sluggable, HasFeatures;
 
     /**
      * The attributes that aren't mass assignable.
@@ -45,19 +46,6 @@ class RestCenter extends Model
         return implode(',', (array) $contacts);
     }
 
-    public function attachFeatures($features)
-    {
-        $attachableFeatures = [];
-
-        foreach ($features as $id => $description) {
-            $attachableFeatures[$id] = [ 'description' => $description ];
-        }
-
-        $this->features()->attach($attachableFeatures);
-
-        return $this;
-    }
-
     public function accomodations()
     {
         return $this->hasMany(Accomodation::class);
@@ -66,14 +54,5 @@ class RestCenter extends Model
     public function reservoir()
     {
         return $this->belongsTo(Reservoir::class);
-    }
-
-    /**
-     * Get all of the features for the rest center.
-     */
-    public function features()
-    {
-        return $this->morphToMany(Feature::class, 'featurable')
-            ->withPivot('description');
     }
 }

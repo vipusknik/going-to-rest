@@ -12,11 +12,6 @@ use App\Feature;
 
 class RestCentersController extends Controller
 {
-    public function __construct()
-    {
-        // $this->middle
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -28,13 +23,13 @@ class RestCentersController extends Controller
             $query = $request->input('query');
 
             $restCenters = RestCenter::where('name', 'like', "%$query%")
-                ->with('reservoir')
+                ->with([ 'reservoir', 'accomodations' ])
                 ->get();
 
             return compact('restCenters');
         }
 
-        $restCenters = RestCenter::with('reservoir')->latest()->get();
+        $restCenters = RestCenter::with([ 'reservoir', 'accomodations' ])->latest()->get();
         $reservoirs = Reservoir::all();
 
         return view('admin.rest-centers.index', compact('restCenters', 'reservoirs'));
@@ -75,7 +70,7 @@ class RestCentersController extends Controller
      */
     public function show(RestCenter $restCenter)
     {
-        $restCenter->load('reservoir', 'features');
+        $restCenter->load('reservoir', 'features', 'accomodations');
 
         return compact('restCenter');
     }

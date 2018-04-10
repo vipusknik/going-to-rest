@@ -2,7 +2,7 @@
     <div>
         <div class="mt-2 p-1" v-if="! showNewFeatureInput">
             <a href="#" @click.prevent="showNewFeatureInput = true">
-                Нет того что нужно? Добавьте сами!
+                Нет того что нужно?
             </a>
         </div>
 
@@ -53,7 +53,7 @@
 
 <script>
     export default {
-        props: [ 'feature' ],
+        props: [ 'feature', 'belongsTo' ],
 
         data() {
             return {
@@ -61,7 +61,7 @@
                 newFeature: {
                     name: '',
                     category: '',
-                    belongs_to: 'rest_center'
+                    belongs_to: this.belongsTo
                 }
             };
         },
