@@ -15,6 +15,8 @@ class RestCenterAccomodationsController extends Controller
 {
     public function index(RestCenter $restCenter)
     {
+        $restCenter->load('accomodations.features');
+
         $features = Feature::where('belongs_to', Feature::OF_ACCOMODATION)->get();
 
         return view('admin.rest-centers.accomodations.index', compact('restCenter', 'features'));
@@ -37,6 +39,8 @@ class RestCenterAccomodationsController extends Controller
         $restCenter->accomodations()
             ->create($request->except('features'))
             ->attachFeatures($request->features);
+
+        return back();
     }
 
     /**

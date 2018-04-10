@@ -19,6 +19,7 @@
                 <div class="w-2/3">
                     <div class="p-2">
                         <selected-feature v-for="feature in selectedFeatures"
+                                          :key="feature.id"
                                           :feature="feature"
                                           @remove="remove">
                         </selected-feature>

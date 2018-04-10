@@ -4,6 +4,28 @@
            <h3 class="text-lg text-grey-darker font-bold">{{ restCenter.name }}: размещения</h3>
        </div>
 
+       <!-- accomodations -->
+       <div class="text-black">
+         <div v-for="accomodation in restCenter.accomodations" :key="accomodation.id" class="mb-4 p-4 border border-grey-light">
+           <div class="text-lg text-blue-light">
+             <span class="text-blue font-bold" v-text="`${accomodation.type_in_russian}: `"></span>
+             <span v-text="accomodation.guest_count" class="font-bold"></span> человек,
+             <span v-text="accomodation.price_per_day" class="font-bold"></span> тг за день.
+           </div>
+
+           <div v-if="accomodation.features.length">
+                <div class="flex flex-wrap text-sm">
+                    <div v-for="feature in accomodation.features"
+                         class="text-xs px-1 my-1 mr-2 bg-green-lighter border border-green rounded-sm">
+                        {{ feature.name }} {{ feature.pivot.description }}
+                    </div>
+                </div>
+            </div>
+
+           <div v-text="accomodation.description" class="text-sm"></div>
+         </div>
+       </div>
+
         <!-- new accomodation form -->
        <div class="p-4">
            <form :action="`/admin/rest-centers/${restCenter.slug}/accomodations`" method="post">

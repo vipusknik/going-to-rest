@@ -16,8 +16,17 @@ class Accomodation extends Model
      */
     protected $guarded = [  ];
 
+    protected $appends = [ 'type_in_russian' ];
+
+    /**
+     * Turn off timestamps
+     * @var null
+     */
     public $timestamps = null;
 
+    /**
+     * Accomodation types
+     */
     const TYPE_ROOM = 'room';
     const TYPE_HOUSE = 'house';
 
@@ -26,11 +35,14 @@ class Accomodation extends Model
         return [ static::TYPE_ROOM, static::TYPE_HOUSE ];
     }
 
-    /**
-     * Get all of the features for the rest center.
-     */
-    public function features()
+    public function getTypeInRussianAttribute()
     {
-        return $this->morphToMany(Feature::class, 'featurable')->withPivot('description');
+        if ($this->type === static::TYPE_ROOM) {
+            return 'Номер';
+        }
+
+        if ($this->type === static::TYPE_HOUSE) {
+            return 'Домик';
+        }
     }
 }

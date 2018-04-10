@@ -18,6 +18,7 @@ window.Vue = require('vue');
 Vue.component('rest-centers-app', require('./components/RestCenters/App.vue'));
 Vue.component('wysiwig', require('./components/Wysiwig.vue'));
 Vue.component('attach-features', require('./components/RestCenters/AttachFeatures.vue'));
+Vue.component('rest-center-accomodations-app', require('./components/RestCenters/Accomodations/App.vue'));
 
 const app = new Vue({
     el: '#app'
