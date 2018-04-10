@@ -4674,6 +4674,10 @@ button,
   width: 83.33333% !important;
 }
 
+.w-1\/8 {
+  width: 12.5% !important;
+}
+
 .w-full {
   width: 100% !important;
 }
@@ -8685,6 +8689,10 @@ button,
     width: 83.33333% !important;
   }
 
+  .sm\:w-1\/8 {
+    width: 12.5% !important;
+  }
+
   .sm\:w-full {
     width: 100% !important;
   }
@@ -12680,6 +12688,10 @@ button,
 
   .md\:w-5\/6 {
     width: 83.33333% !important;
+  }
+
+  .md\:w-1\/8 {
+    width: 12.5% !important;
   }
 
   .md\:w-full {
@@ -16679,6 +16691,10 @@ button,
     width: 83.33333% !important;
   }
 
+  .lg\:w-1\/8 {
+    width: 12.5% !important;
+  }
+
   .lg\:w-full {
     width: 100% !important;
   }
@@ -20674,6 +20690,10 @@ button,
 
   .xl\:w-5\/6 {
     width: 83.33333% !important;
+  }
+
+  .xl\:w-1\/8 {
+    width: 12.5% !important;
   }
 
   .xl\:w-full {

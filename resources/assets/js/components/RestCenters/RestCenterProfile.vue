@@ -73,6 +73,43 @@
                 </div>
             </div>
 
+            <!-- Accomodations -->
+            <div class="mb-4">
+                <h3 class="text-blue-dark font-bold underline mb-1">
+                    <a :href="`/admin/rest-centers/${restCenter.slug}/accomodations`">Размещения</a>
+                </h3>
+                <table class="w-full">
+                    <thead class="bg-blue-dark">
+                        <tr>
+                            <th class="w-1/4 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">Тип</th>
+                            <th class="w-1/8 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">Вмещает</th>
+                            <th class="w-1/8 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">Цена</th>
+                            <th class="w-1/4 text-white whitespace-no-wrap p-2">Описание</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr v-for="accomodation in restCenter.accomodations" class="border-b border-blue-lighter">
+                            <td class="p-2 border-r border-blue-lighter">
+                                <div v-text="accomodation.type_in_russian" class="text-blue-dark font-bold mb-1 underline"></div>
+
+                                <div>
+                                    <ul>
+                                        <li v-for="feature in accomodation.features"
+                                            v-text="`* ${feature.name} ${feature.pivot.description || ''}`"
+                                            class="inline-block text-sm text-green mr-2">
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td v-text="accomodation.guest_count" class="p-2 border-r border-blue-lighter"></td>
+                            <td v-text="accomodation.price_per_day" class="p-2 border-r border-blue-lighter"></td>
+                            <td v-text="accomodation.description" class="p-2"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
             <div>
                 <div v-html="restCenter.description" class="text-sm"></div>
             </div>
