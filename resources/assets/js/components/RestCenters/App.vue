@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<div class="flex bg-white border border-grey-light">
-			<div class="w-1/6 h-screen p-4 border-r border-grey-light bg-grey-lighter">
+		<div class="flex h-full bg-white border border-grey-light">
+			<div class="w-1/6 p-4 border-r border-grey-light bg-grey-lighter">
 				<aside>
 					<div class="mb-6 pb-6 border-b border-grey">
 			            <a href="/admin/rest-centers/create"
@@ -27,18 +27,12 @@
 				<div class="w-2/5 p-6 border-r border-grey-light">
 					<!-- List -->
 					<div class="border border-grey-light shadow">
-						<div v-for="restCenter in restCenters"
-							 :key="restCenter.id"
-						     @click="show(restCenter)"
-						     class="p-4 border-b border-grey-light">
-							<div class="mb-3">
-								<h3 class="text-base text-black font-semibold">{{ restCenter.name }}</h3>
-							</div>
-
-							<div class="text-base text-grey-dark">
-								{{ restCenter.reservoir.name }}
-							</div>
-						</div>
+						<list-item v-for="restCenter in restCenters"
+						           :rest-center="restCenter"
+						           :key="restCenter.id"
+						           @selected="show(restCenter)"
+						           :active="selectedRestCenter && restCenter.id === selectedRestCenter.id">
+						</list-item>
 					</div>
 				</div>
 
@@ -53,10 +47,11 @@
 
 <script>
 	import SearchPanel from './SearchPanel.vue';
+	import ListItem from './ListItem.vue';
 	import RestCenterProfile from './RestCenterProfile.vue';
 
 	export default {
-		components: { SearchPanel, RestCenterProfile },
+		components: { SearchPanel, ListItem, RestCenterProfile },
 
 		props: [ 'restCentersInitial', 'reservoirs' ],
 
@@ -69,15 +64,17 @@
 
 		methods: {
 			show(restCenter) {
-				axios.get(`/admin/rest-centers/${restCenter.id}`)
+				axios.get(`/admin/rest-centers/${restCenter.slug}`)
 					.then(response => {
 						this.selectedRestCenter = response.data.restCenter;
 					});
 			},
 
 			remove(restCenter) {
-				let index = this.restCenters.indexOf(restCenter);
+				let index = this.restCenters.findIndex(item => item.id === restCenter.id);
+
                 this.restCenters.splice(index, 1);
+				this.selectedRestCenter = null;
 			}
 		}
 	}
