@@ -6,24 +6,11 @@
 
        <!-- accomodations -->
        <div class="text-black">
-         <div v-for="accomodation in restCenter.accomodations" :key="accomodation.id" class="mb-4 p-4 border border-grey-light">
-           <div class="text-lg text-blue-light">
-             <span class="text-blue font-bold" v-text="`${accomodation.type_in_russian}: `"></span>
-             <span v-text="accomodation.guest_count" class="font-bold"></span> человек,
-             <span v-text="accomodation.price_per_day" class="font-bold"></span> тг за день.
-           </div>
-
-           <div v-if="accomodation.features.length">
-                <div class="flex flex-wrap text-sm">
-                    <div v-for="feature in accomodation.features"
-                         class="text-xs px-1 my-1 mr-2 bg-green-lighter border border-green rounded-sm">
-                        {{ feature.name }} {{ feature.pivot.description }}
-                    </div>
-                </div>
-            </div>
-
-           <div v-text="accomodation.description" class="text-sm"></div>
-         </div>
+         <accomodation v-for="accomodation in restCenter.accomodations"
+                       :key="accomodation.id"
+                       :accomodation="accomodation"
+                       class="relative mb-4 p-4 border border-grey-light">
+         </accomodation>
        </div>
 
         <!-- new accomodation form -->
@@ -83,9 +70,11 @@
 </template>
 
 <script>
-    import AttachFeatures from '../AttachFeatures.vue';
+    import Accomodation from './ListItem.vue';
 
     export default {
+        components: { Accomodation },
+
         props: [ 'restCenter', 'features', 'csrf' ],
 
         data() {

@@ -7,13 +7,22 @@ use Illuminate\Foundation\Testing\WithFaker;
 
 class RestCenterAccomodationsTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    /** @test */
+    function accomodation_can_be_detached_from_a_rest_center()
     {
-        $this->assertTrue(true);
+        $restCenter = create('App\RestCenter');
+
+        $accomodation = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id ]);
+
+        $this->post(
+                route('admin.rest-centers.accomodations.store', $restCenter),
+                $accomodation->getAttributes() + [ 'features' => [] ]
+            );
+
+        $this->assertEquals(1, $restCenter->accomodations->count());
+
+        $attachedAccomodation = $restCenter->accomodations->first();
+        $this->delete(route('admin.rest-centers.accomodations.destroy', [ $restCenter, $attachedAccomodation ]));
+        $this->assertEquals(0, $restCenter->fresh()->accomodations->count());
     }
 }

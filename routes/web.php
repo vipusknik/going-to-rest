@@ -21,11 +21,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     /**
      * Rest center accomodations
      */
-    Route::get('rest-centers/{rest_center}/accomodations', 'RestCenterAccomodationsController@index')
-        ->name('admin.rest-centers.accomodations.index');
-
-    Route::post('rest-centers/{rest_center}/accomodations', 'RestCenterAccomodationsController@store')
-        ->name('admin.rest-centers.accomodations.store');
+    Route::resource('rest-centers.accomodations', 'RestCenterAccomodationsController', [ 'as' => 'admin' ])
+        ->only([ 'index', 'store', 'destroy' ]);
 
     /**
      * Features

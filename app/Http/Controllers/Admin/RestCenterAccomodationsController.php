@@ -32,13 +32,13 @@ class RestCenterAccomodationsController extends Controller
     {
         $request->validate([
             'guest_count' => 'required|integer',
-            'price_per_day' => 'required',
+            'price_per_day' => 'required|integer',
             'type' => [ 'required', Rule::in(Accomodation::types()) ],
         ]);
 
         $restCenter->accomodations()
             ->create($request->except('features'))
-            ->attachFeatures($request->features);
+            ->attachFeatures($request->features ?? []);
 
         return back();
     }
@@ -83,8 +83,10 @@ class RestCenterAccomodationsController extends Controller
      * @param  \App\RestCenter  $restCenter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RestCenter $restCenter)
+    public function destroy(RestCenter $restCenter, Accomodation $accomodation)
     {
-        //
+        $accomodation->delete();
+
+        return response([], 200);
     }
 }
