@@ -31,6 +31,28 @@ class CreateRestCenterAccomodationsTest extends TestCase
     }
 
     /** @test */
+    function guest_count_has_to_be_an_integer()
+    {
+        $restCenter = create('App\RestCenter');
+
+        $accomodations = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id, 'guest_count' => 'jshdgfkjshd' ]);
+
+        $this->post(route('admin.rest-centers.accomodations.store', $restCenter),$accomodations->toArray())
+            ->assertSessionHasErrors('guest_count');
+    }
+
+    /** @test */
+    function guest_count_has_to_be_in_integer_range()
+    {
+        $restCenter = create('App\RestCenter');
+
+        $accomodations = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id, 'guest_count' => 162476219847 ]);
+
+        $this->post(route('admin.rest-centers.accomodations.store', $restCenter),$accomodations->toArray())
+            ->assertSessionHasErrors('guest_count');
+    }
+
+    /** @test */
     function accomodations_require_price_per_day()
     {
         $restCenter = create('App\RestCenter');
