@@ -3,10 +3,19 @@
 namespace Tests;
 
 use Illuminate\Foundation\Testing\TestCase as BaseTestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 abstract class TestCase extends BaseTestCase
 {
     use CreatesApplication;
+    use RefreshDatabase;
+
+    public function setUp()
+    {
+        parent::setUp();
+
+        $this->signInAdmin();
+    }
 
     protected function signIn($user = null)
     {
@@ -25,4 +34,6 @@ abstract class TestCase extends BaseTestCase
 
         return $this;
     }
+
+    //
 }

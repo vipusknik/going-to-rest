@@ -4,19 +4,9 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class FeaturesTest extends TestCase
 {
-    use RefreshDatabase;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->signInAdmin();
-
-    }
     /** @test */
     public function only_admins_are_allowed_to_create_new_features()
     {

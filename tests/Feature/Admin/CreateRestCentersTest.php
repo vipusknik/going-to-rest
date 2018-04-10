@@ -4,22 +4,12 @@ namespace Tests\Feature\Admin;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use App\RestCenter;
 use App\Feature;
 
 class CreateRestCentersTest extends TestCase
 {
-    use RefreshDatabase;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->signInAdmin();
-    }
-
     /** @test */
     function only_admins_can_visit_rest_center_create_page()
     {

@@ -4,7 +4,6 @@ namespace Tests\Feature\Admin;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 
 use App\RestCenter;
 use App\Accomodation;
@@ -12,15 +11,6 @@ use App\Feature;
 
 class CreateRestCenterAccomodationsTest extends TestCase
 {
-    use RefreshDatabase;
-
-    public function setUp()
-    {
-        parent::setUp();
-
-        $this->signInAdmin();
-    }
-
     /** @test */
     function rest_center_accomodations_page_can_be_visited()
     {
@@ -82,7 +72,7 @@ class CreateRestCenterAccomodationsTest extends TestCase
 
         $this->post(
                 route('admin.rest-centers.accomodations.store', $restCenter),
-                $accomodation->toArray()
+                $accomodation->getAttributes()
             );
 
         $this->assertEquals(1, $restCenter->accomodations->count());
@@ -107,7 +97,7 @@ class CreateRestCenterAccomodationsTest extends TestCase
 
         $this->post(
                 route('admin.rest-centers.accomodations.store', $restCenter),
-                $accomodation->toArray() + [ 'features' => $features ]
+                $accomodation->getAttributes() + [ 'features' => $features ]
             );
 
         // dd($restCenter->accomodations->first()->features->count());
