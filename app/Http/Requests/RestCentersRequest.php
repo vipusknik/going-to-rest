@@ -24,8 +24,14 @@ class RestCentersRequest extends FormRequest
      */
     public function rules()
     {
+        $uniqueRule = Rule::unique('rest_centers', 'name');
+
+        if ($this->method() === 'PATCH') {
+            $uniqueRule = Rule::unique('rest_centers', 'name')->ignore($this->rest_center->id);
+        }
+
         return [
-            'name'          => [ 'required', Rule::unique('rest_centers', 'name') ],
+            'name'          => [ 'required', $uniqueRule ],
             'reservoir_id'  => [ 'required', Rule::exists('reservoirs', 'id') ],
             'location'      => 'required'
         ];

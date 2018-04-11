@@ -83,7 +83,12 @@ class RestCentersController extends Controller
      */
     public function edit(RestCenter $restCenter)
     {
-        //
+        $restCenter->load('reservoir', 'features');
+
+        $reservoirs = Reservoir::all();
+        $features = Feature::where('belongs_to', Feature::OF_REST_CENTER)->get();
+
+        return view('admin.rest-centers.edit', compact('restCenter', 'reservoirs', 'features'));
     }
 
     /**
@@ -93,9 +98,13 @@ class RestCentersController extends Controller
      * @param  \App\RestCenter  $restCenter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RestCenter $restCenter)
+    public function update(RestCenter $restCenter, RestCentersRequest $request)
     {
-        //
+        $restCenter->update($request->except('features'));
+
+        $restCenter->updateFeatures($request->features);
+
+        return redirect()->route('admin.rest-centers.index');
     }
 
     /**

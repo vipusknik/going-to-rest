@@ -21,6 +21,7 @@
                         <selected-feature v-for="feature in selectedFeatures"
                                           :key="feature.id"
                                           :feature="feature"
+                                          :features-attached="featuresAttached"
                                           @remove="remove">
                         </selected-feature>
                     </div>
@@ -43,6 +44,12 @@
                 required: true
             },
 
+            featuresAttached: {
+                type: Array,
+                required: false,
+                default: []
+            },
+
             heading: {
                 type: String,
                 required: false,
@@ -55,6 +62,10 @@
             }
         },
 
+        created() {
+            this.featuresAttached.forEach(feature => this.select(feature));
+        },
+
         data() {
             return {
                 features: this.featuresInitial,
@@ -64,7 +75,7 @@
 
         methods: {
             select(feature) {
-                let index = this.features.indexOf(feature);
+                let index = this.features.findIndex(item => feature.id === item.id);
                 this.features.splice(index, 1);
 
                 this.selectedFeatures.push(feature);

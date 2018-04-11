@@ -13,6 +13,8 @@ trait HasFeatures
 
     public function attachFeatures($features)
     {
+        $features = (array) $features;
+
         $attachableFeatures = [];
 
         foreach ($features as $id => $description) {
@@ -22,5 +24,14 @@ trait HasFeatures
         $this->features()->attach($attachableFeatures);
 
         return $this;
+    }
+
+    public function updateFeatures($features)
+    {
+        $features = (array) $features;
+
+        $this->features()->detach();
+
+        return $this->attachFeatures($features);
     }
 }

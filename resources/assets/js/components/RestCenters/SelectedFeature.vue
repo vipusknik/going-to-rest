@@ -18,12 +18,31 @@
 
 <script>
     export default {
-        props: [ 'feature' ],
+        props: {
+            feature: {
+                type: Object,
+                required: true
+            },
+
+            featuresAttached: {
+                type: Array,
+                required: false,
+                default: []
+            }
+        },
 
         data() {
             return {
                 description: ''
             };
+        },
+
+        created() {
+            this.featuresAttached.forEach(item => {
+                if (item.id === this.feature.id) {
+                    this.description = item.pivot.description;
+                }
+            });
         },
 
         methods: {

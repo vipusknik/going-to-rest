@@ -2,7 +2,9 @@
     <div>
         <div class="action-buttons mb-8">
             <div class="control is-grouped">
-                <a class="button is-small bg-grey-lighter" title="Перейти в редактирование">
+                <a :href="`/admin/rest-centers/${restCenter.slug}/edit`"
+                   class="button is-small bg-grey-lighter"
+                   title="Перейти в редактирование">
                     <i class="fas fa-edit"></i>
                 </a>
 

@@ -38,7 +38,7 @@ class RestCenterAccomodationsController extends Controller
 
         $restCenter->accomodations()
             ->create($request->except('features'))
-            ->attachFeatures($request->features ?? []);
+            ->attachFeatures($request->features);
 
         return back();
     }
