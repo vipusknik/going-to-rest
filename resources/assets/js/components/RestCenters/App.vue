@@ -31,7 +31,8 @@
 						           :rest-center="restCenter"
 						           :key="restCenter.id"
 						           @selected="show(restCenter)"
-						           :active="selectedRestCenter && restCenter.id === selectedRestCenter.id">
+						           :active="selectedRestCenter && restCenter.id === selectedRestCenter.id"
+						           class="cursor-pointer hover:bg-grey-lightest">
 						</list-item>
 					</div>
 				</div>
