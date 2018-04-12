@@ -44,37 +44,25 @@ class RestCenterAccomodationsController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\RestCenter  $restCenter
-     * @return \Illuminate\Http\Response
-     */
-    public function show(RestCenter $restCenter)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\RestCenter  $restCenter
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(RestCenter $restCenter)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\RestCenter  $restCenter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, RestCenter $restCenter)
+    public function update(Request $request, RestCenter $restCenter, Accomodation $accomodation)
     {
-        //
+        $request->validate([
+            'guest_count' => 'required|integer',
+            'price_per_day' => 'required|integer',
+            'type' => [ 'required', Rule::in(Accomodation::types()) ],
+        ]);
+
+        $accomodation->update($request->except('features'));
+
+        $accomodation->updateFeatures($request->features);
+
+        return back();
     }
 
     /**

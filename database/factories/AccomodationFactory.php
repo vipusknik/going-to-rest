@@ -9,6 +9,7 @@ $factory->define(Accomodation::class, function (Faker $faker) {
         'rest_center_id' => factory('App\RestCenter')->create()->id,
         'guest_count' => array_random([ 1, 2, 3, 4, 5, 6 ]),
         'price_per_day' => array_random([ 2200, 5700, 6300, 0 ]),
-        'type' => array_random(Accomodation::types())
+        'type' => array_random(Accomodation::types()),
+        'description' => $faker->text
     ];
 });

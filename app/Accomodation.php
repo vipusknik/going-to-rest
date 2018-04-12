@@ -45,4 +45,9 @@ class Accomodation extends Model
             return 'Домик';
         }
     }
+
+    public function restCenter()
+    {
+        return $this->belongsTo(RestCenter::class);
+    }
 }

@@ -9,13 +9,19 @@
          <accomodation v-for="accomodation in restCenter.accomodations"
                        :key="accomodation.id"
                        :accomodation="accomodation"
-                       class="relative mb-4 p-4 border border-grey-light">
+                       class="relative mb-4 p-4 border border-grey-light"
+                       @edit="edit(accomodation)">
          </accomodation>
        </div>
 
-        <!-- new accomodation form -->
+        <!-- accomodation form -->
        <div class="p-4">
-           <form :action="`/admin/rest-centers/${restCenter.slug}/accomodations`" method="post">
+           <h3 v-text="editing ? 'Редактирование' : 'Новое размещение'"
+               class="text-lg text-orange-light font-bold underline mb-6">
+           </h3>
+
+           <form :action="form.action" method="post" id="form">
+               <input type="hidden" name="_method" :value="form.method">
                <input type="hidden" name="_token" :value="csrf">
                <div class="flex mb-6">
                    <div class="w-1/3 mr-8">
@@ -61,9 +67,25 @@
                    </div>
                </div>
 
-               <attach-features :features-initial="features" belongs-to="accomodation" class="mb-6"></attach-features>
+               <attach-features :features-initial="features"
+                                :features-attached="attachedFeatures"
+                                belongs-to="accomodation"
+                                class="mb-6">
+                </attach-features>
 
-               <button class="button is-primary">Добавить</button>
+               <div v-if="! editing">
+                 <button class="button is-primary">Добавить</button>
+               </div>
+
+               <div v-else class="field is-grouped">
+                <p class="control">
+                  <button class="button is-primary block">Сохранить</button>
+                </p>
+
+                <p class="control">
+                  <a class="button is-text" :href="`/admin/rest-centers/${this.restCenter.slug}/accomodations`">Отмена</a>
+                </p>
+              </div>
            </form>
        </div>
    </div>
@@ -83,7 +105,33 @@
                 guest_count: '',
                 price_per_day: '',
                 description: '',
+
+                form: {
+                    action: `/admin/rest-centers/${this.restCenter.slug}/accomodations`,
+                    method: 'post'
+                },
+
+                attachedFeatures: [],
+                editing: false
             };
+        },
+
+        methods: {
+            edit(accomodation) {
+                this.form.action += `/${accomodation.id}`;
+                this.form.method = 'patch';
+
+                this.type = accomodation.type;
+                this.guest_count = accomodation.guest_count;
+                this.price_per_day = accomodation.price_per_day;
+                this.description = accomodation.description;
+
+                this.attachedFeatures = accomodation.features;
+
+                this.editing = true;
+
+                window.location.hash = 'form';
+            }
         }
     }
 </script>

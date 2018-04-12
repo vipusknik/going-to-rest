@@ -22,7 +22,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
      * Rest center accomodations
      */
     Route::resource('rest-centers.accomodations', 'RestCenterAccomodationsController', [ 'as' => 'admin' ])
-        ->only([ 'index', 'store', 'destroy' ]);
+        ->except([ 'create', 'edit', 'show' ]);
 
     /**
      * Features

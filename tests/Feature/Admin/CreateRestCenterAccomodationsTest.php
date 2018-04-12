@@ -24,9 +24,9 @@ class CreateRestCenterAccomodationsTest extends TestCase
     {
         $restCenter = create('App\RestCenter');
 
-        $accomodations = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id, 'guest_count' => null ]);
+        $accomodation = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id, 'guest_count' => null ]);
 
-        $this->post(route('admin.rest-centers.accomodations.store', $restCenter),$accomodations->toArray())
+        $this->post(route('admin.rest-centers.accomodations.store', $restCenter), $accomodation->toArray())
             ->assertSessionHasErrors('guest_count');
     }
 

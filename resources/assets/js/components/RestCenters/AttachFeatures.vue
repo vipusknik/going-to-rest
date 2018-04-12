@@ -47,7 +47,7 @@
             featuresAttached: {
                 type: Array,
                 required: false,
-                default: []
+                default: () => []
             },
 
             heading: {
@@ -63,7 +63,8 @@
         },
 
         created() {
-            this.featuresAttached.forEach(feature => this.select(feature));
+            this.attachFeatures();
+            this.$watch('featuresAttached', () => this.attachFeatures());
         },
 
         data() {
@@ -79,6 +80,10 @@
                 this.features.splice(index, 1);
 
                 this.selectedFeatures.push(feature);
+            },
+
+            attachFeatures() {
+                this.featuresAttached.forEach(feature => this.select(feature));
             },
 
             remove(feature) {

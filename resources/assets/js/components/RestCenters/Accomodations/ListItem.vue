@@ -10,6 +10,12 @@
        <div class="absolute pin-t pin-r mt-4 mr-4">
           <div class="action-buttons mb-8">
             <div class="control is-grouped">
+                <a @click.prevent="$emit('edit', accomodation)"
+                   class="button is-small text-xs border-none bg-grey-lighter hover:bg-blue-light hover:text-white"
+                   :title="`Отредактировать ${accomodation.type_in_russian}`">
+                    <i class="fas fa-edit"></i>
+                </a>
+
                 <a @click.prevent="destroy(accomodation)"
                    class="button is-small text-xs border-none bg-grey-lighter hover:bg-red-light hover:text-white"
                    :title="`Удалить ${accomodation.type_in_russian}`">
