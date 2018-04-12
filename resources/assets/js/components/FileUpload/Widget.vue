@@ -1,8 +1,10 @@
 <template>
     <div>
         <div>
-            <label for="file" class="block m-0 text-white text-center font-bold bg-green-light hover:bg-green cursor-pointer">
-                Загрузить изображение
+            <label for="file"
+                   class="block m-0 text-white text-center font-bold bg-green-light hover:bg-green cursor-pointer"
+                   :class="classes"
+                   v-text="loading ? 'Загрузка ... ' : 'Загрузить изображение'">
             </label>
 
             <input type="file" name="file" id="file" class="hidden" :accept="accept" @change="onChange">
@@ -32,8 +34,8 @@
 
         data() {
             return {
-                percentCompleted: 0,
-                images: this.imagesAttached
+                images: this.imagesAttached,
+                loading: false
             };
         },
 
@@ -41,23 +43,35 @@
             this.$watch('imagesAttached', () => this.images = this.imagesAttached);
         },
 
+        computed: {
+            classes() {
+                if (this.loading) {
+                    return  [ 'cursor-wait', 'pointer-events-none', 'opacity-9' ];
+                }
+
+                return [];
+            }
+        },
+
         methods: {
             onChange(event) {
+                if (! event.target.files.length) return;
+
+                this.loading = true;
+
                 let data = new FormData();
 
                 data.append('image', event.target.files[0]);
 
-                let config = {
-                    onUploadProgress(progressEvent) {
-                        this.percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                    }
-                };
-
-                axios.post(this.endpoint, data, config)
+                axios.post(this.endpoint, data)
                     .then(response => {
                         this.images.push(response.data.image);
+                        this.loading = false;
                     })
-                    .catch(error => console.log(error));
+                    .catch(error => {
+                        this.loading = false;
+                        flash('Ошибка при загрузке');
+                    });
             },
 
             remove(image) {
@@ -67,9 +81,7 @@
 
                         this.images.splice(index, 1);
                     })
-                    .catch(error => {
-                        alert('Ошибка при удалении изображения');
-                    });
+                    .catch(error => flash('Ошибка при удалении изображения'));
             }
         }
     }

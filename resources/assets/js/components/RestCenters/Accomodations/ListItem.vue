@@ -53,8 +53,9 @@
                 axios.delete(`/admin/rest-centers/${this.$parent.restCenter.slug}/accomodations/${this.accomodation.id}`)
                   .then(response => {
                       this.visible = false;
+                      flash('Удалено');
                   })
-                  .catch(error => alert('Ошибка при удалении'));
+                  .catch(error => flash('Ошибка при удалении'));
             }
         }
     }
