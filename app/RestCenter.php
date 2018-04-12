@@ -8,6 +8,7 @@ use App\Traits\HasFeatures;
 
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\Models\Media;
 
 class RestCenter extends Model implements HasMedia
 {
@@ -57,5 +58,13 @@ class RestCenter extends Model implements HasMedia
     public function reservoir()
     {
         return $this->belongsTo(Reservoir::class);
+    }
+
+    public function registerMediaConversions(Media $media = null)
+    {
+        $this->addMediaConversion('thumb')
+              ->width(368)
+              ->height(232)
+              ->sharpen(10);
     }
 }
