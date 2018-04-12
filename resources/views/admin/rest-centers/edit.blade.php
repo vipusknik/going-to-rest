@@ -17,7 +17,9 @@
           </header>
           <div class="card-content">
             <div class="content">
-                <form action="{{ route('admin.rest-centers.update', $restCenter) }}" method="post">
+                <form action="{{ route('admin.rest-centers.update', $restCenter) }}"
+                      method="post"
+                      @keydown.enter.prevent="">
                     @csrf
                     @method('patch')
 

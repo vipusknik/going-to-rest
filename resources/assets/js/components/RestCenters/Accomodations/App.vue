@@ -20,7 +20,7 @@
                class="text-lg text-orange-light font-bold underline mb-6">
            </h3>
 
-           <form :action="form.action" method="post" id="form">
+           <form :action="form.action" method="post" id="form" @keydown.enter.prevent="">
                <input type="hidden" name="_method" :value="form.method">
                <input type="hidden" name="_token" :value="csrf">
                <div class="flex mb-6">

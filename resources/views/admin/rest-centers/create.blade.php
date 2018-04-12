@@ -17,7 +17,7 @@
           </header>
           <div class="card-content">
             <div class="content">
-                <form action="{{ route('admin.rest-centers.store') }}" method="post">
+                <form action="{{ route('admin.rest-centers.store') }}" method="post" @keydown.enter.prevent="">
                     @csrf
 
                     <div class="mb-6 pb-6 border-b border-grey-light">
