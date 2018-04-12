@@ -113,7 +113,18 @@
                         <div class="flex p-2 border border-red-lighter rounded-sm bg-yellow">
                             <span class="mr-2"><i class="fas fa-exclamation text-yellow-darker"></i></span>
                             <span class="text-black font-bold">Размещений нет!</span>
-                            <a :href="`/admin/rest-centers/${restCenter.slug}/accomodations`" class="ml-auto">добавить</a>
+                            <a :href="`/admin/rest-centers/${restCenter.slug}/accomodations`"
+                               class="
+                                text-white
+                                px-2
+                                rounded
+                                bg-blue-light
+                                ml-auto
+                                shadow
+                                hover:bg-blue-dark
+                            ">
+                                Добавить
+                            </a>
                         </div>
                     </div>
                 </div>

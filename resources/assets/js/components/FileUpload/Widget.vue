@@ -9,14 +9,14 @@
         </div>
 
         <div class="flex flex-wrap">
-            <div v-for="image in images" :key="image.id" class="relative mr-2 mb-2">
+            <div v-for="image in images" :key="image.id" class="relative mr-3 mb-2">
                 <a :href="`/storage/${image.id}/${image.file_name}`" target="_blank">
-                    <img :src="`/storage/${image.id}/${image.file_name}`" class="block w-24 h-24 rounded-sm">
+                    <img :src="`/storage/${image.id}/${image.file_name}`" class="block w-16 h-16 rounded-sm shadow-lg">
                 </a>
 
                 <div class="absolute pin-t pin-r flex mr-1">
                     <div @click="remove(image)">
-                        <i class="fas fa-times text-grey cursor-pointer hover:text-red-light"
+                        <i class="fas fa-times text-grey-light cursor-pointer hover:text-red-light"
                            title="Удалить изображение">
                         </i>
                     </div>
