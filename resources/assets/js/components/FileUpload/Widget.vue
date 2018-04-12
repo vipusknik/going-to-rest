@@ -37,6 +37,10 @@
             };
         },
 
+        created() {
+            this.$watch('imagesAttached', () => this.images = this.imagesAttached);
+        },
+
         methods: {
             onChange(event) {
                 let data = new FormData();
