@@ -69,22 +69,22 @@
         methods: {
             store() {
                 if (this.newFeature.name == '' || this.newFeature.category == '') {
-                    return alert('Укажите название и категорию');
+                    return flash('Укажите название и категорию', 'warning');
                 }
 
                 let allFeatures = this.$parent.features.concat(this.$parent.selectedFeatures);
 
                 if (allFeatures.find(feature => this.newFeature.name == feature.name)) {
-                    return alert('Добавлено ранее');
+                    return flash('Добавлено ранее', 'warning');
                 }
 
                 axios.post('/admin/features', this.newFeature)
                     .then(response => {
                         this.newFeature.name = '';
                         this.$parent.features.push(response.data.feature);
-                        alert('Добавлено');
+                        flash('Добавлено');
                     })
-                    .catch(error => alert('Ошибка приь добавлении'));
+                    .catch(error => flash('Ошибка при добавлении', 'danger'));
             }
         }
     }

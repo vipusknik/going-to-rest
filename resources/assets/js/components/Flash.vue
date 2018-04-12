@@ -1,7 +1,6 @@
 <template>
     <div :class="classes"
          style="right: 25px; bottom: 25px;"
-         role="alert"
          v-show="show"
          v-text="body">
     </div>
@@ -21,10 +20,10 @@
 
         computed: {
             classes() {
-                let defaults = ['fixed', 'p-4', 'border', 'text-white'];
+                let defaults = ['fixed', 'py-2', 'px-4', 'border', 'text-white'];
 
                 if (this.level === 'success') defaults.push('bg-green', 'border-green-dark');
-                if (this.level === 'warning') defaults.push('bg-yellow', 'border-yellow-dark');
+                if (this.level === 'warning') defaults.push('bg-yellow-dark', 'border-yellow-dark');
                 if (this.level === 'danger') defaults.push('bg-red', 'border-red-dark');
 
                 return defaults;

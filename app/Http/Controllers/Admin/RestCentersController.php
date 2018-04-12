@@ -59,7 +59,8 @@ class RestCentersController extends Controller
         $restCenter = RestCenter::create($request->except('features'))
             ->attachFeatures($request->features);
 
-        return redirect()->route('admin.rest-centers.index');
+        return redirect()->route('admin.rest-centers.index')
+            ->withFlash('База отдыха сохранена');
     }
 
     /**
