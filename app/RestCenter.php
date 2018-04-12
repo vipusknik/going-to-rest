@@ -6,9 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Traits\HasFeatures;
 
-class RestCenter extends Model
+use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
+
+class RestCenter extends Model implements HasMedia
 {
-    use Sluggable, HasFeatures;
+    use Sluggable, HasFeatures, HasMediaTrait;
 
     /**
      * The attributes that aren't mass assignable.

@@ -53,6 +53,7 @@
                 </div>
             </div>
 
+            <!-- features -->
             <div v-if="restCenter.features.length" class="mb-4">
                 <div class="flex flex-wrap">
                     <div v-for="feature in restCenter.features"
@@ -61,6 +62,13 @@
                     </div>
                 </div>
             </div>
+
+            <!-- images -->
+            <file-upload-widget :endpoint="`/admin/rest-centers/${restCenter.slug}/media`"
+                                accept="image/*"
+                                :images-attached="restCenter.media"
+                                class="mb-4">
+            </file-upload-widget>
 
             <!-- Accomodations -->
             <div class="mb-4">
@@ -120,7 +128,11 @@
 </template>
 
 <script>
+    import FileUploadWidget from '../FileUpload/Widget.vue';
+
     export default {
+        components: { FileUploadWidget },
+
         props: [ 'restCenter' ],
 
         methods: {

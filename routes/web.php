@@ -25,6 +25,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
         ->except([ 'create', 'edit', 'show' ]);
 
     /**
+     * Rest center media
+     */
+    Route::post('rest-centers/{rest_center}/media', 'RestCenterMediaController@store')
+        ->name('admin.rest-centers.media.store');
+
+    /**
      * Features
      */
     Route::post('features', 'FeaturesController@store')->name('admin.features.store');
