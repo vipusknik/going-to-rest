@@ -6,6 +6,8 @@ use App\RestCenter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use Spatie\MediaLibrary\Models\Media;
+
 class RestCenterMediaController extends Controller
 {
     /**
@@ -34,9 +36,11 @@ class RestCenterMediaController extends Controller
      * @param  \App\RestCenter  $restCenter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(RestCenter $restCenter)
+    public function destroy(RestCenter $restCenter, Media $media)
     {
-        //
+        $media->delete();
+
+        return response([], 200);
     }
 
     private function composeFileName($file)

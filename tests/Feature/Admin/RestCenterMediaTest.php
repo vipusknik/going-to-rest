@@ -100,4 +100,27 @@ class RestCenterMediaTest extends TestCase
             $restCenter->fresh()->getMedia('images')->first()->file_name
         );
     }
+
+    /** @test */
+    function attached_media_can_be_deleted()
+    {
+        $this->withoutExceptionHandling();
+
+        $restCenter = create('App\RestCenter');
+
+        Storage::fake('public');
+
+        $this->post(
+                route('admin.rest-centers.media.store', $restCenter),
+                [ 'image' => UploadedFile::fake()->image('image.jpg') ]
+            );
+
+        $this->assertEquals(1, $restCenter->fresh()->media->count());
+
+        $this->delete(
+                route('admin.rest-centers.media.destroy', [ $restCenter, $restCenter->fresh()->media->first() ])
+            );
+
+        $this->assertEquals(0, $restCenter->fresh()->media->count());
+    }
 }

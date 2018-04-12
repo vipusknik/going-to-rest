@@ -30,6 +30,9 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     Route::post('rest-centers/{rest_center}/media', 'RestCenterMediaController@store')
         ->name('admin.rest-centers.media.store');
 
+    Route::delete('rest-centers/{rest_center}/media/{media}', 'RestCenterMediaController@destroy')
+        ->name('admin.rest-centers.media.destroy');
+
     /**
      * Features
      */

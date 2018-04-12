@@ -9,10 +9,18 @@
         </div>
 
         <div class="flex flex-wrap">
-            <div v-for="image in images" class="mr-2 mb-2">
+            <div v-for="image in images" :key="image.id" class="relative mr-2 mb-2">
                 <a :href="`/storage/${image.id}/${image.file_name}`" target="_blank">
                     <img :src="`/storage/${image.id}/${image.file_name}`" class="block w-24 h-24 rounded-sm">
                 </a>
+
+                <div class="absolute pin-t pin-r flex mr-1">
+                    <div @click="remove(image)">
+                        <i class="fas fa-times text-grey cursor-pointer hover:text-red-light"
+                           title="Удалить изображение">
+                        </i>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -46,6 +54,18 @@
                         this.images.push(response.data.image);
                     })
                     .catch(error => console.log(error));
+            },
+
+            remove(image) {
+                axios.delete(`/admin/rest-centers/${this.$parent.restCenter.slug}/media/${image.id}`)
+                    .then(response => {
+                        let index = this.images.findIndex(item => item.id === image.id);
+
+                        this.images.splice(index, 1);
+                    })
+                    .catch(error => {
+                        alert('Ошибка при удалении изображения');
+                    });
             }
         }
     }
