@@ -29,7 +29,8 @@
             <div class="flex flex-wrap text-sm">
                 <div v-for="feature in accomodation.features"
                      class="text-xs px-1 my-1 mr-2 bg-green-lighter border border-green rounded-sm">
-                    {{ feature.name }} {{ feature.pivot.description }}
+                    {{ feature.name }}
+                    <span v-if="feature.pivot.description" v-text="`(${feature.pivot.description})`"></span>
                 </div>
             </div>
         </div>

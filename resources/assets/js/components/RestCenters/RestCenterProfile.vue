@@ -24,7 +24,7 @@
                 </div>
 
                 <div class="text-base text-grey-dark">
-                    {{ restCenter.reservoir.name }}, {{ restCenter.location }}
+                    <span class="font-semibold">{{ restCenter.reservoir.name }}</span>, {{ restCenter.location }}
                 </div>
             </div>
 
@@ -58,7 +58,10 @@
                 <div class="flex flex-wrap">
                     <div v-for="feature in restCenter.features"
                          class="text-xs px-1 my-1 mr-2 bg-green-lighter border border-green rounded-sm">
-                        {{ feature.name }} {{ feature.pivot.description }}
+                        {{ feature.name }}
+                        <span v-if="feature.pivot.description"
+                              v-text="`(${feature.pivot.description})`">
+                        </span>
                     </div>
                 </div>
             </div>
@@ -94,8 +97,11 @@
                                     <div>
                                         <ul>
                                             <li v-for="feature in accomodation.features"
-                                                v-text="`* ${feature.name} ${feature.pivot.description || ''}`"
                                                 class="inline-block text-sm text-green mr-2">
+                                                * {{ feature.name }}
+                                                <span v-if="feature.pivot.description"
+                                                      v-text="`(${feature.pivot.description})`">
+                                                </span>
                                             </li>
                                         </ul>
                                     </div>
