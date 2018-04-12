@@ -29,6 +29,8 @@
             @include ('admin.layouts.nav')
 
             @yield('content')
+
+            <flash message="{{ session('flash') }}"></flash>
         </div>
 
         <script src="{{ mix('js/app.js') }}"></script>

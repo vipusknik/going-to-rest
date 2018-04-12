@@ -8,7 +8,7 @@
                     <i class="fas fa-edit"></i>
                 </a>
 
-                <a @click.prevent="onDestroy" class="button is-small bg-grey-lighter" title="Удалить базу отдыха">
+                <a @click.prevent="remove" class="button is-small bg-grey-lighter" title="Удалить базу отдыха">
                     <i class="fa fa-trash"></i>
                 </a>
             </div>
@@ -147,12 +147,13 @@
         props: [ 'restCenter' ],
 
         methods: {
-            onDestroy() {
+            remove() {
                 if (! confirm('Удалить базу отдыха?')) return;
 
-                axios.delete(`/admin/rest-centers/${this.restCenter.id}`)
+                axios.delete(`/admin/rest-centers/${this.restCenter.slug}`)
                     .then(response => {
-                        this.$emit('destroyed', this.restCenter)
+                        this.$emit('destroyed', this.restCenter);
+                        flash('База отдыха удалена');
                     });
             }
         }

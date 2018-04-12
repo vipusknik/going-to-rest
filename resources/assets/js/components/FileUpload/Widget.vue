@@ -1,14 +1,14 @@
 <template>
     <div>
         <div>
-            <label for="file" class="block text-white text-center font-bold bg-green-light hover:bg-green cursor-pointer">
+            <label for="file" class="block m-0 text-white text-center font-bold bg-green-light hover:bg-green cursor-pointer">
                 Загрузить изображение
             </label>
 
             <input type="file" name="file" id="file" class="hidden" :accept="accept" @change="onChange">
         </div>
 
-        <div class="flex flex-wrap">
+        <div class="flex flex-wrap mt-4">
             <div v-for="image in images" :key="image.id" class="relative mr-3 mb-2">
                 <a :href="`/storage/${image.id}/${image.file_name}`" target="_blank">
                     <img :src="`/storage/${image.id}/${image.file_name}`" class="block w-16 h-16 rounded-sm shadow-lg">

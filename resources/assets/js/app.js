@@ -19,6 +19,13 @@ Vue.component('rest-centers-app', require('./components/RestCenters/App.vue'));
 Vue.component('wysiwig', require('./components/Wysiwig.vue'));
 Vue.component('attach-features', require('./components/RestCenters/AttachFeatures.vue'));
 Vue.component('rest-center-accomodations-app', require('./components/RestCenters/Accomodations/App.vue'));
+Vue.component("flash", require("./components/Flash.vue"));
+
+window.events = new Vue();
+
+window.flash = function(message, level = 'success') {
+    window.events.$emit('flash', { message, level });
+};
 
 const app = new Vue({
     el: '#app'
