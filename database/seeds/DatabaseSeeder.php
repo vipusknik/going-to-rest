@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
         $this->call(ReservoirsTableSeeder::class);
         $this->call(FeaturesTableSeeder::class);
         $this->call(UsersTableSeeder::class);
-        $this->call(RestCentersTableSeeder::class);
-        $this->call(AccomodationsTableSeeder::class);
+
+        if (App::environment('local')) {
+            $this->call(RestCentersTableSeeder::class);
+            $this->call(AccomodationsTableSeeder::class);
+        }
     }
 }
