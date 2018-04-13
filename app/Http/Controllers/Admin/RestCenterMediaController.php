@@ -19,11 +19,10 @@ class RestCenterMediaController extends Controller
      */
     public function store(Request $request, RestCenter $restCenter)
     {
-        $request->validate([ 'image' => 'required|image|max:10000' ]);
+        $request->validate([ 'image' => 'required|image|max:20000' ]);
 
         $image = $restCenter
             ->addMedia($request->image)
-            ->preservingOriginal()
             ->usingFileName($this->composeFileName($request->image))
             ->toMediaCollection('images');
 

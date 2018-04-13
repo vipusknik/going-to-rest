@@ -43,20 +43,20 @@ class RestCenterMediaTest extends TestCase
     }
 
     /** @test */
-    function uploaded_file_size_has_to_be_less_than_10_mb()
+    function uploaded_file_size_has_to_be_less_than_20_mb()
     {
         $restCenter = create('App\RestCenter');
 
         Storage::fake('public');
 
-        $size = 11 * 1000; // 11 megs
+        $size = 11 * 2000; // 22 megs
 
         $this->post(
                 route('admin.rest-centers.media.store', $restCenter),
                 [ 'image' => UploadedFile::fake()->create('avatar.png', $size) ]
             )->assertSessionHasErrors('image');
 
-        $size = 9 * 1000; // 9 megs
+        $size = 9 * 2000; // 18 megs
 
         $this->post(
                 route('admin.rest-centers.media.store', $restCenter),
