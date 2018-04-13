@@ -1,6 +1,7 @@
 <?php
 
 Route::get('/', function() {
+    functionale('skdfhgjdhs');
     return redirect('/admin/rest-centers');
 });
 
