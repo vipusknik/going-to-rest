@@ -6,7 +6,7 @@ use App\RestCenter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-use Spatie\MediaLibrary\Models\Media;
+use App\Media;
 
 class RestCenterMediaController extends Controller
 {
@@ -23,6 +23,7 @@ class RestCenterMediaController extends Controller
 
         $image = $restCenter
             ->addMedia($request->image)
+            ->preservingOriginal()
             ->usingFileName($this->composeFileName($request->image))
             ->toMediaCollection('images');
 
