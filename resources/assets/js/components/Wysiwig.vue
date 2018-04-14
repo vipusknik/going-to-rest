@@ -6,28 +6,54 @@
                 ref="trix"
                 input="trix"
                 @trix-change="change"
-                :placeholder="placeholder">
+                :placeholder="placeholder"
+                :style="styles">
         </trix-editor>
     </div>
 </template>
 
 <style>
     @import '~trix/dist/trix.css';
-
-    trix-editor {
-        min-height: 300px;
-    }
 </style>
 
 <script>
     import Trix from 'trix';
 
     export default {
-        props: ['name', 'value', 'placeholder'],
+        props: {
+            name: {
+                type: String,
+                required: true
+            },
+
+            value: {
+                type: String,
+                required: false,
+                default: ''
+            },
+
+            placeholder: {
+                type: String,
+                required: false,
+                default: ''
+            },
+
+            minHeight: {
+                type: Number,
+                required: false,
+                default: 300
+            }
+        },
 
         methods: {
             change({target}) {
                 this.$emit('input', target.value)
+            }
+        },
+
+        computed: {
+            styles() {
+                return `min-height: ${this.minHeight}px`;
             }
         },
 
