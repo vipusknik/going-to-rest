@@ -12,6 +12,7 @@ $factory->define(App\RestCenter::class, function (Faker $faker) {
         'site_link' => $faker->url,
         'location' => $faker->address,
         'reservoir_id' => factory('App\Reservoir')->create()->id,
-        'description' => $faker->randomHtml(100, 3)
+        'description' => $faker->randomHtml(100, 3),
+        'accomodation' => $faker->randomHtml(10, 2)
     ];
 });

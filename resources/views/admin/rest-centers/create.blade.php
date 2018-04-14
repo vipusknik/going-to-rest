@@ -126,6 +126,17 @@
                                          class="mb-6">
                         </attach-features>
 
+                        <div class="field mb-6">
+                          <label class="label">Размещения</label>
+                          <div class="control">
+                            <wysiwig name="accomodation"
+                                     value="{{ old('accomodation') }}"
+                                     placeholder="Размещения"
+                                     :min-height="100">
+                            </wysiwig>
+                          </div>
+                        </div>
+
                         <div class="field">
                           <label class="label">Описание</label>
                           <div class="control">

@@ -77,6 +77,16 @@ class CreateRestCentersTest extends TestCase
     }
 
     /** @test */
+    function a_rest_accomodations_description_can_be_persisted()
+    {
+        $restCenter = make('App\RestCenter', [ 'accomodation' => 'Accomodations description' ]);
+
+        $this->post(route('admin.rest-centers.store'), $restCenter->toArray());
+
+        $this->assertEquals('Accomodations description', RestCenter::first()->accomodation);
+    }
+
+    /** @test */
     function a_rest_center_can_be_persited()
     {
         $restCenter = make('App\RestCenter');

@@ -66,6 +66,19 @@ class UpdateRestCentersTest extends TestCase
     }
 
     /** @test */
+    function a_rest_center_accomodations_description_can_be_updated()
+    {
+        $restCenter = create('App\RestCenter');
+
+        $this->patch(
+                route('admin.rest-centers.update', $restCenter),
+                [ 'accomodation' => 'updated' ] + $restCenter->toArray()
+            );
+
+        $this->assertEquals('updated', $restCenter->fresh()->accomodation);
+    }
+
+    /** @test */
     function rest_center_features_can_be_updated()
     {
         $restCenter = make('App\RestCenter');
