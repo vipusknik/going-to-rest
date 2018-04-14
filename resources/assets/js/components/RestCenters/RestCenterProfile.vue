@@ -84,7 +84,9 @@
                             <tr>
                                 <th class="w-1/4 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">Тип</th>
                                 <th class="w-1/8 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">Вмещает</th>
-                                <th class="w-1/8 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">Цена</th>
+                                <th class="w-1/8 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">
+                                    Цена от
+                                </th>
                                 <th class="w-1/4 text-white whitespace-no-wrap p-2">Описание</th>
                             </tr>
                         </thead>

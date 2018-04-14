@@ -29,34 +29,34 @@
                <div class="flex mb-6">
                    <div class="w-1/3 mr-8">
                        <div class="flex mb-3">
-                           <label for="type" class="w-1/3">Тип: </label>
+                           <label for="type" class="w-2/5">Тип: </label>
                            <select v-model="type"
                                    name="type"
                                    id="type"
-                                   class="w-2/3 p-0 px-2 border border-blue-lighter rounded">
+                                   class="w-3/5 p-0 px-2 border border-blue-lighter rounded">
                                <option value="room">Номер</option>
                                <option value="house">Домик</option>
                            </select>
                        </div>
 
                        <div class="flex mb-3">
-                           <label for="guest_count" class="w-1/3">Кол-во гостей:</label>
+                           <label for="guest_count" class="w-2/5">Кол-во гостей:</label>
                            <input type="number"
                                   name="guest_count"
                                   v-model="guest_count"
                                   min="1"
                                   id="guest_count"
-                                  class="w-2/3 p-1 border border-blue-lighter rounded">
+                                  class="w-3/5 p-1 border border-blue-lighter rounded">
                        </div>
 
                        <div class="flex">
-                           <label for="price_per_day" class="w-1/3">Цена за день: </label>
+                           <label for="price_per_day" class="w-2/5">Цена за день от: </label>
                            <input type="number"
                                   name="price_per_day"
                                   v-model="price_per_day"
                                   id="price_per_day"
                                   min="0"
-                                  class="w-2/3 p-1 border border-blue-lighter rounded">
+                                  class="w-3/5 p-1 border border-blue-lighter rounded">
                        </div>
                    </div>
 

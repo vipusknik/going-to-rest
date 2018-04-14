@@ -3,7 +3,7 @@
        <div class="text-lg text-blue-light">
          <span class="text-blue font-bold" v-text="`${accomodation.type_in_russian}: `"></span>
          <span v-text="accomodation.guest_count" class="font-bold"></span> человек,
-         <span v-text="accomodation.price_per_day" class="font-bold"></span> тг за день.
+         от <span v-text="accomodation.price_per_day" class="font-bold"></span> тг за день.
        </div>
 
        <!-- buttons like delete -->
