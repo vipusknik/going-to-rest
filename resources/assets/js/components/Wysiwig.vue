@@ -1,10 +1,10 @@
 <template>
     <div>
-        <input id="trix" type="hidden" :name="name" :value="value">
+        <input :id="identifier" type="hidden" :name="name" :value="value">
 
         <trix-editor
-                ref="trix"
-                input="trix"
+                :ref="identifier"
+                :input="identifier"
                 @trix-change="change"
                 :placeholder="placeholder"
                 :style="styles">
@@ -52,6 +52,10 @@
         },
 
         computed: {
+            identifier() {
+                return Math.random().toString(36).substring(7);
+            },
+
             styles() {
                 return `min-height: ${this.minHeight}px`;
             }
