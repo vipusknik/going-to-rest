@@ -19,6 +19,15 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     Route::resource('rest-centers', 'RestCentersController', [ 'as' => 'admin' ]);
 
     /**
+     * Rest center accomodation description
+     */
+    Route::patch(
+        'rest-centers/{rest_center}/accomodation-description/update',
+        'RestCentersController@updateAccomodation'
+    )
+    ->name('admin.rest-centers.accomodation-description.update');
+
+    /**
      * Rest center accomodations
      */
     Route::resource('rest-centers.accomodations', 'RestCenterAccomodationsController', [ 'as' => 'admin' ])

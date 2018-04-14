@@ -120,4 +120,11 @@ class RestCentersController extends Controller
 
         return response([], 200);
     }
+
+    public function updateAccomodation(RestCenter $restCenter, Request $request)
+    {
+        $restCenter->update([ 'accomodation' => $request->accomodation ]);
+
+        return response([], 200);
+    }
 }

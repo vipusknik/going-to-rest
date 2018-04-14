@@ -1,7 +1,10 @@
 <template>
    <div class="bg-white p-6">
-       <div class="mb-6 pb-3 border-b border-grey-light">
-           <h3 class="text-lg text-grey-darker font-bold">{{ restCenter.name }}: размещения</h3>
+       <div class="mb-6 pb-4">
+           <h3 class="text-lg text-grey-darker mb-4 font-bold">{{ restCenter.name }}: размещения</h3>
+
+           <!-- accomodations description -->
+           <accomodation-description :rest-center="restCenter"></accomodation-description>
        </div>
 
        <!-- accomodations -->
@@ -93,9 +96,10 @@
 
 <script>
     import Accomodation from './ListItem.vue';
+    import AccomodationDescription from './AccomodationDescription.vue';
 
     export default {
-        components: { Accomodation },
+        components: { Accomodation, AccomodationDescription },
 
         props: [ 'restCenter', 'features', 'csrf' ],
 

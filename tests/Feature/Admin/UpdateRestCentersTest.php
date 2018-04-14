@@ -71,8 +71,8 @@ class UpdateRestCentersTest extends TestCase
         $restCenter = create('App\RestCenter');
 
         $this->patch(
-                route('admin.rest-centers.update', $restCenter),
-                [ 'accomodation' => 'updated' ] + $restCenter->toArray()
+                route('admin.rest-centers.accomodation-description.update', $restCenter),
+                [ 'accomodation' => 'updated' ]
             );
 
         $this->assertEquals('updated', $restCenter->fresh()->accomodation);
