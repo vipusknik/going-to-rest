@@ -135,6 +135,11 @@
                     </div>
                 </div>
 
+                <!-- Accomodation description -->
+                <div v-if="restCenter.accomodation"
+                     v-html="restCenter.accomodation"
+                     class="my-2 pb-2 border-b border-blue-lighter">
+                </div>
             </div>
 
             <div>

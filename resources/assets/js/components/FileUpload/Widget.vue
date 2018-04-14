@@ -10,7 +10,7 @@
             <input type="file" name="file" id="file" class="hidden" :accept="accept" @change="onChange">
         </div>
 
-        <div class="flex flex-wrap mt-4">
+        <div v-if="images.length" class="flex flex-wrap mt-4">
             <div v-for="image in images" :key="image.id" class="relative mr-3 mb-2">
                 <a :href="`/storage/${image.id}/${image.file_name}`" target="_blank">
                     <img :src="`/storage/${image.id}/${image.file_name}`" class="block w-16 h-16 rounded-sm shadow-lg">
