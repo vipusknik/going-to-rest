@@ -111,9 +111,9 @@
                           </div>
                         </div>
 
-                        {{-- <div class="mb-6">
+                        <div class="mb-6">
                             @include ('admin.social-media.inputs', [ 'socialMedia' => null ])
-                        </div> --}}
+                        </div>
 
                         <attach-features :features-initial="{{ json_encode($features) }}"
                                          heading="Выберите удобства и варианты досуга"

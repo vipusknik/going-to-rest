@@ -4,6 +4,7 @@ namespace Tests\Feature\Admin;
 
 use Tests\TestCase;
 use App\Feature;
+use App\MedicalCenter;
 
 class CreateMedicalCentersTest extends TestCase
 {
@@ -31,6 +32,19 @@ class CreateMedicalCentersTest extends TestCase
             route('admin.medical-centers.store'),
             make('App\MedicalCenter', [ 'name' => $medicalCenter->name ])->getAttributes()
         )->assertSessionHasErrors('name');
+    }
+
+    /** @test */
+    function social_media_can_be_attached_to_a_medical_center()
+    {
+        $this->se();
+
+        $this->post(
+            route('admin.medical-centers.store'),
+            make('App\MedicalCenter')->getAttributes() + [ 'social_media' => [ 'VK' => 'https://link.com' ] ]
+        );
+
+        $this->assertCount(1, MedicalCenter::first()->social_media);
     }
 
     /** @test */

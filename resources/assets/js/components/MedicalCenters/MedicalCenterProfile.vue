@@ -60,7 +60,7 @@
                         </span>
                     </div>
 
-                    <!-- <div v-if="medicalCenter.social_media_sites.vk" class="text-sm mr-3 pr-3 border-r border-grey">
+                    <div v-if="medicalCenter.social_media_sites.vk" class="text-sm mr-3 pr-3 border-r border-grey">
                         <span class="text-red-lighter mr-1"><i class="fab fa-vk"></i></span>
                         <span>
                             <a :href="medicalCenter.social_media_sites.vk"
@@ -94,7 +94,7 @@
                                class="text-red-lighter no-underline hover:underline">
                             </a>
                         </span>
-                    </div> -->
+                    </div>
                 </div>
             </div>
 

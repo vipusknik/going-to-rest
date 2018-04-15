@@ -56,9 +56,13 @@ class MedicalCentersController extends Controller
     {
         $request->validate([
             'name' => ['required', Rule::unique('medical_centers', 'name')]
+        ], [
+            'name.required' => 'Название - обязательное поле.',
+            'name.unique'   => 'Это название уже занято.',
         ]);
 
-        MedicalCenter::create($request->all());
+        MedicalCenter::create($request->except([ 'social_media' ]))
+            ->attachSocialMedia($request->social_media);
 
         return redirect()
             ->route('admin.medical-centers.index')
