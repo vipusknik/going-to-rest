@@ -6,6 +6,7 @@ use App\MedicalCenter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Feature;
+use Illuminate\Validation\Rule;
 
 class MedicalCentersController extends Controller
 {
@@ -40,7 +41,9 @@ class MedicalCentersController extends Controller
      */
     public function create()
     {
-        //
+        $features = Feature::where('belongs_to', Feature::OF_MEDICAL_CENTER)->get();
+
+        return view('admin.medical-centers.create', compact('features'));
     }
 
     /**
@@ -51,7 +54,15 @@ class MedicalCentersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required', Rule::unique('medical_centers', 'name')]
+        ]);
+
+        MedicalCenter::create($request->all());
+
+        return redirect()
+            ->route('admin.medical-centers.index')
+            ->withFlash('Медицинский центр добавлен!');
     }
 
     /**

@@ -41,7 +41,7 @@ class CreateRestCentersTest extends TestCase
     /** @test */
     function a_rest_center_requires_unique_name()
     {
-        $existingName = create('App\RestCenter', [], 1)[0]->name;
+        $existingName = create('App\RestCenter')->name;
 
         $restCenter = make('App\RestCenter', [ 'name' => $existingName ]);
 

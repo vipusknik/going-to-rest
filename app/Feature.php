@@ -8,10 +8,12 @@ class Feature extends Model
 {
     const OF_REST_CENTER = 'rest_center';
     const OF_ACCOMODATION = 'accomodation';
-    const OF_MEDICAL_CENTER = 'medical_center';
-
     const CATEGORY_FACILITIES = 'facilities';
     const CATEGORY_LEISURES = 'leasures';
+
+    const OF_MEDICAL_CENTER = 'medical_center';
+    const CATEGORY_TREATMENT_TYPE = 'treatment_types';
+    const CATEGORY_PROCEDURES = 'procedures';
 
     /**
      * The attributes that aren't mass assignable.

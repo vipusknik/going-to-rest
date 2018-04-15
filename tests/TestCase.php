@@ -35,5 +35,8 @@ abstract class TestCase extends BaseTestCase
         return $this;
     }
 
-    //
+    public function se()
+    {
+        $this->withoutExceptionHandling();
+    }
 }
