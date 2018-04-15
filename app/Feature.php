@@ -21,17 +21,4 @@ class Feature extends Model
     protected $guarded = [  ];
 
     public $timestamps = null;
-
-    protected $appends = [ 'category_in_russian' ];
-
-    public function getCategoryInRussianAttribute()
-    {
-        if ($this->category === static::CATEGORY_FACILITIES) {
-            return 'Удобства';
-        }
-
-        if ($this->category === static::CATEGORY_LEISURES) {
-            return 'Досуг';
-        }
-    }
 }
