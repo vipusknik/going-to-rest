@@ -8,7 +8,7 @@
 
 @section ('content')
     <div>
-        {{-- <rest-centers-app :rest-centers-initial="{{ json_encode($restCenters) }}" :reservoirs="{{ $reservoirs }}">
-        </rest-centers-app> --}}
+        <medical-centers-app :medical-centers-initial="{{ json_encode($medicalCenters) }}" :features="{{ $features }}">
+        </medical-centers-app>
     </div>
 @endsection
