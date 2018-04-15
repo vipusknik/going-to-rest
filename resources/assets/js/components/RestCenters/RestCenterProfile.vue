@@ -112,11 +112,11 @@
             </div>
 
             <!-- images -->
-            <file-upload-widget :endpoint="`/admin/rest-centers/${restCenter.slug}/media`"
+            <image-upload-widget :model="restCenter"
                                 accept="image/*"
                                 :images-attached="restCenter.media"
                                 class="mb-4">
-            </file-upload-widget>
+            </image-upload-widget>
 
             <!-- Accomodations -->
             <div class="mb-4">
@@ -197,10 +197,10 @@
 </template>
 
 <script>
-    import FileUploadWidget from '../FileUpload/Widget.vue';
+    import ImageUploadWidget from '../ImageUpload/Widget.vue';
 
     export default {
-        components: { FileUploadWidget },
+        components: { ImageUploadWidget },
 
         props: [ 'restCenter' ],
 

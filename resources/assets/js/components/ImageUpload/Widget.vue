@@ -30,7 +30,7 @@
 
 <script>
     export default {
-        props: [ 'endpoint', 'accept', 'imagesAttached' ],
+        props: [ 'model', 'accept', 'imagesAttached' ],
 
         data() {
             return {
@@ -63,7 +63,10 @@
 
                 data.append('image', event.target.files[0]);
 
-                axios.post(this.endpoint, data)
+                data.append('class', this.model.class);
+                data.append('id', this.model.id);
+
+                axios.post('/admin/images', data)
                     .then(response => {
                         this.images.push(response.data.image);
                         this.loading = false;
@@ -75,7 +78,7 @@
             },
 
             remove(image) {
-                axios.delete(`/admin/rest-centers/${this.$parent.restCenter.slug}/media/${image.id}`)
+                axios.delete(`/admin/images/${image.id}`)
                     .then(response => {
                         let index = this.images.findIndex(item => item.id === image.id);
 

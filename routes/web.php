@@ -20,6 +20,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     Route::delete('/paid-companies', 'PaidCompaniesController@destroy')->name('admin.paid-companies.destroy');
 
     /**
+     * Images
+     */
+    Route::post('/images', 'ImagesController@store')->name('admin.images.store');
+    Route::delete('/images/{image}', 'ImagesController@destroy')->name('admin.images.destroy');
+
+    /**
      * Rest centers
      */
     Route::resource('rest-centers', 'RestCentersController', [ 'as' => 'admin' ]);
@@ -38,12 +44,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
      */
     Route::resource('rest-centers.accomodations', 'RestCenterAccomodationsController', [ 'as' => 'admin' ])
         ->except([ 'create', 'edit', 'show' ]);
-
-    /**
-     * Rest center media
-     */
-    Route::post('rest-centers/{rest_center}/media', 'RestCenterMediaController@store')
-        ->name('admin.rest-centers.media.store');
 
     Route::delete('rest-centers/{rest_center}/media/{media}', 'RestCenterMediaController@destroy')
         ->name('admin.rest-centers.media.destroy');

@@ -112,11 +112,11 @@
             </div>
 
             <!-- images -->
-            <file-upload-widget :endpoint="`/admin/medical-centers/${medicalCenter.slug}/media`"
-                                accept="image/*"
-                                :images-attached="medicalCenter.media"
-                                class="mb-4">
-            </file-upload-widget>
+            <image-upload-widget :model="medicalCenter"
+                                 accept="image/*"
+                                 :images-attached="medicalCenter.media"
+                                 class="mb-4">
+            </image-upload-widget>
 
             <div>
                 <div v-html="medicalCenter.description" class="text-sm"></div>
@@ -126,10 +126,10 @@
 </template>
 
 <script>
-    import FileUploadWidget from '../FileUpload/Widget.vue';
+    import ImageUploadWidget from '../ImageUpload/Widget.vue';
 
     export default {
-        components: { FileUploadWidget },
+        components: { ImageUploadWidget },
 
         props: [ 'medicalCenter' ],
 
