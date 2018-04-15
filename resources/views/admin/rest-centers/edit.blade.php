@@ -75,7 +75,7 @@
                             </div>
                         </div>
 
-                        <div class="flex mb-4">
+                        <div class="field-body flex mb-4">
                           <div class="field w-1/3 mr-3">
                             <label class="label">
                               Телефоны <span class="text-sm text-grey-dark">(укажите через запятую)</span>

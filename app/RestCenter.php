@@ -22,6 +22,8 @@ class RestCenter extends Model implements HasMedia
      */
     protected $guarded = [  ];
 
+    protected $appends = [ 'social_media_sites' ];
+
     /**
      * Get the route key for the model.
      *

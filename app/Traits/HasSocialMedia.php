@@ -37,6 +37,11 @@ trait HasSocialMedia
         return $this;
     }
 
+    public function getSocialMediaSitesAttribute()
+    {
+        return $this->socialMedia();
+    }
+
     public function updateSocialMedia($socialMedia)
     {
         $this->social_media()->delete();

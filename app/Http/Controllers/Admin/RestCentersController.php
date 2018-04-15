@@ -72,7 +72,7 @@ class RestCentersController extends Controller
      */
     public function show(RestCenter $restCenter)
     {
-        $restCenter->load('reservoir', 'features', 'accomodations.features', 'media');
+        $restCenter->load('reservoir', 'features', 'accomodations.features', 'media', 'social_media');
 
         return compact('restCenter');
     }
