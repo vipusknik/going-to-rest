@@ -13,7 +13,7 @@
     <div id="navMenu" class="navbar-menu">
       <div class="navbar-start">
         <a class="navbar-item text-black font-semibold" href="{{ route('admin.rest-centers.index') }}">
-          Пляжный отдых
+          Пляж
         </a>
 
         <a class="navbar-item text-black font-semibold" href="{{ route('admin.medical-centers.index') }}">
