@@ -52,6 +52,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
      * Features
      */
     Route::post('features', 'FeaturesController@store')->name('admin.features.store');
+
+    /**
+     * Medical centers
+     */
+
+    Route::resource('medical-centers', 'MedicalCentersController', [ 'as' => 'admin' ]);
 });
 
 Auth::routes();

@@ -8,6 +8,10 @@ class Feature extends Model
 {
     const OF_REST_CENTER = 'rest_center';
     const OF_ACCOMODATION = 'accomodation';
+    const OF_MEDICAL_CENTER = 'medical_center';
+
+    const CATEGORY_FACILITIES = 'facilities';
+    const CATEGORY_LEISURES = 'leasures';
 
     /**
      * The attributes that aren't mass assignable.
@@ -19,9 +23,6 @@ class Feature extends Model
     public $timestamps = null;
 
     protected $appends = [ 'category_in_russian' ];
-
-    const CATEGORY_FACILITIES = 'facilities';
-    const CATEGORY_LEISURES = 'leasures';
 
     public function getCategoryInRussianAttribute()
     {
