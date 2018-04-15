@@ -14,6 +14,12 @@ Route::get('/admin', function() {
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'auth', 'admin' ] ], function () {
 
     /**
+     * Paid companies
+     */
+    Route::post('/paid-companies', 'PaidCompaniesController@store')->name('admin.paid-companies.store');
+    Route::delete('/paid-companies', 'PaidCompaniesController@destroy')->name('admin.paid-companies.destroy');
+
+    /**
      * Rest centers
      */
     Route::resource('rest-centers', 'RestCentersController', [ 'as' => 'admin' ]);

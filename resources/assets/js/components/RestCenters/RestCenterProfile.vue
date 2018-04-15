@@ -1,16 +1,25 @@
 <template>
     <div>
         <div class="action-buttons mb-8">
-            <div class="control is-grouped">
-                <a :href="`/admin/rest-centers/${restCenter.slug}/edit`"
-                   class="button is-small bg-grey-lighter"
-                   title="Перейти в редактирование">
-                    <i class="fas fa-edit"></i>
-                </a>
+            <div class="flex">
+                <div class="control is-grouped">
+                    <a :href="`/admin/rest-centers/${restCenter.slug}/edit`"
+                       class="button is-small bg-grey-lighter"
+                       title="Перейти в редактирование">
+                        <i class="fas fa-edit"></i>
+                    </a>
 
-                <a @click.prevent="remove" class="button is-small bg-grey-lighter" title="Удалить базу отдыха">
-                    <i class="fa fa-trash"></i>
-                </a>
+                    <a @click.prevent="remove" class="button is-small bg-grey-lighter" title="Удалить базу отдыха">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+
+                <div class="control ml-auto mr-2">
+                    <div class="field flex items-center">
+                      <input id="is_paid" type="checkbox" v-model="is_paid" class="switch">
+                      <label for="is_paid" class="text-base text-grey-darkest font-bold pt-0">Платник</label>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -195,6 +204,16 @@
 
         props: [ 'restCenter' ],
 
+        data() {
+            return {
+                is_paid: this.restCenter.is_paid
+            };
+        },
+
+        mounted() {
+            this.$watch('is_paid', () => this.togglePaid());
+        },
+
         methods: {
             remove() {
                 if (! confirm('Удалить базу отдыха?')) return;
@@ -204,6 +223,30 @@
                         this.$emit('destroyed', this.restCenter);
                         flash('База отдыха удалена');
                     });
+            },
+
+            togglePaid() {
+                this.is_paid ? this.create() : this.destroy();
+            },
+
+            create() {
+                axios.post('/admin/paid-companies', {
+                    class: this.restCenter.class,
+                    id: this.restCenter.id
+                })
+                .then(response => flash('Добавлено в список платников!'))
+                .catch(error => flash('Ошибка при выполнении', 'danger'));
+            },
+
+            destroy() {
+                axios.delete('/admin/paid-companies', {
+                    params: {
+                        class: this.restCenter.class,
+                        id: this.restCenter.id
+                    }
+                })
+                .then(response => flash('Удалено из списка платников!'))
+                .catch(error => flash('Ошибка при выполнении', 'danger'));
             }
         }
     }

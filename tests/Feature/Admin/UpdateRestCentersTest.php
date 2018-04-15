@@ -59,7 +59,7 @@ class UpdateRestCentersTest extends TestCase
 
         $this->patch(
                 route('admin.rest-centers.update', $restCenter),
-                [ 'name' => 'updated' ] + $restCenter->toArray()
+                [ 'name' => 'updated' ] + $restCenter->getAttributes()
             );
 
         $this->assertEquals('updated', $restCenter->fresh()->name);
@@ -91,7 +91,7 @@ class UpdateRestCentersTest extends TestCase
             $features[$feature->id] = array_random([ 'word', null ]);
         }
 
-        $this->post(route('admin.rest-centers.store'), $restCenter->toArray() + [ 'features' => $features ]);
+        $this->post(route('admin.rest-centers.store'), $restCenter->getAttributes() + [ 'features' => $features ]);
 
         $restCenter = RestCenter::first();
 
@@ -107,7 +107,7 @@ class UpdateRestCentersTest extends TestCase
 
         $this->patch(
                 route('admin.rest-centers.update', $restCenter),
-                [ 'features' => $features ] + $restCenter->toArray()
+                [ 'features' => $features ] + $restCenter->getAttributes()
             );
 
         $this->assertEquals(30 + 20, $restCenter->fresh()->features->count());

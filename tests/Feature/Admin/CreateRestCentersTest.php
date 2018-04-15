@@ -77,11 +77,13 @@ class CreateRestCentersTest extends TestCase
     }
 
     /** @test */
-    function a_rest_accomodations_description_can_be_persisted()
+    function rest_center_accomodations_description_can_be_persisted()
     {
+        $this->withoutExceptionHandling();
+
         $restCenter = make('App\RestCenter', [ 'accomodation' => 'Accomodations description' ]);
 
-        $this->post(route('admin.rest-centers.store'), $restCenter->toArray());
+        $this->post(route('admin.rest-centers.store'), $restCenter->getAttributes());
 
         $this->assertEquals('Accomodations description', RestCenter::first()->accomodation);
     }
@@ -91,7 +93,7 @@ class CreateRestCentersTest extends TestCase
     {
         $restCenter = make('App\RestCenter');
 
-        $this->post(route('admin.rest-centers.store'), $restCenter->toArray());
+        $this->post(route('admin.rest-centers.store'), $restCenter->getAttributes());
 
         $this->assertEquals(1, RestCenter::all()->count());
     }
@@ -108,7 +110,7 @@ class CreateRestCentersTest extends TestCase
             $features[$feature->id] = array_random([ 'word', null ]);
         }
 
-        $this->post(route('admin.rest-centers.store'), $restCenter->toArray() + [ 'features' => $features ]);
+        $this->post(route('admin.rest-centers.store'), $restCenter->getAttributes() + [ 'features' => $features ]);
 
         $this->assertEquals(Feature::all()->count(), RestCenter::first()->features->count());
     }
@@ -125,7 +127,7 @@ class CreateRestCentersTest extends TestCase
         ];
 
         $this->post(
-                route('admin.rest-centers.store'), [ 'social_media' => $socialMedia ] + $restCenter->toArray()
+                route('admin.rest-centers.store'), [ 'social_media' => $socialMedia ] + $restCenter->getAttributes()
             );
 
         $this->assertEquals(3, RestCenter::first()->social_media->count());

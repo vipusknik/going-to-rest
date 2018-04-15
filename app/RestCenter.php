@@ -22,7 +22,9 @@ class RestCenter extends Model implements HasMedia
      */
     protected $guarded = [  ];
 
-    protected $appends = [ 'social_media_sites' ];
+    protected $appends = [ 'class', 'social_media_sites' ];
+
+    protected $casts = [ 'is_paid' => 'boolean' ];
 
     /**
      * Get the route key for the model.
@@ -51,6 +53,11 @@ class RestCenter extends Model implements HasMedia
     public function setContactsAttribute($contacts)
     {
         $this->attributes['contacts'] = implode(',', (array) $contacts);
+    }
+
+    public function getClassAttribute()
+    {
+        return get_class($this);
     }
 
     public function accomodations()
