@@ -14,6 +14,17 @@ class MedicalCentersTest extends TestCase
     }
 
     /** @test */
+    function medical_centers_can_be_searched_by_query()
+    {
+        create('App\MedicalCenter', [ 'name' => 'Medical Center 1' ]);
+        create('App\MedicalCenter', [ 'name' => 'Medical Center 2' ]);
+
+        $response = $this->getJson('/admin/medical-centers?query=medical');
+
+        $this->assertCount(2, $response->original['medicalCenters']);
+    }
+
+    /** @test */
     function medical_center_information_can_be_retrieved_on_request()
     {
         $medicalCenter = create('App\MedicalCenter');

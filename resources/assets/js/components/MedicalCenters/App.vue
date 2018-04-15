@@ -19,7 +19,7 @@
                             Новый центр
                         </a>
                     </div>
-                    <!-- <search-panel :features="features"></search-panel> -->
+                    <search-panel :features="features"></search-panel>
                 </aside>
             </div>
 
@@ -49,12 +49,12 @@
 </template>
 
 <script>
-    // import SearchPanel from './SearchPanel.vue';
+    import SearchPanel from './SearchPanel.vue';
     import ListItem from './ListItem.vue';
     import MedicalCenterProfile from './MedicalCenterProfile.vue';
 
     export default {
-        components: {  ListItem, MedicalCenterProfile },
+        components: { SearchPanel, ListItem, MedicalCenterProfile },
 
         props: [ 'medicalCentersInitial', 'features' ],
 

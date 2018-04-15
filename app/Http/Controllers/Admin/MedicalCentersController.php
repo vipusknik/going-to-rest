@@ -14,8 +14,18 @@ class MedicalCentersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->expectsJson()) {
+            $query = $request->input('query');
+
+            $medicalCenters = MedicalCenter::where('name', 'like', "%$query%")
+                ->with([ 'features' ])
+                ->get();
+
+            return compact('medicalCenters');
+        }
+
         $medicalCenters = MedicalCenter::with([ 'features' ])->latest()->get();
 
         $features = Feature::whereBelongsTo(Feature::OF_MEDICAL_CENTER)->get();
