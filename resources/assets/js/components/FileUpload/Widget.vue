@@ -70,7 +70,7 @@
                     })
                     .catch(error => {
                         this.loading = false;
-                        flash('Ошибка при загрузке');
+                        flash('Ошибка при загрузке', 'danger');
                     });
             },
 

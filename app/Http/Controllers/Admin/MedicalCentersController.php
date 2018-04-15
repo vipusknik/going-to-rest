@@ -16,7 +16,7 @@ class MedicalCentersController extends Controller
      */
     public function index()
     {
-        $medicalCenters = MedicalCenter::all();
+        $medicalCenters = MedicalCenter::with([ 'features' ])->latest()->get();
 
         $features = Feature::whereBelongsTo(Feature::OF_MEDICAL_CENTER)->get();
 
@@ -52,7 +52,9 @@ class MedicalCentersController extends Controller
      */
     public function show(MedicalCenter $medicalCenter)
     {
-        //
+        $medicalCenter->load('features', 'media', 'social_media');
+
+        return response(compact('medicalCenter'), 200);
     }
 
     /**
@@ -86,6 +88,8 @@ class MedicalCentersController extends Controller
      */
     public function destroy(MedicalCenter $medicalCenter)
     {
-        //
+        $medicalCenter->delete();
+
+        return response([], 200);
     }
 }
