@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use App\Traits\HasFeatures;
+use App\Traits\HasSocialMedia;
 
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -12,7 +13,7 @@ use Spatie\MediaLibrary\Models\Media;
 
 class RestCenter extends Model implements HasMedia
 {
-    use Sluggable, HasFeatures, HasMediaTrait;
+    use Sluggable, HasFeatures, HasMediaTrait, HasSocialMedia;
 
     /**
      * The attributes that aren't mass assignable.

@@ -56,8 +56,9 @@ class RestCentersController extends Controller
      */
     public function store(RestCentersRequest $request)
     {
-        $restCenter = RestCenter::create($request->except('features'))
-            ->attachFeatures($request->features);
+        $restCenter = RestCenter::create($request->except([ 'features', 'social_media' ]))
+            ->attachFeatures($request->features)
+            ->attachSocialMedia($request->social_media);
 
         return redirect()->route('admin.rest-centers.index')
             ->withFlash('База отдыха сохранена');
@@ -101,9 +102,11 @@ class RestCentersController extends Controller
      */
     public function update(RestCenter $restCenter, RestCentersRequest $request)
     {
-        $restCenter->update($request->except('features'));
+        $restCenter->update($request->except([ 'features', 'social_media' ]));
 
-        $restCenter->updateFeatures($request->features);
+        $restCenter
+            ->updateFeatures($request->features)
+            ->updateSocialMedia($request->social_media);
 
         return redirect()->route('admin.rest-centers.index');
     }

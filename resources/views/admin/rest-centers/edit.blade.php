@@ -75,7 +75,7 @@
                             </div>
                         </div>
 
-                        <div class="flex mb-6">
+                        <div class="flex mb-4">
                           <div class="field w-1/3 mr-3">
                             <label class="label">
                               Телефоны <span class="text-sm text-grey-dark">(укажите через запятую)</span>
@@ -121,6 +121,10 @@
                                      placeholder="Ссылка на сайт">
                             </div>
                           </div>
+                        </div>
+
+                        <div class="mb-6">
+                            @include ('admin.social-media.inputs', [ 'socialMedia' => $restCenter->socialMedia() ])
                         </div>
 
                         <attach-features :features-initial="{{ json_encode($features) }}"

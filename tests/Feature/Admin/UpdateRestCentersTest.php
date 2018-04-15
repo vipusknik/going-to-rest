@@ -112,4 +112,23 @@ class UpdateRestCentersTest extends TestCase
 
         $this->assertEquals(30 + 20, $restCenter->fresh()->features->count());
     }
+
+    /** @test */
+    function attached_social_media_can_be_updated_on_a_rest_center()
+    {
+        $restCenter = create('App\RestCenter')
+            ->attachSocialMedia([
+                'instagram' => 'http://instagram.com',
+                'facebook' => 'http://facebook.com'
+            ]);
+
+        $this->assertCount(2, $restCenter->fresh()->social_media);
+
+        $this->patch(
+            route('admin.rest-centers.update', $restCenter),
+            [ 'social_media' => [ 'instagram' => 'https://instagram.com' ] ] + $restCenter->getAttributes()
+        );
+
+        $this->assertCount(1, $restCenter->fresh()->social_media);
+    }
 }

@@ -28,8 +28,6 @@ trait HasFeatures
 
     public function updateFeatures($features)
     {
-        $features = (array) $features;
-
         $this->features()->detach();
 
         return $this->attachFeatures($features);

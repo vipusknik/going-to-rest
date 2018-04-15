@@ -112,4 +112,22 @@ class CreateRestCentersTest extends TestCase
 
         $this->assertEquals(Feature::all()->count(), RestCenter::first()->features->count());
     }
+
+    /** @test */
+    function social_media_can_be_attached_to_a_rest_center()
+    {
+        $restCenter = make('App\RestCenter');
+
+        $socialMedia = [
+            'VK' => 'https://link.com',
+            'Instagram' => 'https://link.com',
+            'Facebook' => 'https://link.com'
+        ];
+
+        $this->post(
+                route('admin.rest-centers.store'), [ 'social_media' => $socialMedia ] + $restCenter->toArray()
+            );
+
+        $this->assertEquals(3, RestCenter::first()->social_media->count());
+    }
 }
