@@ -35,16 +35,39 @@ class CreateMedicalCentersTest extends TestCase
     }
 
     /** @test */
+    function medical_center_requires_a_location()
+    {
+        $medicalCenter = make('App\MedicalCenter', [ 'location' => '' ]);
+
+        $this->post(route('admin.medical-centers.store'), $medicalCenter->getAttributes())
+            ->assertSessionHasErrors('location');
+    }
+
+    /** @test */
     function social_media_can_be_attached_to_a_medical_center()
     {
-        $this->se();
-
         $this->post(
             route('admin.medical-centers.store'),
             make('App\MedicalCenter')->getAttributes() + [ 'social_media' => [ 'VK' => 'https://link.com' ] ]
         );
 
         $this->assertCount(1, MedicalCenter::first()->social_media);
+    }
+
+    /** @test */
+    function features_can_be_attached_to_a_medical_center()
+    {
+        $feature = create(
+            'App\Feature',
+            [ 'belongs_to' => Feature::OF_MEDICAL_CENTER, 'category' => Feature::CATEGORY_TREATMENT_TYPES ]
+        );
+
+        $this->post(
+            route('admin.medical-centers.store'),
+            make('App\MedicalCenter')->getAttributes() + [ 'features' => [ $feature->id => '' ] ]
+        );
+
+        $this->assertCount(1, MedicalCenter::first()->features);
     }
 
     /** @test */

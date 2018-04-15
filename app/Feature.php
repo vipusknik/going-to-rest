@@ -9,10 +9,10 @@ class Feature extends Model
     const OF_REST_CENTER = 'rest_center';
     const OF_ACCOMODATION = 'accomodation';
     const CATEGORY_FACILITIES = 'facilities';
-    const CATEGORY_LEISURES = 'leasures';
+    const CATEGORY_LEASURES = 'leasures';
 
     const OF_MEDICAL_CENTER = 'medical_center';
-    const CATEGORY_TREATMENT_TYPE = 'treatment_types';
+    const CATEGORY_TREATMENT_TYPES = 'treatment_types';
     const CATEGORY_PROCEDURES = 'procedures';
 
     /**

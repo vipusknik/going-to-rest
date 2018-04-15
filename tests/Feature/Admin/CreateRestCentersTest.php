@@ -79,8 +79,6 @@ class CreateRestCentersTest extends TestCase
     /** @test */
     function rest_center_accomodations_description_can_be_persisted()
     {
-        $this->withoutExceptionHandling();
-
         $restCenter = make('App\RestCenter', [ 'accomodation' => 'Accomodations description' ]);
 
         $this->post(route('admin.rest-centers.store'), $restCenter->getAttributes());
