@@ -12,7 +12,7 @@
                              class="m-1 p-1 hover:bg-grey cursor-pointer">
                         </div>
 
-                        <new-feature-form :belongs-to="belongsTo"></new-feature-form>
+                        <new-feature-form :belongs-to="belongsTo" :categories="categories"></new-feature-form>
                     </div>
                 </div>
 
@@ -59,7 +59,12 @@
             belongsTo: {
                 type: String,
                 required: true
-            }
+            },
+
+            categories: {
+                type: Object,
+                required: true
+            },
         },
 
         created() {

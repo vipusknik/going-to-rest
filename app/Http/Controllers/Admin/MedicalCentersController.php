@@ -42,8 +42,9 @@ class MedicalCentersController extends Controller
     public function create()
     {
         $features = Feature::where('belongs_to', Feature::OF_MEDICAL_CENTER)->get();
+        $featureCategories = Feature::getCategories(Feature::OF_MEDICAL_CENTER);
 
-        return view('admin.medical-centers.create', compact('features'));
+        return view('admin.medical-centers.create', compact('features', 'featureCategories'));
     }
 
     /**

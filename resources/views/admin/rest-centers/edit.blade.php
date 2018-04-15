@@ -131,6 +131,7 @@
                                          :features-attached="{{ json_encode($restCenter->features) }}"
                                          heading="Выберите удобства и варианты досуга"
                                          belongs-to="{{ \App\Feature::OF_REST_CENTER }}"
+                                         :categories="{{ json_encode($featureCategories) }}"
                                          class="mb-6">
                         </attach-features>
 

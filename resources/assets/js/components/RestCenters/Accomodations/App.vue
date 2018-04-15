@@ -73,8 +73,9 @@
                <attach-features :features-initial="features"
                                 :features-attached="attachedFeatures"
                                 belongs-to="accomodation"
+                                :categories="{ facilities: 'Удобства' }"
                                 class="mb-6">
-                </attach-features>
+               </attach-features>
 
                <div v-if="! editing">
                  <button class="button is-primary">Добавить</button>

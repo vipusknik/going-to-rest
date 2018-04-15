@@ -27,8 +27,10 @@
                 <div class="select w-full h-8 border-none">
                   <select v-model="newFeature.category" class="text-sm w-full h-8">
                     <option value="" selected="true" disabled="true">Категория</option>
-                    <option value="facilities">Удобство</option>
-                    <option value="leasures">Досуг</option>
+                    <option v-for="(categoryInRussian, category) in categories"
+                            :value="category"
+                            v-text="categoryInRussian">
+                    </option>
                   </select>
                 </div>
               </div>
@@ -53,7 +55,7 @@
 
 <script>
     export default {
-        props: [ 'feature', 'belongsTo' ],
+        props: [ 'feature', 'belongsTo', 'categories' ],
 
         data() {
             return {

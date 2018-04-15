@@ -23,4 +23,21 @@ class Feature extends Model
     protected $guarded = [  ];
 
     public $timestamps = null;
+
+    public static function getCategories($belongsTo)
+    {
+        if ($belongsTo === static::OF_MEDICAL_CENTER) {
+            return [
+                static::CATEGORY_TREATMENT_TYPES => 'Виды лечения',
+                static::CATEGORY_PROCEDURES => 'Процедуры',
+            ];
+        }
+
+        if ($belongsTo === static::OF_REST_CENTER) {
+            return [
+                static::CATEGORY_FACILITIES => 'Удобства',
+                static::CATEGORY_LEASURES => 'Досуг',
+            ];
+        }
+    }
 }
