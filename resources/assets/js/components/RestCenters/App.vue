@@ -65,6 +65,8 @@
 
 		methods: {
 			show(restCenter) {
+				this.selectedRestCenter = null;
+
 				axios.get(`/admin/rest-centers/${restCenter.slug}`)
 					.then(response => {
 						this.selectedRestCenter = response.data.restCenter;
