@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <h3 v-text="categoryInRussian" class="text-green text-base font-semibold"></h3>
+            <h3 v-text="categoryInRussian" class="text-green text-base font-semibold mb-2"></h3>
             <div class="flex p-2 border border-grey-light">
                 <div class="w-1/3 class border-r border-grey-light">
                     <div>
