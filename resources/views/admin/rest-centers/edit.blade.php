@@ -46,7 +46,7 @@
                                   <select name="reservoir_id" class="w-full">
                                     @foreach ($reservoirs as $reservoir)
                                         <option value="{{ $reservoir->id }}"
-                                                {{ (old('reservoir_id') == $reservoir->id) ? 'selected' : '' }}>
+                                                {{ (old('reservoir_id', $restCenter->reservoir_id) == $reservoir->id) ? 'selected' : '' }}>
                                             {{ $reservoir->name }}
                                         </option>
                                     @endforeach
