@@ -130,7 +130,7 @@
                                 <th class="w-1/4 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">Тип</th>
                                 <th class="w-1/8 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">Вмещает</th>
                                 <th class="w-1/8 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">
-                                    Цена от
+                                    Цена
                                 </th>
                                 <th class="w-1/4 text-white whitespace-no-wrap p-2">Описание</th>
                             </tr>
@@ -154,7 +154,7 @@
                                     </div>
                                 </td>
                                 <td v-text="accomodation.guest_count" class="p-2 border-r border-blue-lighter"></td>
-                                <td v-text="accomodation.price_per_day" class="p-2 border-r border-blue-lighter"></td>
+                                <td v-text="`от ${accomodation.price_per_day}`" class="p-2 border-r border-blue-lighter"></td>
                                 <td v-text="accomodation.description" class="p-2"></td>
                             </tr>
                         </tbody>
