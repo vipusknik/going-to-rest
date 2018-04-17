@@ -154,7 +154,9 @@
                                     </div>
                                 </td>
                                 <td v-text="accomodation.guest_count" class="p-2 border-r border-blue-lighter"></td>
-                                <td v-text="`от ${accomodation.price_per_day}`" class="p-2 border-r border-blue-lighter"></td>
+                                <td class="p-2 border-r border-blue-lighter">
+                                    <span class="text-grey-dark">от</span> {{ accomodation.price_per_day }}
+                                </td>
                                 <td v-text="accomodation.description" class="p-2"></td>
                             </tr>
                         </tbody>
