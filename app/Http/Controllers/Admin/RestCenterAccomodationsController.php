@@ -17,7 +17,7 @@ class RestCenterAccomodationsController extends Controller
     {
         $restCenter->load('accomodations.features');
 
-        $features = Feature::where('belongs_to', Feature::OF_ACCOMODATION)->get();
+        $features = Feature::where('belongs_to', Feature::OF_ACCOMODATION)->get()->groupBy('category');
 
         return view('admin.rest-centers.accomodations.index', compact('restCenter', 'features'));
     }

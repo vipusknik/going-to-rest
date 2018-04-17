@@ -120,15 +120,11 @@
                           </div>
                         </div>
 
-                        <div class="mb-6">
+                        <div class="mb-4">
                             @include ('admin.social-media.inputs', [ 'socialMedia' => null ])
                         </div>
 
-                        <attach-features :features-initial="{{ json_encode($features) }}"
-                                         heading="Выберите удобства и варианты досуга"
-                                         belongs-to="{{ \App\Feature::OF_REST_CENTER }}"
-                                         class="mb-6">
-                        </attach-features>
+                        <features-attach :features="{{ json_encode($features) }}"></features-attach>
 
                         <div class="field mb-6">
                           <label class="label">Размещения</label>

@@ -127,12 +127,9 @@
                             @include ('admin.social-media.inputs', [ 'socialMedia' => $restCenter->socialMedia() ])
                         </div>
 
-                        <attach-features :features-initial="{{ json_encode($features) }}"
-                                         :features-attached="{{ json_encode($restCenter->features) }}"
-                                         heading="Выберите удобства и варианты досуга"
-                                         belongs-to="{{ \App\Feature::OF_REST_CENTER }}"
-                                         class="mb-6">
-                        </attach-features>
+                        <features-attach :features="{{ json_encode($features) }}"
+                                         :features-attached="{{ json_encode($restCenter->features) }}">
+                        </features-attach>
 
                         <div class="field mb-6">
                           <label class="label">Размещения</label>
