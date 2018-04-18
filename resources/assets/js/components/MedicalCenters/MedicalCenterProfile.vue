@@ -99,21 +99,10 @@
             </div>
 
             <!-- features -->
-            <div v-if="medicalCenter.features.length" class="mb-4">
-                <div class="flex flex-wrap">
-                    <div v-for="feature in medicalCenter.features"
-                         class="text-xs px-1 my-1 mr-2 bg-green-lighter border border-green rounded-sm">
-                        {{ feature.name }}
-                        <span v-if="feature.pivot.description"
-                              v-text="`(${feature.pivot.description})`">
-                        </span>
-                    </div>
-                </div>
-            </div>
+            <features-attached v-if="medicalCenter.features.length" :features="medicalCenter.features" class="mb-6"></features-attached>
 
             <!-- images -->
             <image-upload-widget :model="medicalCenter"
-                                 accept="image/*"
                                  :images-attached="medicalCenter.media"
                                  class="mb-4">
             </image-upload-widget>
