@@ -115,12 +115,7 @@
                             @include ('admin.social-media.inputs', [ 'socialMedia' => null ])
                         </div>
 
-                        <attach-features :features-initial="{{ json_encode($features) }}"
-                                         heading="Выберите удобства и варианты досуга"
-                                         belongs-to="{{ \App\Feature::OF_MEDICAL_CENTER }}"
-                                         :categories="{{ json_encode($featureCategories) }}"
-                                         class="mb-6">
-                        </attach-features>
+                        <features-attach :features="{{ json_encode($features) }}" class="mb-6"></features-attach>
 
                         <div class="field">
                           <label class="label">Описание</label>

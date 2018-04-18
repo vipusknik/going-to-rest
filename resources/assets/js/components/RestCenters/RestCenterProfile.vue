@@ -102,10 +102,7 @@
             <features-attached v-if="restCenter.features.length" :features="restCenter.features" class="mb-6"></features-attached>
 
             <!-- images -->
-            <image-upload-widget :model="restCenter"
-                                accept="image/*"
-                                :images-attached="restCenter.media"
-                                class="mb-4">
+            <image-upload-widget :model="restCenter" :images-attached="restCenter.media" class="mb-4">
             </image-upload-widget>
 
             <!-- Accomodations -->
