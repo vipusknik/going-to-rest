@@ -4,6 +4,7 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
+use App\Feature;
 
 class FeaturesTest extends TestCase
 {
@@ -75,5 +76,21 @@ class FeaturesTest extends TestCase
         $this->post(route('admin.features.store'), $feature->getAttributes());
 
         $this->assertEquals(1, \App\Feature::all()->count());
+    }
+
+    /** @test */
+    function feature_has_category_name_in_russian()
+    {
+        $feature = create('App\Feature', [ 'category' => Feature::CATEGORY_FACILITIES ]);
+        $this->assertEquals('Удобства', $feature->category_in_russian);
+
+        $feature = create('App\Feature', [ 'category' => Feature::CATEGORY_LEASURES ]);
+        $this->assertEquals('Досуг', $feature->category_in_russian);
+
+        $feature = create('App\Feature', [ 'category' => Feature::CATEGORY_TREATMENT_TYPES ]);
+        $this->assertEquals('Виды лечения', $feature->category_in_russian);
+
+        $feature = create('App\Feature', [ 'category' => Feature::CATEGORY_PROCEDURES ]);
+        $this->assertEquals('Процедуры', $feature->category_in_russian);
     }
 }

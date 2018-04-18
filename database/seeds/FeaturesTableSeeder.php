@@ -73,5 +73,16 @@ class FeaturesTableSeeder extends Seeder
         }
 
         DB::table('features')->insert($medicalCenterTreatmentTypes);
+
+        $medicalCenterProcedures = [
+            [  'name' => 'Массаж' ],
+        ];
+
+        foreach ($medicalCenterProcedures as &$feature) {
+            $feature['belongs_to'] = Feature::OF_MEDICAL_CENTER;
+            $feature['category'] = Feature::CATEGORY_PROCEDURES;
+        }
+
+        DB::table('features')->insert($medicalCenterProcedures);
     }
 }

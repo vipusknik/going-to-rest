@@ -8,10 +8,13 @@ class Feature extends Model
 {
     const OF_REST_CENTER = 'rest_center';
     const OF_ACCOMODATION = 'accomodation';
+    const OF_MEDICAL_CENTER = 'medical_center';
+
+    // Accomodation and rest center categories
     const CATEGORY_FACILITIES = 'facilities';
     const CATEGORY_LEASURES = 'leasures';
 
-    const OF_MEDICAL_CENTER = 'medical_center';
+    // Medical center categories
     const CATEGORY_TREATMENT_TYPES = 'treatment_types';
     const CATEGORY_PROCEDURES = 'procedures';
 
@@ -24,20 +27,24 @@ class Feature extends Model
 
     public $timestamps = null;
 
-    public static function getCategories($belongsTo)
+    protected $appends = [ 'category_in_russian' ];
+
+    public function getCategoryInRussianAttribute()
     {
-        if ($belongsTo === static::OF_MEDICAL_CENTER) {
-            return [
-                static::CATEGORY_TREATMENT_TYPES => 'Виды лечения',
-                static::CATEGORY_PROCEDURES => 'Процедуры',
-            ];
+        if ($this->category === static::CATEGORY_FACILITIES) {
+            return 'Удобства';
         }
 
-        if ($belongsTo === static::OF_REST_CENTER) {
-            return [
-                static::CATEGORY_FACILITIES => 'Удобства',
-                static::CATEGORY_LEASURES => 'Досуг',
-            ];
+        if ($this->category === static::CATEGORY_LEASURES) {
+            return 'Досуг';
+        }
+
+        if ($this->category === static::CATEGORY_TREATMENT_TYPES) {
+            return 'Виды лечения';
+        }
+
+        if ($this->category === static::CATEGORY_PROCEDURES) {
+            return 'Процедуры';
         }
     }
 }
