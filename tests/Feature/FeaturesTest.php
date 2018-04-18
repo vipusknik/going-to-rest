@@ -14,12 +14,12 @@ class FeaturesTest extends TestCase
 
         $feature = make('App\Feature');
 
-        $this->post(route('admin.features.store'), $feature->toArray())
+        $this->post(route('admin.features.store'), $feature->getAttributes())
             ->assertStatus(403);
 
         $this->signInAdmin();
 
-        $this->post(route('admin.features.store'), $feature->toArray())
+        $this->post(route('admin.features.store'), $feature->getAttributes())
             ->assertStatus(200);
     }
 
@@ -28,7 +28,7 @@ class FeaturesTest extends TestCase
     {
         $feature = make('App\Feature', ['name' => '']);
 
-        $this->post(route('admin.features.store'), $feature->toArray())
+        $this->post(route('admin.features.store'), $feature->getAttributes())
             ->assertSessionHasErrors('name');
     }
 
@@ -36,14 +36,14 @@ class FeaturesTest extends TestCase
     function feature_name_has_to_be_unique_by_belongs_to_attribute()
     {
         $restCenterFeature = make('App\Feature', ['name' => 'Купание', 'belongs_to' => 'rest_center']);
-        $this->post(route('admin.features.store'), $restCenterFeature->toArray())
+        $this->post(route('admin.features.store'), $restCenterFeature->getAttributes())
             ->assertStatus(200);
 
-        $this->post(route('admin.features.store'), $restCenterFeature->toArray())
+        $this->post(route('admin.features.store'), $restCenterFeature->getAttributes())
             ->assertSessionHasErrors('name');
 
         $accomodationFeature = make('App\Feature', ['name' => 'Купание', 'belongs_to' => 'accomodation']);
-        $this->post(route('admin.features.store'), $accomodationFeature->toArray())
+        $this->post(route('admin.features.store'), $accomodationFeature->getAttributes())
             ->assertStatus(200);
     }
 
@@ -52,7 +52,7 @@ class FeaturesTest extends TestCase
     {
         $feature = make('App\Feature', ['category' => '']);
 
-        $this->post(route('admin.features.store'), $feature->toArray())
+        $this->post(route('admin.features.store'), $feature->getAttributes())
             ->assertSessionHasErrors('category');
     }
 
@@ -63,7 +63,7 @@ class FeaturesTest extends TestCase
 
         $feature = make('App\Feature', ['belongs_to' => '']);
 
-        $this->post(route('admin.features.store'), $feature->toArray())
+        $this->post(route('admin.features.store'), $feature->getAttributes())
             ->assertSessionHasErrors('belongs_to');
     }
 
@@ -72,7 +72,7 @@ class FeaturesTest extends TestCase
     {
         $feature = make('App\Feature');
 
-        $this->post(route('admin.features.store'), $feature->toArray());
+        $this->post(route('admin.features.store'), $feature->getAttributes());
 
         $this->assertEquals(1, \App\Feature::all()->count());
     }

@@ -43,8 +43,8 @@ class RestCentersController extends Controller
     public function create()
     {
         $reservoirs = Reservoir::all();
-        $features = Feature::where('belongs_to', Feature::OF_REST_CENTER)->get();
-        $featureCategories = Feature::getCategories(Feature::OF_REST_CENTER);
+
+        $features = Feature::where('belongs_to', Feature::OF_REST_CENTER)->get()->groupBy('category');
 
         return view('admin.rest-centers.create', compact('reservoirs', 'features', 'featureCategories'));
     }
@@ -89,8 +89,8 @@ class RestCentersController extends Controller
         $restCenter->load('reservoir', 'features');
 
         $reservoirs = Reservoir::all();
-        $features = Feature::where('belongs_to', Feature::OF_REST_CENTER)->get();
-        $featureCategories = Feature::getCategories(Feature::OF_REST_CENTER);
+
+        $features = Feature::where('belongs_to', Feature::OF_REST_CENTER)->get()->groupBy('category');
 
         return view('admin.rest-centers.edit', compact('restCenter', 'reservoirs', 'features', 'featureCategories'));
     }

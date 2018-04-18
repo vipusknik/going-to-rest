@@ -22,20 +22,6 @@
                         hover:border-grey-light">
            </div>
 
-            <div class="field">
-              <div class="control">
-                <div class="select w-full h-8 border-none">
-                  <select v-model="newFeature.category" class="text-sm w-full h-8">
-                    <option value="" selected="true" disabled="true">Категория</option>
-                    <option v-for="(categoryInRussian, category) in categories"
-                            :value="category"
-                            v-text="categoryInRussian">
-                    </option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
             <button @click.prevent="store"
                     class="block
                            w-full
@@ -55,14 +41,14 @@
 
 <script>
     export default {
-        props: [ 'feature', 'belongsTo', 'categories' ],
+        props: [ 'feature', 'belongsTo', 'category' ],
 
         data() {
             return {
                 showNewFeatureInput: false,
                 newFeature: {
                     name: '',
-                    category: '',
+                    category: this.category,
                     belongs_to: this.belongsTo
                 }
             };

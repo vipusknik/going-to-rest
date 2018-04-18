@@ -99,17 +99,7 @@
             </div>
 
             <!-- features -->
-            <div v-if="restCenter.features.length" class="mb-4">
-                <div class="flex flex-wrap">
-                    <div v-for="feature in restCenter.features"
-                         class="text-xs px-1 my-1 mr-2 bg-green-lighter border border-green rounded-sm">
-                        {{ feature.name }}
-                        <span v-if="feature.pivot.description"
-                              v-text="`(${feature.pivot.description})`">
-                        </span>
-                    </div>
-                </div>
-            </div>
+            <features-attached v-if="restCenter.features.length" :features="restCenter.features" class="mb-6"></features-attached>
 
             <!-- images -->
             <image-upload-widget :model="restCenter"
@@ -143,13 +133,16 @@
 
                                     <div>
                                         <ul>
-                                            <li v-for="feature in accomodation.features"
-                                                class="inline-block text-sm text-green mr-2">
-                                                * {{ feature.name }}
-                                                <span v-if="feature.pivot.description"
-                                                      v-text="`(${feature.pivot.description})`">
-                                                </span>
-                                            </li>
+                                            <features-attached v-if="accomodation.features.length" :features="accomodation.features">
+                                                <template slot-scope="props">
+                                                    <li class="inline-block text-sm text-green mr-2">
+                                                        * {{ props.feature.name }}
+                                                        <span v-if="props.feature.pivot.description"
+                                                              v-text="`(${props.feature.pivot.description})`">
+                                                        </span>
+                                                    </li>
+                                                </template>
+                                            </features-attached>
                                         </ul>
                                     </div>
                                 </td>

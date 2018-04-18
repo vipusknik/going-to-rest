@@ -14,7 +14,7 @@ class UpdateRestCentersTest extends TestCase
     {
         $restCenter = create('App\RestCenter');
 
-        $this->get(route('admin.rest-centers.edit', $restCenter))->assertStatus(200)->assertSee($restCenter->name);
+        $this->get(route('admin.rest-centers.edit', $restCenter))->assertStatus(200);
     }
 
     /** @test */

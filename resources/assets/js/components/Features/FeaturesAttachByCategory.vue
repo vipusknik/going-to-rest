@@ -1,7 +1,7 @@
 <template>
     <div>
         <div>
-            <h3 class="text-black text-base font-semibold">{{ heading }}</h3>
+            <h3 v-text="categoryInRussian" class="text-green text-base font-semibold mb-2"></h3>
             <div class="flex p-2 border border-grey-light">
                 <div class="w-1/3 class border-r border-grey-light">
                     <div>
@@ -12,7 +12,7 @@
                              class="m-1 p-1 hover:bg-grey cursor-pointer">
                         </div>
 
-                        <new-feature-form :belongs-to="belongsTo" :categories="categories"></new-feature-form>
+                        <new-feature-form :belongs-to="belongsTo" :category="category"></new-feature-form>
                     </div>
                 </div>
 
@@ -39,6 +39,11 @@
         components: { SelectedFeature, NewFeatureForm },
 
         props: {
+            category: {
+                type: String,
+                required: true
+            },
+
             featuresInitial: {
                 type: Array,
                 required: true
@@ -48,35 +53,20 @@
                 type: Array,
                 required: false,
                 default: () => []
-            },
-
-            heading: {
-                type: String,
-                required: false,
-                default: ''
-            },
-
-            belongsTo: {
-                type: String,
-                required: true
-            },
-
-            categories: {
-                type: Object,
-                required: true
-            },
-        },
-
-        created() {
-            this.attachFeatures();
-            this.$watch('featuresAttached', () => this.attachFeatures());
         },
 
         data() {
             return {
                 features: this.featuresInitial,
-                selectedFeatures: []
+                selectedFeatures: [],
+                belongsTo: this.featuresInitial[0].belongs_to,
+                categoryInRussian: this.featuresInitial[0].category_in_russian
             }
+        },
+
+        created() {
+            this.attachFeatures();
+            this.$watch('featuresAttached', () => this.attachFeatures());
         },
 
         methods: {
@@ -88,7 +78,11 @@
             },
 
             attachFeatures() {
-                this.featuresAttached.forEach(feature => this.select(feature));
+                this.featuresAttached.forEach(feature => {
+                    if (this.featuresInitial.findIndex(item => item.id === feature.id) !== -1) {
+                        this.select(feature);
+                    }
+                });
             },
 
             remove(feature) {

@@ -16,10 +16,18 @@ window.Vue = require('vue');
  */
 
 Vue.component('rest-centers-app', require('./components/RestCenters/App.vue'));
+<<<<<<< HEAD
 Vue.component('attach-features', require('./components/RestCenters/AttachFeatures.vue'));
 Vue.component('rest-center-accomodations-app', require('./components/RestCenters/Accomodations/App.vue'));
 
 Vue.component('medical-centers-app', require('./components/MedicalCenters/App.vue'));
+=======
+
+Vue.component('rest-center-accomodations-app', require('./components/RestCenters/Accomodations/App.vue'));
+
+Vue.component('features-attach', require('./components/Features/FeaturesAttach.vue'));
+Vue.component('features-attached', require('./components/Features/FeaturesAttached.vue'));
+>>>>>>> e4ab83171789df5d385e80491847217b34d856ab
 
 Vue.component('wysiwig', require('./components/Wysiwig.vue'));
 Vue.component("flash", require("./components/Flash.vue"));
