@@ -53,6 +53,7 @@
                 type: Array,
                 required: false,
                 default: () => []
+            }
         },
 
         data() {
