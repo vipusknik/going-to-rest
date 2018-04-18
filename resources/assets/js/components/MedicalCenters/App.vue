@@ -67,10 +67,13 @@
 
         methods: {
             show(medicalCenter) {
+                this.selectedMedicalCenter = null;
+
                 axios.get(`/admin/medical-centers/${medicalCenter.slug}`)
                     .then(response => {
                         this.selectedMedicalCenter = response.data.medicalCenter;
-                    });
+                    })
+                    .catch(error => flash('Ошибка при загрузке!', 'danger'));
             },
 
             remove(medicalCenter) {
