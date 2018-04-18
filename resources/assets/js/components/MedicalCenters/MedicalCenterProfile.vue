@@ -32,6 +32,10 @@
                 <div class="text-base text-grey-dark">
                     {{ medicalCenter.location }}
                 </div>
+
+                <div class="text-sm text-grey-dark">
+                    <span class="text-grey">Распространение путевок:</span> {{ medicalCenter.distribution_address }}
+                </div>
             </div>
 
             <div class="mb-4">
