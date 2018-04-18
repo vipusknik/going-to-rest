@@ -7,7 +7,7 @@
                    v-text="loading ? 'Загрузка ... ' : 'Загрузить изображение'">
             </label>
 
-            <input type="file" name="file" id="file" class="hidden" :accept="accept" @change="onChange">
+            <input type="file" name="file" id="file" class="hidden" @change="onChange">
         </div>
 
         <div v-if="images.length" class="flex flex-wrap mt-4">
@@ -30,7 +30,7 @@
 
 <script>
     export default {
-        props: [ 'model', 'accept', 'imagesAttached' ],
+        props: [ 'model', 'imagesAttached' ],
 
         data() {
             return {
@@ -81,10 +81,11 @@
                 axios.delete(`/admin/images/${image.id}`)
                     .then(response => {
                         let index = this.images.findIndex(item => item.id === image.id);
-
                         this.images.splice(index, 1);
+
+                        flash('Изображение удалено');
                     })
-                    .catch(error => flash('Ошибка при удалении изображения'));
+                    .catch(error => flash('Ошибка при удалении изображения', 'danger'));
             }
         }
     }
