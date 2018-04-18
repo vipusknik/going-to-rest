@@ -93,7 +93,11 @@ class MedicalCentersController extends Controller
      */
     public function edit(MedicalCenter $medicalCenter)
     {
-        //
+        $medicalCenter->load('features');
+
+        $features = Feature::where('belongs_to', Feature::OF_MEDICAL_CENTER)->get()->groupBy('category');
+
+        return view('admin.medical-centers.edit', compact('medicalCenter', 'features'));
     }
 
     /**
@@ -105,7 +109,22 @@ class MedicalCentersController extends Controller
      */
     public function update(Request $request, MedicalCenter $medicalCenter)
     {
-        //
+        $request->validate([
+            'name' => ['required', Rule::unique('medical_centers', 'name')->ignore($medicalCenter->id)],
+            'location' => 'required'
+        ], [
+            'name.required' => 'Название - обязательное поле.',
+            'name.unique'   => 'Это название уже занято.',
+            'location.required' => 'Расположение - обязательное поле.',
+        ]);
+
+        $medicalCenter->update($request->except([ 'features', 'social_media' ]));
+
+        $medicalCenter
+            ->updateFeatures($request->features)
+            ->updateSocialMedia($request->social_media);
+
+        return redirect()->route('admin.medical-centers.index');
     }
 
     /**
