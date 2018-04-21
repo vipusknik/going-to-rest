@@ -74,8 +74,6 @@ class UpdateMedicalCentersTest extends TestCase
     /** @test */
     function attached_social_media_can_be_updated()
     {
-        $this->se();
-
         $medicalCenter = create('App\MedicalCenter')
             ->attachSocialMedia([ 'instagram' => 'http://instagram.com' ]);
 

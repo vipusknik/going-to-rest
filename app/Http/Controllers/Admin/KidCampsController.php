@@ -86,7 +86,11 @@ class KidCampsController extends Controller
      */
     public function edit(KidCamp $kidCamp)
     {
-        //
+        $kidCamp->load('features');
+
+        $features = Feature::whereBelongsTo(Feature::OF_KID_CAMP)->get()->groupBy('category');
+
+        return view('admin.kid-camps.edit', compact('kidCamp', 'features'));
     }
 
     /**
@@ -98,7 +102,18 @@ class KidCampsController extends Controller
      */
     public function update(Request $request, KidCamp $kidCamp)
     {
-        //
+        $request->validate([
+            'name' => [ 'required', Rule::unique('kid_camps', 'name')->ignore($kidCamp->id) ],
+            'location' => 'required',
+        ]);
+
+        $kidCamp->update($request->except([ 'features', 'social_media' ]));
+
+        $kidCamp
+            ->updateFeatures($request->features)
+            ->updateSocialMedia($request->social_media);
+
+        return redirect()->route('admin.kid-camps.index');
     }
 
     /**
