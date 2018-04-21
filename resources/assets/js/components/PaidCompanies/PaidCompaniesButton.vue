@@ -5,6 +5,10 @@
     </div>
 </template>
 
+<style scoped>
+    @import '/css/bulma.switch.min.css';
+</style>
+
 <script>
     export default {
         props: [ 'model' ],
