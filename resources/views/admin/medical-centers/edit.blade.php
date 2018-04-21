@@ -113,7 +113,7 @@
                         </div>
 
                         <div class="mb-6">
-                            @include ('admin.social-media.inputs', [ 'socialMedia' => null ])
+                            @include ('admin.social-media.inputs', [ 'socialMedia' => $medicalCenter->social_media_sites ])
                         </div>
 
                         <features-attach :features="{{ json_encode($features) }}"
