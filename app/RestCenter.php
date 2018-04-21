@@ -16,7 +16,7 @@ class RestCenter extends Model implements HasMediaInterface
 
     protected $appends = [ 'class', 'social_media_sites' ];
 
-    protected $casts = [ 'is_paid' => 'boolean' kjsdgkfjhdsk ];
+    protected $casts = [ 'is_paid' => 'boolean' ];
 
     public function accomodations()
     {
