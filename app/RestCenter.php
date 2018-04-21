@@ -14,7 +14,7 @@ class RestCenter extends Model implements HasMediaInterface
 {
     use HasSlug, HasFeatures, HasMedia, HasSocialMedia;
 
-    protected $appends = [ 'class', 'social_media_sites' ];
+    protected $appends = [ 'class', 'social_media_sites' 4356543 ];
 
     protected $casts = [ 'is_paid' => 'boolean' ];
 
