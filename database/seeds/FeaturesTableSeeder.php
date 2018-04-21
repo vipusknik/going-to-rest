@@ -84,5 +84,16 @@ class FeaturesTableSeeder extends Seeder
         }
 
         DB::table('features')->insert($medicalCenterProcedures);
+
+        $kidCampOccupations = [
+            [  'name' => 'Катание на катамаранах' ],
+        ];
+
+        foreach ($kidCampOccupations as &$feature) {
+            $feature['belongs_to'] = Feature::OF_KID_CAMP;
+            $feature['category'] = Feature::CATEGORY_OCCUPATIONS;
+        }
+
+        DB::table('features')->insert($kidCampOccupations);
     }
 }

@@ -92,5 +92,8 @@ class FeaturesTest extends TestCase
 
         $feature = create('App\Feature', [ 'category' => Feature::CATEGORY_PROCEDURES ]);
         $this->assertEquals('Процедуры', $feature->category_in_russian);
+
+        $feature = create('App\Feature', [ 'category' => Feature::CATEGORY_OCCUPATIONS ]);
+        $this->assertEquals('Досуг, кружки и развлечения', $feature->category_in_russian);
     }
 }

@@ -64,6 +64,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
      */
 
     Route::resource('medical-centers', 'MedicalCentersController', [ 'as' => 'admin' ]);
+
+    /**
+     * Kid camps
+     */
+    Route::resource('kid-camps', 'KidCampsController', [ 'as' => 'admin' ]);
 });
 
 Auth::routes();
