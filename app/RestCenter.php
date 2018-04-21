@@ -77,4 +77,10 @@ class RestCenter extends Model implements HasMedia
               ->height(232)
               ->sharpen(10);
     }
+
+    public function registerMediaCollections()
+    {
+        $this->addMediaCollection('images');
+        $this->addMediaCollection('main-image')->singleFile();
+    }
 }

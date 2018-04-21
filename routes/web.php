@@ -26,6 +26,12 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     Route::delete('/images/{image}', 'ImagesController@destroy')->name('admin.images.destroy');
 
     /**
+     * Main images
+     */
+    Route::post('/main-images/{main_image}', 'MainImagesController@store')->name('admin.main-images.store');
+    Route::delete('/main-images/{main_image}', 'MainImagesController@destroy')->name('admin.main-images.destroy');
+
+    /**
      * Rest centers
      */
     Route::resource('rest-centers', 'RestCentersController', [ 'as' => 'admin' ]);

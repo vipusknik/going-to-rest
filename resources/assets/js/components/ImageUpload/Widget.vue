@@ -11,25 +11,17 @@
         </div>
 
         <div v-if="images.length" class="flex flex-wrap mt-4">
-            <div v-for="image in images" :key="image.id" class="relative mr-3 mb-2">
-                <a :href="`/storage/${image.id}/${image.file_name}`" target="_blank">
-                    <img :src="`/storage/${image.id}/${image.file_name}`" class="block w-16 h-16 rounded-sm shadow-lg">
-                </a>
-
-                <div class="absolute pin-t pin-r flex mr-1">
-                    <div @click="remove(image)">
-                        <i class="fas fa-times text-grey-light cursor-pointer hover:text-red-light"
-                           title="Удалить изображение">
-                        </i>
-                    </div>
-                </div>
-            </div>
+            <image-uploaded v-for="image in images" :key="image.id" :image-initial="image" @destroyed="destroy"></image-uploaded>
         </div>
     </div>
 </template>
 
 <script>
+    import ImageUploaded from './ImageUploaded.vue';
+
     export default {
+        components: { ImageUploaded },
+
         props: [ 'model', 'imagesAttached' ],
 
         data() {
@@ -46,7 +38,7 @@
         computed: {
             classes() {
                 if (this.loading) {
-                    return  [ 'cursor-wait', 'pointer-events-none', 'opacity-9' ];
+                    return  [ 'cursor-not-allowed', 'pointer-events-none', 'opacity-9' ];
                 }
 
                 return [];
@@ -77,15 +69,10 @@
                     });
             },
 
-            remove(image) {
-                axios.delete(`/admin/images/${image.id}`)
-                    .then(response => {
-                        let index = this.images.findIndex(item => item.id === image.id);
-                        this.images.splice(index, 1);
+            destroy(image) {
+                this.images.splice(index(image, this.images), 1);
 
-                        flash('Изображение удалено');
-                    })
-                    .catch(error => flash('Ошибка при удалении изображения', 'danger'));
+                flash('Изображение удалено');
             }
         }
     }
