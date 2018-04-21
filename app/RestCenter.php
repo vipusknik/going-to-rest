@@ -2,25 +2,17 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasFeatures;
 use App\Traits\HasSocialMedia;
 use App\Traits\HasSlug;
+use App\Traits\HasMedia;
 
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMedia as HasMediaInterface;
 use Spatie\MediaLibrary\Models\Media;
 
-class RestCenter extends Model implements HasMedia
+class RestCenter extends Model implements HasMediaInterface
 {
-    use HasSlug, HasFeatures, HasMediaTrait, HasSocialMedia;
-
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [  ];
+    use HasSlug, HasFeatures, HasMedia, HasSocialMedia;
 
     protected $appends = [ 'class', 'social_media_sites' ];
 
@@ -36,11 +28,6 @@ class RestCenter extends Model implements HasMedia
         $this->attributes['contacts'] = implode(',', (array) $contacts);
     }
 
-    public function getClassAttribute()
-    {
-        return get_class($this);
-    }
-
     public function accomodations()
     {
         return $this->hasMany(Accomodation::class);
@@ -49,19 +36,5 @@ class RestCenter extends Model implements HasMedia
     public function reservoir()
     {
         return $this->belongsTo(Reservoir::class);
-    }
-
-    public function registerMediaConversions(Media $media = null)
-    {
-        $this->addMediaConversion('thumb')
-              ->width(368)
-              ->height(232)
-              ->sharpen(10);
-    }
-
-    public function registerMediaCollections()
-    {
-        $this->addMediaCollection('images');
-        $this->addMediaCollection('main-image')->singleFile();
     }
 }
