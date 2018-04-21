@@ -109,6 +109,8 @@ class KidCampsController extends Controller
      */
     public function destroy(KidCamp $kidCamp)
     {
-        //
+        $kidCamp->delete();
+
+        return response([], 200);
     }
 }

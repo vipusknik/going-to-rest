@@ -22,4 +22,14 @@ class KidCampsTest extends TestCase
 
         $this->assertCount(2, $response->original['kidCamps']);
     }
+
+    /** @test */
+    function a_kid_camp_can_be_deleted()
+    {
+        $camp = create('App\KidCamp');
+
+        $this->delete(route('admin.kid-camps.destroy', $camp));
+
+        $this->assertDatabaseMissing('kid_camps', [ 'name' => $camp->name ]);
+    }
 }
