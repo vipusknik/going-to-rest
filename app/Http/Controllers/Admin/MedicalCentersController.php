@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\MedicalCenter;
 use Illuminate\Http\Request;
+use App\Http\Requests\MedicalCentersRequest;
 use App\Http\Controllers\Controller;
 use App\Feature;
-use Illuminate\Validation\Rule;
 
 class MedicalCentersController extends Controller
 {
@@ -52,17 +52,8 @@ class MedicalCentersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MedicalCentersRequest $request)
     {
-        $request->validate([
-            'name' => ['required', Rule::unique('medical_centers', 'name')],
-            'location' => 'required'
-        ], [
-            'name.required' => 'Название - обязательное поле.',
-            'name.unique'   => 'Это название уже занято.',
-            'location.required' => 'Расположение - обязательное поле.',
-        ]);
-
         MedicalCenter::create($request->except([ 'social_media', 'features' ]))
             ->attachSocialMedia($request->social_media)
             ->attachFeatures($request->features);
@@ -107,17 +98,8 @@ class MedicalCentersController extends Controller
      * @param  \App\MedicalCenter  $medicalCenter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MedicalCenter $medicalCenter)
+    public function update(MedicalCentersRequest $request, MedicalCenter $medicalCenter)
     {
-        $request->validate([
-            'name' => ['required', Rule::unique('medical_centers', 'name')->ignore($medicalCenter->id)],
-            'location' => 'required'
-        ], [
-            'name.required' => 'Название - обязательное поле.',
-            'name.unique'   => 'Это название уже занято.',
-            'location.required' => 'Расположение - обязательное поле.',
-        ]);
-
         $medicalCenter->update($request->except([ 'features', 'social_media' ]));
 
         $medicalCenter

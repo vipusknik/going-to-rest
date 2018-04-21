@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\KidCamp;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rule;
+use App\Http\Requests\KidCampsRequest;
 
 use App\Feature;
 
@@ -49,13 +49,8 @@ class KidCampsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KidCampsRequest $request)
     {
-        $request->validate([
-            'name' => [ 'required', Rule::unique('kid_camps', 'name') ],
-            'location' => 'required',
-        ]);
-
         KidCamp::create($request->except([ 'social_media', 'features' ]))
             ->attachSocialMedia($request->social_media)
             ->attachFeatures($request->features);
@@ -100,13 +95,8 @@ class KidCampsController extends Controller
      * @param  \App\KidCamp  $kidCamp
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, KidCamp $kidCamp)
+    public function update(KidCampsRequest $request, KidCamp $kidCamp)
     {
-        $request->validate([
-            'name' => [ 'required', Rule::unique('kid_camps', 'name')->ignore($kidCamp->id) ],
-            'location' => 'required',
-        ]);
-
         $kidCamp->update($request->except([ 'features', 'social_media' ]));
 
         $kidCamp
