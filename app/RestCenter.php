@@ -3,9 +3,9 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Cviebrock\EloquentSluggable\Sluggable;
 use App\Traits\HasFeatures;
 use App\Traits\HasSocialMedia;
+use App\Traits\HasSlug;
 
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -13,7 +13,7 @@ use Spatie\MediaLibrary\Models\Media;
 
 class RestCenter extends Model implements HasMedia
 {
-    use Sluggable, HasFeatures, HasMediaTrait, HasSocialMedia;
+    use HasSlug, HasFeatures, HasMediaTrait, HasSocialMedia;
 
     /**
      * The attributes that aren't mass assignable.
@@ -25,25 +25,6 @@ class RestCenter extends Model implements HasMedia
     protected $appends = [ 'class', 'social_media_sites' ];
 
     protected $casts = [ 'is_paid' => 'boolean' ];
-
-    /**
-     * Get the route key for the model.
-     *
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
-    public function sluggable()
-    {
-        return [
-            'slug' => [
-                'source' => 'name'
-            ]
-        ];
-    }
 
     public function getContactsAttribute($contacts)
     {
