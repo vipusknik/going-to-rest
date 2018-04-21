@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             $this->call(RestCentersTableSeeder::class);
             $this->call(AccomodationsTableSeeder::class);
             $this->call(MedicalCentersTableSeeder::class);
+            $this->call(KidCampsTableSeeder::class);
         }
     }
 }
