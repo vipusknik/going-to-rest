@@ -16,14 +16,4 @@ class MedicalCenter extends Model implements HasMediaInterface
     protected $appends = [ 'class', 'social_media_sites' ];
 
     protected $casts = [ 'is_paid' => 'boolean' ];
-
-    public function getContactsAttribute($contacts)
-    {
-        return explode(',', $contacts);
-    }
-
-    public function setContactsAttribute($contacts)
-    {
-        $this->attributes['contacts'] = implode(',', (array) $contacts);
-    }
 }

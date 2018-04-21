@@ -38,7 +38,7 @@
                 <div class="flex flex-wrap content-between">
                     <div class="text-sm mr-3 pr-3 border-r border-grey">
                         <span class="text-grey-dark mr-1"><i class="fas fa-phone"></i></span>
-                        <span>{{ restCenter.contacts.join(', ') }}</span>
+                        <span>{{ restCenter.contacts }}</span>
                     </div>
 
                     <div class="text-sm mr-3 pr-3 border-r border-grey">

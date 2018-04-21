@@ -85,7 +85,7 @@
                               <input class="input {{ $errors->has('contacts') ? ' is-danger' : '' }}"
                                      type="text"
                                      name="contacts"
-                                     value="{{ old('contacts', implode(',', $restCenter->contacts)) }}"
+                                     value="{{ old('contacts', $restCenter->contacts) }}"
                                      placeholder="Телефоны">
                             </div>
 

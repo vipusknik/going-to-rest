@@ -18,16 +18,6 @@ class RestCenter extends Model implements HasMediaInterface
 
     protected $casts = [ 'is_paid' => 'boolean' ];
 
-    public function getContactsAttribute($contacts)
-    {
-        return explode(',', $contacts);
-    }
-
-    public function setContactsAttribute($contacts)
-    {
-        $this->attributes['contacts'] = implode(',', (array) $contacts);
-    }
-
     public function accomodations()
     {
         return $this->hasMany(Accomodation::class);
