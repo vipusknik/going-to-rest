@@ -21,13 +21,18 @@ Vue.component('rest-centers-app', require('./components/RestCenters/App.vue'));
 Vue.component('medical-centers-app', require('./components/MedicalCenters/App.vue'));
 Vue.component('rest-center-accomodations-app', require('./components/RestCenters/Accomodations/App.vue'));
 
+Vue.component('kid-camps-app', require('./components/KidCamps/App.vue'));
+
 Vue.component('features-attach', require('./components/Features/FeaturesAttach.vue'));
 Vue.component('features-attached', require('./components/Features/FeaturesAttached.vue'));
 
 Vue.component('paid-companies-button', require('./components/PaidCompanies/PaidCompaniesButton.vue'));
 
+Vue.component("image-upload-widget", require("./components/ImageUpload/Widget.vue"));
+
 Vue.component('wysiwig', require('./components/Wysiwig.vue'));
 Vue.component("flash", require("./components/Flash.vue"));
+
 
 window.events = new Vue();
 

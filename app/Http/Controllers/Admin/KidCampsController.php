@@ -16,9 +16,19 @@ class KidCampsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->expectsJson()) {
+            $query = $request->input('query');
+
+            $kidCamps = KidCamp::where('name', 'like', "%$query%")->get();
+
+            return compact('kidCamps');
+        }
+
+        $kidCamps = KidCamp::latest()->get();
+
+        return view('admin.kid-camps.index', compact('kidCamps'));
     }
 
     /**
@@ -63,7 +73,9 @@ class KidCampsController extends Controller
      */
     public function show(KidCamp $kidCamp)
     {
-        //
+        $kidCamp->load('features', 'media', 'social_media');
+
+        return response(compact('kidCamp'), 200);
     }
 
     /**

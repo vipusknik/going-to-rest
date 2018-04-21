@@ -3,19 +3,19 @@
         <div class="action-buttons mb-8">
             <div class="flex">
                 <div class="control is-grouped">
-                    <a :href="`/admin/medical-centers/${medicalCenter.slug}/edit`"
+                    <a :href="`/admin/kid-camps/${kidCamp.slug}/edit`"
                        class="button is-small bg-grey-lighter"
                        title="Перейти в редактирование">
                         <i class="fas fa-edit"></i>
                     </a>
 
-                    <a @click.prevent="remove" class="button is-small bg-grey-lighter" title="Удалить медицинский центр">
+                    <a @click.prevent="remove" class="button is-small bg-grey-lighter" title="Удалить детский лагерь">
                         <i class="fa fa-trash"></i>
                     </a>
                 </div>
 
                 <div class="control ml-auto mr-2">
-                    <paid-companies-button :model="medicalCenter"></paid-companies-button>
+                    <paid-companies-button :model="kidCamp"></paid-companies-button>
                 </div>
             </div>
         </div>
@@ -24,17 +24,13 @@
         <div class="p-4 border border-grey-light rounded">
             <div class="mb-4 pb-4 border-b border-grey-light">
                 <div class="mb-1">
-                    <h3 class="text-base text-black font-semibold">
-                        {{ medicalCenter.name }}
-                    </h3>
+                    <h3 class="text-base text-black font-semibold" v-text="kidCamp.name"></h3>
                 </div>
 
-                <div class="text-base text-grey-dark">
-                    {{ medicalCenter.location }}
-                </div>
+                <div class="text-base text-grey-dark" v-text="kidCamp.location"></div>
 
                 <div class="text-sm text-grey-dark">
-                    <span class="text-grey">Распространение путевок:</span> {{ medicalCenter.distribution_address }}
+                    <span class="text-grey">Распространение путевок:</span> {{ kidCamp.distribution_address }}
                 </div>
             </div>
 
@@ -42,42 +38,42 @@
                 <div class="flex flex-wrap content-between">
                     <div class="text-sm mr-3 pr-3 border-r border-grey">
                         <span class="text-grey-dark mr-1"><i class="fas fa-phone"></i></span>
-                        <span>{{ medicalCenter.contacts.join(', ') }}</span>
+                        <span>{{ kidCamp.contacts }}</span>
                     </div>
 
                     <div class="text-sm mr-3 pr-3 border-r border-grey">
                         <span class="text-grey-dark mr-1"><i class="fas fa-envelope"></i></span>
-                        <span>{{ medicalCenter.email }}</span>
+                        <span>{{ kidCamp.email }}</span>
                     </div>
 
                     <div class="text-sm mr-3 pr-3 border-r border-grey">
                         <span class="text-grey-dark mr-1"><i class="fas fa-link"></i></span>
                         <span>
-                            <a :href="medicalCenter.site_link"
+                            <a :href="kidCamp.site_link"
                                target="_blank"
                                class="text-blue-light no-underline hover:underline">
-                                {{ medicalCenter.site_link }}
+                                {{ kidCamp.site_link }}
                             </a>
                         </span>
                     </div>
 
-                    <div v-if="medicalCenter.social_media_sites.vk" class="text-sm mr-3 pr-3 border-r border-grey">
+                    <div v-if="kidCamp.social_media_sites.vk" class="text-sm mr-3 pr-3 border-r border-grey">
                         <span class="text-red-lighter mr-1"><i class="fab fa-vk"></i></span>
                         <span>
-                            <a :href="medicalCenter.social_media_sites.vk"
-                               v-text="medicalCenter.social_media_sites.vk"
+                            <a :href="kidCamp.social_media_sites.vk"
+                               v-text="kidCamp.social_media_sites.vk"
                                target="_blank"
                                class="text-red-lighter no-underline hover:underline">
                             </a>
                         </span>
                     </div>
 
-                    <div v-if="medicalCenter.social_media_sites.instagram"
+                    <div v-if="kidCamp.social_media_sites.instagram"
                          class="text-sm mr-3 pr-3 border-r border-grey">
                         <span class="text-red-lighter mr-1"><i class="fab fa-instagram"></i></span>
                         <span>
-                            <a :href="medicalCenter.social_media_sites.instagram"
-                               v-text="medicalCenter.social_media_sites.instagram"
+                            <a :href="kidCamp.social_media_sites.instagram"
+                               v-text="kidCamp.social_media_sites.instagram"
                                target="_blank"
                                class="text-red-lighter no-underline hover:underline">
                                 https://instagram.com/hey
@@ -85,12 +81,12 @@
                         </span>
                     </div>
 
-                    <div v-if="medicalCenter.social_media_sites.facebook"
+                    <div v-if="kidCamp.social_media_sites.facebook"
                          class="text-sm mr-3 pr-3 border-r border-grey">
                         <span class="text-red-lighter mr-1"><i class="fab fa-facebook"></i></span>
                         <span>
-                            <a :href="medicalCenter.social_media_sites.facebook"
-                               v-text="medicalCenter.social_media_sites.facebook"
+                            <a :href="kidCamp.social_media_sites.facebook"
+                               v-text="kidCamp.social_media_sites.facebook"
                                target="_blank"
                                class="text-red-lighter no-underline hover:underline">
                             </a>
@@ -100,16 +96,24 @@
             </div>
 
             <!-- features -->
-            <features-attached v-if="medicalCenter.features.length" :features="medicalCenter.features" class="mb-6"></features-attached>
+            <features-attached v-if="kidCamp.features.length" :features="kidCamp.features" class="mb-6"></features-attached>
 
             <!-- images -->
-            <image-upload-widget :model="medicalCenter"
-                                 :images-attached="medicalCenter.media"
-                                 class="mb-4">
+            <image-upload-widget :model="kidCamp" :images-attached="kidCamp.media" class="mb-4">
             </image-upload-widget>
 
             <div>
-                <div v-html="medicalCenter.description" class="text-sm"></div>
+                <div class="mb-3 pb-3 border-b border-blue-lighter">
+                    <h3 class="text-grey-darker font-bold">Проживание:</h3>
+                    <div v-html="kidCamp.accomodation" class="text-sm mb-2"></div>
+
+                    <div>
+                        <span class="text-grey-darker font-bold">Стоимость: </span>
+                        <span v-text="kidCamp.cost" class="text-sm"></span>
+                    </div>
+                </div>
+
+                <div v-html="kidCamp.description" class="text-sm"></div>
             </div>
         </div>
     </div>
@@ -117,16 +121,16 @@
 
 <script>
     export default {
-        props: [ 'medicalCenter' ],
+        props: [ 'kidCamp' ],
 
         methods: {
             remove() {
-                if (! confirm('Удалить медицинский центр?')) return;
+                if (! confirm('Удалить детский лагерь?')) return;
 
-                axios.delete(`/admin/medical-centers/${this.medicalCenter.slug}`)
+                axios.delete(`/admin/kid-camps/${this.kidCamp.slug}`)
                     .then(response => {
-                        this.$emit('destroyed', this.medicalCenter);
-                        flash('Медицинский центр удален');
+                        this.$emit('destroyed', this.kidCamp);
+                        flash('Детский лагерь удален');
                     });
             }
         }

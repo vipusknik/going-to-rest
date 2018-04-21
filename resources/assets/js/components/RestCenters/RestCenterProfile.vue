@@ -186,11 +186,7 @@
 </template>
 
 <script>
-    import ImageUploadWidget from '../ImageUpload/Widget.vue';
-
     export default {
-        components: { ImageUploadWidget },
-
         props: [ 'restCenter' ],
 
         methods: {

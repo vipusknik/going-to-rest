@@ -21,7 +21,7 @@ class CreateKidCampsTest extends TestCase
     {
         $kidCamp = make('App\KidCamp', [ 'name' => '' ]);
 
-        $this->post(route('admin.kid-camps.store'), $kidCamp->toArray())
+        $this->post(route('admin.kid-camps.store'), $kidCamp->getAttributes())
             ->assertSessionHasErrors('name');
     }
 
@@ -32,7 +32,7 @@ class CreateKidCampsTest extends TestCase
 
         $kidCamp = make('App\KidCamp', [ 'name' => $existingName ]);
 
-        $this->post(route('admin.kid-camps.store'), $kidCamp->toArray())
+        $this->post(route('admin.kid-camps.store'), $kidCamp->getAttributes())
             ->assertSessionHasErrors('name');
     }
 
@@ -41,7 +41,7 @@ class CreateKidCampsTest extends TestCase
     {
         $camp = make('App\KidCamp', [ 'location' => '' ]);
 
-        $this->post(route('admin.kid-camps.store'), $camp->toArray())
+        $this->post(route('admin.kid-camps.store'), $camp->getAttributes())
             ->assertSessionHasErrors('location');
     }
 
@@ -50,7 +50,7 @@ class CreateKidCampsTest extends TestCase
     {
         $camp = make('App\KidCamp');
 
-        $this->post(route('admin.kid-camps.store'), $camp->toArray());
+        $this->post(route('admin.kid-camps.store'), $camp->getAttributes());
 
         $this->assertDatabaseHas('kid_camps', [ 'name' => $camp->name ]);
     }
@@ -58,6 +58,8 @@ class CreateKidCampsTest extends TestCase
     /** @test */
     function features_can_be_attached_to_a_kid_camp()
     {
+        $this->se();
+
         $camp = make('App\KidCamp');
 
         $feature = create(
@@ -65,7 +67,7 @@ class CreateKidCampsTest extends TestCase
             [ 'belongs_to' => Feature::OF_KID_CAMP, 'category' => Feature::CATEGORY_OCCUPATIONS ]
         );
 
-        $this->post(route('admin.kid-camps.store'), $camp->toArray() + [ 'features' => [ $feature->id => '' ] ]);
+        $this->post(route('admin.kid-camps.store'), $camp->getAttributes() + [ 'features' => [ $feature->id => '' ] ]);
 
         $this->assertCount(1, KidCamp::first()->features);
     }

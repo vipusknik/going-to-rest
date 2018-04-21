@@ -7,7 +7,9 @@ use App\Traits\HasFeatures;
 use App\Traits\HasSocialMedia;
 use App\Traits\HasMedia;
 
-class KidCamp extends Model
+use Spatie\MediaLibrary\HasMedia\HasMedia as HasMediaInterface;
+
+class KidCamp extends Model implements HasMediaInterface
 {
     use HasSlug, HasFeatures, HasSocialMedia, HasMedia;
 

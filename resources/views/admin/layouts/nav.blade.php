@@ -19,6 +19,10 @@
         <a class="navbar-item text-black font-semibold" href="{{ route('admin.medical-centers.index') }}">
           Медицинский туризм
         </a>
+
+        <a class="navbar-item text-black font-semibold" href="{{ route('admin.kid-camps.index') }}">
+          Детский отдых
+        </a>
       </div>
 
       <div class="navbar-end">
