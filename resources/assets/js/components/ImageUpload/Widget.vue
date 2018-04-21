@@ -11,7 +11,8 @@
         </div>
 
         <div v-if="images.length" class="flex flex-wrap mt-4">
-            <image-uploaded v-for="image in images" :key="image.id" :image-initial="image" @destroyed="destroy"></image-uploaded>
+            <image-uploaded v-for="image in images" :key="image.id" :image-initial="image" @destroyed="destroy">
+            </image-uploaded>
         </div>
     </div>
 </template>

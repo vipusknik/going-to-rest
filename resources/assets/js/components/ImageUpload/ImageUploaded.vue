@@ -5,6 +5,11 @@
                  class="block w-24 h-24 rounded-sm shadow-lg">
         </a>
 
+        <!-- Main image badge -->
+        <div v-if="isMain" class="absolute pin-t pin-l pl-2 pr-3 bg-green rounded-tl-sm rounded-br-full" title="Это изображение главное">
+            <i class="fas fa-check text-base text-white"></i>
+        </div>
+
         <div class="
                 absolute
                 pin-b
@@ -45,6 +50,14 @@
             };
         },
 
+        mounted() {
+            window.events.$on('main-image:set', image => {
+                if (image.id !== this.image.id) {
+                    this.image.collection_name = 'images';
+                }
+            });
+        },
+
         computed: {
             isMain() {
                 return this.image.collection_name === 'main-image';
@@ -68,6 +81,7 @@
                         id: this.$parent.model.id
                     })
                     .then(response => {
+                        window.events.$emit('main-image:set', this.image);
                         this.image = response.data.image;
                         flash('Изображение выбрано как главное.');
                     })
