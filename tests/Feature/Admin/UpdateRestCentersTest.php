@@ -18,18 +18,6 @@ class UpdateRestCentersTest extends TestCase
     }
 
     /** @test */
-    function rest_center_edit_page_is_available_to_admins_only()
-    {
-        $restCenter = create('App\RestCenter');
-
-        $this->signIn();
-        $this->get(route('admin.rest-centers.edit', $restCenter))->assertStatus(403);
-
-        $this->signInAdmin();
-        $this->get(route('admin.rest-centers.edit', $restCenter))->assertStatus(200);
-    }
-
-    /** @test */
     function rest_center_name_has_to_be_unique_on_update()
     {
         $restCenter = create('App\RestCenter');
@@ -39,8 +27,7 @@ class UpdateRestCentersTest extends TestCase
         $this->patch(
                 route('admin.rest-centers.update', $anotherRestCenter),
                 [ 'name' => $restCenter->name ] + $anotherRestCenter->toArray()
-            )
-            ->assertSessionHasErrors('name');
+            )->assertSessionHasErrors('name');
     }
 
     /** @test */
@@ -81,36 +68,24 @@ class UpdateRestCentersTest extends TestCase
     /** @test */
     function rest_center_features_can_be_updated()
     {
-        $restCenter = make('App\RestCenter');
+        $restCenter = create('App\RestCenter');
 
-        create('App\Feature', [], 30);
+        $feature1 = create('App\Feature');
 
-        $features = [];
+        $restCenter->attachFeatures([ $feature1->id => '' ]);
 
-        foreach (Feature::inRandomOrder()->get() as $feature) {
-            $features[$feature->id] = array_random([ 'word', null ]);
-        }
+        $this->assertCount(1, $restCenter->features);
 
-        $this->post(route('admin.rest-centers.store'), $restCenter->getAttributes() + [ 'features' => $features ]);
+        $feature2 = create('App\Feature');
 
-        $restCenter = RestCenter::first();
-
-        $this->assertEquals(Feature::all()->count(), $restCenter->features->count());
-
-        create('App\Feature', [], 20);
-
-        $features = [];
-
-        foreach (Feature::inRandomOrder()->get() as $feature) {
-            $features[$feature->id] = array_random([ 'word', null ]);
-        }
+        $features = [ $feature1->id => '', $feature2->id => '' ];
 
         $this->patch(
                 route('admin.rest-centers.update', $restCenter),
                 [ 'features' => $features ] + $restCenter->getAttributes()
             );
 
-        $this->assertEquals(30 + 20, $restCenter->fresh()->features->count());
+        $this->assertCount(2, $restCenter->fresh()->features);
     }
 
     /** @test */

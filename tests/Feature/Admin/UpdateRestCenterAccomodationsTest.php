@@ -13,49 +13,29 @@ class UpdateRestCenterAccomodationsTest extends TestCase
     /** @test */
     function accomodation_features_can_be_updated()
     {
-        $this->withoutExceptionHandling();
-        $accomodation = make('App\Accomodation');
+        $restCenter = create('App\RestCenter');
 
-        create('App\Feature', [], 30);
+        $accomodation = create('App\Accomodation', [ 'rest_center_id' => $restCenter->id ]);
 
-        $features = [];
+        $feature1 = create('App\Feature');
 
-        foreach (Feature::inRandomOrder()->get() as $feature) {
-            $features[$feature->id] = array_random([ 'word', null ]);
-        }
+        $accomodation->attachFeatures([ $feature1->id => '' ]);
 
-        $restCenter = RestCenter::find($accomodation->rest_center_id);
+        $this->assertCount(1, $accomodation->fresh()->features);
 
-        $this->post(
-                route('admin.rest-centers.accomodations.store', $restCenter),
-                $accomodation->getAttributes() + [ 'features' => $features ]
-            );
-
-        $accomodation = $restCenter->fresh()->accomodations->first();
-
-        $this->assertEquals(Feature::all()->count(), $accomodation->features->count());
-
-        create('App\Feature', [], 20);
-
-        $features = [];
-
-        foreach (Feature::inRandomOrder()->get() as $feature) {
-            $features[$feature->id] = array_random([ 'word', null ]);
-        }
+        $feature2 = create('App\Feature');
 
         $this->patch(
                 route('admin.rest-centers.accomodations.update', [ $restCenter, $accomodation ]),
-                [ 'features' => $features ] + $accomodation->getAttributes()
+                [ 'features' => [ $feature1->id => '', $feature2->id => '' ] ] + $accomodation->getAttributes()
             );
 
-        $this->assertEquals(30 + 20, $accomodation->fresh()->features->count());
+        $this->assertCount(2, $accomodation->fresh()->features);
     }
 
     /** @test */
     function accomodation_can_be_updated()
     {
-        $this->withoutExceptionHandling();
-
         $accomodation = create('App\Accomodation');
 
         $restCenter = $accomodation->restCenter;

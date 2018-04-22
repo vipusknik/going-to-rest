@@ -7,8 +7,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 abstract class TestCase extends BaseTestCase
 {
-    use CreatesApplication;
-    use RefreshDatabase;
+    use CreatesApplication, RefreshDatabase;
 
     public function setUp()
     {

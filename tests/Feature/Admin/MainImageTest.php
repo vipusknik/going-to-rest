@@ -16,7 +16,9 @@ class MainImageTest extends TestCase
 
         Storage::fake('public');
 
-        $this->model = create(array_random([ 'App\RestCenter', 'App\MedicalCenter' ]));
+        $this->model = create(
+            array_random([ 'App\RestCenter', 'App\MedicalCenter' ])
+        );
     }
 
     /** @test */

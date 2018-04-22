@@ -12,8 +12,8 @@ class CreateKidCampsTest extends TestCase
     /** @test */
     function kid_camp_create_page_can_be_visited()
     {
-        $this->se();
-        $this->get(route('admin.kid-camps.create'))->assertStatus(200);
+        $this->get(route('admin.kid-camps.create'))
+            ->assertSuccessful();
     }
 
     /** @test */
@@ -21,8 +21,9 @@ class CreateKidCampsTest extends TestCase
     {
         $kidCamp = make('App\KidCamp', [ 'name' => '' ]);
 
-        $this->post(route('admin.kid-camps.store'), $kidCamp->getAttributes())
-            ->assertSessionHasErrors('name');
+        $this->post(
+                route('admin.kid-camps.store'), $kidCamp->getAttributes()
+            )->assertSessionHasErrors('name');
     }
 
     /** @test */
@@ -32,8 +33,9 @@ class CreateKidCampsTest extends TestCase
 
         $kidCamp = make('App\KidCamp', [ 'name' => $existingName ]);
 
-        $this->post(route('admin.kid-camps.store'), $kidCamp->getAttributes())
-            ->assertSessionHasErrors('name');
+        $this->post(
+                route('admin.kid-camps.store'), $kidCamp->getAttributes()
+            )->assertSessionHasErrors('name');
     }
 
     /** @test */
@@ -41,8 +43,9 @@ class CreateKidCampsTest extends TestCase
     {
         $camp = make('App\KidCamp', [ 'location' => '' ]);
 
-        $this->post(route('admin.kid-camps.store'), $camp->getAttributes())
-            ->assertSessionHasErrors('location');
+        $this->post(
+                route('admin.kid-camps.store'), $camp->getAttributes()
+            )->assertSessionHasErrors('location');
     }
 
     /** @test */
@@ -58,8 +61,6 @@ class CreateKidCampsTest extends TestCase
     /** @test */
     function features_can_be_attached_to_a_kid_camp()
     {
-        $this->se();
-
         $camp = make('App\KidCamp');
 
         $feature = create(
@@ -67,7 +68,10 @@ class CreateKidCampsTest extends TestCase
             [ 'belongs_to' => Feature::OF_KID_CAMP, 'category' => Feature::CATEGORY_OCCUPATIONS ]
         );
 
-        $this->post(route('admin.kid-camps.store'), $camp->getAttributes() + [ 'features' => [ $feature->id => '' ] ]);
+        $this->post(
+            route('admin.kid-camps.store'),
+            $camp->getAttributes() + [ 'features' => [ $feature->id => '' ] ]
+        );
 
         $this->assertCount(1, KidCamp::first()->features);
     }

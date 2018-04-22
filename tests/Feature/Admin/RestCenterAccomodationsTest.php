@@ -19,10 +19,10 @@ class RestCenterAccomodationsTest extends TestCase
                 $accomodation->getAttributes() + [ 'features' => [] ]
             );
 
-        $this->assertEquals(1, $restCenter->accomodations->count());
+        $this->assertCount(1, $restCenter->accomodations);
 
         $attachedAccomodation = $restCenter->accomodations->first();
         $this->delete(route('admin.rest-centers.accomodations.destroy', [ $restCenter, $attachedAccomodation ]));
-        $this->assertEquals(0, $restCenter->fresh()->accomodations->count());
+        $this->assertCount(0, $restCenter->fresh()->accomodations);
     }
 }

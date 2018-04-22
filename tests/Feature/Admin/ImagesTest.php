@@ -26,7 +26,8 @@ class ImagesTest extends TestCase
     /** @test */
     function uploaded_file_is_required()
     {
-        $this->post(route('admin.images.store'), [ 'image' => null ])->assertSessionHasErrors('image');
+        $this->post(route('admin.images.store'), [ 'image' => null ])
+            ->assertSessionHasErrors('image');
     }
 
     /** @test */
@@ -40,20 +41,20 @@ class ImagesTest extends TestCase
         $this->post(
                 route('admin.images.store'),
                 [ 'image' => UploadedFile::fake()->image('image.jpg') ]
-            )->assertSessionMissing('image');
+            )->assertSessionMissing('errors.image');
     }
 
     /** @test */
     function uploaded_file_size_has_to_be_less_than_20_mb()
     {
-        $size = 11 * 2000; // 22 megs
+        $size = 22 * 1000; // 22 megs
 
         $this->post(
                 route('admin.images.store'),
                 [ 'image' => UploadedFile::fake()->create('avatar.png', $size) ]
             )->assertSessionHasErrors('image');
 
-        $size = 9 * 2000; // 18 megs
+        $size = 18 * 1000; // 18 megs
 
         $this->post(
                 route('admin.images.store'),
@@ -81,7 +82,7 @@ class ImagesTest extends TestCase
         $this->post(
                 route('admin.images.store'),
                 [ 'image' => UploadedFile::fake()->image('image.jpg'), 'class' => 'App\MedicalCenter' ]
-            )->assertSessionMissing('class');
+            )->assertSessionMissing('errors.class');
     }
 
     /** @test */
@@ -112,7 +113,11 @@ class ImagesTest extends TestCase
     {
         $this->post(
                 route('admin.images.store'),
-                [ 'image' => UploadedFile::fake()->image('image.jpg'), 'class' => get_class($this->model), 'id' => $this->model->id ]
+                [
+                    'image' => UploadedFile::fake()->image('image.jpg'),
+                    'class' => get_class($this->model),
+                    'id' => $this->model->id
+                ]
             );
 
         $this->assertCount(1, $this->model->fresh()->media);

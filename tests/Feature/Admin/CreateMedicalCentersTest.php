@@ -11,7 +11,7 @@ class CreateMedicalCentersTest extends TestCase
     /** @test */
     function create_medical_center_page_can_be_visited()
     {
-        $this->get(route('admin.medical-centers.create'))->assertStatus(200);
+        $this->get(route('admin.medical-centers.create'))->assertSuccessful();
     }
 
     /** @test */
@@ -19,8 +19,9 @@ class CreateMedicalCentersTest extends TestCase
     {
         $medicalCenter = make('App\MedicalCenter', [ 'name' => '' ]);
 
-        $this->post(route('admin.medical-centers.store'), $medicalCenter->getAttributes())
-            ->assertSessionHasErrors('name');
+        $this->post(
+                route('admin.medical-centers.store'), $medicalCenter->getAttributes()
+            )->assertSessionHasErrors('name');
     }
 
     /** @test */
@@ -39,8 +40,9 @@ class CreateMedicalCentersTest extends TestCase
     {
         $medicalCenter = make('App\MedicalCenter', [ 'location' => '' ]);
 
-        $this->post(route('admin.medical-centers.store'), $medicalCenter->getAttributes())
-            ->assertSessionHasErrors('location');
+        $this->post(
+                route('admin.medical-centers.store'), $medicalCenter->getAttributes()
+            )->assertSessionHasErrors('location');
     }
 
     /** @test */

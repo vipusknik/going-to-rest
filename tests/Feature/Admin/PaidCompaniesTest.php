@@ -29,14 +29,13 @@ class PaidCompaniesTest extends TestCase
             route('admin.paid-companies.store'),
             [ 'class' => get_class($restCenter), 'id' => $restCenter->id ]
         );
+
         $this->assertNull(session('errors'));
     }
 
     /** @test */
     function rest_center_paid_status_can_be_toggled()
     {
-        $this->withoutExceptionHandling();
-
         $restCenter = create('App\RestCenter');
 
         $this->post(

@@ -16,7 +16,9 @@ class CreateRestCenterAccomodationsTest extends TestCase
     {
         $restCenter = create('App\RestCenter');
 
-        $this->get(route('admin.rest-centers.accomodations.index', $restCenter))->assertStatus(200);
+        $this->get(
+                route('admin.rest-centers.accomodations.index', $restCenter)
+            )->assertSuccessful();
     }
 
     /** @test */
@@ -24,10 +26,14 @@ class CreateRestCenterAccomodationsTest extends TestCase
     {
         $restCenter = create('App\RestCenter');
 
-        $accomodation = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id, 'guest_count' => null ]);
+        $accomodation = make(
+                'App\Accomodation',
+                [ 'rest_center_id' => $restCenter->id, 'guest_count' => null ]
+            );
 
-        $this->post(route('admin.rest-centers.accomodations.store', $restCenter), $accomodation->toArray())
-            ->assertSessionHasErrors('guest_count');
+        $this->post(
+                route('admin.rest-centers.accomodations.store', $restCenter), $accomodation->toArray()
+            )->assertSessionHasErrors('guest_count');
     }
 
     /** @test */
@@ -35,10 +41,14 @@ class CreateRestCenterAccomodationsTest extends TestCase
     {
         $restCenter = create('App\RestCenter');
 
-        $accomodations = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id, 'guest_count' => 'jshdgfkjshd' ]);
+        $accomodations = make(
+                'App\Accomodation',
+                [ 'rest_center_id' => $restCenter->id, 'guest_count' => 'string' ]
+            );
 
-        $this->post(route('admin.rest-centers.accomodations.store', $restCenter),$accomodations->toArray())
-            ->assertSessionHasErrors('guest_count');
+        $this->post(
+                route('admin.rest-centers.accomodations.store', $restCenter), $accomodations->toArray()
+            )->assertSessionHasErrors('guest_count');
     }
 
     /** @test */
@@ -48,8 +58,9 @@ class CreateRestCenterAccomodationsTest extends TestCase
 
         $accomodations = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id, 'guest_count' => 162476219847 ]);
 
-        $this->post(route('admin.rest-centers.accomodations.store', $restCenter),$accomodations->toArray())
-            ->assertSessionHasErrors('guest_count');
+        $this->post(
+                route('admin.rest-centers.accomodations.store', $restCenter), $accomodations->toArray()
+            )->assertSessionHasErrors('guest_count');
     }
 
     /** @test */
@@ -59,8 +70,9 @@ class CreateRestCenterAccomodationsTest extends TestCase
 
         $accomodations = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id, 'price_per_day' => null ]);
 
-        $this->post(route('admin.rest-centers.accomodations.store', $restCenter), $accomodations->toArray())
-            ->assertSessionHasErrors('price_per_day');
+        $this->post(
+                route('admin.rest-centers.accomodations.store', $restCenter), $accomodations->toArray()
+            )->assertSessionHasErrors('price_per_day');
     }
 
     /** @test */
@@ -70,8 +82,9 @@ class CreateRestCenterAccomodationsTest extends TestCase
 
         $accomodations = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id, 'type' => null ]);
 
-        $this->post(route('admin.rest-centers.accomodations.store', $restCenter), $accomodations->toArray())
-            ->assertSessionHasErrors('type');
+        $this->post(
+                route('admin.rest-centers.accomodations.store', $restCenter), $accomodations->toArray()
+            )->assertSessionHasErrors('type');
     }
 
     /** @test */
@@ -97,33 +110,23 @@ class CreateRestCenterAccomodationsTest extends TestCase
                 $accomodation->getAttributes()
             );
 
-        $this->assertEquals(1, $restCenter->accomodations->count());
+        $this->assertCount(1, $restCenter->accomodations);
     }
 
     /** @test */
     function features_can_be_attached_to_a_newly_created_accomodation()
     {
-        $this->withoutExceptionHandling();
-
         $restCenter = create('App\RestCenter');
 
         $accomodation = make('App\Accomodation', [ 'rest_center_id' => $restCenter->id ]);
 
-        create('App\Feature', [ 'belongs_to' => 'accomodation' ], 30);
-
-        $features = [];
-
-        foreach (Feature::inRandomOrder()->get() as $feature) {
-            $features[$feature->id] = array_random([ 'word', null ]);
-        }
+        $feature = create('App\Feature', [ 'belongs_to' => 'accomodation' ]);
 
         $this->post(
                 route('admin.rest-centers.accomodations.store', $restCenter),
-                $accomodation->getAttributes() + [ 'features' => $features ]
+                $accomodation->getAttributes() + [ 'features' => [ $feature->id => '' ] ]
             );
 
-        // dd($restCenter->accomodations->first()->features->count());
-
-        $this->assertEquals(30, $restCenter->accomodations->first()->features->count());
+        $this->assertCount(1, $restCenter->accomodations->first()->features);
     }
 }

@@ -10,7 +10,7 @@ class MedicalCentersTest extends TestCase
     /** @test */
     function index_page_can_be_visited()
     {
-        $this->get('/admin/medical-centers')->assertStatus(200);
+        $this->get('/admin/medical-centers')->assertSuccessful();
     }
 
     /** @test */
@@ -39,7 +39,7 @@ class MedicalCentersTest extends TestCase
     {
         $medicalCenter = create('App\MedicalCenter');
 
-        $this->delete(route('admin.medical-centers.destroy', $medicalCenter))->assertStatus(200);
+        $this->delete(route('admin.medical-centers.destroy', $medicalCenter))->assertSuccessful();
 
         $this->assertDataBaseMissing('medical_centers', [ 'id' => $medicalCenter->id ]);
     }

@@ -5,28 +5,16 @@ namespace Tests\Feature\Admin;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 
-use App\RestCenter;
 use App\Feature;
+use App\RestCenter;
 
 class CreateRestCentersTest extends TestCase
 {
     /** @test */
-    function only_admins_can_visit_rest_center_create_page()
-    {
-        $this->signIn();
-        $this->get(route('admin.rest-centers.create'))
-            ->assertStatus(403);
-
-        $this->signInAdmin();
-        $this->get(route('admin.rest-centers.create'))
-            ->assertStatus(200);
-    }
-
-    /** @test */
     function rest_center_create_page_can_be_visited()
     {
         $this->get(route('admin.rest-centers.create'))
-            ->assertSee('Добавление базы отдыха');
+            ->assertSuccessful();
     }
 
     /** @test */
@@ -93,24 +81,22 @@ class CreateRestCentersTest extends TestCase
 
         $this->post(route('admin.rest-centers.store'), $restCenter->getAttributes());
 
-        $this->assertEquals(1, RestCenter::all()->count());
+        $this->assertCount(1, RestCenter::all());
     }
 
     /** @test */
     function features_can_be_attached_to_a_rest_center()
     {
         $restCenter = make('App\RestCenter');
-        create('App\Feature', [], 30);
 
-        $features = [];
+        $feature = create('App\Feature');
 
-        foreach (Feature::inRandomOrder()->get() as $feature) {
-            $features[$feature->id] = array_random([ 'word', null ]);
-        }
+        $this->post(
+                route('admin.rest-centers.store'),
+                $restCenter->getAttributes() + [ 'features' => [ $feature->id => '' ] ]
+            );
 
-        $this->post(route('admin.rest-centers.store'), $restCenter->getAttributes() + [ 'features' => $features ]);
-
-        $this->assertEquals(Feature::all()->count(), RestCenter::first()->features->count());
+        $this->assertCount(1, RestCenter::first()->features);
     }
 
     /** @test */
@@ -118,16 +104,11 @@ class CreateRestCentersTest extends TestCase
     {
         $restCenter = make('App\RestCenter');
 
-        $socialMedia = [
-            'VK' => 'https://link.com',
-            'Instagram' => 'https://link.com',
-            'Facebook' => 'https://link.com'
-        ];
-
         $this->post(
-                route('admin.rest-centers.store'), [ 'social_media' => $socialMedia ] + $restCenter->getAttributes()
+                route('admin.rest-centers.store'),
+                [ 'social_media' => [ 'VK' => 'https://link.com', ] ] + $restCenter->getAttributes()
             );
 
-        $this->assertEquals(3, RestCenter::first()->social_media->count());
+        $this->assertCount(1, RestCenter::first()->social_media);
     }
 }

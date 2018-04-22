@@ -1,29 +1,12 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Admin;
 
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\WithFaker;
 use App\Feature;
 
 class FeaturesTest extends TestCase
 {
-    /** @test */
-    public function only_admins_are_allowed_to_create_new_features()
-    {
-        $this->signIn();
-
-        $feature = make('App\Feature');
-
-        $this->post(route('admin.features.store'), $feature->getAttributes())
-            ->assertStatus(403);
-
-        $this->signInAdmin();
-
-        $this->post(route('admin.features.store'), $feature->getAttributes())
-            ->assertStatus(200);
-    }
-
     /** @test */
     function a_new_feature_requires_a_name()
     {
@@ -36,16 +19,17 @@ class FeaturesTest extends TestCase
     /** @test */
     function feature_name_has_to_be_unique_by_belongs_to_attribute()
     {
-        $restCenterFeature = make('App\Feature', ['name' => 'Купание', 'belongs_to' => 'rest_center']);
-        $this->post(route('admin.features.store'), $restCenterFeature->getAttributes())
-            ->assertStatus(200);
+        $feature = create(
+            'App\Feature', [ 'name' => 'Купание', 'belongs_to' => 'rest_center' ]
+        );
 
-        $this->post(route('admin.features.store'), $restCenterFeature->getAttributes())
-            ->assertSessionHasErrors('name');
+        $this->post(
+                route('admin.features.store'), $feature->getAttributes()
+            )->assertSessionHasErrors('name');
 
-        $accomodationFeature = make('App\Feature', ['name' => 'Купание', 'belongs_to' => 'accomodation']);
-        $this->post(route('admin.features.store'), $accomodationFeature->getAttributes())
-            ->assertStatus(200);
+        $this->post(
+                route('admin.features.store'), $feature->getAttributes() + [ 'belongs_to' => 'accomodation' ]
+            )->assertSessionMissing('errors.name');
     }
 
     /** @test */
@@ -60,9 +44,7 @@ class FeaturesTest extends TestCase
     /** @test */
     function a_new_feature_requires_a_belongs_to_attribute()
     {
-        // $this->withoutExceptionHandling();
-
-        $feature = make('App\Feature', ['belongs_to' => '']);
+        $feature = make('App\Feature', [ 'belongs_to' => '' ]);
 
         $this->post(route('admin.features.store'), $feature->getAttributes())
             ->assertSessionHasErrors('belongs_to');
@@ -75,7 +57,7 @@ class FeaturesTest extends TestCase
 
         $this->post(route('admin.features.store'), $feature->getAttributes());
 
-        $this->assertEquals(1, \App\Feature::all()->count());
+        $this->assertCount(1, Feature::all());
     }
 
     /** @test */
