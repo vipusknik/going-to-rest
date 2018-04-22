@@ -4,6 +4,10 @@ namespace App;
 
 class Feature extends Model
 {
+    public $timestamps = null;
+
+    protected $appends = [ 'category_in_russian' ];
+
     const OF_REST_CENTER    = 'rest_center';
     const OF_ACCOMODATION   = 'accomodation';
     const OF_MEDICAL_CENTER = 'medical_center';
@@ -19,10 +23,6 @@ class Feature extends Model
 
     // Kid camp categories
     const CATEGORY_OCCUPATIONS = 'occupations';
-
-    public $timestamps = null;
-
-    protected $appends = [ 'category_in_russian' ];
 
     public function getCategoryInRussianAttribute()
     {

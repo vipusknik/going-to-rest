@@ -2,21 +2,15 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Traits\HasFeatures;
 
 class Accomodation extends Model
 {
     use HasFeatures;
 
-    /**
-     * The attributes that aren't mass assignable.
-     *
-     * @var array
-     */
-    protected $guarded = [  ];
-
-    protected $appends = [ 'type_in_russian' ];
+    protected $appends = [
+        'type_in_russian'
+    ];
 
     /**
      * Turn off timestamps
@@ -32,7 +26,9 @@ class Accomodation extends Model
 
     public static function types()
     {
-        return [ static::TYPE_ROOM, static::TYPE_HOUSE ];
+        return [
+            static::TYPE_ROOM, static::TYPE_HOUSE
+        ];
     }
 
     public function getTypeInRussianAttribute()
