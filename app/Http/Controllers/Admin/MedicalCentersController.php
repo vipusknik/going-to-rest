@@ -21,13 +21,12 @@ class MedicalCentersController extends Controller
             $query = $request->input('query');
 
             $medicalCenters = MedicalCenter::where('name', 'like', "%$query%")
-                ->with([ 'features' ])
                 ->get();
 
             return compact('medicalCenters');
         }
 
-        $medicalCenters = MedicalCenter::with([ 'features' ])->latest()->get();
+        $medicalCenters = MedicalCenter::latest()->get();
 
         $features = Feature::whereBelongsTo(Feature::OF_MEDICAL_CENTER)->get();
 
@@ -41,7 +40,9 @@ class MedicalCentersController extends Controller
      */
     public function create()
     {
-        $features = Feature::where('belongs_to', Feature::OF_MEDICAL_CENTER)->get()->groupBy('category');
+        $features = Feature::whereBelongsTo(Feature::OF_MEDICAL_CENTER)
+            ->get()
+            ->groupBy('category');
 
         return view('admin.medical-centers.create', compact('features'));
     }
@@ -73,7 +74,7 @@ class MedicalCentersController extends Controller
     {
         $medicalCenter->load('features', 'media', 'social_media');
 
-        return response(compact('medicalCenter'), 200);
+        return compact('medicalCenter');
     }
 
     /**
@@ -86,7 +87,9 @@ class MedicalCentersController extends Controller
     {
         $medicalCenter->load('features');
 
-        $features = Feature::where('belongs_to', Feature::OF_MEDICAL_CENTER)->get()->groupBy('category');
+        $features = Feature::whereBelongsTo(Feature::OF_MEDICAL_CENTER)
+            ->get()
+            ->groupBy('category');
 
         return view('admin.medical-centers.edit', compact('medicalCenter', 'features'));
     }

@@ -20,13 +20,13 @@ class MainImagesController extends Controller
 
         $mainImage->update([ 'collection_name' => 'main-image' ]);
 
-        return response([ 'image' => $mainImage ], 200);
+        return response([ 'image' => $mainImage ]);
     }
 
     public function destroy(Media $mainImage)
     {
         $mainImage->update([ 'collection_name' => 'images' ]);
 
-        return response([ 'image' => $mainImage ], 200);
+        return response([ 'image' => $mainImage ]);
     }
 }

@@ -38,7 +38,9 @@ class KidCampsController extends Controller
      */
     public function create()
     {
-        $features = Feature::whereBelongsTo(Feature::OF_KID_CAMP)->get()->groupBy('category');
+        $features = Feature::whereBelongsTo(Feature::OF_KID_CAMP)
+            ->get()
+            ->groupBy('category');
 
         return view('admin.kid-camps.create', compact('features'));
     }
@@ -70,7 +72,7 @@ class KidCampsController extends Controller
     {
         $kidCamp->load('features', 'media', 'social_media');
 
-        return response(compact('kidCamp'), 200);
+        return compact('kidCamp');
     }
 
     /**
@@ -83,7 +85,9 @@ class KidCampsController extends Controller
     {
         $kidCamp->load('features');
 
-        $features = Feature::whereBelongsTo(Feature::OF_KID_CAMP)->get()->groupBy('category');
+        $features = Feature::whereBelongsTo(Feature::OF_KID_CAMP)
+            ->get()
+            ->groupBy('category');
 
         return view('admin.kid-camps.edit', compact('kidCamp', 'features'));
     }

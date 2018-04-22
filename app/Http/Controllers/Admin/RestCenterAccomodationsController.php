@@ -5,11 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\RestCenter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 use Illuminate\Validation\Rule;
 
-use App\Accomodation;
 use App\Feature;
+use App\Accomodation;
 
 class RestCenterAccomodationsController extends Controller
 {
@@ -17,7 +16,9 @@ class RestCenterAccomodationsController extends Controller
     {
         $restCenter->load('accomodations.features');
 
-        $features = Feature::where('belongs_to', Feature::OF_ACCOMODATION)->get()->groupBy('category');
+        $features = Feature::whereBelongsTo(Feature::OF_ACCOMODATION)
+            ->get()
+            ->groupBy('category');
 
         return view('admin.rest-centers.accomodations.index', compact('restCenter', 'features'));
     }
@@ -30,13 +31,10 @@ class RestCenterAccomodationsController extends Controller
      */
     public function store(RestCenter $restCenter, Request $request)
     {
-        $request->validate([
-            'guest_count' => 'required|integer',
-            'price_per_day' => 'required|integer',
-            'type' => [ 'required', Rule::in(Accomodation::types()) ],
-        ]);
+        $this->validateRequest($request);
 
-        $restCenter->accomodations()
+        $restCenter
+            ->accomodations()
             ->create($request->except('features'))
             ->attachFeatures($request->features);
 
@@ -52,11 +50,7 @@ class RestCenterAccomodationsController extends Controller
      */
     public function update(Request $request, RestCenter $restCenter, Accomodation $accomodation)
     {
-        $request->validate([
-            'guest_count' => 'required|integer',
-            'price_per_day' => 'required|integer',
-            'type' => [ 'required', Rule::in(Accomodation::types()) ],
-        ]);
+        $this->validateRequest($request);
 
         $accomodation->update($request->except('features'));
 
@@ -76,5 +70,14 @@ class RestCenterAccomodationsController extends Controller
         $accomodation->delete();
 
         return response([], 200);
+    }
+
+    protected function validateRequest(Request $request)
+    {
+        $request->validate([
+            'guest_count' => 'required|integer',
+            'price_per_day' => 'required|integer',
+            'type' => [ 'required', Rule::in(Accomodation::types()) ],
+        ]);
     }
 }

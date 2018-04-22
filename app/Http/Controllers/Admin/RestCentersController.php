@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\RestCentersRequest;
 
+use App\Feature;
 use App\RestCenter;
 use App\Reservoir;
-use App\Feature;
 
 class RestCentersController extends Controller
 {
@@ -23,13 +23,14 @@ class RestCentersController extends Controller
             $query = $request->input('query');
 
             $restCenters = RestCenter::where('name', 'like', "%$query%")
-                ->with([ 'reservoir', 'accomodations' ])
+                ->with('reservoir')
                 ->get();
 
             return compact('restCenters');
         }
 
-        $restCenters = RestCenter::with([ 'reservoir', 'accomodations' ])->latest()->get();
+        $restCenters = RestCenter::with('reservoir')->latest()->get();
+
         $reservoirs = Reservoir::all();
 
         return view('admin.rest-centers.index', compact('restCenters', 'reservoirs'));
@@ -44,9 +45,11 @@ class RestCentersController extends Controller
     {
         $reservoirs = Reservoir::all();
 
-        $features = Feature::where('belongs_to', Feature::OF_REST_CENTER)->get()->groupBy('category');
+        $features = Feature::whereBelongsTo(Feature::OF_REST_CENTER)
+            ->get()
+            ->groupBy('category');
 
-        return view('admin.rest-centers.create', compact('reservoirs', 'features', 'featureCategories'));
+        return view('admin.rest-centers.create', compact('reservoirs', 'features'));
     }
 
     /**
@@ -61,7 +64,8 @@ class RestCentersController extends Controller
             ->attachFeatures($request->features)
             ->attachSocialMedia($request->social_media);
 
-        return redirect()->route('admin.rest-centers.index')
+        return redirect()
+            ->route('admin.rest-centers.index')
             ->withFlash('База отдыха сохранена');
     }
 
@@ -90,9 +94,11 @@ class RestCentersController extends Controller
 
         $reservoirs = Reservoir::all();
 
-        $features = Feature::where('belongs_to', Feature::OF_REST_CENTER)->get()->groupBy('category');
+        $features = Feature::whereBelongsTo(Feature::OF_REST_CENTER)
+            ->get()
+            ->groupBy('category');
 
-        return view('admin.rest-centers.edit', compact('restCenter', 'reservoirs', 'features', 'featureCategories'));
+        return view('admin.rest-centers.edit', compact('restCenter', 'reservoirs', 'features'));
     }
 
     /**

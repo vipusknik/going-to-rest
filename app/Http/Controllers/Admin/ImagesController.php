@@ -26,7 +26,7 @@ class ImagesController extends Controller
             ->usingFileName($this->composeFileName($request->image))
             ->toMediaCollection('images');
 
-        return response()->json([ 'image' => $image ], 200);
+        return compact('image');
     }
 
     /**

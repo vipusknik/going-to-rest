@@ -27,9 +27,13 @@ class FeatureRequest extends FormRequest
         return [
             'name' => [
                 'required',
+
+                /**
+                 * Feature name has to be unique but only for its model
+                 */
                 Rule::unique('features')->where(function ($query) {
                     $query->where('belongs_to', request()->belongs_to);
-                }),
+                })
             ],
 
             'category' => 'required',
