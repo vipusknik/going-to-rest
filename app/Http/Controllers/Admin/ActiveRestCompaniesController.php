@@ -17,7 +17,9 @@ class ActiveRestCompaniesController extends Controller
      */
     public function index()
     {
-        //
+        $companies = ActiveRestCompany::latest()->get();
+
+        return view('admin.active-rest-companies.index', compact('companies'));
     }
 
     /**
@@ -62,7 +64,9 @@ class ActiveRestCompaniesController extends Controller
      */
     public function show(ActiveRestCompany $activeRestCompany)
     {
-        //
+        $activeRestCompany->load('activities', 'social_media', 'media');
+
+        return [ 'company' => $activeRestCompany ];
     }
 
     /**

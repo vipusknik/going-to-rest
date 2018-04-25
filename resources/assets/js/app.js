@@ -23,6 +23,8 @@ Vue.component('rest-center-accomodations-app', require('./components/RestCenters
 
 Vue.component('kid-camps-app', require('./components/KidCamps/App.vue'));
 
+Vue.component('active-rest-companies-app', require('./components/ActiveRestCompanies/App.vue'));
+
 Vue.component('features-attach', require('./components/Features/FeaturesAttach.vue'));
 Vue.component('features-attached', require('./components/Features/FeaturesAttached.vue'));
 
