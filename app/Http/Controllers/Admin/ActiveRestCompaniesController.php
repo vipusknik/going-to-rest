@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\ActiveRestCompany;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rule;
+use App\Http\Requests\ActiveRestCompaniesRequest;
 use App\Activity;
 
 class ActiveRestCompaniesController extends Controller
@@ -38,15 +38,8 @@ class ActiveRestCompaniesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ActiveRestCompaniesRequest $request)
     {
-        $request->validate([
-            'name' => [ 'required', Rule::unique('active_rest_companies', 'name') ],
-            'location' => 'required',
-            'activities' => 'required', // there must be at least one activity
-            'activities.*' => 'required' //each activity requires cost
-        ]);
-
         $activities = [];
 
         foreach ((array) $request->activities as $id => $cost) {

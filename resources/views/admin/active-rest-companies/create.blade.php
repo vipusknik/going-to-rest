@@ -114,6 +114,10 @@
                         </div>
 
                         <div class="mb-6">
+                          @if ($errors->has('activities'))
+                              <p class="help is-danger">{{ $errors->first('activities') }}</p>
+                          @endif
+
                           <activities-attach :activities-initial="{{ json_encode($activities) }}"></activities-attach>
                         </div>
 
