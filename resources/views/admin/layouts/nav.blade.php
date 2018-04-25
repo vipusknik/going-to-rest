@@ -23,6 +23,10 @@
         <a class="navbar-item text-black font-semibold" href="{{ route('admin.kid-camps.index') }}">
           Детский отдых
         </a>
+
+        <a class="navbar-item text-black font-semibold" href="{{ route('admin.active-rest-companies.index') }}">
+          Активный отдых
+        </a>
       </div>
 
       <div class="navbar-end">
