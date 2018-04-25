@@ -26,6 +26,8 @@ Vue.component('kid-camps-app', require('./components/KidCamps/App.vue'));
 Vue.component('features-attach', require('./components/Features/FeaturesAttach.vue'));
 Vue.component('features-attached', require('./components/Features/FeaturesAttached.vue'));
 
+Vue.component('activities-attach', require('./components/Activities/ActivitiesAttach.vue'));
+
 Vue.component('paid-companies-button', require('./components/PaidCompanies/PaidCompaniesButton.vue'));
 
 Vue.component("image-upload-widget", require("./components/ImageUpload/Widget.vue"));
