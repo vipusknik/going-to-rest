@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             $this->call(AccomodationsTableSeeder::class);
             $this->call(MedicalCentersTableSeeder::class);
             $this->call(KidCampsTableSeeder::class);
+            $this->call(ActiveRestCompaniesTableSeeder::class);
+
+            factory('App\Activity', 30)->create();
         }
     }
 }
