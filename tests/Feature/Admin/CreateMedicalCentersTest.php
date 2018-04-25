@@ -73,7 +73,7 @@ class CreateMedicalCentersTest extends TestCase
     }
 
     /** @test */
-    public function medical_center_can_be_persisted()
+    function medical_center_can_be_persisted()
     {
         $this->post(
             route('admin.medical-centers.store'),
