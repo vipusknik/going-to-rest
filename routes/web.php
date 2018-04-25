@@ -69,6 +69,16 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
      * Kid camps
      */
     Route::resource('kid-camps', 'KidCampsController', [ 'as' => 'admin' ]);
+
+    /**
+     * Active rest companies
+     */
+    Route::resource('active-rest-companies', 'ActiveRestCompaniesController', [ 'as' => 'admin' ]);
+
+    /**
+     * Activities
+     */
+    Route::post('activities', 'ActivitiesController@store')->name('admin.activities.store');
 });
 
 Auth::routes();
