@@ -100,6 +100,8 @@ class ActiveRestCompaniesController extends Controller
      */
     public function destroy(ActiveRestCompany $activeRestCompany)
     {
-        //
+        $activeRestCompany->delete();
+
+        return response([], 200);
     }
 }

@@ -5,8 +5,9 @@ namespace App;
 use App\Traits\HasSlug;
 use App\Traits\HasSocialMedia;
 use App\Traits\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMedia as HasMediaInterface;
 
-class ActiveRestCompany extends Model
+class ActiveRestCompany extends Model implements HasMediaInterface
 {
     use HasSlug, HasSocialMedia, HasMedia;
 

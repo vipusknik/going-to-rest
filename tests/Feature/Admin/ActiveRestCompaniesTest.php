@@ -20,4 +20,14 @@ class ActiveRestCompaniesTest extends TestCase
         $this->get(route('admin.active-rest-companies.show', $company))
             ->assertJson([ 'company' => true ]);
     }
+
+    /** @test */
+    function active_rest_company_can_be_deleted()
+    {
+        $company = create('App\ActiveRestCompany');
+
+        $this->delete(route('admin.active-rest-companies.destroy', $company));
+
+        $this->assertDatabaseMissing('active_rest_companies', [ 'id' => $company->id ]);
+    }
 }
