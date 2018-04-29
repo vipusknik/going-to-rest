@@ -51,9 +51,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     Route::resource('rest-centers.accomodations', 'RestCenterAccomodationsController', [ 'as' => 'admin' ])
         ->except([ 'create', 'edit', 'show' ]);
 
-    Route::delete('rest-centers/{rest_center}/media/{media}', 'RestCenterMediaController@destroy')
-        ->name('admin.rest-centers.media.destroy');
-
     /**
      * Features
      */

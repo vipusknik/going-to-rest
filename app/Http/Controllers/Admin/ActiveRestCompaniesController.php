@@ -77,7 +77,12 @@ class ActiveRestCompaniesController extends Controller
      */
     public function edit(ActiveRestCompany $activeRestCompany)
     {
-        //
+        $activities = Activity::all();
+
+        return view('admin.active-rest-companies.edit', [
+            'company' => $activeRestCompany,
+            'activities' => $activities
+        ]);
     }
 
     /**
@@ -87,9 +92,22 @@ class ActiveRestCompaniesController extends Controller
      * @param  \App\ActiveRestCompany  $activeRestCompany
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ActiveRestCompany $activeRestCompany)
+    public function update(ActiveRestCompaniesRequest $request, ActiveRestCompany $activeRestCompany)
     {
-        //
+        $activeRestCompany->update($request->except([ 'activities', 'social_media' ]));
+
+        $activities = [];
+
+        foreach ((array) $request->activities as $id => $cost) {
+            $activities[$id] = [ 'cost' => $cost ];
+        }
+
+        $activeRestCompany
+            ->attachSocialMedia($request->social_media)
+            ->activities()
+            ->sync($activities);
+
+        return redirect()->route('admin.active-rest-companies.index')->withFlash('Обновлено');
     }
 
     /**

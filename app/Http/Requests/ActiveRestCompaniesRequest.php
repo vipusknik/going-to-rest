@@ -24,10 +24,16 @@ class ActiveRestCompaniesRequest extends FormRequest
      */
     public function rules()
     {
+        $uniqueRule = Rule::unique('active_rest_companies', 'name');
+
+        if ($this->method() === 'PATCH') {
+            $uniqueRule = Rule::unique('active_rest_companies', 'name')->ignore($this->active_rest_company->id);
+        }
+
         return [
-            'name' => [ 'required', Rule::unique('active_rest_companies', 'name') ],
+            'name' => [ 'required', $uniqueRule ],
             'location' => 'required',
-            'activities' => 'required',// there must be at least one activity
+            'activities' => 'required', // there must be at least one activity
             'activities.*' => 'required' //each activity requires cost
         ];
     }
