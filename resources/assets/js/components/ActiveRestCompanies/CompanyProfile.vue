@@ -95,12 +95,12 @@
                 </div>
             </div>
 
+            <!-- images -->
+            <image-upload-widget :model="company" :images-attached="company.media" class="mb-6">
+            </image-upload-widget>
+
             <!-- activities -->
             <activities-attached :activities="company.activities" class="mb-6"></activities-attached>
-
-            <!-- images -->
-            <image-upload-widget :model="company" :images-attached="company.media" class="mb-4">
-            </image-upload-widget>
 
             <div>
                 <div v-html="company.description" class="text-sm"></div>
