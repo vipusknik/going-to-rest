@@ -30,4 +30,16 @@ class ActiveRestCompaniesTest extends TestCase
 
         $this->assertDatabaseMissing('active_rest_companies', [ 'id' => $company->id ]);
     }
+
+    /** @test */
+    function active_rest_companies_can_be_searched_by_query()
+    {
+        create('App\ActiveRestCompany', [ 'name' => 'Company 1' ]);
+        create('App\ActiveRestCompany', [ 'name' => 'Company 2' ]);
+        create('App\ActiveRestCompany', [ 'name' => 'Organization 3' ]);
+
+        $response = $this->getJson('/admin/active-rest-companies?query=company');
+
+        $this->assertCount(2, $response->original['companies']);
+    }
 }

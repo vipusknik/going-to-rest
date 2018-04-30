@@ -15,8 +15,16 @@ class ActiveRestCompaniesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        if ($request->wantsJson()) {
+            $query = $request->input('query');
+
+            $companies = ActiveRestCompany::where('name', 'like', "%$query%")->get();
+
+            return compact('companies');
+        }
+
         $companies = ActiveRestCompany::latest()->get();
 
         return view('admin.active-rest-companies.index', compact('companies'));

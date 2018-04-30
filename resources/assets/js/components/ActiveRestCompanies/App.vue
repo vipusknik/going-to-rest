@@ -19,7 +19,7 @@
                             Новая компания
                         </a>
                     </div>
-                    <!-- <search-panel></search-panel> -->
+                    <search-panel></search-panel>
                 </aside>
             </div>
 
@@ -49,12 +49,12 @@
 </template>
 
 <script>
-    // import SearchPanel from './SearchPanel.vue';
+    import SearchPanel from './SearchPanel.vue';
     import ListItem from './ListItem.vue';
     import CompanyProfile from './CompanyProfile.vue';
 
     export default {
-        components: { ListItem, CompanyProfile },
+        components: { SearchPanel, ListItem, CompanyProfile },
 
         props: [ 'companiesInitial' ],
 
