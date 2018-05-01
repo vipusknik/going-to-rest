@@ -33,6 +33,8 @@ Vue.component('features-attached', require('./components/Features/FeaturesAttach
 
 Vue.component('activities-attach', require('./components/Activities/ActivitiesAttach.vue'));
 
+Vue.component('hunting-region-select', require('./components/HuntingCompanies/HuntingRegions/HuntingRegionSelect.vue'));
+
 Vue.component('paid-companies-button', require('./components/PaidCompanies/PaidCompaniesButton.vue'));
 
 Vue.component("image-upload-widget", require("./components/ImageUpload/Widget.vue"));

@@ -48,8 +48,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     /**
      * Rest center accomodations
      */
-    Route::resource('rest-centers.accomodations', 'RestCenterAccomodationsController', [ 'as' => 'admin' ])
-        ->except([ 'create', 'edit', 'show' ]);
+    Route::apiResource('rest-centers.accomodations', 'RestCenterAccomodationsController', [ 'as' => 'admin' ]);
 
     /**
      * Features
@@ -75,11 +74,17 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     /**
      * Activities
      */
-    Route::get('activities', 'ActivitiesController@index');
-    Route::post('activities', 'ActivitiesController@store')->name('admin.activities.store');
-    Route::delete('activities/{activity}', 'ActivitiesController@destroy')->name('admin.activities.destroy');
+    Route::apiResource('activities', 'ActivitiesController', [ 'as' => 'admin' ]);
 
-    Route::resource('activities', 'ActivitiesController', [ 'as' => 'admin' ])->except([ 'create', 'edit', 'show' ]);
+    /**
+     * Hunting companies
+     */
+    Route::resource('hunting-companies', 'HuntingCompaniesController', [ 'as' => 'admin' ]);
+
+    /**
+     * Hunting regions
+     */
+    Route::apiResource('hunting-regions', 'HuntingRegionsController', [ 'as' => 'admin' ]);
 });
 
 Auth::routes();
