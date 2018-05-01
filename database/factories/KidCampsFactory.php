@@ -4,7 +4,7 @@ use Faker\Generator as Faker;
 
 $factory->define(App\KidCamp::class, function (Faker $faker) {
     return [
-        'name' => $faker->company,
+        'name' => $faker->unique()->company,
         'contacts' => implode(',', [ $faker->phoneNumber, $faker->phoneNumber, $faker->phoneNumber ]),
         'email' => $faker->email,
         'site_link' => $faker->url,
