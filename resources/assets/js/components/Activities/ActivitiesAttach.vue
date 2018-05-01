@@ -11,7 +11,7 @@
                 </a>
             </h3>
 
-            <activities-modal></activities-modal>
+            <activities-modal @destroyed="destroy"></activities-modal>
 
             <div class="flex p-2 border border-grey-light">
                 <div class="w-1/3 class border-r border-grey-light">
@@ -96,6 +96,14 @@
                 this.selectedActivities.splice(index, 1);
 
                 this.activities.push(activity);
+            },
+
+            destroy(activity) {
+                let index = this.activities.indexOf(activity);
+                this.activities.splice(index, 1);
+
+                index = this.selectedActivities.indexOf(activity);
+                this.selectedActivities.splice(index, 1);
             }
         }
     }

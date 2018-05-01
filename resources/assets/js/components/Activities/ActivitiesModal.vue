@@ -10,7 +10,7 @@
                 <activities-modal-item v-for="activity in activities"
                                        :activity-initial="activity"
                                        :key="activity.id"
-                                       @destroyed="remove(activity)"
+                                       @destroyed="destroy(activity)"
                                        class="mb-3">
                 </activities-modal-item>
             </div>
@@ -39,9 +39,11 @@
                 .catch(error => flash('Ошибка при загруззке списка.', 'danger'));
             },
 
-            remove(activity) {
+            destroy(activity) {
                 let index = window.index(activity, this.activities);
                 this.activities.splice(index, 1);
+
+                this.$emit('destroyed', activity);
 
                 flash('Удалено!');
             }
