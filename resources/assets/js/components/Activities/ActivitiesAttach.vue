@@ -1,7 +1,18 @@
 <template>
     <div>
         <div>
-            <h3 class="text-green text-base font-semibold mb-2">Виды отдыха</h3>
+            <h3 class="text-green text-base font-semibold mb-2">
+                Виды отдыха &nbsp;
+                <a href="#"
+                   @click="$modal.show('activities-modal')"
+                   class="text-grey-dark hover:text-blue-light"
+                   title="Управление видами отдыха">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+            </h3>
+
+            <activities-modal></activities-modal>
+
             <div class="flex p-2 border border-grey-light">
                 <div class="w-1/3 class border-r border-grey-light">
                     <div>
@@ -34,9 +45,10 @@
 <script>
     import SelectedActivity from './SelectedActivity.vue';
     import NewActivityForm from './NewactivityForm.vue';
+    import ActivitiesModal from './ActivitiesModal';
 
     export default {
-        components: { SelectedActivity, NewActivityForm },
+        components: { SelectedActivity, NewActivityForm, ActivitiesModal },
 
         props: {
             activitiesInitial: {

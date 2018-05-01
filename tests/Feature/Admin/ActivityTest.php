@@ -53,4 +53,63 @@ class ActivityTest extends TestCase
             'seasons' => [ 'autumn', 'summer' ]
         ])->assertJson([ 'activity' => true ]);
     }
+
+    /** @test */
+    function activity_list_can_be_fetched()
+    {
+        create('App\Activity', [], 10);
+
+        $response = $this->getJson('/admin/activities');
+
+        $this->assertCount(10, $response->original['activities']);
+    }
+
+    /** @test */
+    function an_activity_can_be_deleted()
+    {
+        $activity = create('App\Activity');
+
+        $this->delete(route('admin.activities.destroy', $activity));
+
+        $this->assertDatabaseMissing('activities', [ 'id' => $activity->id ]);
+    }
+
+    /** @test */
+    function an_activity_cannot_be_deleted_if_it_is_associated_with_companies()
+    {
+        $company = create('App\ActiveRestCompany');
+        $activity = create('App\Activity');
+
+        $company->activities()->attach([
+            $activity->id => [ 'cost' => 7816254712 ]
+        ]);
+
+        $this->delete(route('admin.activities.destroy', $activity))->assertStatus(422);
+
+        $this->assertCount(1, Activity::all());
+    }
+
+    /** @test */
+    function activity_requires_a_unique_name_on_update_ignoring_itself()
+    {
+        $activity = create('App\Activity');
+
+        $this->patch(route('admin.activities.update', $activity), $activity->toArray() + [ 'seasons' => [ 'winter' ] ]);
+
+        $this->assertNull(session('errors'));
+    }
+
+
+    /** @test */
+    function an_activity_can_be_updated()
+    {
+        $activity = create('App\Activity');
+
+        $this->patch(
+                route('admin.activities.update', $activity),
+                [ 'name' => 'updated' ] + $activity->toArray() + [ 'seasons' => [ 'winter' ] ]
+            );
+
+        $this->assertEquals('updated', $activity->fresh()->name);
+    }
 }

@@ -5,10 +5,13 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import VModal from 'vue-js-modal';
+
 require('./bootstrap');
 require('./utils/functions.js');
 
 window.Vue = require('vue');
+Vue.use(VModal);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

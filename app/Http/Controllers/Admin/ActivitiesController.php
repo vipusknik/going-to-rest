@@ -16,7 +16,7 @@ class ActivitiesController extends Controller
      */
     public function index()
     {
-        //
+        return [ 'activities' => Activity::all() ];
     }
 
     /**
@@ -44,28 +44,6 @@ class ActivitiesController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\Activity  $activity
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Activity $activity)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Activity  $activity
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Activity $activity)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -74,7 +52,20 @@ class ActivitiesController extends Controller
      */
     public function update(Request $request, Activity $activity)
     {
-        //
+        $request->validate([
+            'name' => [ 'required', Rule::unique('activities', 'name')->ignore($activity->id) ],
+            'seasons.0' => 'required'
+        ]);
+
+        $activity->update([
+            'name' => $request->name,
+            'winter' => in_array('winter', $request->seasons),
+            'summer' => in_array('summer', $request->seasons),
+            'spring' => in_array('spring', $request->seasons),
+            'autumn' => in_array('autumn', $request->seasons)
+        ]);
+
+        return compact('activity');
     }
 
     /**
@@ -85,6 +76,8 @@ class ActivitiesController extends Controller
      */
     public function destroy(Activity $activity)
     {
-        //
+        abort_if($activity->companies()->count(), 422);
+
+        $activity->delete();
     }
 }

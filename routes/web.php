@@ -75,7 +75,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     /**
      * Activities
      */
+    Route::get('activities', 'ActivitiesController@index');
     Route::post('activities', 'ActivitiesController@store')->name('admin.activities.store');
+    Route::delete('activities/{activity}', 'ActivitiesController@destroy')->name('admin.activities.destroy');
+
+    Route::resource('activities', 'ActivitiesController', [ 'as' => 'admin' ])->except([ 'create', 'edit', 'show' ]);
 });
 
 Auth::routes();
