@@ -27,7 +27,8 @@
                                        type="text"
                                        name="name"
                                        value="{{ old('name', $restCenter->name) }}"
-                                       placeholder="База отдыха">
+                                       placeholder="База отдыха"
+                                       required="true">
                               </div>
                               @if ($errors->has('name'))
                                 <p class="help is-danger">{{ $errors->first('name') }}</p>
@@ -38,7 +39,7 @@
                               <label class="label">Водоем</label>
                               <div class="control">
                                 <div class="select w-full {{ $errors->has('reservoir_id') ? ' is-danger' : '' }}">
-                                  <select name="reservoir_id" class="w-full">
+                                  <select name="reservoir_id" class="w-full" required="true">
                                     @foreach ($reservoirs as $reservoir)
                                         <option value="{{ $reservoir->id }}"
                                                 {{ (old('reservoir_id', $restCenter->reservoir_id) == $reservoir->id) ? 'selected' : '' }}>
@@ -61,7 +62,8 @@
                                        type="text"
                                        name="location"
                                        value="{{ old('location', $restCenter->location) }}"
-                                       placeholder="Расположение">
+                                       placeholder="Расположение"
+                                       required="true">
                               </div>
 
                               @if ($errors->has('location'))

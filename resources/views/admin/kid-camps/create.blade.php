@@ -24,7 +24,8 @@
                                        type="text"
                                        name="name"
                                        value="{{ old('name') }}"
-                                       placeholder="Десткий лагерь">
+                                       placeholder="Десткий лагерь"
+                                       required="true">
                               </div>
                               @if ($errors->has('name'))
                                 <p class="help is-danger">{{ $errors->first('name') }}</p>
@@ -38,7 +39,8 @@
                                        type="text"
                                        name="location"
                                        value="{{ old('location') }}"
-                                       placeholder="Расположение">
+                                       placeholder="Расположение"
+                                       required="true">
                               </div>
 
                               @if ($errors->has('location'))

@@ -33,7 +33,8 @@
                            <select v-model="type"
                                    name="type"
                                    id="type"
-                                   class="w-3/5 p-0 px-2 border border-blue-lighter rounded">
+                                   class="w-3/5 p-0 px-2 border border-blue-lighter rounded"
+                                   required="true">
                                <option value="room">Номер</option>
                                <option value="house">Домик</option>
                            </select>
@@ -46,7 +47,8 @@
                                   v-model="guest_count"
                                   min="1"
                                   id="guest_count"
-                                  class="w-3/5 p-1 border border-blue-lighter rounded">
+                                  class="w-3/5 p-1 border border-blue-lighter rounded"
+                                  required="true">
                        </div>
 
                        <div class="flex">
@@ -56,7 +58,8 @@
                                   v-model="price_per_day"
                                   id="price_per_day"
                                   min="0"
-                                  class="w-3/5 p-1 border border-blue-lighter rounded">
+                                  class="w-3/5 p-1 border border-blue-lighter rounded"
+                                  required="true">
                        </div>
                    </div>
 
