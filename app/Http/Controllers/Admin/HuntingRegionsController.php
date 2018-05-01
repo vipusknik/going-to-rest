@@ -56,6 +56,8 @@ class HuntingRegionsController extends Controller
      */
     public function destroy(HuntingRegion $huntingRegion)
     {
-        //
+        abort_if($huntingRegion->companies->count(), 422);
+
+        $huntingRegion->delete();
     }
 }

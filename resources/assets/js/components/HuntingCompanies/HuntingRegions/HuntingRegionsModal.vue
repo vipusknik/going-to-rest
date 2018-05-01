@@ -1,20 +1,20 @@
 <template>
-    <modal name="huntingRegionsModal" height="auto" :width="700" :scrollable="true">
+    <modal name="huntingRegionsModal" height="auto" :width="500" :scrollable="true">
         <!-- Heading -->
         <div class="py-3">
-            <h4 class="text-xl text-indigo-light text-center font-bold m-0 p-0">Регионы</h4>
+            <h4 class="text-xl text-teal text-center font-bold m-0 p-0">Регионы</h4>
         </div>
 
         <div class="py-3 px-6">
             <div>
                 <!-- New region form -->
-                <div class="flex mb-2">
-                    <div class="w-2/3 mr-2">
-                        <input type="text" v-model="newRegionName" placeholder="Регион">
+                <div class="flex w-full mb-6">
+                    <div class="w-3/4 mr-2">
+                        <input type="text" v-model="newRegionName" placeholder="Регион" class="text-black text-sm w-full border border-grey-light rounded-sm py-1 px-2 hover:border hover:border-grey-light">
                     </div>
 
-                    <div>
-                        <button type="button" @click="add">Добавить</button>
+                    <div class="w-1/4">
+                        <button type="button" @click="add" class="block w-full text-white text-center px-6 py-1 bg-teal rounded-sm hover:opacity-9">Добавить</button>
                     </div>
                 </div>
 
@@ -63,6 +63,16 @@
                         flash('Добавлено!');
                     })
                     .catch(error => flash('Ошибка при выполнении.', 'danger'));
+            },
+
+            destroy(region) {
+                let index = window.index(region, this.regions);
+
+                this.regions.splice(index, 1);
+
+                this.$emit('updated', this.regions);
+
+                flash('Удалено!');
             }
         }
     }
