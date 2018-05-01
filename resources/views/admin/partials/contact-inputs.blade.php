@@ -47,5 +47,5 @@
 </div>
 
 <div class="mb-6">
-    @include ('admin.social-media.inputs', [ 'socialMedia' => $model ? $model->socialMedia() : null  ])
+    @include ('admin.partials.social-media-inputs', [ 'socialMedia' => $model ? $model->socialMedia() : null  ])
 </div>

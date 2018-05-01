@@ -64,15 +64,7 @@
 
                         <features-attach :features="{{ json_encode($features) }}" class="mb-6"></features-attach>
 
-                        <div class="field">
-                          <label class="label">Описание</label>
-                          <div class="control">
-                            <wysiwig name="description"
-                                     value="{{ old('description') }}"
-                                     placeholder="Описание медицинского центра">
-                            </wysiwig>
-                          </div>
-                        </div>
+                        @include ('admin.partials.description-input', [ 'model' => null ])
                     </div>
 
                     <div class="field is-grouped">

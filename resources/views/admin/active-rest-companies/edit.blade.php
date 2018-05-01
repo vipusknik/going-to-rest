@@ -68,15 +68,7 @@
                                            class="mb-6">
                         </activities-attach>
 
-                        <div class="field">
-                          <label class="label">Описание</label>
-                          <div class="control">
-                            <wysiwig name="description"
-                                     value="{{ old('description', $company->description) }}"
-                                     placeholder="Описание лагеря">
-                            </wysiwig>
-                          </div>
-                        </div>
+                        @include ('admin.partials.description-input', [ 'model' => $company ])
                     </div>
 
                     <div class="field is-grouped">

@@ -84,15 +84,7 @@
                           </div>
                         </div>
 
-                        <div class="field">
-                          <label class="label">Описание</label>
-                          <div class="control">
-                            <wysiwig name="description"
-                                     value="{{ old('description') }}"
-                                     placeholder="Описание базы">
-                            </wysiwig>
-                          </div>
-                        </div>
+                        @include ('admin.partials.description-input', [ 'model' => null ])
                     </div>
 
                     <div class="field is-grouped">

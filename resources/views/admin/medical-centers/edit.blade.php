@@ -68,15 +68,7 @@
                                          class="mb-6">
                         </features-attach>
 
-                        <div class="field">
-                          <label class="label">Описание</label>
-                          <div class="control">
-                            <wysiwig name="description"
-                                     value="{{ old('description', $medicalCenter->description) }}"
-                                     placeholder="Описание медицинского центра">
-                            </wysiwig>
-                          </div>
-                        </div>
+                        @include ('admin.partials.description-input', [ 'model' => $medicalCenter ])
                     </div>
 
                     <div class="field is-grouped">
