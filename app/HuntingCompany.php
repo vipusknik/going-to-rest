@@ -3,10 +3,11 @@
 namespace App;
 
 use App\Traits\HasSlug;
+use App\Traits\HasSocialMedia;
 
 class HuntingCompany extends Model
 {
-    use HasSlug;
+    use HasSlug, HasSocialMedia;
 
     public function animals()
     {
