@@ -54,4 +54,17 @@ class HuntingRegionsTest extends TestCase
 
         $this->assertCount(1, HuntingRegion::all());
     }
+
+    /** @test */
+    function hunting_region_can_be_updated()
+    {
+        $region = HuntingRegion::create([ 'name' => 'region 13' ]);
+
+        $this->patch(
+                route('admin.hunting-regions.update', $region),
+                [ 'name' => 'updated' ] + $region->getAttributes()
+            );
+
+        $this->assertEquals('updated', HuntingRegion::first()->name);
+    }
 }

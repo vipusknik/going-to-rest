@@ -45,7 +45,13 @@ class HuntingRegionsController extends Controller
      */
     public function update(Request $request, HuntingRegion $huntingRegion)
     {
-        //
+        $request->validate([
+            'name' => [ 'required', Rule::unique('hunting_regions', 'name')->ignore($huntingRegion->id) ]
+        ]);
+
+        $huntingRegion->update([ 'name' => $request->name ]);
+
+        return [ 'region' => $huntingRegion ];
     }
 
     /**

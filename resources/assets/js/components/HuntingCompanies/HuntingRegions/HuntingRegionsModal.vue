@@ -14,7 +14,7 @@
                     </div>
 
                     <div class="w-1/4">
-                        <button type="button" @click="add" class="block w-full text-white text-center px-6 py-1 bg-teal rounded-sm hover:opacity-9">Добавить</button>
+                        <button type="button" @click="store" class="block w-full text-white text-center px-6 py-1 bg-teal rounded-sm hover:opacity-9">Добавить</button>
                     </div>
                 </div>
 
@@ -22,6 +22,7 @@
                                             :region-initial="region"
                                             :key="region.id"
                                             @destroyed="destroy(region)"
+                                            @updated="update"
                                             class="mb-3">
                 </hunting-regions-modal-item>
             </div>
@@ -45,7 +46,7 @@
         },
 
         methods: {
-            add() {
+            store() {
                 if (this.newRegionName.trim().length === 0) return flash('Укажите название!', 'warning');
 
                 if (this.regions.some(region => region.name.toLowerCase().trim() == this.newRegionName.toLowerCase().trim())) {
@@ -73,6 +74,16 @@
                 this.$emit('updated', this.regions);
 
                 flash('Удалено!');
+            },
+
+            update(region) {
+                let index = window.index(region, this.regions);
+
+                this.regions[index] = region;
+
+                flash('Изменения сохранены');
+
+                this.$emit('updated', this.regions);
             }
         }
     }

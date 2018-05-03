@@ -72,7 +72,7 @@
                     .then(response => {
                         this.region = response.data.region;
 
-                        flash('Изменения сохранены');
+                        this.$emit('updated', this.region);
 
                         this.editing = false;
                     })

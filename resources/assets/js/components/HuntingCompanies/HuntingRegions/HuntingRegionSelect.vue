@@ -1,6 +1,6 @@
 <template>
     <div>
-        <label for="hunting_region_id" class="label underline cursor-pointer" @click="$modal.show('huntingRegionsModal')">
+        <label for="hunting_region_id" class="inline-block label underline cursor-pointer" @click="$modal.show('huntingRegionsModal')">
             Регион
         </label>
 
