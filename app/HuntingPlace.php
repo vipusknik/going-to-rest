@@ -5,4 +5,9 @@ namespace App;
 class HuntingPlace extends Model
 {
     public $timestamps = null;
+
+    public function companies()
+    {
+        return $this->hasMany(HuntingCompany::class);
+    }
 }
