@@ -28,12 +28,13 @@ class HuntingPlacesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => [ 'required', Rule::unique('hunting_places', 'name') ]
+            'name' => [ 'required', Rule::unique('hunting_places', 'name') ],
+            'type' => [ 'required', Rule::in([ 'place', 'region' ]) ],
         ]);
 
-        $place = HuntingPlace::create([ 'name' => $request->name ]);
+        $model = HuntingPlace::create($request->all());
 
-        return compact('place');
+        return compact('model');
     }
 
     /**
@@ -62,7 +63,7 @@ class HuntingPlacesController extends Controller
 
         $huntingPlace->update([ 'name' => $request->name ]);
 
-        return [ 'place' => $huntingPlace ];
+        return [ 'model' => $huntingPlace ];
     }
 
     /**

@@ -16,15 +16,32 @@ class HuntingPlacesTest extends TestCase
     /** @test */
     function a_hunting_place_requires_a_unique_name()
     {
-        HuntingPlace::create([ 'name' => 'place 13' ]);
+        HuntingPlace::create([ 'name' => 'place 13', 'type' => 'place' ]);
 
         $this->post(route('admin.hunting-places.store', [ 'name' => 'place 13' ]))->assertSessionHasErrors('name');
     }
 
     /** @test */
+    function a_hunting_place_requires_a_type()
+    {
+        $this->post(route('admin.hunting-places.store', [ 'name' => 'name', 'type' => '' ]))
+             ->assertSessionHasErrors('type');
+    }
+
+    /** @test */
+    function a_hunting_place_requires_to_be_either_place_or_region()
+    {
+        $this->post(route('admin.hunting-places.store', [ 'name' => 'name', 'type' => 'zzz' ]))
+             ->assertSessionHasErrors('type');
+
+        $this->post(route('admin.hunting-places.store', [ 'name' => 'name', 'type' => 'place' ]));
+        $this->assertNull(session('errors'));
+    }
+
+    /** @test */
     function a_hunting_place_can_be_persisted()
     {
-        $this->post(route('admin.hunting-places.store', [ 'name' => 'place 13' ]));
+        $this->post(route('admin.hunting-places.store', [ 'name' => 'place 13', 'type' => 'place' ]));
 
         $this->assertCount(1, HuntingPlace::all());
     }
@@ -32,13 +49,14 @@ class HuntingPlacesTest extends TestCase
     /** @test */
     function hunting_place_is_returned_in_response_after_persisting()
     {
-        $this->post(route('admin.hunting-places.store', [ 'name' => 'place 13' ]))->assertJson([ 'place' => true ]);
+        $this->post(route('admin.hunting-places.store', [ 'name' => 'place 13', 'type' => 'place' ]))
+             ->assertJson([ 'model' => true ]);
     }
 
     /** @test */
     function a_hunting_place_can_be_deleted()
     {
-        $place = HuntingPlace::create([ 'name' => 'place 13' ]);
+        $place = HuntingPlace::create([ 'name' => 'place 13', 'type' => 'region' ]);
 
         $this->delete(route('admin.hunting-places.destroy', $place));
 
@@ -52,13 +70,13 @@ class HuntingPlacesTest extends TestCase
 
         $this->delete(route('admin.hunting-places.destroy', $company->hunting_place_id))->assertStatus(422);
 
-        $this->assertCount(1, HuntingPlace::all());
+        $this->assertDatabaseHas('hunting_places', [ 'id' => $company->hunting_place_id ]);
     }
 
     /** @test */
     function hunting_place_can_be_updated()
     {
-        $place = HuntingPlace::create([ 'name' => 'place 13' ]);
+        $place = HuntingPlace::create([ 'name' => 'place 13', 'type' => 'place' ]);
 
         $this->patch(
                 route('admin.hunting-places.update', $place),

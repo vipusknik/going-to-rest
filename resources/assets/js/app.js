@@ -33,12 +33,11 @@ Vue.component('features-attached', require('./components/Features/FeaturesAttach
 
 Vue.component('activities-attach', require('./components/Activities/ActivitiesAttach.vue'));
 
-Vue.component('hunting-region-select', require('./components/HuntingCompanies/HuntingRegions/HuntingRegionSelect.vue'));
-Vue.component('hunting-place-select', require('./components/HuntingCompanies/HuntingPlaces/HuntingPlaceSelect.vue'));
-
 Vue.component('paid-companies-button', require('./components/PaidCompanies/PaidCompaniesButton.vue'));
 
-Vue.component("image-upload-widget", require("./components/ImageUpload/Widget.vue"));
+Vue.component('image-upload-widget', require('./components/ImageUpload/Widget.vue'));
+
+Vue.component('editable-select', require('./components/EditableSelect/EditableSelect.vue'));
 
 Vue.component('wysiwig', require('./components/Wysiwig.vue'));
 Vue.component("flash", require("./components/Flash.vue"));

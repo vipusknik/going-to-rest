@@ -16,6 +16,7 @@ class CreateHuntingPlacesTable extends Migration
         Schema::create('hunting_places', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->string('type');
         });
     }
 

@@ -3,13 +3,21 @@
         <div v-if="! editing" class="flex">
             <div class="flex flex-1 mr-2">
                 <!-- Name -->
-                <div class="w-1/3 mr-2" v-text="region.name"></div>
+                <div class="w-1/3 mr-2" v-text="option.name"></div>
             </div>
 
             <!-- Action buttons -->
             <div>
                 <!-- Edit buttton -->
-                <span @click="editing = true" class="mr-3 text-grey-darker text-sm hover:text-blue-light cursor-pointer" title="Редактировать">
+                <span @click="editing = true"
+                      class="
+                        mr-3
+                        text-grey-darker
+                        text-sm
+                        hover:text-blue-light
+                        cursor-pointer
+                      "
+                      title="Редактировать">
                     <i class="fas fa-pencil-alt"></i>
                 </span>
 
@@ -24,14 +32,16 @@
             <div class="flex flex-1 mr-2">
                 <!-- Name -->
                 <div class="w-1/3 mr-2">
-                    <input type="text" class="w-full border" v-model="region.name">
+                    <input type="text" class="w-full border" v-model="option.name">
                 </div>
             </div>
 
             <!-- Action buttons -->
             <div>
                 <!-- Save buttton -->
-                <div @click="save" class="text-grey-darker text-base hover:text-blue-light cursor-pointer" title="Сохранить изменения">
+                <div @click="save"
+                     class="text-grey-darker text-base hover:text-blue-light cursor-pointer"
+                     title="Сохранить изменения">
                     <i class="fas fa-save"></i>
                 </div>
             </div>
@@ -41,19 +51,19 @@
 
 <script>
     export default {
-        props: [ 'region-initial' ],
+        props: [ 'option-initial', 'endpoint' ],
 
-        data() {
+        data () {
             return {
-                region: this.regionInitial,
+                option: this.optionInitial,
                 editing: false
             };
         },
 
         methods: {
-            destroy() {
-                axios.delete(`/admin/hunting-regions/${this.region.id}`)
-                    .then(() => this.$emit('destroyed', this.region))
+            destroy () {
+                axios.delete(`${this.endpoint}/${this.option.id}`)
+                    .then(() => this.$emit('destroyed', this.option))
                     .catch((error) => {
                         if (error.response.status === 422) {
                             return flash('Этот регион связан с компаниями', 'danger');
@@ -63,20 +73,20 @@
                     });
             },
 
-            save() {
-                if (this.region.name.trim().length === 0) return flash('Укажите название', 'warning');
+            save () {
+                if (this.option.name.trim().length === 0) return flash('Укажите название', 'warning');
 
-                axios.patch(`/admin/hunting-regions/${this.region.id}`, {
-                        name: this.region.name
+                axios.patch(`${this.endpoint}/${this.option.id}`, {
+                        name: this.option.name
                     })
                     .then(response => {
-                        this.region = response.data.region;
+                        this.option = response.data.model;
 
-                        this.$emit('updated', this.region);
+                        this.$emit('updated', this.option);
 
                         this.editing = false;
                     })
-                    .catch(error => flash('Ошибка при сохранении изменений.', 'danger'));
+                    .catch(() => flash('Ошибка при сохранении изменений.', 'danger'));
             }
         }
     }

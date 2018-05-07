@@ -84,11 +84,6 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     /**
      * Hunting regions
      */
-    Route::apiResource('hunting-regions', 'HuntingRegionsController', [ 'as' => 'admin' ]);
-
-    /**
-     * Hunting regions
-     */
     Route::apiResource('hunting-places', 'HuntingPlacesController', [ 'as' => 'admin' ]);
 });
 

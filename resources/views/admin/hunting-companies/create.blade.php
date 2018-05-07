@@ -40,11 +40,23 @@
 
                         <div class="flex mb-4">
                             <div class="w-1/3 mr-1">
-                              <hunting-region-select :regions-initial="{{ json_encode($regions) }}"></hunting-region-select>
+                              <editable-select select-label="Регион"
+                                               select-name="hunting_region_id"
+                                               :select-options-initial="{{ json_encode($regions) }}"
+                                               modal-heading="Регионы"
+                                               endpoint="/admin/hunting-places"
+                                               :attach-request-data="{ type: 'region' }">
+                              </editable-select>
                             </div>
 
                             <div class="w-1/3 mr-1">
-                               <hunting-place-select :places-initial="{{ json_encode($places) }}"></hunting-place-select>
+                              <editable-select select-label="Место"
+                                               select-name="hunting_place_id"
+                                               :select-options-initial="{{ json_encode($places) }}"
+                                               modal-heading="Места"
+                                               endpoint="/admin/hunting-places"
+                                               :attach-request-data="{ type: 'place' }">
+                              </editable-select>
                             </div>
 
                             <div class="w-1/3">
