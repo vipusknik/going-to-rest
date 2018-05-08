@@ -85,6 +85,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
      * Hunting regions
      */
     Route::apiResource('hunting-places', 'HuntingPlacesController', [ 'as' => 'admin' ]);
+
+    /**
+     * Animals
+     */
+    Route::apiResource('animals', 'AnimalsController', [ 'as' => 'admin' ]);
 });
 
 Auth::routes();

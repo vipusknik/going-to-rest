@@ -9,4 +9,9 @@ class Animal extends Model
     protected $casts = [
         'seasons' => 'array'
     ];
+
+    public function companies()
+    {
+        return $this->belongsToMany(HuntingCompany::class, 'hunting_company_animal');
+    }
 }
