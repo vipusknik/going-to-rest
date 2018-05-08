@@ -43,7 +43,7 @@
 </template>
 
 <script>
-    import SelectableList from '../../../families/SelectableList/SelectableList.js';
+    import SelectableList from '../../Extendable/SelectableList/SelectableList.js';
     import AnimalSelected from './AnimalSelected.vue';
     import NewAnimalForm from './NewAnimalForm.vue';
 

@@ -71,7 +71,7 @@
 </template>
 
 <script>
-    import NewItemForm from '../../../families/SelectableList/NewItemForm.js';
+    import NewItemForm from '../../Extendable/SelectableList/NewItemForm.js';
 
     export default NewItemForm.extend({
 

@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    import SelectedItem from '../../families/SelectableList/SelectedItem.js'
+    import SelectedItem from '../Extendable/SelectableList/SelectedItem.js'
 
     export default SelectedItem.extend({
         data() {

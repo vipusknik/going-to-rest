@@ -38,7 +38,7 @@
 </template>
 
 <script>
-    import SelectableList from '../../families/SelectableList/SelectableList.js';
+    import SelectableList from '../Extendable/SelectableList/SelectableList.js';
     import ActivitySelected from './ActivitySelected.vue';
     import NewActivityForm from './NewactivityForm.vue';
     import ActivitiesModal from './ActivitiesModal';
