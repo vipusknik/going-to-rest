@@ -44,24 +44,24 @@
                     </div>
                 </div>
 
-                <editable-select-modal-item v-for="option in options"
-                                           :key="option.id"
-                                           :option-initial="option"
-                                           :endpoint="endpoint"
-                                           @destroyed="destroy(option)"
-                                           @updated="update"
-                                           class="mb-3">
-                </editable-select-modal-item>
+                <editable-list-modal-item v-for="option in options"
+                                          :key="option.id"
+                                          :option-initial="option"
+                                          :endpoint="endpoint"
+                                          @destroyed="destroy(option)"
+                                          @updated="update"
+                                          class="mb-3">
+                </editable-list-modal-item>
             </div>
         </div>
     </modal>
 </template>
 
 <script>
-    import EditableSelectModalItem from './EditableSelectModalItem.vue';
+    import EditableListModalItem from './EditableListModalItem.vue';
 
     export default {
-        components: { EditableSelectModalItem },
+        components: { EditableListModalItem },
 
         props: {
             modalName: {

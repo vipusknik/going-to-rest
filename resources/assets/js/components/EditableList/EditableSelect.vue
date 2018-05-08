@@ -10,21 +10,21 @@
             </select>
         </div>
 
-        <editable-select-modal :options-initial="selectOptions"
-                               :endpoint="endpoint"
-                               :attach-request-data="attachRequestData"
-                               :modal-heading="modalHeading"
-                               :modal-name="uniqid + 'modal'"
-                               @updated="onUpdate">
-        </editable-select-modal>
+        <editable-list-modal :options-initial="selectOptions"
+                             :endpoint="endpoint"
+                             :attach-request-data="attachRequestData"
+                             :modal-heading="modalHeading"
+                             :modal-name="uniqid + 'modal'"
+                             @updated="onUpdate">
+        </editable-list-modal>
     </div>
 </template>
 
 <script>
-    import EditableSelectModal from './EditableSelectModal.vue';
+    import EditableListModal from './EditableListModal.vue';
 
     export default {
-        components: { EditableSelectModal },
+        components: { EditableListModal },
 
         props: {
             selectLabel: {
