@@ -9,6 +9,11 @@ export default Vue.extend({
             type: Array,
             required: false,
             default: () => []
+        },
+
+        endpoint: {
+            type: String,
+            required: true
         }
     },
 

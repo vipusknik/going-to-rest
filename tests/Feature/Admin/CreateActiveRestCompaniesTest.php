@@ -62,27 +62,16 @@ class CreateActiveRestCompaniesTest extends TestCase
 
         $this->post(
             route('admin.active-rest-companies.store'),
-            $activeRestCompany->getAttributes() + [ 'activities' => [ create('App\Activity')->id => '123000' ] ]
+            $activeRestCompany->getAttributes() + [ 'activities' => [ create('App\Activity')->id ] ]
         );
 
         $this->assertDatabaseHas('active_rest_companies', [ 'name' => $activeRestCompany['name'] ]);
     }
 
     /** @test */
-    function active_rest_company_activity_requires_cost()
-    {
-        $activities = [ create('App\Activity', [])->id => '' ];
-
-        $this->post(
-            route('admin.active-rest-companies.store'),
-            make('App\ActiveRestCompany')->getAttributes() + compact('activities')
-        )->assertSessionHasErrors('activities.1');
-    }
-
-    /** @test */
     function activities_can_be_attached_to_an_active_rest_company()
     {
-        $activities = [ create('App\Activity', [])->id => '123000' ];
+        $activities = [ create('App\Activity', [])->id ];
 
         $this->post(
             route('admin.active-rest-companies.store'),
@@ -93,13 +82,24 @@ class CreateActiveRestCompaniesTest extends TestCase
     }
 
     /** @test */
+    function active_rest_company_activity_cost_has_to_be_an_integer()
+    {
+        $activities = [ create('App\Activity', [])->id => 'string' ];
+
+        $this->post(
+            route('admin.active-rest-companies.store'),
+            make('App\ActiveRestCompany')->getAttributes() + compact('activities')
+        )->assertSessionHasErrors('activities.1');
+    }
+
+    /** @test */
     function social_media_can_be_attached_to_an_active_rest_company()
     {
         $this->post(
             route('admin.active-rest-companies.store'),
             make('App\ActiveRestCompany')->getAttributes()
             + [ 'social_media' => [ 'VK' => 'https://link.com' ] ]
-            + [ 'activities' => [ create('App\Activity')->id => '123000' ] ]
+            + [ 'activities' => [ create('App\Activity')->id ] ]
         );
 
         $this->assertCount(1, ActiveRestCompany::first()->social_media);

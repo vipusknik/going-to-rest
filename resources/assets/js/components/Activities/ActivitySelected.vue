@@ -6,8 +6,7 @@
             <input type="text"
                    v-model="cost"
                    :name="`activities[${item.id}]`"
-                   placeholder="Цена (обязательно)"
-                   required="true"
+                   placeholder="Цена"
                    class="w-full p-1">
         </div>
 

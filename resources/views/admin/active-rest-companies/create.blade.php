@@ -67,7 +67,10 @@
                               <p class="help is-danger">{{ $errors->first('activities') }}</p>
                           @endif
 
-                          <activity-select-list :items-initial="{{ json_encode($activities) }}"></activity-select-list>
+                          <activity-select-list :items-initial="{{ json_encode($activities) }}"
+                                                endpoint="/admin/activities"
+                                                class="mb-6">
+                          </activity-select-list>
                         </div>
 
                         @include ('admin.partials.description-input', [ 'model' => null ])

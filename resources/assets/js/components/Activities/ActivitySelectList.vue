@@ -18,7 +18,7 @@
                              class="m-1 p-1 hover:bg-grey cursor-pointer">
                         </div>
 
-                        <new-activity-form></new-activity-form>
+                        <new-activity-form :endpoint="endpoint"></new-activity-form>
                     </div>
                 </div>
 

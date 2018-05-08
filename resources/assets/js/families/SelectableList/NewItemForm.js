@@ -1,13 +1,18 @@
 export default Vue.extend({
+    props: {
+        endpoint: {
+            type: String,
+            required: true
+        }
+    },
+
     data() {
         return {
             showNewItemForm: false,
 
             newItem: {
                 name: ''
-            },
-
-            endpoint: ''
+            }
         };
     },
 

@@ -32,7 +32,7 @@ class ActivitiesController extends Controller
             'seasons.0' => 'required'
         ]);
 
-        $activity = Activity::create([
+        $model = Activity::create([
             'name' => $request->name,
             'winter' => in_array('winter', $request->seasons),
             'summer' => in_array('summer', $request->seasons),
@@ -40,7 +40,7 @@ class ActivitiesController extends Controller
             'autumn' => in_array('autumn', $request->seasons)
         ]);
 
-        return compact('activity');
+        return compact('model');
     }
 
     /**

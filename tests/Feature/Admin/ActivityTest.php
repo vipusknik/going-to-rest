@@ -51,7 +51,7 @@ class ActivityTest extends TestCase
         $this->post(route('admin.activities.store'), [
             'name' => 'random name',
             'seasons' => [ 'autumn', 'summer' ]
-        ])->assertJson([ 'activity' => true ]);
+        ])->assertJson([ 'model' => true ]);
     }
 
     /** @test */

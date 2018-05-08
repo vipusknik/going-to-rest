@@ -80,6 +80,8 @@
                     flash('Укажите сезоны', 'warning');
                     return false;
                 }
+
+                return true;
             }
         }
     });

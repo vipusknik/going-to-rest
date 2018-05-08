@@ -63,10 +63,11 @@
 
                         @include('admin.partials.contact-inputs', [ 'model' => $company ])
 
-                        <activities-attach :activities-initial="{{ json_encode($activities) }}"
-                                           :activities-attached="{{ json_encode($company->activities) }}"
-                                           class="mb-6">
-                        </activities-attach>
+                        <activity-select-list :items-initial="{{ json_encode($activities) }}"
+                                              :items-selected-initial="{{ json_encode($company->activities) }}"
+                                              endpoint="/admin/activities"
+                                              class="mb-6">
+                        </activity-select-list>
 
                         @include ('admin.partials.description-input', [ 'model' => $company ])
                     </div>

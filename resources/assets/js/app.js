@@ -1,10 +1,10 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
 
+import 'babel-polyfill';
 import VModal from 'vue-js-modal';
 
 require('./bootstrap');
@@ -31,13 +31,16 @@ Vue.component('active-rest-companies-app', require('./components/ActiveRestCompa
 Vue.component('features-attach', require('./components/Features/FeaturesAttach.vue'));
 Vue.component('features-attached', require('./components/Features/FeaturesAttached.vue'));
 
-Vue.component('activities-attach', require('./components/Activities/ActivitiesAttach.vue'));
+Vue.component('activity-select-list', require('./components/Activities/ActivitySelectList.vue'));
+
+Vue.component('animals-select-list', require('./components/HuntingCompanies/Animals/AnimalsSelectList.vue'));
 
 Vue.component('paid-companies-button', require('./components/PaidCompanies/PaidCompaniesButton.vue'));
 
 Vue.component('image-upload-widget', require('./components/ImageUpload/Widget.vue'));
 
-Vue.component('editable-select', require('./components/EditableSelect/EditableSelect.vue'));
+Vue.component('editable-list-modal', require('./components/EditableList/EditableListModal.vue'));
+Vue.component('editable-select', require('./components/EditableList/EditableSelect.vue'));
 
 Vue.component('wysiwig', require('./components/Wysiwig.vue'));
 Vue.component("flash", require("./components/Flash.vue"));
