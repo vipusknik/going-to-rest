@@ -18,7 +18,7 @@ class ActiveRestCompaniesTest extends TestCase
         $company = create('App\ActiveRestCompany');
 
         $this->get(route('admin.active-rest-companies.show', $company))
-            ->assertJson([ 'company' => true ]);
+            ->assertJson([ 'model' => true ]);
     }
 
     /** @test */
@@ -40,6 +40,6 @@ class ActiveRestCompaniesTest extends TestCase
 
         $response = $this->getJson('/admin/active-rest-companies?query=company');
 
-        $this->assertCount(2, $response->original['companies']);
+        $this->assertCount(2, $response->original['models']);
     }
 }

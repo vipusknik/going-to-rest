@@ -4,7 +4,7 @@
 
 @section ('content')
     <div>
-        <rest-centers-app :rest-centers-initial="{{ json_encode($restCenters) }}" :reservoirs="{{ $reservoirs }}">
+        <rest-centers-app :models-initial="{{ json_encode($restCenters) }}" endpoint="/admin/rest-centers">
         </rest-centers-app>
     </div>
 @endsection

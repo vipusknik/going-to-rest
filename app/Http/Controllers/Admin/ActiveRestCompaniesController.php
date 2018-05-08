@@ -20,9 +20,9 @@ class ActiveRestCompaniesController extends Controller
         if ($request->wantsJson()) {
             $query = $request->input('query');
 
-            $companies = ActiveRestCompany::where('name', 'like', "%$query%")->get();
+            $models = ActiveRestCompany::where('name', 'like', "%$query%")->get();
 
-            return compact('companies');
+            return compact('models');
         }
 
         $companies = ActiveRestCompany::latest()->get();
@@ -74,7 +74,7 @@ class ActiveRestCompaniesController extends Controller
     {
         $activeRestCompany->load('activities', 'social_media', 'media');
 
-        return [ 'company' => $activeRestCompany ];
+        return [ 'model' => $activeRestCompany ];
     }
 
     /**

@@ -22,11 +22,11 @@ class RestCentersController extends Controller
         if ($request->expectsJson()) {
             $query = $request->input('query');
 
-            $restCenters = RestCenter::where('name', 'like', "%$query%")
+            $models = RestCenter::where('name', 'like', "%$query%")
                 ->with('reservoir')
                 ->get();
 
-            return compact('restCenters');
+            return compact('models');
         }
 
         $restCenters = RestCenter::with('reservoir')->latest()->get();
@@ -79,7 +79,7 @@ class RestCentersController extends Controller
     {
         $restCenter->load('reservoir', 'features', 'accomodations.features', 'media', 'social_media');
 
-        return compact('restCenter');
+        return [ 'model' => $restCenter ];
     }
 
     /**

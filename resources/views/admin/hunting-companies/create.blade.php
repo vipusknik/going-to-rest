@@ -78,7 +78,10 @@
                               <p class="help is-danger">{{ $errors->first('animals') }}</p>
                           @endif
 
-                          <animals-select-list :items-initial="{{ json_encode($animals) }}"></animals-select-list>
+                          <animals-select-list :items-initial="{{ json_encode($animals) }}"
+                                                endpoint="/admin/animals"
+                                                class="mb-6">
+                          </animals-select-list>
                         </div>
 
                         @include ('admin.partials.description-input', [ 'model' => null ])

@@ -21,7 +21,7 @@ class MedicalCentersTest extends TestCase
 
         $response = $this->getJson('/admin/medical-centers?query=medical');
 
-        $this->assertCount(2, $response->original['medicalCenters']);
+        $this->assertCount(2, $response->original['models']);
     }
 
     /** @test */
@@ -31,7 +31,7 @@ class MedicalCentersTest extends TestCase
 
         $response = $this->getJson(route('admin.medical-centers.show', $medicalCenter));
 
-        $response->assertJson([ 'medicalCenter' => true ]);
+        $response->assertJson([ 'model' => true ]);
     }
 
     /** @test */

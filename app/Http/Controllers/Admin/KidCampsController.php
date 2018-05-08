@@ -21,9 +21,9 @@ class KidCampsController extends Controller
         if ($request->expectsJson()) {
             $query = $request->input('query');
 
-            $kidCamps = KidCamp::where('name', 'like', "%$query%")->get();
+            $models = KidCamp::where('name', 'like', "%$query%")->get();
 
-            return compact('kidCamps');
+            return compact('models');
         }
 
         $kidCamps = KidCamp::latest()->get();
@@ -72,7 +72,7 @@ class KidCampsController extends Controller
     {
         $kidCamp->load('features', 'media', 'social_media');
 
-        return compact('kidCamp');
+        return [ 'model' => $kidCamp ];
     }
 
     /**

@@ -4,6 +4,6 @@
 
 @section ('content')
     <div>
-        <kid-camps-app :kid-camps-initial="{{ json_encode($kidCamps) }}"></kid-camps-app>
+        <kid-camps-app :models-initial="{{ json_encode($kidCamps) }}" endpoint="/admin/kid-camps"></kid-camps-app>
     </div>
 @endsection

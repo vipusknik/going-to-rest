@@ -20,7 +20,7 @@ class KidCampsTest extends TestCase
 
         $response = $this->getJson('/admin/kid-camps?query=camp');
 
-        $this->assertCount(2, $response->original['kidCamps']);
+        $this->assertCount(2, $response->original['models']);
     }
 
     /** @test */

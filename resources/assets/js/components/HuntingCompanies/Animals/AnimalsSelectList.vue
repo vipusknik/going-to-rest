@@ -23,7 +23,7 @@
                              class="m-1 p-1 hover:bg-grey cursor-pointer">
                         </div>
 
-                        <new-animal-form></new-animal-form>
+                        <new-animal-form :endpoint="endpoint"></new-animal-form>
                     </div>
                 </div>
 

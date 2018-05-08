@@ -3,19 +3,19 @@
         <div class="action-buttons mb-8">
             <div class="flex">
                 <div class="control is-grouped">
-                    <a :href="`/admin/rest-centers/${restCenter.slug}/edit`"
+                    <a :href="`/admin/rest-centers/${model.slug}/edit`"
                        class="button is-small bg-grey-lighter"
                        title="Перейти в редактирование">
                         <i class="fas fa-edit"></i>
                     </a>
 
-                    <a @click.prevent="remove" class="button is-small bg-grey-lighter" title="Удалить базу отдыха">
+                    <a @click.prevent="destroy" class="button is-small bg-grey-lighter" title="Удалить базу отдыха">
                         <i class="fa fa-trash"></i>
                     </a>
                 </div>
 
                 <div class="control ml-auto mr-2">
-                    <paid-companies-button :model="restCenter"></paid-companies-button>
+                    <paid-companies-button :model="model"></paid-companies-button>
                 </div>
             </div>
         </div>
@@ -25,88 +25,31 @@
             <div class="mb-4 pb-4 border-b border-grey-light">
                 <div class="mb-1">
                     <h3 class="text-base text-black font-semibold">
-                        {{ restCenter.name }}
+                        {{ model.name }}
                     </h3>
                 </div>
 
                 <div class="text-base text-grey-dark">
-                    <span class="font-semibold">{{ restCenter.reservoir.name }}</span>, {{ restCenter.location }}
+                    <span class="font-semibold">{{ model.reservoir.name }}</span>, {{ model.location }}
                 </div>
             </div>
 
             <div class="mb-4">
-                <div class="flex flex-wrap content-between">
-                    <div class="text-sm mr-3 pr-3 border-r border-grey">
-                        <span class="text-grey-dark mr-1"><i class="fas fa-phone"></i></span>
-                        <span>{{ restCenter.contacts }}</span>
-                    </div>
-
-                    <div class="text-sm mr-3 pr-3 border-r border-grey">
-                        <span class="text-grey-dark mr-1"><i class="fas fa-envelope"></i></span>
-                        <span>{{ restCenter.email }}</span>
-                    </div>
-
-                    <div class="text-sm mr-3 pr-3 border-r border-grey">
-                        <span class="text-grey-dark mr-1"><i class="fas fa-link"></i></span>
-                        <span>
-                            <a :href="restCenter.site_link"
-                               target="_blank"
-                               class="text-blue-light no-underline hover:underline">
-                                {{ restCenter.site_link }}
-                            </a>
-                        </span>
-                    </div>
-
-                    <div v-if="restCenter.social_media_sites.vk" class="text-sm mr-3 pr-3 border-r border-grey">
-                        <span class="text-red-lighter mr-1"><i class="fab fa-vk"></i></span>
-                        <span>
-                            <a :href="restCenter.social_media_sites.vk"
-                               v-text="restCenter.social_media_sites.vk"
-                               target="_blank"
-                               class="text-red-lighter no-underline hover:underline">
-                            </a>
-                        </span>
-                    </div>
-
-                    <div v-if="restCenter.social_media_sites.instagram"
-                         class="text-sm mr-3 pr-3 border-r border-grey">
-                        <span class="text-red-lighter mr-1"><i class="fab fa-instagram"></i></span>
-                        <span>
-                            <a :href="restCenter.social_media_sites.instagram"
-                               v-text="restCenter.social_media_sites.instagram"
-                               target="_blank"
-                               class="text-red-lighter no-underline hover:underline">
-                                https://instagram.com/hey
-                            </a>
-                        </span>
-                    </div>
-
-                    <div v-if="restCenter.social_media_sites.facebook"
-                         class="text-sm mr-3 pr-3 border-r border-grey">
-                        <span class="text-red-lighter mr-1"><i class="fab fa-facebook"></i></span>
-                        <span>
-                            <a :href="restCenter.social_media_sites.facebook"
-                               v-text="restCenter.social_media_sites.facebook"
-                               target="_blank"
-                               class="text-red-lighter no-underline hover:underline">
-                            </a>
-                        </span>
-                    </div>
-                </div>
+                <model-contacts :model="model"></model-contacts>
             </div>
 
             <!-- features -->
-            <features-attached v-if="restCenter.features.length" :features="restCenter.features" class="mb-6"></features-attached>
+            <features-attached v-if="model.features.length" :features="model.features" class="mb-6"></features-attached>
 
             <!-- images -->
-            <image-upload-widget :model="restCenter" :images-attached="restCenter.media" class="mb-4">
+            <image-upload-widget :model="model" :images-attached="model.media" class="mb-4">
             </image-upload-widget>
 
             <!-- Accomodations -->
             <div class="mb-4">
-                <div v-if="restCenter.accomodations.length">
+                <div v-if="model.accomodations.length">
                     <h3 class="text-blue-dark font-bold underline mb-1">
-                        <a :href="`/admin/rest-centers/${restCenter.slug}/accomodations`">Размещения</a>
+                        <a :href="`/admin/rest-centers/${model.slug}/accomodations`">Размещения</a>
                     </h3>
                     <table class="w-full">
                         <thead class="bg-blue-dark">
@@ -121,7 +64,7 @@
                         </thead>
 
                         <tbody>
-                            <tr v-for="accomodation in restCenter.accomodations" class="border-b border-blue-lighter">
+                            <tr v-for="accomodation in model.accomodations" class="border-b border-blue-lighter">
                                 <td class="p-2 border-r border-blue-lighter">
                                     <div v-text="accomodation.type_in_russian" class="text-blue-dark font-bold mb-1 underline"></div>
 
@@ -155,7 +98,7 @@
                         <div class="flex p-2 border border-red-lighter rounded-sm bg-yellow">
                             <span class="mr-2"><i class="fas fa-exclamation text-yellow-darker"></i></span>
                             <span class="text-black font-bold">Размещений нет!</span>
-                            <a :href="`/admin/rest-centers/${restCenter.slug}/accomodations`"
+                            <a :href="`/admin/rest-centers/${model.slug}/accomodations`"
                                class="
                                 text-white
                                 px-2
@@ -172,33 +115,21 @@
                 </div>
 
                 <!-- Accomodation description -->
-                <div v-if="restCenter.accomodation"
-                     v-html="restCenter.accomodation"
+                <div v-if="model.accomodation"
+                     v-html="model.accomodation"
                      class="my-2 pb-2 border-b border-blue-lighter">
                 </div>
             </div>
 
             <div>
-                <div v-html="restCenter.description" class="text-sm"></div>
+                <div v-html="model.description" class="text-sm"></div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
-    export default {
-        props: [ 'restCenter' ],
+    import ModelProfile from '../Extendable/ModelPage/ModelProfile.js';
 
-        methods: {
-            remove() {
-                if (! confirm('Удалить базу отдыха?')) return;
-
-                axios.delete(`/admin/rest-centers/${this.restCenter.slug}`)
-                    .then(response => {
-                        this.$emit('destroyed', this.restCenter);
-                        flash('База отдыха удалена');
-                    });
-            }
-        }
-    }
+    export default ModelProfile.extend({});
 </script>

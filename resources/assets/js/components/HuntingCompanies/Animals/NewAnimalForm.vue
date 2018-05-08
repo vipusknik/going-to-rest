@@ -74,27 +74,26 @@
     import NewItemForm from '../../../families/SelectableList/NewItemForm.js';
 
     export default NewItemForm.extend({
+
         data () {
             return {
                 newItem: {
                     name: '',
                     type: '',
                     seasons: []
-                },
-
-                endpoint: '/admin/animals'
+                }
             };
         },
 
         methods: {
             validate () {
-                if (! this.newItem.type.trim) {
-                    flash('Укажите категорию!');
+                if (! this.newItem.type.trim().length) {
+                    flash('Укажите категорию!', 'warning');
                     return false;
                 }
 
                 if (! this.newItem.seasons.length) {
-                    flash('Укажите сезоны!');
+                    flash('Укажите сезоны!', 'warning');
                     return false;
                 }
 

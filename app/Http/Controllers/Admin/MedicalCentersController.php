@@ -20,10 +20,10 @@ class MedicalCentersController extends Controller
         if ($request->expectsJson()) {
             $query = $request->input('query');
 
-            $medicalCenters = MedicalCenter::where('name', 'like', "%$query%")
+            $models = MedicalCenter::where('name', 'like', "%$query%")
                 ->get();
 
-            return compact('medicalCenters');
+            return compact('models');
         }
 
         $medicalCenters = MedicalCenter::latest()->get();
@@ -74,7 +74,7 @@ class MedicalCentersController extends Controller
     {
         $medicalCenter->load('features', 'media', 'social_media');
 
-        return compact('medicalCenter');
+        return [ 'model' => $medicalCenter ];
     }
 
     /**
