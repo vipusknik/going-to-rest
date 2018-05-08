@@ -16,9 +16,19 @@ class HuntingCompaniesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        if ($request->expectsJson()) {
+            $query = $request->input('query');
+
+            $models = HuntingCompany::where('name', 'like', "%$query%")->get();
+
+            return compact('models');
+        }
+
+        $models = HuntingCompany::latest()->get();
+
+        return view('admin.hunting-companies.index', compact('models'));
     }
 
     /**
@@ -71,7 +81,9 @@ class HuntingCompaniesController extends Controller
      */
     public function show(HuntingCompany $huntingCompany)
     {
-        //
+        $huntingCompany->load('animals', 'media', 'social_media');
+
+        return [ 'model' => $huntingCompany ];
     }
 
     /**
@@ -105,6 +117,6 @@ class HuntingCompaniesController extends Controller
      */
     public function destroy(HuntingCompany $huntingCompany)
     {
-        //
+        $huntingCompany->delete();
     }
 }

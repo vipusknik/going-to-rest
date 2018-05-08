@@ -33,6 +33,7 @@ Vue.component('features-attached', require('./components/Features/FeaturesAttach
 
 Vue.component('activity-select-list', require('./components/Activities/ActivitySelectList.vue'));
 
+Vue.component('hunting-companies-app', require('./components/HuntingCompanies/App.vue'));
 Vue.component('animals-select-list', require('./components/HuntingCompanies/Animals/AnimalsSelectList.vue'));
 
 Vue.component('paid-companies-button', require('./components/PaidCompanies/PaidCompaniesButton.vue'));

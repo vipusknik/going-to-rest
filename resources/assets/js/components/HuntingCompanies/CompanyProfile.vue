@@ -1,0 +1,62 @@
+<template>
+    <div>
+        <div class="action-buttons mb-8">
+            <div class="flex">
+                <div class="control is-grouped">
+                    <a :href="`${endpoint}/${model.slug}/edit`"
+                       class="button is-small bg-grey-lighter"
+                       title="Перейти в редактирование">
+                        <i class="fas fa-edit"></i>
+                    </a>
+
+                    <a @click.prevent="destroy" class="button is-small bg-grey-lighter" title="Удалить компанию">
+                        <i class="fa fa-trash"></i>
+                    </a>
+                </div>
+
+                <div class="control ml-auto mr-2">
+                    <paid-companies-button :model="model"></paid-companies-button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Company info -->
+        <div class="p-4 border border-grey-light rounded">
+            <div class="mb-4 pb-4 border-b border-grey-light">
+                <div class="mb-1">
+                    <h3 class="text-base text-black font-semibold" v-text="model.name"></h3>
+                </div>
+
+                <div class="text-base text-grey-dark" v-text="model.location"></div>
+
+                <div class="text-sm text-grey-dark">
+                    <span class="text-grey">Распространение путевок:</span> {{ model.distribution_address }}
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <model-contacts :model="model"></model-contacts>
+            </div>
+
+            <!-- images -->
+            <image-upload-widget :model="model" :images-attached="model.media" class="mb-6">
+            </image-upload-widget>
+
+            <!-- activities -->
+            <!-- <activities-attached :activities="model.activities" class="mb-6"></activities-attached> -->
+
+            <div>
+                <div v-html="model.description" class="text-sm"></div>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+    import ModelProfile from '../Extendable/ModelPage/ModelProfile.js';
+    // import ActivitiesAttached from '../Activities/ActivitiesAttached.vue';
+
+    export default ModelProfile.extend({
+        // components: { ActivitiesAttached }
+    });
+</script>

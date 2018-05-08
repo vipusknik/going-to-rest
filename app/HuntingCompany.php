@@ -4,10 +4,13 @@ namespace App;
 
 use App\Traits\HasSlug;
 use App\Traits\HasSocialMedia;
+use App\Traits\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMedia as HasMediaInterface;
 
-class HuntingCompany extends Model
+class HuntingCompany extends Model implements HasMediaInterface
 {
     use HasSlug, HasSocialMedia;
+    use HasMedia;
 
     public function animals()
     {

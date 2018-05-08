@@ -27,6 +27,10 @@
         <a class="navbar-item text-black font-semibold" href="{{ route('admin.active-rest-companies.index') }}">
           Активный отдых
         </a>
+
+        <a class="navbar-item text-black font-semibold" href="{{ route('admin.hunting-companies.index') }}">
+          Охота и рыбалка
+        </a>
       </div>
 
       <div class="navbar-end">
