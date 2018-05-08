@@ -6,8 +6,8 @@ use App\HuntingCompany;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Validation\Rule;
-use App\HuntingRegion;
 use App\HuntingPlace;
+use App\Animal;
 
 class HuntingCompaniesController extends Controller
 {
@@ -28,10 +28,11 @@ class HuntingCompaniesController extends Controller
      */
     public function create()
     {
-        $regions = HuntingRegion::all();
-        $places = HuntingPlace::all();
+        $regions = HuntingPlace::whereType('region')->get();
+        $places = HuntingPlace::whereType('place')->get();
+        $animals = Animal::all();
 
-        return view('admin.hunting-companies.create', compact('regions', 'places'));
+        return view('admin.hunting-companies.create', compact('regions', 'places', 'animals'));
     }
 
     /**
@@ -45,7 +46,7 @@ class HuntingCompaniesController extends Controller
         $request->validate([
             'name' => [ 'required', Rule::unique('hunting_companies', 'name') ],
             'hunting_place_id' => [ 'required', Rule::exists('hunting_places', 'id') ],
-            'hunting_region_id' => [ 'required', Rule::exists('hunting_regions', 'id') ],
+            'hunting_region_id' => [ 'required', Rule::exists('hunting_places', 'id') ],
         ]);
         // TODO: at least one hunting type should be true
 

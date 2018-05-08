@@ -90,8 +90,6 @@ class CreateHuntingCompanyTest extends TestCase
     /** @test */
     function animals_and_fish_can_be_attached_to_a_hunting_company()
     {
-        $this->se();
-
         $animals = create('App\Animal', [], 10);
 
         $this->post(

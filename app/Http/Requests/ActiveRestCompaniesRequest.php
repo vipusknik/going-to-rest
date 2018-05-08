@@ -34,7 +34,6 @@ class ActiveRestCompaniesRequest extends FormRequest
             'name' => [ 'required', $uniqueRule ],
             'location' => 'required',
             'activities' => 'required', // there must be at least one activity
-            'activities.*' => 'required' //each activity requires cost
         ];
     }
 
