@@ -74,11 +74,11 @@
                         @include('admin.partials.contact-inputs', [ 'model' => null ])
 
                         <div class="mb-6">
-                          @if ($errors->has('activities'))
-                              <p class="help is-danger">{{ $errors->first('activities') }}</p>
+                          @if ($errors->has('animals'))
+                              <p class="help is-danger">{{ $errors->first('animals') }}</p>
                           @endif
 
-                          {{-- <activities-attach :activities-initial="{{ json_encode($activities) }}"></activities-attach> --}}
+                          <animals-select-list :items-initial="{{ json_encode($animals) }}"></animals-select-list>
                         </div>
 
                         @include ('admin.partials.description-input', [ 'model' => null ])
@@ -94,5 +94,4 @@
           </div>
         </div>
     </div>
-
 @endsection

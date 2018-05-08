@@ -67,7 +67,7 @@
                               <p class="help is-danger">{{ $errors->first('activities') }}</p>
                           @endif
 
-                          <activities-attach :activities-initial="{{ json_encode($activities) }}"></activities-attach>
+                          <activity-select-list :items-initial="{{ json_encode($activities) }}"></activity-select-list>
                         </div>
 
                         @include ('admin.partials.description-input', [ 'model' => null ])

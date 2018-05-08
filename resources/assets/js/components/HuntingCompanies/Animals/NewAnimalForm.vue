@@ -22,6 +22,15 @@
                         hover:border-grey-light">
            </div>
 
+           <div class="mb-3">
+                <select v-model="newItem.type" class="w-full h-8">
+                    <option value="">Выберите категорию</option>
+                    <option value="animal">животное</option>
+                    <option value="fish">рыба</option>
+                    <option value="bird">птица</option>
+                </select>
+           </div>
+
            <div class="mb-3 flex justify-around">
                 <div>
                     <input type="checkbox" value="spring" v-model="newItem.seasons" id="spring">
@@ -62,24 +71,34 @@
 </template>
 
 <script>
-    import NewItemForm from '../../families/SelectableList/NewItemForm.js';
+    import NewItemForm from '../../../families/SelectableList/NewItemForm.js';
 
     export default NewItemForm.extend({
-        data() {
+        data () {
             return {
                 newItem: {
                     name: '',
+                    type: '',
                     seasons: []
-                }
+                },
+
+                endpoint: '/admin/animals'
             };
         },
 
         methods: {
             validate () {
-                if (! this.newItem.seasons.length) {
-                    flash('Укажите сезоны', 'warning');
+                if (! this.newItem.type.trim) {
+                    flash('Укажите категорию!');
                     return false;
                 }
+
+                if (! this.newItem.seasons.length) {
+                    flash('Укажите сезоны!');
+                    return false;
+                }
+
+                return true;
             }
         }
     });
