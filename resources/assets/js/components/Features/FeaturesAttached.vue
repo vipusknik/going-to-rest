@@ -20,7 +20,7 @@
         props: {
             features: {
                 type: Array,
-                requried: true
+                required: true
             },
 
             showCategory: {
