@@ -38,12 +38,10 @@
                 <model-contacts :model="model"></model-contacts>
             </div>
 
-            <!-- images -->
+            <animals-selected :items="model.animals" class="mb-6"></animals-selected>
+
             <image-upload-widget :model="model" :images-attached="model.media" class="mb-6">
             </image-upload-widget>
-
-            <!-- activities -->
-            <!-- <activities-attached :activities="model.activities" class="mb-6"></activities-attached> -->
 
             <div>
                 <div v-html="model.description" class="text-sm"></div>
@@ -54,9 +52,9 @@
 
 <script>
     import ModelProfile from '../Extendable/ModelPage/ModelProfile.js';
-    // import ActivitiesAttached from '../Activities/ActivitiesAttached.vue';
+    import AnimalsSelected from './Animals/AnimalsSelected.vue';
 
     export default ModelProfile.extend({
-        // components: { ActivitiesAttached }
+        components: { AnimalsSelected }
     });
 </script>
