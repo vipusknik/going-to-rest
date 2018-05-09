@@ -1,19 +1,20 @@
 @extends ('admin.layouts.master')
 
-@section ('title', 'Добавление места охоты и рыбалки')
+@section ('title', $huntingCompany->name . ': редактирование')
 
 @section ('content')
     <div class="container mx-auto mt-3">
         <div class="card">
           <header class="card-header">
             <p class="card-header-title">
-              Добавление места охоты и рыбалки
+              {{ $huntingCompany->name . ': редактирование' }}
             </p>
           </header>
           <div class="card-content">
             <div class="content">
-                <form action="{{ route('admin.hunting-companies.store') }}" method="post" @keydown.enter.prevent="">
+                <form action="{{ route('admin.hunting-companies.update', $huntingCompany) }}" method="post" @keydown.enter.prevent="">
                     @csrf
+                    @method ('PATCH')
 
                     <div class="mb-6 pb-6 border-b border-grey-light">
 
@@ -24,7 +25,7 @@
                                 <input type="text"
                                        name="name"
                                        id="name"
-                                       value="{{ old('name') }}"
+                                       value="{{ old('name', $huntingCompany->name) }}"
                                        class="h-10 input {{ $errors->has('name') ? ' is-danger' : '' }}"
                                        placeholder="Название"
                                        required>
@@ -65,7 +66,7 @@
                               <editable-select select-label="Регион"
                                                select-name="hunting_region_id"
                                                :select-options-initial="{{ json_encode($regions) }}"
-                                               selected-option-id="{{ old('hunting_region_id') }}"
+                                               selected-option-id="{{ old('hunting_region_id', $huntingCompany->hunting_region_id) }}"
                                                modal-heading="Регионы"
                                                endpoint="/admin/hunting-places"
                                                :attach-request-data="{ type: 'region' }">
@@ -76,7 +77,7 @@
                               <editable-select select-label="Место"
                                                select-name="hunting_place_id"
                                                :select-options-initial="{{ json_encode($places) }}"
-                                               selected-option-id="{{ old('hunting_place_id') }}"
+                                               selected-option-id="{{ old('hunting_place_id', $huntingCompany->hunting_place_id) }}"
                                                modal-heading="Места"
                                                endpoint="/admin/hunting-places"
                                                :attach-request-data="{ type: 'place' }">
@@ -89,13 +90,13 @@
                                 <input class="input"
                                        type="text"
                                        name="distribution_address"
-                                       value="{{ old('distribution_address') }}"
+                                       value="{{ old('distribution_address', $huntingCompany->distribution_address) }}"
                                        placeholder="Адреса распространения">
                               </div>
                             </div>
                         </div>
 
-                        @include('admin.partials.contact-inputs', [ 'model' => null ])
+                        @include('admin.partials.contact-inputs', [ 'model' => $huntingCompany ])
 
                         <div class="mb-6">
                           @if ($errors->has('animals'))
@@ -103,12 +104,13 @@
                           @endif
 
                           <animals-select-list :items-initial="{{ json_encode($animals) }}"
+                                               :items-selected-initial="{{ json_encode($huntingCompany->animals) }}"
                                                endpoint="/admin/animals"
                                                class="mb-6">
                           </animals-select-list>
                         </div>
 
-                        @include ('admin.partials.description-input', [ 'model' => null ])
+                        @include ('admin.partials.description-input', [ 'model' => $huntingCompany ])
                     </div>
 
                     <div class="field is-grouped">

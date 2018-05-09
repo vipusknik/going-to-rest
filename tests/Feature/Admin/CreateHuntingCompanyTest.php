@@ -90,14 +90,18 @@ class CreateHuntingCompanyTest extends TestCase
     /** @test */
     function animals_and_fish_can_be_attached_to_a_hunting_company()
     {
-        $animals = create('App\Animal', [], 10);
+        $this->se();
+
+        $animals = [ create('App\Animal')->id => 'description' ];
 
         $this->post(
                 route('admin.hunting-companies.store'),
                 make('App\HuntingCompany')->getAttributes() + compact('animals')
             );
 
-        $this->assertCount(10, HuntingCompany::first()->animals);
+        // dd(HuntingCompany::first()->animals);
+
+        $this->assertCount(1, HuntingCompany::first()->animals);
     }
 
     /** @test */

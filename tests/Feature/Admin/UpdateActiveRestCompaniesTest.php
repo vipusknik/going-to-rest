@@ -33,7 +33,7 @@ class UpdateActiveRestCompaniesTest extends TestCase
 
         $this->patch(
                 route('admin.active-rest-companies.update', $company),
-                $company->getAttributes() + [ 'activities' => [ create('App\Activity')->id => [ 'cost' => 123 ] ] ]
+                $company->getAttributes() + [ 'activities' => [ create('App\Activity')->id => 123 ] ]
             );
 
         $this->assertNull(session('errors'));

@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\HuntingCompany;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Validation\Rule;
 use App\HuntingPlace;
 use App\Animal;
+use App\Http\Requests\HuntingCompanyRequest;
 
 class HuntingCompaniesController extends Controller
 {
@@ -51,15 +51,8 @@ class HuntingCompaniesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(HuntingCompanyRequest $request)
     {
-        $request->validate([
-            'name' => [ 'required', Rule::unique('hunting_companies', 'name') ],
-            'hunting_place_id' => [ 'required', Rule::exists('hunting_places', 'id') ],
-            'hunting_region_id' => [ 'required', Rule::exists('hunting_places', 'id') ],
-        ]);
-        // TODO: at least one hunting type should be true
-
         $data = $request->except([ 'animals', 'social_media' ]);
 
         $data['hunting'] = $request->hunting === 'on';
@@ -68,7 +61,7 @@ class HuntingCompaniesController extends Controller
         HuntingCompany::create($data)
             ->attachSocialMedia($request->social_media)
             ->animals()
-            ->attach($request->animals);
+            ->attach($this->prepareAnimals($request->animals));
 
         return redirect()->route('admin.hunting-companies.index')->withFlash('Сохранено');
     }
@@ -94,7 +87,12 @@ class HuntingCompaniesController extends Controller
      */
     public function edit(HuntingCompany $huntingCompany)
     {
-        //
+        $huntingCompany->load('social_media', 'animals');
+        $regions = HuntingPlace::whereType('region')->get();
+        $places = HuntingPlace::whereType('place')->get();
+        $animals = Animal::all();
+
+        return view('admin.hunting-companies.edit', compact('huntingCompany', 'regions', 'places', 'animals'));
     }
 
     /**
@@ -104,9 +102,21 @@ class HuntingCompaniesController extends Controller
      * @param  \App\HuntingCompany  $huntingCompany
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, HuntingCompany $huntingCompany)
+    public function update(HuntingCompanyRequest $request, HuntingCompany $huntingCompany)
     {
-        //
+        $data = $request->except([ 'animals', 'social_media' ]);
+
+        $data['hunting'] = $request->hunting === 'on';
+        $data['fishing'] = $request->fishing === 'on';
+
+        $huntingCompany->update($data);
+
+        $huntingCompany->updateSocialMedia($request->social_media);
+
+        $huntingCompany->animals()->detach();
+        $huntingCompany->animals()->attach($this->prepareAnimals($request->animals));
+
+        return redirect()->route('admin.hunting-companies.index')->withFlash('Сохранено');
     }
 
     /**
@@ -118,5 +128,16 @@ class HuntingCompaniesController extends Controller
     public function destroy(HuntingCompany $huntingCompany)
     {
         $huntingCompany->delete();
+    }
+
+    protected function prepareAnimals($animals)
+    {
+        $animals = (array) $animals;
+
+        foreach ($animals as $id => $description) {
+            $animals[$id] = [ 'description' => $description ];
+        }
+
+        return $animals;
     }
 }

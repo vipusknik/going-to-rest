@@ -5,9 +5,15 @@
         </label>
 
         <div class="control">
-            <select :name="selectName" :id="uniqid">
-                <option v-for="option in selectOptions" v-text="option.name" :value="option.id"></option>
-            </select>
+            <div class="select w-full">
+                <select :name="selectName" :id="uniqid" class="w-full">
+                    <option v-for="option in selectOptions"
+                            v-text="option.name"
+                            :value="option.id"
+                            :selected="selectedOptionId == option.id">
+                    </option>
+                </select>
+            </div>
         </div>
 
         <editable-list-modal :options-initial="selectOptions"
@@ -40,6 +46,11 @@
             selectOptionsInitial: {
                 type: Array,
                 required: true
+            },
+
+            selectedOptionId: {
+                type: String,
+                required: false
             },
 
             modalHeading: {

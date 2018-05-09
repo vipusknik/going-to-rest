@@ -71,7 +71,7 @@ class CreateActiveRestCompaniesTest extends TestCase
     /** @test */
     function activities_can_be_attached_to_an_active_rest_company()
     {
-        $activities = [ create('App\Activity', [])->id ];
+        $activities = [ create('App\Activity', [])->id => '' ];
 
         $this->post(
             route('admin.active-rest-companies.store'),

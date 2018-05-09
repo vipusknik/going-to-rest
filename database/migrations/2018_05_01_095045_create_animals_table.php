@@ -23,6 +23,7 @@ class CreateAnimalsTable extends Migration
         Schema::create('hunting_company_animal', function (Blueprint $table) {
             $table->unsignedInteger('hunting_company_id');
             $table->unsignedInteger('animal_id');
+            $table->string('description')->nullable();
         });
     }
 
