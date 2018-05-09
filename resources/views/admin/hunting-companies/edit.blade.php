@@ -103,9 +103,12 @@
                               <p class="help is-danger">{{ $errors->first('animals') }}</p>
                           @endif
 
-                          <animals-select-list :items-initial="{{ json_encode($animals) }}"
+                          <animals-select-list heading="Кого ловить"
+                                               :items-initial="{{ json_encode($animals) }}"
                                                :items-selected-initial="{{ json_encode($huntingCompany->animals) }}"
                                                endpoint="/admin/animals"
+                                               description-input-name="animals"
+                                               modal-heading="Животные и рыбы"
                                                class="mb-6">
                           </animals-select-list>
                         </div>

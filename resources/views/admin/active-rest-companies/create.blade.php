@@ -67,8 +67,13 @@
                               <p class="help is-danger">{{ $errors->first('activities') }}</p>
                           @endif
 
-                          <activity-select-list :items-initial="{{ json_encode($activities) }}"
+                          <activity-select-list heading="Виды отдыха"
+                                                :items-initial="{{ json_encode($activities) }}"
                                                 endpoint="/admin/activities"
+                                                description-input-name="activities"
+                                                description-input-placeholder="Цена"
+                                                description-field="cost"
+                                                modal-heading="Виды отдыха"
                                                 class="mb-6">
                           </activity-select-list>
                         </div>

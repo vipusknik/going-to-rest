@@ -63,11 +63,20 @@
 
                         @include('admin.partials.contact-inputs', [ 'model' => $company ])
 
-                        <activity-select-list :items-initial="{{ json_encode($activities) }}"
+                        @if ($errors->has('activities'))
+                            <p class="help is-danger">{{ $errors->first('activities') }}</p>
+                        @endif
+
+                        <activity-select-list heading="Виды отдыха"
+                                              :items-initial="{{ json_encode($activities) }}"
                                               :items-selected-initial="{{ json_encode($company->activities) }}"
                                               endpoint="/admin/activities"
+                                              description-input-name="activities"
+                                              description-input-placeholder="Цена"
+                                              description-field="cost"
+                                              modal-heading="Виды отдыха"
                                               class="mb-6">
-                        </activity-select-list>
+                          </activity-select-list>
 
                         @include ('admin.partials.description-input', [ 'model' => $company ])
                     </div>
