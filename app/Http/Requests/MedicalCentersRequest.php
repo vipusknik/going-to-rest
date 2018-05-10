@@ -27,7 +27,7 @@ class MedicalCentersRequest extends FormRequest
         $uniqueRule = Rule::unique('medical_centers', 'name');
 
         if ($this->method() === 'PATCH') {
-            $uniqueRule = Rule::unique('medical_centers', 'name')->ignore($this->medical_center->id);
+            $uniqueRule->ignore($this->medical_center->id);
         }
 
         return [

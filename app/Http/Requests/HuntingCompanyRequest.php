@@ -27,7 +27,7 @@ class HuntingCompanyRequest extends FormRequest
         $uniqueRule = Rule::unique('hunting_companies', 'name');
 
         if ($this->method() === 'PATCH') {
-            $uniqueRule = Rule::unique('hunting_companies', 'name')->ignore($this->hunting_company->id);
+            $uniqueRule->ignore($this->hunting_company->id);
         }
 
         return [

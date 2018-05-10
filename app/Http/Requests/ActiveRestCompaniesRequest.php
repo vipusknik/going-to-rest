@@ -27,7 +27,7 @@ class ActiveRestCompaniesRequest extends FormRequest
         $uniqueRule = Rule::unique('active_rest_companies', 'name');
 
         if ($this->method() === 'PATCH') {
-            $uniqueRule = Rule::unique('active_rest_companies', 'name')->ignore($this->active_rest_company->id);
+            $uniqueRule->ignore($this->active_rest_company->id);
         }
 
         return [

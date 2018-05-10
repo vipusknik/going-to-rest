@@ -27,7 +27,7 @@ class RestCentersRequest extends FormRequest
         $uniqueRule = Rule::unique('rest_centers', 'name');
 
         if ($this->method() === 'PATCH') {
-            $uniqueRule = Rule::unique('rest_centers', 'name')->ignore($this->rest_center->id);
+            $uniqueRule->ignore($this->rest_center->id);
         }
 
         return [

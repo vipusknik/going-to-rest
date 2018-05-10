@@ -27,7 +27,7 @@ class KidCampsRequest extends FormRequest
         $uniqueRule = Rule::unique('kid_camps', 'name');
 
         if ($this->method() === 'PATCH') {
-            $uniqueRule = Rule::unique('kid_camps', 'name')->ignore($this->kid_camp->id);
+            $uniqueRule->ignore($this->kid_camp->id);
         }
 
         return [
