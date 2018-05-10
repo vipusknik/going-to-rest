@@ -16,7 +16,7 @@ class AnimalsTest extends TestCase
     /** @test */
     function animal_name_has_to_be_unique()
     {
-        $animal = Animal::create([ 'name' => 'name', 'type' => 'animal', 'seasons' => [ 'winter' ] ]);
+        $animal = Animal::create([ 'name' => 'name', 'type' => 'animal', 'winter' => 1 ]);
 
         $this->post(route('admin.animals.store'), [ 'name' => $animal->name ])
              ->assertSessionHasErrors('name');
@@ -68,7 +68,7 @@ class AnimalsTest extends TestCase
         $animal = Animal::create([
             'name' => 'bear',
             'type' => 'animal',
-            'seasons'  => [ 'winter' ]
+            'winter'  => 1
         ]);
 
         $this->delete(route('admin.animals.destroy', $animal));
@@ -82,7 +82,7 @@ class AnimalsTest extends TestCase
         $animal = Animal::create([
             'name' => 'bear',
             'type' => 'animal',
-            'seasons'  => [ 'winter' ]
+            'spring'  => 1
         ]);
 
         create('App\HuntingCompany')->animals()->attach([ $animal->id ]);
@@ -90,5 +90,33 @@ class AnimalsTest extends TestCase
         $this->delete(route('admin.animals.destroy', $animal))->assertStatus(422);
 
         $this->assertCount(1, Animal::all());
+    }
+
+    /** @test */
+    function an_animal_can_be_updated()
+    {
+        $animal = create('App\Animal');
+
+        $this->patch(route('admin.animals.update', $animal), [
+            'name' => 'updated',
+            'type' => 'animal',
+            'seasons'  => [ 'winter' ]
+        ]);
+
+        $this->assertEquals('updated', $animal->fresh()->name);
+    }
+
+    /** @test */
+    function animal_nam_has_to_be_unique_on_update_ignoring_itself()
+    {
+        $animal = create('App\Animal');
+
+        $this->patch(route('admin.animals.update', $animal), [
+            'name' => $animal->name,
+            'type' => 'animal',
+            'seasons'  => [ 'winter' ]
+        ]);
+
+        $this->assertNull(session('errors'));
     }
 }

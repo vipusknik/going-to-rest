@@ -16,7 +16,7 @@ class AnimalsController extends Controller
      */
     public function index()
     {
-        //
+        return [ 'models' => Animal::all() ];
     }
 
     /**
@@ -33,7 +33,14 @@ class AnimalsController extends Controller
             'seasons.0' => 'required'
         ]);
 
-        $model = Animal::create($request->all());
+        $model = Animal::create([
+            'name' => $request->name,
+            'type' => $request->type,
+            'winter' => in_array('winter', $request->seasons),
+            'summer' => in_array('summer', $request->seasons),
+            'spring' => in_array('spring', $request->seasons),
+            'autumn' => in_array('autumn', $request->seasons)
+        ]);
 
         return compact('model');
     }
@@ -58,7 +65,22 @@ class AnimalsController extends Controller
      */
     public function update(Request $request, Animal $animal)
     {
-        //
+        $request->validate([
+            'name' => [ 'required', Rule::unique('animals', 'name')->ignore($animal->id) ],
+            'type' => [ 'required', Rule::in([ 'animal', 'bird', 'fish' ]) ],
+            'seasons.0' => 'required'
+        ]);
+
+        $animal->update([
+            'name' => $request->name,
+            'type' => $request->type,
+            'winter' => in_array('winter', $request->seasons),
+            'summer' => in_array('summer', $request->seasons),
+            'spring' => in_array('spring', $request->seasons),
+            'autumn' => in_array('autumn', $request->seasons)
+        ]);
+
+        return [ 'model' => $animal ];
     }
 
     /**

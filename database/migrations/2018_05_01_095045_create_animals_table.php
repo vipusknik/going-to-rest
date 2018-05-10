@@ -17,7 +17,10 @@ class CreateAnimalsTable extends Migration
             $table->increments('id');
             $table->string('name')->unique();
             $table->string('type');
-            $table->text('seasons');
+            $table->boolean('summer')->default(false);
+            $table->boolean('winter')->default(false);
+            $table->boolean('spring')->default(false);
+            $table->boolean('autumn')->default(false);
         });
 
         Schema::create('hunting_company_animal', function (Blueprint $table) {

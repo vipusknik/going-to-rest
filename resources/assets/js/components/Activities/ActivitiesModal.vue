@@ -43,7 +43,7 @@
                 .then(response => {
                     this.activities = response.data.activities;
                 })
-                .catch(error => flash('Ошибка при загруззке списка.', 'danger'));
+                .catch(error => flash('Ошибка при загрузке списка.', 'danger'));
             },
 
             destroy(activity) {
