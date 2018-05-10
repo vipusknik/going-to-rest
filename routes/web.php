@@ -53,7 +53,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     /**
      * Features
      */
-    Route::post('features', 'FeaturesController@store')->name('admin.features.store');
+    Route::apiResource('features', 'FeaturesController', [ 'as' => 'admin' ]);
 
     /**
      * Medical centers

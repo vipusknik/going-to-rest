@@ -78,4 +78,43 @@ class FeaturesTest extends TestCase
         $feature = create('App\Feature', [ 'category' => Feature::CATEGORY_OCCUPATIONS ]);
         $this->assertEquals('Досуг, кружки и развлечения', $feature->category_in_russian);
     }
+
+    /** @test */
+    function features_can_be_deleted()
+    {
+        $feature = create('App\Feature');
+
+        $this->delete(route('admin.features.destroy', $feature));
+
+        $this->assertDatabaseMissing('features', [ 'name' => $feature->name ]);
+    }
+
+    /** @test */
+    function a_feature_cannot_be_deleted_if_it_is_associated_with_another_model()
+    {
+        $feature = create('App\Feature');
+
+        create('App\MedicalCenter')->features()->attach($feature->id);
+
+        $this->assertCount(1, \App\MedicalCenter::first()->features);
+
+        $this->delete(route('admin.features.destroy', $feature))->assertStatus(422);
+
+        $this->assertDatabaseHas('features', [ 'name' => $feature->name ]);
+    }
+
+    /** @test */
+    function a_feature_can_be_updated()
+    {
+        $this->se();
+
+        $feature = create('App\Feature');
+
+        $this->patch(
+            route('admin.features.update', $feature),
+            [ 'name' => 'updated' ] + $feature->getAttributes()
+        );
+
+        $this->assertEquals('updated', $feature->fresh()->name);
+    }
 }

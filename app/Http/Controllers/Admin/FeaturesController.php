@@ -14,4 +14,18 @@ class FeaturesController extends Controller
 
         return compact('feature');
     }
+
+    public function update(FeatureRequest $request, Feature $feature)
+    {
+        $feature->update([ 'name' => $request->name ]);
+
+        return [ 'model' => $feature ];
+    }
+
+    public function destroy(Feature $feature)
+    {
+        abort_if(\DB::table('featurables')->where('feature_id', $feature->id)->get()->count(), 422);
+
+        $feature->delete();
+    }
 }

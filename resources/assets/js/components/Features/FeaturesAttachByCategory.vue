@@ -1,7 +1,10 @@
 <template>
     <div>
         <div>
-            <h3 v-text="categoryInRussian" class="text-green text-base font-semibold mb-2"></h3>
+            <h3 v-text="categoryInRussian"
+                @click="$modal.show(uniqid)"
+                class="text-green text-base font-semibold mb-2 underline cursor-pointer">
+            </h3>
             <div class="flex p-2 border border-grey-light">
                 <div class="w-1/3 class border-r border-grey-light">
                     <div>
@@ -28,15 +31,18 @@
                 </div>
             </div>
         </div>
+
+        <features-modal :modal-name="uniqid" :heading="categoryInRussian" :items-initial="allFeatures"></features-modal>
     </div>
 </template>
 
 <script>
     import SelectedFeature from './SelectedFeature.vue';
     import NewFeatureForm from './NewFeatureForm.vue';
+    import FeaturesModal from './FeaturesModal.vue';
 
     export default {
-        components: { SelectedFeature, NewFeatureForm },
+        components: { SelectedFeature, NewFeatureForm, FeaturesModal },
 
         props: {
             category: {
@@ -61,7 +67,14 @@
                 features: this.featuresInitial,
                 selectedFeatures: [],
                 belongsTo: this.featuresInitial[0].belongs_to,
-                categoryInRussian: this.featuresInitial[0].category_in_russian
+                categoryInRussian: this.featuresInitial[0].category_in_russian,
+                uniqid: Math.random().toString(36).substring(7)
+            }
+        },
+
+        computed: {
+            allFeatures () {
+                return this.features.concat(this.selectedFeatures)
             }
         },
 
