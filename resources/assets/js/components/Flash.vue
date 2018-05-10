@@ -1,6 +1,6 @@
 <template>
     <div :class="classes"
-         style="right: 25px; bottom: 25px;"
+         style="right: 25px; bottom: 25px; z-index: 5555555555555555"
          v-show="show"
          v-text="body">
     </div>

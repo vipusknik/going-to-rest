@@ -1,8 +1,8 @@
 <template>
-    <modal name="activities-modal" @opened="fetch" height="auto" :width="700" :scrollable="true">
+    <modal :name="modalName" @opened="fetch" height="auto" :width="700" :scrollable="true">
         <!-- Heading -->
         <div class="py-3">
-            <h4 class="text-xl text-indigo-light text-center font-bold m-0 p-0">Виды отдыха</h4>
+            <h4 class="text-xl text-teal text-center font-bold m-0 p-0">Виды отдыха</h4>
         </div>
 
         <div class="py-3 px-6">
@@ -23,6 +23,13 @@
 
     export default {
         components: { ActivitiesModalItem },
+
+        props: {
+            modalName: {
+                type: String,
+                required: true
+            }
+        },
 
         data() {
             return {
