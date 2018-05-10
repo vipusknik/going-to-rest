@@ -24,17 +24,16 @@ class FeatureRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => [
-                'required',
+        $uniqueRule = Rule::unique('features')->where(function ($query) {
+            $query->where('belongs_to', request()->belongs_to);
+        });
 
-                /**
-                 * Feature name has to be unique but only for its model
-                 */
-                Rule::unique('features')->where(function ($query) {
-                    $query->where('belongs_to', request()->belongs_to);
-                })
-            ],
+        if ($this->method() === 'PATCH') {
+            $uniqueRule->ignore($this->feature->id);
+        }
+
+        return [
+            'name' => [ 'required', $uniqueRule ],
 
             'category' => 'required',
             'belongs_to' => 'required',

@@ -104,10 +104,18 @@ class FeaturesTest extends TestCase
     }
 
     /** @test */
+    function feature_requires_a_unique_name_ignoring_itself_on_update()
+    {
+        $feature = create('App\Feature');
+
+        $this->patch(route('admin.features.update', $feature), $feature->getAttributes());
+
+        $this->assertNull(session('errors'));
+    }
+
+    /** @test */
     function a_feature_can_be_updated()
     {
-        $this->se();
-
         $feature = create('App\Feature');
 
         $this->patch(
