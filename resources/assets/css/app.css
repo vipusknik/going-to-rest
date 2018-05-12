@@ -77,30 +77,35 @@ button:focus {
     @apply bg-no-repeat bg-contain bg-center;
 }
 
-.main-page-bg-upper {
+.main-page-upper-part {
+    height: 300px;
     background-image: url(/images/main-page-upper-bg-min.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    background-position-x: center;
 }
 
 @media (min-width: 768px) {
-  .main-page-bg-upper {
+  .main-page-upper-part {
+    height: 400px;
     background-image: url(/images/main-page-upper-bg-medium-min.png);
     background-size: 100% 132%;
   }
 }
 
+
 @media (min-width: 992px) {
-  .main-page-bg-upper {
+  .main-page-upper-part {
+    height: 500px;
     background-image: url(/images/main-page-upper-bg-big-min.png);
     background-size: 100% 129%;
   }
 }
 
 @media (min-width: 1200px) {
-  .main-page-bg-upper {
+  .main-page-upper-part {
+    height: 600px;
     background-image: url(/images/main-page-upper-bg-xl-min.png);
     background-size: 145% 129%;
-    background-position-x: center;
   }
 }

@@ -8,7 +8,7 @@
 </head>
 <body class="font-sans antialiased bg-yellow-dark">
     <div class="h-screen">
-        <div class="h-2/5 mb-6 main-page-bg-upper md:h-1/3 md:mb-2 lg:h-2/3 lg:mb-8 xl:h-3/4 xl:-mb-3">
+        <div class="mb-6 main-page-upper-part md:mb-2 lg:mb-8 xl:-mb-3">
             <div class="container mx-auto">
                 <div class="flex flex-col items-center pt-12 mb-8 lg:pt-20">
                     <div class="mb-2 md:mb-4 lg:w-2/5">
