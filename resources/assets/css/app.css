@@ -69,6 +69,10 @@ button:focus {
  * @import "utilities/skew-transforms";
  */
 
+[v-cloak] {
+    display: none;
+}
+
 /**
  * Главная страница
  */
@@ -120,3 +124,6 @@ button:focus {
  * Пляжный отдых
  */
 
+.main-search-input::placeholder {
+    @apply text-xl text-grey-darker font-bold;
+}
