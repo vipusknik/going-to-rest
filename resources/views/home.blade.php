@@ -8,22 +8,22 @@
 </head>
 <body class="font-sans antialiased bg-yellow-dark">
     <div class="h-screen">
-        <div class="h-2/5 mb-6 main-page-bg-upper md:h-1/3 md:mb-2">
+        <div class="h-2/5 mb-6 main-page-bg-upper md:h-1/3 md:mb-2 lg:h-2/3 lg:mb-8 xl:h-3/4 xl:-mb-3">
             <div class="container mx-auto">
-                <div class="flex flex-col items-center pt-12 mb-8">
-                    <div class="mb-2 md:mb-4">
+                <div class="flex flex-col items-center pt-12 mb-8 lg:pt-20">
+                    <div class="mb-2 md:mb-4 lg:w-2/5">
                         {{-- Heading --}}
                         <div class="h-10 mb-1 heading-bg-text md:h-16"></div>
 
                         {{-- Subheading --}}
-                        <div class="text-xs text-center uppercase italic tracking-tight">
+                        <div class="text-xs text-center uppercase italic tracking-tight lg:text-sm">
                             Восточный Казахстан - популярные <span class="hidden sm:inline-block">направления и&nbsp;</span>места отдыха
                         </div>
                     </div>
 
-                    <div class="flex items-center w-5/6 md:w-3/4">
+                    <div class="flex items-center w-5/6 md:w-3/4 lg:w-1/2">
                         <div class="flex-1">
-                            <input type="search" name="query" class="text-xs w-full p-2 rounded-l-lg md:h-10">
+                            <input type="search" name="query" class="text-xs w-full p-2 rounded-l-lg md:h-10 lg:rounded-l-xl lg:px-3">
                         </div>
 
                         <div>
@@ -39,6 +39,7 @@
                                         hover:bg-orange-dark
                                         md:h-10
                                         md:w-24
+                                        lg:rounded-r-xl
                                     ">
                                 Найти
                             </button>
@@ -51,7 +52,7 @@
             <div class="container mx-auto">
                 <div>
                     <div class="flex flex-col justify-around items-center md:flex-row md:px-4">
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
                             <a href="#" class="flex items-center no-underline md:flex-col">
                                 <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
                                     <img src="{{ asset('images/site-category-icons/beach-holidays.png') }}"
@@ -65,7 +66,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
                             <a href="#" class="flex items-center no-underline md:flex-col">
                                 <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
                                     <img src="{{ asset('images/site-category-icons/active-rest.png') }}"
@@ -79,7 +80,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
                             <a href="#" class="flex items-center no-underline md:flex-col">
                                 <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
                                     <img src="{{ asset('images/site-category-icons/children-holidays.png') }}"
@@ -93,7 +94,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
                             <div class="flex items-center md:flex-col">
                                 <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
                                     <img src="{{ asset('images/site-category-icons/fishing-and-hunting.png') }}"
@@ -107,7 +108,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
                             <a href="#" class="flex items-center no-underline md:flex-col">
                                 <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
                                     <img src="{{ asset('images/site-category-icons/medical-tourism.png') }}"
