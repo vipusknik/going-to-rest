@@ -2,6 +2,8 @@
 
 Route::view('/', 'home');
 
+Route::view('/pljazhnyj-otdyh', 'rest-centers')->name('rest-centers.index');
+
 
 /**
  * Admin  routes
