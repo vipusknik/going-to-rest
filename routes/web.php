@@ -2,13 +2,15 @@
 
 Route::view('/', 'home');
 
-Route::get('/admin', function() {
-    return redirect('/admin/rest-centers');
-});
 
 /**
  * Admin  routes
  */
+
+Route::get('/admin', function() {
+    return redirect('/admin/rest-centers');
+});
+
 Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'auth', 'admin' ] ], function () {
 
     /**
