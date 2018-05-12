@@ -53,9 +53,9 @@
                 <div>
                     <div class="flex flex-col justify-around items-center sm:flex-row md:px-4">
                         <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
-                            <a href="#" class="flex items-center no-underline sm:flex-col">
+                            <a href="{{ route('rest-centers.index') }}" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
-                                    <img src="{{ asset('images/site-category-icons/beach-holidays.png') }}"
+                                    <img src="{{ asset('images/icons/site-category-icons/beach-holidays.png') }}"
                                          alt="Пляжный отдых"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
@@ -69,7 +69,7 @@
                         <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
                             <a href="#" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
-                                    <img src="{{ asset('images/site-category-icons/active-rest.png') }}"
+                                    <img src="{{ asset('images/icons/site-category-icons/active-rest.png') }}"
                                          alt="Активный отдых"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
@@ -83,7 +83,7 @@
                         <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
                             <a href="#" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
-                                    <img src="{{ asset('images/site-category-icons/children-holidays.png') }}"
+                                    <img src="{{ asset('images/icons/site-category-icons/children-holidays.png') }}"
                                          alt="Детский отдых"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
@@ -97,7 +97,7 @@
                         <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
                             <div class="flex items-center sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
-                                    <img src="{{ asset('images/site-category-icons/fishing-and-hunting.png') }}"
+                                    <img src="{{ asset('images/icons/site-category-icons/fishing-and-hunting.png') }}"
                                          alt="Рыбалка и охота"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
@@ -111,7 +111,7 @@
                         <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
                             <a href="#" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
-                                    <img src="{{ asset('images/site-category-icons/medical-tourism.png') }}"
+                                    <img src="{{ asset('images/icons/site-category-icons/medical-tourism.png') }}"
                                          alt="Медицинский туризм"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
