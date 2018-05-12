@@ -1,8 +1,6 @@
 <?php
 
-Route::get('/', function() {
-    return redirect('/admin/rest-centers');
-});
+Route::view('/', 'home');
 
 Route::get('/admin', function() {
     return redirect('/admin/rest-centers');
