@@ -194,6 +194,7 @@ module.exports = {
 
   fonts: {
     'sans': [
+      'Calibri',
       'system-ui',
       'BlinkMacSystemFont',
       '-apple-system',
