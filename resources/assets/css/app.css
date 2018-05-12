@@ -88,7 +88,6 @@ button:focus {
 @media (min-width: 576px) {
   .main-page-upper-part {
     height: 415px;
-    background-size: 100% 100%;
   }
 }
 
