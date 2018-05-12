@@ -85,6 +85,13 @@ button:focus {
     background-position-x: center;
 }
 
+@media (min-width: 576px) {
+  .main-page-upper-part {
+    height: 415px;
+    background-size: 100% 100%;
+  }
+}
+
 @media (min-width: 768px) {
   .main-page-upper-part {
     height: 400px;

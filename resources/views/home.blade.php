@@ -51,72 +51,72 @@
         <div>
             <div class="container mx-auto">
                 <div>
-                    <div class="flex flex-col justify-around items-center md:flex-row md:px-4">
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
-                            <a href="#" class="flex items-center no-underline md:flex-col">
-                                <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
+                    <div class="flex flex-col justify-around items-center sm:flex-row md:px-4">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
+                            <a href="#" class="flex items-center no-underline sm:flex-col">
+                                <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/site-category-icons/beach-holidays.png') }}"
                                          alt="Пляжный отдых"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
 
-                                <div class="text-center text-black font-thin break-words lowercase w-3/4 md:w-auto">
+                                <div class="text-center text-black font-thin break-words lowercase w-3/4 sm:w-24 md:w-auto">
                                     <h2 class="text-lg font-normal">Пляжный отдых</h2>
                                 </div>
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
-                            <a href="#" class="flex items-center no-underline md:flex-col">
-                                <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
+                            <a href="#" class="flex items-center no-underline sm:flex-col">
+                                <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/site-category-icons/active-rest.png') }}"
                                          alt="Активный отдых"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
 
-                                <div class="text-center text-black font-thin break-words lowercase w-3/4 md:w-auto">
+                                <div class="text-center text-black font-thin break-words lowercase w-3/4 sm:w-24 md:w-auto">
                                     <h2 class="text-lg font-normal">Активный отдых</h2>
                                 </div>
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
-                            <a href="#" class="flex items-center no-underline md:flex-col">
-                                <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
+                            <a href="#" class="flex items-center no-underline sm:flex-col">
+                                <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/site-category-icons/children-holidays.png') }}"
                                          alt="Детский отдых"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
 
-                                <div class="text-center text-black font-thin break-words lowercase w-3/4 md:w-auto">
+                                <div class="text-center text-black font-thin break-words lowercase w-3/4 sm:w-24 md:w-auto">
                                     <h2 class="text-lg font-normal">Детский отдых</h2>
                                 </div>
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
-                            <div class="flex items-center md:flex-col">
-                                <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
+                            <div class="flex items-center sm:flex-col">
+                                <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/site-category-icons/fishing-and-hunting.png') }}"
                                          alt="Рыбалка и охота"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
 
-                                <div class="text-center text-black font-thin break-words lowercase w-3/4 md:w-auto">
+                                <div class="text-center text-black font-thin break-words lowercase w-3/4 sm:w-24 md:w-auto">
                                     <h2 class="text-lg font-normal">Рыбалка и охота</h2>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 md:w-32 md:mr-3 md:px-1 md:py-4 md:rounded-xl">
-                            <a href="#" class="flex items-center no-underline md:flex-col">
-                                <div class="w-1/4 mr-4 md:w-auto md:mb-4 md:mr-0">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
+                            <a href="#" class="flex items-center no-underline sm:flex-col">
+                                <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/site-category-icons/medical-tourism.png') }}"
                                          alt="Медицинский туризм"
                                          class="block mx-auto w-10 h-10 rounded-full md:w-16 md:h-16">
                                 </div>
 
-                                <div class="text-center text-black font-thin break-words lowercase w-3/4 md:w-auto">
+                                <div class="text-center text-black font-thin break-words lowercase w-3/4 sm:w-24 md:w-auto">
                                     <h2 class="text-lg font-normal">Медицинский туризм</h2>
                                 </div>
                             </a>
