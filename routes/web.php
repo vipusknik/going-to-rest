@@ -2,7 +2,10 @@
 
 Route::view('/', 'home');
 
-Route::view('/pljazhnyj-otdyh', 'rest-centers')->name('rest-centers.index');
+/**
+ * Rest centers
+ */
+Route::get('/pljazhnyj-otdyh', 'RestCentersController@index')->name('rest-centers.index');
 
 
 /**

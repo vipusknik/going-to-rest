@@ -5,17 +5,24 @@
  */
 
 import 'babel-polyfill';
-
+import PortalVue from 'portal-vue';
 require('./bootstrap');
 require('./utils/functions.js');
 
 window.Vue = require('vue');
+
+Vue.use(PortalVue);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
+Vue.component('sm-md-main-menu', require('./components/UI/SmMdMainMenu.vue'));
+
+Vue.component('rest-centers-search', require('./components/UI/RestCenters/Search.vue'));
+Vue.component('rest-centers', require('./components/UI/RestCenters/RestCenters.vue'));
 
 window.events = new Vue();
 
@@ -29,7 +36,15 @@ const app = new Vue({
         return {
             showMainMenu: false,
             showSearchDrowdown: false,
-            showSorting: false
+            showSorting: false,
+            restCenters: []
         };
+    },
+
+    methods: {
+        updateRestCenters (restCenters) {
+            console.log('here');
+            this.restCenters = restCenters;
+        }
     }
 });
