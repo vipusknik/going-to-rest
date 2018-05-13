@@ -22,7 +22,7 @@ Vue.use(PortalVue);
 Vue.component('sm-md-main-menu', require('./components/UI/SmMdMainMenu.vue'));
 
 Vue.component('rest-centers-search', require('./components/UI/RestCenters/Search.vue'));
-Vue.component('rest-centers', require('./components/UI/RestCenters/RestCenters.vue'));
+Vue.component('rest-center', require('./components/UI/RestCenters/RestCenter.vue'));
 
 window.events = new Vue();
 
@@ -43,7 +43,6 @@ const app = new Vue({
 
     methods: {
         updateRestCenters (restCenters) {
-            console.log('here');
             this.restCenters = restCenters;
         }
     }

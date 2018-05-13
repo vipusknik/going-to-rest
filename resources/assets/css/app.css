@@ -219,3 +219,7 @@ a {
     }
 }
 
+[type="checkbox"]:checked + label {
+  @apply bg-red;
+}
+
