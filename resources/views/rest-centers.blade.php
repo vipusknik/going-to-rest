@@ -47,13 +47,14 @@
             </div>
         </div>
 
-        <!-- Ads and sorting -->
+        <!-- Ads filtering and sorting  -->
         <div class="mb-6">
             <div class="container mx-auto">
                 <div class="relative">
+
                     <!-- Dropdown search filters menu -->
-                    <div v-if="showSearchDrowdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4">
-                        <div class="flex space-between mb-3">
+                    <div v-if="showSearchDrowdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6">
+                        <div class="flex space-between mb-3 sm:w-1/2 sm:pr-6 sm:items-end sm:mb-4">
                             <div class="w-1/2 mr-3">
                                 <select name="" id="" class="w-full rounded-lg p-2">
                                     <option value="">Водоем</option>
@@ -71,7 +72,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-4">
+                        <div class="mb-4 sm:w-1/2 sm:flex sm:flex-col sm:justify-end">
                             <div class="text-2xl text-grey-darker text-center font-bold mb-3">
                                 Цена за сутки
                             </div>
@@ -99,7 +100,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-4">
+                        <div class="mb-4 sm:w-1/2 sm:pr-6 sm:mb-0">
                             <div class="text-2xl text-grey-darker text-center font-bold mb-3">
                                 Тип размещения
                             </div>
@@ -111,7 +112,7 @@
                             </select>
                         </div>
 
-                        <div class="flex">
+                        <div class="flex sm:w-1/2 sm:items-end">
                             <div class="flex items-center w-1/2 mr-4">
                                 <div class="mr-3">
                                     <label for="cheap-first" class="block h-8 w-8 rounded-lg bg-white"></label>
@@ -284,7 +285,7 @@
         </div>
 
         <!-- Main content -->
-        <div :class="{ 'opacity-50': showSearchDrowdown }">
+        <div>
             <div class="container mx-auto">
                 <main>
                     <!-- List -->
@@ -295,7 +296,7 @@
 
                             <!-- List item name -->
                             <div class="relative py-2 text-center">
-                                <hr class="absolute block pin-l ml-8 pin-t mt-4 text-teal-dark bg-teal-dark h-1 w-5/6 z-10">
+                                <hr class="absolute block pin-l ml-8 pin-t mt-4 text-teal-dark bg-teal-dark h-1 w-5/6">
                                 <h3 class="inline text-teal-dark font-bold px-2 bg-white list-item-name">БО "NEW МОХНАТКА"</h3>
                             </div>
 
@@ -364,8 +365,8 @@
 
                             <!-- List item name -->
                             <div class="relative py-2 text-center">
-                                <hr class="absolute block pin-l ml-8 pin-t mt-4 text-teal-dark bg-teal-dark h-1 w-5/6 z-10">
-                                <h3 class="inline text-teal-dark font-bold z-50 px-2 bg-white">БО "УЛЬБА"</h3>
+                                <hr class="absolute block pin-l ml-8 pin-t mt-4 text-teal-dark bg-teal-dark h-1 w-5/6">
+                                <h3 class="inline text-teal-dark font-bold px-2 bg-white">БО "УЛЬБА"</h3>
                             </div>
 
                             <div class="pt-3 px-4 pb-1 md:flex">
