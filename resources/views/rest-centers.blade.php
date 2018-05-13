@@ -15,7 +15,7 @@
         ]); ?>
     </script>
 
-    <div class="h-screen" id="app" v-cloak>
+    <div class="h-screen lg:relative" id="app" style="overflow-x: hidden" v-cloak>
         <div class="rest-centers-page-upper-part lg:pt-16 lg:mb-4">
             <!-- Header -->
             <div class="bg-yellow-light lg:hidden">
@@ -310,8 +310,14 @@
             </div>
         </div>
 
+        <!-- Umbrella decoration -->
+        <div class="hidden lg:block lg:absolute bg-beach-decorations-umbrella"></div>
+
         <!-- Main content -->
-        <div>
+        <div class="lg:relative lg:overflow-hidden lg:pb-20">
+            <!-- Ball decoration (left) -->
+            <div class="hidden lg:block lg:absolute bg-beach-decoraions-left lg:pin-t lg:mt-6 lg:pin-l xl:mt-3"></div>
+
             <div class="container mx-auto lg:px-20">
                 <main class="lg:px-20">
 
@@ -537,6 +543,9 @@
                     </div>
                 </main>
             </div>
+
+            <!-- Coctail decoration (right) -->
+            <div class="hidden lg:block lg:absolute bg-beach-decoraions-right lg:pin-t lg:pin-r"></div>
         </div>
     </div>
 
