@@ -16,6 +16,8 @@
     </script>
 
     <div class="h-screen" id="app" v-cloak>
+
+        <!-- Header -->
         <div class="mb-6">
             <div class="container mx-auto">
                 <header class="relative">
@@ -26,7 +28,7 @@
 
                         <div class="flex-1 text-center text-2xl italic">Пляжный отдых</div>
 
-                        <div class="hidden p-1 border-2 border-white rounded bg-yellow-dark mr-2 md:block">
+                        <div class="hidden p-1 border-2 border-white rounded bg-yellow-dark mr-2 md:block" @click="showSorting = !showSorting">
                             <img src="{{ asset('images/icons/sorting.png') }}" alt="menu" class="block w-8 h-8">
                         </div>
 
@@ -122,13 +124,14 @@
                         </div>
                     </div>
 
+                    <!-- Ads -->
                     <div class="flex p-2">
                         <img src="{{ asset('images/ads.png') }}" alt="ads" class="block w-full h-24 md:w-1/2 md:mr-2">
                         <img src="{{ asset('images/ads.png') }}" alt="ads" class="hidden w-full h-24 md:block md:w-1/2">
                     </div>
 
                     <!-- Sorting -->
-                    <div>
+                    <div class="md:absolute md:pin-t md:mt-12 md:pin-l md:bg-yellow-dark md:w-full md:z-50">
                         <div class="flex space-between items-center px-4 md:hidden">
                             <div>
                                 <img src="{{ asset('images/icons/sorting.png') }}" alt="sorting" class="block w-10 h-12">
@@ -143,9 +146,9 @@
                         </div>
 
                         <!-- Sorting expanded -->
-                        <div v-if="showSorting" class="mt-3 px-8">
-                            <div class="mb-6">
-                                <div class="flex items-center mb-2">
+                        <div v-if="showSorting" class="mt-3 px-8 md:flex md:items-start">
+                            <div class="mb-6 md:flex md:flex-wrap md:space-between md:mb-0 md:w-3/4">
+                                <div class="flex items-center mb-2 md:w-1/2 md:flex-order-1">
                                     <div class="flex-1 text-2xl text-grey-darker font-bold">Сначала дешевые</div>
                                     <div>
                                         <label for="cheap-first" class="block h-10 w-10 rounded-lg bg-white"></label>
@@ -153,7 +156,7 @@
                                     </div>
                                 </div>
 
-                                <div class="flex items-center mb-2">
+                                <div class="flex items-center mb-2 md:w-1/2 md:flex-order-3">
                                     <div class="flex-1 text-2xl text-grey-darker font-bold">Сначала дорогие</div>
                                     <div>
                                         <label for="expensive-first" class="block h-10 w-10 rounded-lg bg-white"></label>
@@ -161,16 +164,16 @@
                                     </div>
                                 </div>
 
-                                <div class="flex items-center mb-2">
-                                    <div class="flex-1 text-2xl text-grey-darker font-bold">От А до Я</div>
+                                <div class="flex items-center mb-2 md:w-1/2 md:flex-order-2 md:justify-end">
+                                    <div class="flex-1 text-2xl text-grey-darker font-bold md:flex-initial mr-6">От А до Я</div>
                                     <div>
                                         <label for="a-z" class="block h-10 w-10 rounded-lg bg-white"></label>
                                         <input type="radio" name="sorting-abc" id="a-z" value="a-z" class="hidden">
                                     </div>
                                 </div>
 
-                                <div class="flex items-center">
-                                    <div class="flex-1 text-2xl text-grey-darker font-bold">От Я до А</div>
+                                <div class="flex items-center md:w-1/2 md:flex-order-4 md:justify-end">
+                                    <div class="flex-1 text-2xl text-grey-darker font-bold md:flex-initial mr-6">От Я до А</div>
                                     <div>
                                         <label for="z-a" class="block h-10 w-10 rounded-lg bg-white"></label>
                                         <input type="radio" name="sorting-abc" id="z-a" value="z-a" class="hidden">
@@ -178,8 +181,8 @@
                                 </div>
                             </div>
 
-                            <div class="flex justify-center">
-                                <button class="text-lg text-white font-bold tracking-wide bg-teal-dark py-2 px-4 rounded-lg">
+                            <div class="flex justify-center md:w-1/4 md:justify-end">
+                                <button class="text-lg text-white font-bold tracking-wide bg-teal-dark py-2 px-4 rounded-lg md:text-xl">
                                     Применить
                                 </button>
                             </div>
@@ -289,7 +292,7 @@
                             <!-- List item name -->
                             <div class="relative py-2 text-center">
                                 <hr class="absolute block pin-l ml-8 pin-t mt-4 text-teal-dark bg-teal-dark h-1 w-5/6 z-10">
-                                <h3 class="inline text-teal-dark font-bold z-50 px-2 bg-white list-item-name">БО "NEW МОХНАТКА"</h3>
+                                <h3 class="inline text-teal-dark font-bold px-2 bg-white list-item-name">БО "NEW МОХНАТКА"</h3>
                             </div>
 
                             <div class="flex flex-col md:flex-row">
