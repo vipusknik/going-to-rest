@@ -197,7 +197,7 @@
         </div>
 
         <!-- Main menu -->
-        <div v-if="showMainMenu" class="fixed pin-t pin-l h-full w-64 bg-yellow-dark overflow-x-hidden z-50">
+        <div v-if="showMainMenu" class="fixed pin-t pin-l h-full w-64 bg-yellow-dark overflow-x-hidden z-50 sm:w-full sm:h-auto">
             <menu class="m-0 p-0">
                 <div class="flex items-center justify-center bg-yellow-light w-full py-6 px-2 mb-4">
                     <div class="text-xl font-bold mr-2">
@@ -209,7 +209,7 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col justify-around items-center sm:flex-row md:px-4">
+                <div class="flex flex-col justify-around items-center sm:flex-row sm:px-4 sm:py-4">
                     <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
                         <a href="{{ route('rest-centers.index') }}" class="flex items-center no-underline sm:flex-col">
                             <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
@@ -247,7 +247,7 @@
                             </div>
 
                             <div class="text-center text-black font-thin break-words lowercase w-3/4 sm:w-24 md:w-auto">
-                                <h2 class="text-lg font-normal">Детский отдых</h2>
+                                <h2 class="text-lg font-normal">Детский <div class="hidden md:block"></div> отдых</h2>
                             </div>
                         </a>
                     </div>
