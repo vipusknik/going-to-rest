@@ -18,7 +18,7 @@
 
         <div v-else class="flex space-between items-center py-3 px-4">
             <div class="flex-1 h-10 border-2 border-white rounded-l-lg">
-                <input type="text" class="w-full h-full px-2 main-search-input" placeholder="Введите название">
+                <input type="text" v-model="filters.query" class="w-full h-full px-2 main-search-input" placeholder="Введите название">
             </div>
 
             <div class="p-2 border border-white rounded-r-lg bg-yellow-dark">
@@ -28,21 +28,18 @@
 
         <!-- Dropdown search filters menu for sm and md devices -->
         <portal to="sm-md-rest-centers-search-filters">
-            <div v-if="showSearchDrowdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6">
+            <div v-if="showSearchDrowdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
                 <div class="flex space-between mb-3 sm:w-1/2 sm:pr-6 sm:items-end sm:mb-4">
                     <div class="w-1/2 mr-3">
-                        <select name="" id="" class="w-full rounded-lg p-2">
-                            <option value="">Водоем</option>
-                            <option value="">Алаколь</option>
-                            <option value="">Сибины</option>
+                        <select v-model="filters.reservoir" class="w-full rounded-lg p-2">
+                            <option value="" disabled>Водоем</option>
+                            <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option>
                         </select>
                     </div>
 
                     <div class="w-1/2">
-                        <select name="" id="" class="w-full rounded-lg p-2">
-                            <option value="">1 человек</option>
-                            <option value="">2 человека</option>
-                            <option value="">3 человека</option>
+                        <select v-model="filters.guestCount" class="w-full rounded-lg p-2">
+                            <option v-for="n in 30" :value="n">{{ n }} человек</option>
                         </select>
                     </div>
                 </div>
@@ -59,7 +56,7 @@
                             </div>
 
                             <div class="h-10">
-                                <input type="text" class="rounded-r-lg w-full h-full px-2">
+                                <input type="text" v-model="filters.priceFrom" class="rounded-r-lg w-full h-full px-2">
                             </div>
                         </div>
 
@@ -69,7 +66,7 @@
                             </div>
 
                             <div class="h-10">
-                                <input type="text" class="rounded-r-lg w-full h-full px-2">
+                                <input type="text" v-model="filters.priceTo" class="rounded-r-lg w-full h-full px-2">
                             </div>
                         </div>
                     </div>
@@ -80,18 +77,18 @@
                         Тип размещения
                     </div>
 
-                    <select name="" id="" class="w-full rounded-lg p-2">
-                        <option value=""></option>
-                        <option value="">Домик</option>
-                        <option value="">Номер</option>
+                    <select v-model="filters.accomodationType" class="w-full rounded-lg p-2">
+                        <option value="">Любой</option>
+                        <option value="room">Гостинница / Номер</option>
+                        <option value="house">Коттедж / Домик</option>
                     </select>
                 </div>
 
                 <div class="flex sm:w-1/2 sm:items-end">
                     <div class="flex items-center w-1/2 mr-4">
                         <div class="mr-3">
-                            <label for="cheap-first" class="block h-8 w-8 rounded-lg bg-white"></label>
-                            <input type="radio" name="sorting-price" id="cheap-first" value="cheap-first" class="hidden">
+                            <label for="has-food-checkbox" class="block h-8 w-8 rounded-lg bg-white"></label>
+                            <input type="checkbox" v-model="filters.hasFood" id="has-food-checkbox" class="hidden">
                         </div>
                         <div class="flex-1 text-xl text-grey-darker font-bold">Только с питанием</div>
                     </div>
@@ -128,7 +125,7 @@
                             <div class="flex-1 text-2xl text-grey-darker font-bold">Сначала дешевые</div>
                             <div>
                                 <label for="cheap-first" class="block h-10 w-10 rounded-lg bg-white"></label>
-                                <input type="radio" name="sorting-price" id="cheap-first" value="cheap-first" class="hidden">
+                                <input type="radio" id="cheap-first" value="cheap-first" class="hidden">
                             </div>
                         </div>
 
@@ -136,7 +133,7 @@
                             <div class="flex-1 text-2xl text-grey-darker font-bold">Сначала дорогие</div>
                             <div>
                                 <label for="expensive-first" class="block h-10 w-10 rounded-lg bg-white"></label>
-                                <input type="radio" name="sorting-price" id="expensive-first" value="expensive-first" class="hidden">
+                                <input type="radio" id="expensive-first" value="expensive-first" class="hidden">
                             </div>
                         </div>
 
@@ -171,19 +168,20 @@
             <div class="hidden lg:block lg:mb-6">
                 <div class="flex mb-4">
                     <div class="w-1/3 mr-3">
-                        <input type="text" name="query" placeholder="Введите название" class="w-full rounded-lg px-3 py-2">
+                        <input type="text" v-model="filters.query" placeholder="Введите название" class="w-full rounded-lg px-3 py-2">
                     </div>
 
                     <div class="w-2/3 flex">
                         <div class="w-1/3 mr-3">
-                            <select name="" class="w-full rounded-lg px-3 py-2">
-                                <option value="">Водоем</option>
+                            <select v-model="filters.reservoir" class="w-full rounded-lg px-3 py-2">
+                                <option value="" disabled>Водоем</option>
+                                <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option>
                             </select>
                         </div>
 
                         <div class="w-1/3 mr-3">
-                            <select name="" class="w-full rounded-lg px-3 py-2">
-                                <option value="">1 человек</option>
+                            <select name="guestCount" class="w-full rounded-lg px-3 py-2">
+                                <option v-for="n in 30" :value="n">{{ n }} человек</option>
                             </select>
                         </div>
 
@@ -213,7 +211,7 @@
                                     </div>
 
                                     <div class="h-8">
-                                        <input type="text" class="rounded-r-lg w-full h-full px-2">
+                                        <input type="text" v-model="filters.priceFrom" class="rounded-r-lg w-full h-full px-2">
                                     </div>
                                 </div>
 
@@ -223,7 +221,7 @@
                                     </div>
 
                                     <div class="h-8">
-                                        <input type="text" class="rounded-r-lg w-full h-full px-2">
+                                        <input type="text" v-model="filters.priceTo" class="rounded-r-lg w-full h-full px-2">
                                     </div>
                                 </div>
                             </div>
@@ -236,10 +234,10 @@
                                 Тип размещения
                             </div>
 
-                            <select name="" id="" class="w-full h-8 rounded-lg p-2">
-                                <option value=""></option>
-                                <option value="">Домик</option>
-                                <option value="">Номер</option>
+                            <select v-model="filters.accomodationType" class="w-full h-8 rounded-lg p-2">
+                                <option value="">Любой</option>
+                                <option value="room">Гостинница / Номер</option>
+                                <option value="house">Коттедж / Домик</option>
                             </select>
                         </div>
                     </div>
@@ -248,8 +246,8 @@
                         <div class="h-full flex items-center mt-2">
                             <div class="text-lg text-grey-darker text-right font-bold pl-6 mr-2">только с питанием</div>
                             <div>
-                                <label for="cheap-first" class="block h-8 w-8 rounded-lg bg-white"></label>
-                                <input type="radio" name="sorting-price" id="cheap-first" value="cheap-first" class="hidden">
+                                <label for="has-food-checkbox-2" class="block h-8 w-8 rounded-lg bg-white"></label>
+                                <input type="checkbox" v-model="filters.hasFood" id="has-food-checkbox-2" class="hidden">
                             </div>
                         </div>
                     </div>
@@ -261,10 +259,26 @@
 
 <script>
     export default {
+        props: {
+            reservoirs: {
+                type: Array,
+                required: true
+            }
+        },
+
         data () {
             return {
                 showSearchDrowdown: false,
-                showSorting: false
+                showSorting: false,
+                filters: {
+                    query: '',
+                    reservoir: '',
+                    guestCount: 1,
+                    priceFrom: '',
+                    priceTo: '',
+                    accomodationType: null,
+                    hasFood: null
+                }
             };
         },
 
@@ -274,6 +288,35 @@
                     this.$emit('resultsupdated', response.data.models);
                 })
                 .catch(error => flash('Ошибка при выполнении.', 'danger'));
+        },
+
+        watch: {
+            filters: {
+                deep: true,
+                handler () {
+                    this.fetch();
+                }
+            }
+        },
+
+        methods: {
+            fetch () {
+                axios.get('/pljazhnyj-otdyh', {
+                        params: {
+                            query: this.filters.query,
+                            reservoir: this.filters.reservoir,
+                            guest_count: this.filters.guestCount,
+                            price_from: this.filters.priceFrom,
+                            price_to: this.filters.priceTo,
+                            accomodation_type: this.filters.accomodationType,
+                            has_food: this.filters.hasFood
+                        }
+                    })
+                    .then(response => {
+                        this.$emit('resultsupdated', response.data.models);
+                    })
+                    .catch(error => flash('Ошибка при выполнении.', 'danger'));
+            }
         }
     }
 </script>

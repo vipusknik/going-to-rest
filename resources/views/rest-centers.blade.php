@@ -20,7 +20,7 @@
             <!-- Header -->
             <div class="bg-yellow-light lg:hidden">
                 <div class="container mx-auto">
-                    <rest-centers-search @resultsupdated="updateRestCenters"></rest-centers-search>
+                    <rest-centers-search :reservoirs="{{ json_encode($reservoirs) }}" @resultsupdated="updateRestCenters"></rest-centers-search>
                 </div>
             </div>
 
@@ -92,7 +92,9 @@
                     <portal-target name="lg-xl-rest-centers-search" slim></portal-target>
 
                     <!-- List -->
-                    <rest-centers :rest-centers="restCenters"></rest-centers>
+                    <div class="px-2 lg:px-0">
+                        <rest-center v-for="center in restCenters" :key="center.id" :center='center'></rest-center>
+                    </div>
                 </main>
             </div>
 
