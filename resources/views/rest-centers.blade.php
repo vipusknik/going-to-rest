@@ -16,37 +16,41 @@
     </script>
 
     <div class="h-screen" id="app" v-cloak>
-
         <!-- Header -->
+        <div class="bg-yellow-light">
+            <div class="container mx-auto">
+                <div v-if="! showSearchDrowdown" class="flex space-between items-center py-3 px-4">
+                    <div @click="showMainMenu = true">
+                        <img src="{{ asset('images/icons/menu.svg') }}" alt="menu" class="block w-8 h-8">
+                    </div>
+
+                    <div class="flex-1 text-center text-2xl italic">Пляжный отдых</div>
+
+                    <div class="hidden p-1 border-2 border-white rounded bg-yellow-dark mr-2 md:block" @click="showSorting = !showSorting">
+                        <img src="{{ asset('images/icons/sorting.png') }}" alt="menu" class="block w-8 h-8">
+                    </div>
+
+                    <div class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDrowdown = true">
+                        <img src="{{ asset('images/icons/search.png') }}" alt="menu" class="block w-6 h-6">
+                    </div>
+                </div>
+
+                <div v-else class="flex space-between items-center py-3 px-4">
+                    <div class="flex-1 h-10 border-2 border-white rounded-l-lg">
+                        <input type="text" class="w-full h-full px-2 main-search-input" placeholder="Введите название">
+                    </div>
+
+                    <div class="p-2 border border-white rounded-r-lg bg-yellow-dark">
+                        <img src="{{ asset('images/icons/search.png') }}" alt="menu" class="block w-6 h-6">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ads and sorting -->
         <div class="mb-6">
             <div class="container mx-auto">
-                <header class="relative">
-                    <div v-if="! showSearchDrowdown" class="flex space-between items-center py-3 px-4 bg-yellow-light">
-                        <div @click="showMainMenu = true">
-                            <img src="{{ asset('images/icons/menu.svg') }}" alt="menu" class="block w-8 h-8">
-                        </div>
-
-                        <div class="flex-1 text-center text-2xl italic">Пляжный отдых</div>
-
-                        <div class="hidden p-1 border-2 border-white rounded bg-yellow-dark mr-2 md:block" @click="showSorting = !showSorting">
-                            <img src="{{ asset('images/icons/sorting.png') }}" alt="menu" class="block w-8 h-8">
-                        </div>
-
-                        <div class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDrowdown = true">
-                            <img src="{{ asset('images/icons/search.png') }}" alt="menu" class="block w-6 h-6">
-                        </div>
-                    </div>
-
-                    <div v-else class="flex space-between items-center py-3 px-4 bg-yellow-light">
-                        <div class="flex-1 h-10 border-2 border-white rounded-l-lg">
-                            <input type="text" class="w-full h-full px-2 main-search-input" placeholder="Введите название">
-                        </div>
-
-                        <div class="p-2 border border-white rounded-r-lg bg-yellow-dark">
-                            <img src="{{ asset('images/icons/search.png') }}" alt="menu" class="block w-6 h-6">
-                        </div>
-                    </div>
-
+                <div class="relative">
                     <!-- Dropdown search filters menu -->
                     <div v-if="showSearchDrowdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4">
                         <div class="flex space-between mb-3">
@@ -131,7 +135,7 @@
                     </div>
 
                     <!-- Sorting -->
-                    <div class="md:absolute md:pin-t md:mt-12 md:pin-l md:bg-yellow-dark md:w-full md:z-50">
+                    <div class="md:absolute md:pin-t md:pin-l md:bg-yellow-dark md:w-full md:z-50">
                         <div class="flex space-between items-center px-4 md:hidden">
                             <div>
                                 <img src="{{ asset('images/icons/sorting.png') }}" alt="sorting" class="block w-10 h-12">
@@ -188,7 +192,7 @@
                             </div>
                         </div>
                     </div>
-                </header>
+                </div>
             </div>
         </div>
 
