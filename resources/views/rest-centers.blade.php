@@ -26,6 +26,10 @@
 
                         <div class="flex-1 text-center text-2xl italic">Пляжный отдых</div>
 
+                        <div class="hidden p-1 border-2 border-white rounded bg-yellow-dark mr-2 md:block">
+                            <img src="{{ asset('images/icons/sorting.png') }}" alt="menu" class="block w-8 h-8">
+                        </div>
+
                         <div class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDrowdown = true">
                             <img src="{{ asset('images/icons/search.png') }}" alt="menu" class="block w-6 h-6">
                         </div>
@@ -118,13 +122,14 @@
                         </div>
                     </div>
 
-                    <div class="p-2">
-                        <img src="{{ asset('images/ads.png') }}" alt="ads" class="block w-full h-24">
+                    <div class="flex p-2">
+                        <img src="{{ asset('images/ads.png') }}" alt="ads" class="block w-full h-24 md:w-1/2 md:mr-2">
+                        <img src="{{ asset('images/ads.png') }}" alt="ads" class="hidden w-full h-24 md:block md:w-1/2">
                     </div>
 
                     <!-- Sorting -->
                     <div>
-                        <div class="flex space-between items-center px-4">
+                        <div class="flex space-between items-center px-4 md:hidden">
                             <div>
                                 <img src="{{ asset('images/icons/sorting.png') }}" alt="sorting" class="block w-10 h-12">
                             </div>
@@ -184,6 +189,7 @@
             </div>
         </div>
 
+        <!-- Main menu -->
         <div v-if="showMainMenu" class="fixed pin-t pin-l h-full w-64 bg-yellow-dark overflow-x-hidden z-50">
             <menu class="m-0 p-0">
                 <div class="flex items-center justify-center bg-yellow-light w-full py-6 px-2 mb-4">
@@ -270,15 +276,15 @@
             </menu>
         </div>
 
+        <!-- Main content -->
         <div :class="{ 'opacity-50': showSearchDrowdown }">
             <div class="container mx-auto">
                 <main>
-
                     <!-- List -->
                     <div class="px-2">
 
-                        <!-- List item -->
-                        <div class="bg-white rounded-lg mb-3">
+                        <!-- List item with image -->
+                        <div class="bg-white rounded-lg mb-3 md:rounded-2xl md:mb-6">
 
                             <!-- List item name -->
                             <div class="relative py-2 text-center">
@@ -286,61 +292,67 @@
                                 <h3 class="inline text-teal-dark font-bold z-50 px-2 bg-white list-item-name">БО "NEW МОХНАТКА"</h3>
                             </div>
 
-                            <!-- List item image -->
-                            <div>
-                                <img src="{{ asset('images/photo.png') }}" alt="" class="block w-full h-auto">
-                            </div>
-
-                            <div class="pt-3 px-4 pb-1">
-                                <div class="flex items-center border-b border-dotted border-teal-dark py-2">
-                                    <div class="mr-3">
-                                        <img src="{{ asset('images/icons/location.png') }}" alt="address" class="block w-12 h-auto">
-                                    </div>
-
-                                    <div>
-                                        Бухтарма. у подножия горы Мохнатка на территории б/о Мохнатка
-                                    </div>
+                            <div class="flex flex-col md:flex-row">
+                                <!-- List item image -->
+                                <div class="md:self-end md:w-2/5">
+                                    <img src="{{ asset('images/photo.png') }}" alt="" class="block w-full h-auto md:rounded-bl-2xl md:rounded-tr-2xl">
                                 </div>
 
-                                <div class="flex items-center border-b border-dotted border-teal-dark py-2">
-                                    <div class="mr-3">
-                                        <img src="{{ asset('images/icons/contacts.png') }}" alt="address" class="block w-8 h-auto">
-                                    </div>
-
-                                    <div>
-                                        8 777 279 40 33, 8 777 279 40 33
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center border-b border-dotted border-teal-dark py-2">
-                                    <div class="mr-3">
-                                        <img src="{{ asset('images/icons/price.png') }}" alt="address" class="block w-10 h-auto">
-                                    </div>
-
-                                    <div>
-                                        стоимость проживания от  9 700 тг <span class="text-red-light">возможно питание</span>
-                                    </div>
-                                </div>
-
-                                <div class="flex items-center border-teal-dark py-2">
-                                    <div class="mr-3">
-                                        <img src="{{ asset('images/icons/accomodation.png') }}" alt="address" class="block w-10 h-auto">
-                                    </div>
-
-                                    <div class="flex items-center w-full">
-                                        <div class="flex-1">
-                                            2х и 4х местные домики
+                                <div class="pt-3 px-4 pb-1 md:w-3/5 md:flex md:flex-wrap md:relative">
+                                    <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:border-r-2 md:pb-3 md:pr-1 md:items-start">
+                                        <div class="w-1/4">
+                                            <img src="{{ asset('images/icons/location.png') }}" alt="address" class="block w-8 h-8">
                                         </div>
 
-                                        <div>
-                                            <button class="text-sm text-white font-bold bg-teal-dark rounded px-4 py-2">Подробнее</button>
+                                        <div class="w-3/4">
+                                            Бухтарма. у подножия горы Мохнатка на территории б/о Мохнатка
                                         </div>
+                                    </div>
+
+                                    <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:pb-3 md:pl-3 md:items-start">
+                                        <div class="w-1/4">
+                                            <img src="{{ asset('images/icons/contacts.png') }}" alt="address" class="block w-8 h-8">
+                                        </div>
+
+                                        <div class="w-3/4">
+                                            8 777 279 40 33, 8 777 279 40 33
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
+                                        <div class="w-1/4">
+                                            <img src="{{ asset('images/icons/price.png') }}" alt="address" class="block w-8 h-8">
+                                        </div>
+
+                                        <div class="w-3/4">
+                                            стоимость проживания от  9 700 тг <span class="text-red-light">возможно питание</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="flex items-center border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-dotted md:border-teal-dark md:pl-3 md:items-start">
+                                        <div class="w-1/4">
+                                            <img src="{{ asset('images/icons/accomodation.png') }}" alt="address" class="block w-8 h-8">
+                                        </div>
+
+                                        <div class="flex items-center w-3/4 md:relative">
+                                            <div class="flex-1">
+                                                2х и 4х местные домики
+                                            </div>
+
+                                            <div class="md:hidden">
+                                                <button class="text-sm text-white font-bold bg-teal-dark rounded px-4 py-2">Подробнее</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="hidden md:block md:absolute md:pin-b md:pin-r">
+                                        <button class="text-base text-white font-bold bg-teal-dark rounded-tl-lg rounded-br-xl px-4 py-1">Подробнее</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- List item -->
+                        <!-- List item without image -->
                         <div class="bg-white rounded-lg">
 
                             <!-- List item name -->
@@ -349,49 +361,45 @@
                                 <h3 class="inline text-teal-dark font-bold z-50 px-2 bg-white">БО "УЛЬБА"</h3>
                             </div>
 
-                            <div class="pt-3 px-4 pb-1">
-                                <div class="flex items-center border-b border-dotted border-teal-dark py-2">
-                                    <div class="mr-3">
-                                        <img src="{{ asset('images/icons/location.png') }}" alt="address" class="block w-12 h-auto">
+                            <div class="pt-3 px-4 pb-1 md:flex">
+                                <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:border-b-0 md:border-r-2 md:w-1/4 md:items-start">
+                                    <div class="mr-3 md:w-1/4 md:mr-1">
+                                        <img src="{{ asset('images/icons/location.png') }}" alt="address" class="block w-8 h-8">
                                     </div>
 
-                                    <div>
+                                    <div class="w-3/4">
                                         Бухтарма. у подножия горы Мохнатка на территории б/о Мохнатка
                                     </div>
                                 </div>
 
-                                <div class="flex items-center border-b border-dotted border-teal-dark py-2">
-                                    <div class="mr-3">
-                                        <img src="{{ asset('images/icons/contacts.png') }}" alt="address" class="block w-8 h-auto">
+                                <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:border-b-0 md:border-r-2 md:w-1/4 md:pl-2 md:items-start">
+                                    <div class="mr-3 md:w-1/4 md:mr-1">
+                                        <img src="{{ asset('images/icons/contacts.png') }}" alt="address" class="block w-8 h-8">
                                     </div>
 
-                                    <div>
+                                    <div class="w-3/4">
                                         8 777 279 40 33, 8 777 279 40 33
                                     </div>
                                 </div>
 
-                                <div class="flex items-center border-b border-dotted border-teal-dark py-2">
-                                    <div class="mr-3">
-                                        <img src="{{ asset('images/icons/price.png') }}" alt="address" class="block w-10 h-auto">
+                                <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:border-b-0 md:border-r-2 md:w-1/4 md:pl-2 md:items-start">
+                                    <div class="mr-3 md:w-1/4 md:mr-1">
+                                        <img src="{{ asset('images/icons/price.png') }}" alt="address" class="block w-8 h-8">
                                     </div>
 
-                                    <div>
+                                    <div class="w-3/4">
                                         стоимость проживания от  9 700 тг <span class="text-red-light">возможно питание</span>
                                     </div>
                                 </div>
 
-                                <div class="flex items-center border-teal-dark py-2">
-                                    <div class="mr-3">
-                                        <img src="{{ asset('images/icons/accomodation.png') }}" alt="address" class="block w-10 h-auto">
+                                <div class="flex items-center border-teal-dark py-2 md:w-1/4 md:pl-2 md:items-start">
+                                    <div class="mr-3 md:w-1/4 md:mr-1">
+                                        <img src="{{ asset('images/icons/accomodation.png') }}" alt="address" class="block w-8 h-8">
                                     </div>
 
-                                    <div class="flex items-center w-full">
+                                    <div class="flex items-center w-full w-3/4">
                                         <div class="flex-1">
                                             2х и 4х местные домики
-                                        </div>
-
-                                        <div>
-                                            <button class="text-sm text-white font-bold bg-teal-dark rounded px-4 py-2">Подробнее</button>
                                         </div>
                                     </div>
                                 </div>
