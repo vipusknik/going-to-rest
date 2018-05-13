@@ -15,7 +15,7 @@ class RestCentersController extends Controller
     public function index(Request $request)
     {
         if ($request->expectsJson()) {
-            return [ 'models' => RestCenter::all() ];
+            return [ 'models' => RestCenter::with([ 'reservoir', 'media', 'accomodations.features', 'features' ])->get() ];
         }
 
         return view('rest-centers');
