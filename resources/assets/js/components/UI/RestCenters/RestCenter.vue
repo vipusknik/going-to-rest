@@ -4,9 +4,12 @@
         <div v-if="center.is_paid" class="bg-white rounded-lg mb-4 md:rounded-2xl md:mb-6 lg:border-2 lg:border-dashed">
 
             <!-- List item name -->
-            <div class="relative py-2 text-center">
-                <hr class="absolute block pin-l ml-8 pin-t mt-4 text-teal-dark bg-teal-dark h-1 w-5/6">
-                <h3 class="inline text-teal-dark font-bold px-2 bg-white list-item-name">{{ center.name }}</h3>
+            <div class="flex justify-center p-3 mb-2">
+                <div class="w-full h-3 text-center border-b-3 border-teal-dark">
+                    <h3 class="inline text-xl text-teal-dark px-2 bg-white font-bold">
+                        {{ center.name }}
+                    </h3>
+                </div>
             </div>
 
             <div class="flex flex-col md:flex-row">
@@ -73,9 +76,12 @@
         <div v-else class="bg-white mb-4 rounded-lg lg:border-2 lg:border-dashed">
 
             <!-- List item name -->
-            <div class="relative py-2 text-center">
-                <hr class="absolute block pin-l ml-8 pin-t mt-4 text-teal-dark bg-teal-dark h-1 w-5/6">
-                <h3 class="inline text-teal-dark font-bold px-2 bg-white">{{ center.name }}</h3>
+            <div class="flex justify-center p-3 mb-2">
+                <div class="w-full h-3 text-center border-b-3 border-teal-dark">
+                    <h3 class="inline text-xl text-teal-dark px-2 bg-white font-bold">
+                        {{ center.name }}
+                    </h3>
+                </div>
             </div>
 
             <div class="pt-3 px-4 pb-1 md:flex">
