@@ -257,13 +257,13 @@
 
                     <div class="w-1/5">
                         <div class="h-full flex items-center mt-2">
-                            <label for="has-food-checkbox-2" class="block text-lg text-grey-darker text-right font-bold pl-6 mr-2">
+                            <label for="has-food-checkbox-2" class="block text-lg text-grey-darker text-right font-bold pl-6 mr-2 cursor-pointer">
                                 только с питанием
                             </label>
 
                             <div class="styled-checkbox">
                                 <input type="checkbox" v-model="filters.hasFood" id="has-food-checkbox-2" class="hidden">
-                                <label for="has-food-checkbox-2" class="flex items-center justify-center h-8 w-8 rounded-lg bg-white">
+                                <label for="has-food-checkbox-2" class="flex items-center justify-center h-8 w-8 rounded-lg bg-white cursor-pointer">
                                     <i class="hidden fas fa-check text-black"></i>
                                 </label>
                             </div>
