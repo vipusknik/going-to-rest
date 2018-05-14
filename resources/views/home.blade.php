@@ -89,7 +89,7 @@
                                 </div>
 
                                 <div class="text-center text-black font-thin break-words lowercase w-3/4 sm:w-24 md:w-auto">
-                                    <h2 class="text-lg font-normal">Детский отдых</h2>
+                                    <h2 class="text-lg font-normal">Детский <div class="hidden md:block"></div> отдых</h2>
                                 </div>
                             </a>
                         </div>
