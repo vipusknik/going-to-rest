@@ -86,11 +86,13 @@
 
                 <div class="flex sm:w-1/2 sm:items-end">
                     <div class="flex items-center w-1/2 mr-4">
-                        <div class="mr-3">
-                            <label for="has-food-checkbox" class="block h-8 w-8 rounded-lg bg-white"></label>
+                        <div class="mr-3 styled-checkbox">
                             <input type="checkbox" v-model="filters.hasFood" id="has-food-checkbox" class="hidden">
+                            <label for="has-food-checkbox" class="flex items-center justify-center h-8 w-8 rounded-lg bg-white">
+                                <i class="fas fa-check text-black hidden"></i>
+                            </label>
                         </div>
-                        <div class="flex-1 text-xl text-grey-darker font-bold">Только с питанием</div>
+                        <label class="block flex-1 text-xl text-grey-darker font-bold" for="has-food-checkbox">Только с питанием</label>
                     </div>
 
                     <div class="flex justify-center w-1/2">
@@ -104,7 +106,7 @@
 
         <!-- Sorting for sm and md devices -->
         <portal to="sm-md-rest-centers-search-sorting">
-            <div class="md:absolute md:pin-t md:pin-l md:bg-yellow-dark md:w-full md:z-50">
+            <div class="md:absolute md:pin-t md:pin-l md:bg-yellow-dark md:w-full md:z-50 lg:hidden">
                 <div class="flex space-between items-center px-4 md:hidden">
                     <div>
                         <img src="/images/icons/sorting.png" alt="sorting" class="block w-10 h-12">
@@ -122,34 +124,45 @@
                 <div v-if="showSorting" class="mt-3 px-8 md:flex md:items-start">
                     <div class="mb-6 md:flex md:flex-wrap md:space-between md:mb-0 md:w-3/4">
                         <div class="flex items-center mb-2 md:w-1/2 md:flex-order-1">
-                            <div class="flex-1 text-2xl text-grey-darker font-bold">Сначала дешевые</div>
-                            <div>
-                                <label for="cheap-first" class="block h-10 w-10 rounded-lg bg-white"></label>
-                                <input type="radio" id="cheap-first" value="cheap-first" class="hidden">
+                            <label for="cheap-first" class="flex-1 text-2xl text-grey-darker font-bold">
+                                Сначала дешевые
+                            </label>
+
+                            <div class="styled-radio-button">
+                                <input type="radio" id="cheap-first" value="cheap-first" name="sorting" class="hidden">
+                                <label for="cheap-first" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
+                                    <i class="hidden fas fa-circle text-grey-darkest"></i>
+                                </label>
                             </div>
                         </div>
 
                         <div class="flex items-center mb-2 md:w-1/2 md:flex-order-3">
-                            <div class="flex-1 text-2xl text-grey-darker font-bold">Сначала дорогие</div>
-                            <div>
-                                <label for="expensive-first" class="block h-10 w-10 rounded-lg bg-white"></label>
-                                <input type="radio" id="expensive-first" value="expensive-first" class="hidden">
+                            <label for="expensive-first" class="flex-1 text-2xl text-grey-darker font-bold">Сначала дорогие</label>
+                            <div class="styled-radio-button">
+                                <input type="radio" id="expensive-first" value="expensive-first" name="sorting" class="hidden">
+                                <label for="expensive-first" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
+                                    <i class="hidden fas fa-circle text-grey-darkest"></i>
+                                </label>
                             </div>
                         </div>
 
                         <div class="flex items-center mb-2 md:w-1/2 md:flex-order-2 md:justify-end">
-                            <div class="flex-1 text-2xl text-grey-darker font-bold md:flex-initial mr-6">От А до Я</div>
-                            <div>
-                                <label for="a-z" class="block h-10 w-10 rounded-lg bg-white"></label>
-                                <input type="radio" name="sorting-abc" id="a-z" value="a-z" class="hidden">
+                            <label for="a-z" class="flex-1 text-2xl text-grey-darker font-bold md:flex-initial mr-6">От А до Я</label>
+                            <div class="styled-radio-button">
+                                <input type="radio" id="a-z" name="sorting" value="a-z" class="hidden">
+                                <label for="a-z" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
+                                    <i class="hidden fas fa-circle text-grey-darkest"></i>
+                                </label>
                             </div>
                         </div>
 
                         <div class="flex items-center md:w-1/2 md:flex-order-4 md:justify-end">
-                            <div class="flex-1 text-2xl text-grey-darker font-bold md:flex-initial mr-6">От Я до А</div>
-                            <div>
-                                <label for="z-a" class="block h-10 w-10 rounded-lg bg-white"></label>
-                                <input type="radio" name="sorting-abc" id="z-a" value="z-a" class="hidden">
+                            <label for="z-a" class="flex-1 text-2xl text-grey-darker font-bold md:flex-initial mr-6">От Я до А</label>
+                            <div class="styled-radio-button">
+                                <input type="radio" id="z-a" name="sorting" value="z-a" class="hidden">
+                                <label for="z-a" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
+                                    <i class="hidden fas fa-circle text-grey-darkest"></i>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -244,10 +257,15 @@
 
                     <div class="w-1/5">
                         <div class="h-full flex items-center mt-2">
-                            <div class="text-lg text-grey-darker text-right font-bold pl-6 mr-2">только с питанием</div>
-                            <div>
-                                <label for="has-food-checkbox-2" class="block h-8 w-8 rounded-lg bg-white"></label>
+                            <label for="has-food-checkbox-2" class="block text-lg text-grey-darker text-right font-bold pl-6 mr-2">
+                                только с питанием
+                            </label>
+
+                            <div class="styled-checkbox">
                                 <input type="checkbox" v-model="filters.hasFood" id="has-food-checkbox-2" class="hidden">
+                                <label for="has-food-checkbox-2" class="flex items-center justify-center h-8 w-8 rounded-lg bg-white">
+                                    <i class="hidden fas fa-check text-black"></i>
+                                </label>
                             </div>
                         </div>
                     </div>

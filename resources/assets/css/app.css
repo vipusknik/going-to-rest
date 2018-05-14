@@ -88,6 +88,11 @@ a {
     @apply no-underline;
 }
 
+.styled-checkbox input[type="checkbox"]:checked + label svg,
+.styled-radio-button input[type="radio"]:checked + label svg {
+    display: block !important;
+}
+
 /**
  * Главная страница
  */
