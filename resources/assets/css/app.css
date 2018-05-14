@@ -136,7 +136,13 @@ a {
   .main-page-upper-part {
     height: 600px;
     background-image: url(/images/main-page/main-page-upper-bg-xl-min.png);
-    background-size: 145% 129%;
+    background-size: 173% 129%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .main-page-upper-part {
+    background-size: 148% 129%;
   }
 }
 
