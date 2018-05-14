@@ -218,9 +218,15 @@ a {
     .bg-beach-decorations-umbrella {
         height: 400px;
         width: 400px;
-        right: -170px;
-        background-size: 100%;
+        right: -185px;
+        background-size: 84%;
         top: 281px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .bg-beach-decorations-umbrella {
+        background-size: 100%;
     }
 }
 
