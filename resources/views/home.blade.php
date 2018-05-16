@@ -48,11 +48,11 @@
                 </div>
             </div>
         </div>
-        <nav>
+        <nav class="lg:mb-12">
             <div class="container mx-auto">
                 <div>
                     <div class="flex flex-col justify-around items-center sm:flex-row sm:justify-center md:px-4">
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
                             <a href="{{ route('rest-centers.index') }}" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/beach-holidays.png') }}"
@@ -66,7 +66,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
                             <a href="#" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/active-rest.png') }}"
@@ -80,7 +80,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
                             <a href="#" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/children-holidays.png') }}"
@@ -94,7 +94,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
                             <div class="flex items-center sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/fishing-and-hunting.png') }}"
@@ -108,7 +108,7 @@
                             </div>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:px-1 sm:py-4 sm:rounded-xl">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:px-1 sm:py-4 sm:rounded-xl">
                             <a href="#" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/medical-tourism.png') }}"
