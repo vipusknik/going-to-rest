@@ -32,6 +32,10 @@
             <flash message="{{ session('flash') }}"></flash>
         </div>
 
+        <script>
+            window.CKEDITOR_BASEPATH = '/ckeditor/';
+        </script>
+
         <script src="{{ mix('js/app.js') }}"></script>
         @yield ('script')
 

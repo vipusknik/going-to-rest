@@ -1,23 +1,21 @@
 <template>
     <div>
-        <input :id="identifier" type="hidden" :name="name" :value="value">
-
-        <trix-editor
-                :ref="identifier"
-                :input="identifier"
-                @trix-change="change"
-                :placeholder="placeholder"
-                :style="styles">
-        </trix-editor>
+        <textarea :id="identifier"
+                  :name="name"
+                  :value="value"
+                  :placeholder="placeholder"
+                  :style="styles"
+                  @change="onInput">
+        </textarea>
     </div>
 </template>
 
 <style>
-    @import '~trix/dist/trix.css';
+    /*@import '~trix/dist/trix.css';*/
 </style>
 
 <script>
-    import Trix from 'trix';
+    import CKEDITOR from 'ckeditor';
 
     export default {
         props: {
@@ -46,9 +44,17 @@
         },
 
         methods: {
-            change({target}) {
+            onInput({target}) {
                 this.$emit('input', target.value)
             }
+        },
+
+        mounted () {
+            window.CKEDITOR.replace(this.identifier);
+
+            window.CKEDITOR.instances[this.identifier].on('change', (event) => {
+                this.$emit('input', event.editor.getData())
+            });
         },
 
         computed: {
@@ -58,14 +64,6 @@
 
             styles() {
                 return `min-height: ${this.minHeight}px`;
-            }
-        },
-
-        watch: {
-            value(val) {
-                if (val === '') {
-                    this.$refs.trix.value = '';
-                }
             }
         }
     }
