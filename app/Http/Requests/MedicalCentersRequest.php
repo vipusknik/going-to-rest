@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\validation\Rule;
+use Illuminate\Validation\Rule;
 
 class MedicalCentersRequest extends FormRequest
 {
