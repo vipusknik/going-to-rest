@@ -1,11 +1,13 @@
 <?php
 
-Route::view('/', 'home');
+Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
+    Route::view('/', 'home');
 
-/**
- * Rest centers
- */
-Route::get('/pljazhnyj-otdyh', 'RestCentersController@index')->name('rest-centers.index');
+    /**
+     * Rest centers
+     */
+    Route::get('/pljazhnyj-otdyh', 'RestCentersController@index')->name('rest-centers.index');
+});
 
 
 /**
