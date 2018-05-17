@@ -198,15 +198,20 @@
                             </select>
                         </div>
 
-                        <button class="w-1/3 rounded-lg flex items-center">
-                            <div class="text-lg text-white bg-teal-dark rounded-l-lg h-8">
-                                <img src="/images/icons/sorting.png" alt="menu" class="block w-8 h-8">
+                        <div class="w-1/3 rounded-lg flex items-center cursor-pointer">
+                            <div class="hidden h-full text-lg text-white bg-teal-dark rounded-l-lg xl:block">
+                                <img src="/images/icons/sorting.png" alt="menu" class="block w-8 h-full">
                             </div>
 
-                            <div class="h-8 bg-white rounded-r-lg text-grey flex-1 flex items-center justify-center">
-                                От А до Я
+                            <div class="flex-1 h-full text-grey">
+                                <select name="guestCount" class="w-full px-1 py-2 rounded-lg xl:rounded-none xl:rounded-r-lg">
+                                    <option value="a-z">От А до Я</option>
+                                    <option value="z-a">От Я до А</option>
+                                    <option value="cheap-first">Сначала дешевые</option>
+                                    <option value="expensive-first">Сначала дорогие</option>
+                                </select>
                             </div>
-                        </button>
+                        </div>
                     </div>
                 </div>
 
