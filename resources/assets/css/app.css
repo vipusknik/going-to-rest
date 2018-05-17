@@ -238,8 +238,3 @@ a {
         background-size: 100%;
     }
 }
-
-[type="checkbox"]:checked + label {
-  @apply bg-red;
-}
-

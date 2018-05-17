@@ -4,8 +4,7 @@
                   :name="name"
                   :value="value"
                   :placeholder="placeholder"
-                  :style="styles"
-                  @change="onInput">
+                  :style="styles">
         </textarea>
     </div>
 </template>
@@ -40,12 +39,6 @@
                 type: Number,
                 required: false,
                 default: 300
-            }
-        },
-
-        methods: {
-            onInput({target}) {
-                this.$emit('input', target.value)
             }
         },
 
