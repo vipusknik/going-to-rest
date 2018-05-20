@@ -23,11 +23,6 @@ class MedicalCenter extends Model implements HasMediaInterface
         'is_paid' => 'boolean'
     ];
 
-    public function scopeNameLike($query, $string)
-    {
-        return $query->where('name', 'like', "%$string%");
-    }
-
     public function city()
     {
         return $this->belongsTo(City::class);

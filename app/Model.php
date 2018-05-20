@@ -12,4 +12,9 @@ class Model extends BaseModel
     {
         return get_class($this);
     }
+
+    public function scopeNameLike($query, $string)
+    {
+        return $query->where('name', 'like', "%$string%");
+    }
 }

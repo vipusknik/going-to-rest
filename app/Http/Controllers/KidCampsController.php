@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\KidCamp;
 use Illuminate\Http\Request;
 use App\City;
+use App\Search\KidCampsSearch;
 
 class KidCampsController extends Controller
 {
@@ -16,7 +17,8 @@ class KidCampsController extends Controller
     public function index(Request $request)
     {
         if ($request->expectsJson()) {
-            $models = KidCamp::with([ 'social_media', 'features', 'media', 'city' ])
+            $models = KidCampsSearch::by($request)
+                ->with([ 'social_media', 'features', 'media', 'city' ])
                 ->get();
 
             return compact('models');
