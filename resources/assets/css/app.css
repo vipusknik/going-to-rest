@@ -280,14 +280,29 @@ a {
 @media (min-width: 1200px) {
     .kid-camps-decorations-left {
         background-size: 52%;
-        background-position-x: right;
-        margin-left: auto;
+        margin-left: -85px !important;
     }
 }
 
 @media (min-width: 1200px) {
     .kid-camps-decoraions-right {
         background-size: 52%;
-        margin-right: 0;
+        margin-right: -89px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .kid-camps-decorations-left {
+        background-size: 53%;
+        background-position-x: right;
+        margin-left: -136px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .kid-camps-decoraions-right {
+        background-size: 52%;
+        background-position-x: left;
+        margin-right: -136px !important;
     }
 }
