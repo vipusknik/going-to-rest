@@ -61,6 +61,48 @@
                             </div>
                         </div>
 
+                        <div class="field-body flex mb-4">
+                          <div class="field w-1/3">
+                            <label class="label">Город</label>
+                            <div class="control">
+                              <div class="select w-full {{ $errors->has('city_id') ? ' is-danger' : '' }}">
+                                <select name="city_id" class="w-full" required="true">
+                                  @foreach ($cities as $city)
+                                      <option value="{{ $city->id }}"
+                                              {{ (old('city_id', $medicalCenter->city_id) == $city->id) ? 'selected' : '' }}>
+                                          {{ $city->name }}
+                                      </option>
+                                  @endforeach
+                                </select>
+                              </div>
+                            </div>
+
+                            @if ($errors->has('city_id'))
+                              <p class="help is-danger">{{ $errors->first('city_id') }}</p>
+                            @endif
+                          </div>
+
+                          <div class="field w-1/3">
+                            <label class="label">Регион</label>
+                            <div class="control">
+                              <div class="select w-full {{ $errors->has('region_id') ? ' is-danger' : '' }}">
+                                <select name="region_id" class="w-full" required="true">
+                                  @foreach ($regions as $region)
+                                      <option value="{{ $region->id }}"
+                                              {{ (old('region_id', $medicalCenter->region_id) == $region->id) ? 'selected' : '' }}>
+                                          {{ $region->name }}
+                                      </option>
+                                  @endforeach
+                                </select>
+                              </div>
+                            </div>
+
+                            @if ($errors->has('region_id'))
+                              <p class="help is-danger">{{ $errors->first('region_id') }}</p>
+                            @endif
+                          </div>
+                        </div>
+
                         @include('admin.partials.contact-inputs', [ 'model' => $medicalCenter ])
 
                         <features-attach :features="{{ json_encode($features) }}"

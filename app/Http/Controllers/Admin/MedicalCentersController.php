@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests\MedicalCentersRequest;
 use App\Http\Controllers\Controller;
 use App\Feature;
+use App\City;
+use App\Region;
 
 class MedicalCentersController extends Controller
 {
@@ -44,7 +46,10 @@ class MedicalCentersController extends Controller
             ->get()
             ->groupBy('category');
 
-        return view('admin.medical-centers.create', compact('features'));
+        $cities = City::all();
+        $regions = Region::all();
+
+        return view('admin.medical-centers.create', compact('features', 'cities', 'regions'));
     }
 
     /**
@@ -91,7 +96,10 @@ class MedicalCentersController extends Controller
             ->get()
             ->groupBy('category');
 
-        return view('admin.medical-centers.edit', compact('medicalCenter', 'features'));
+        $cities = City::all();
+        $regions = Region::all();
+
+        return view('admin.medical-centers.edit', compact('medicalCenter', 'features', 'cities', 'regions'));
     }
 
     /**
