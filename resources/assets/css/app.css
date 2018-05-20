@@ -184,7 +184,7 @@ a {
 }
 
 @media (min-width: 992px) {
-    .bg-beach-decoraions-left {
+    .kid-camps-decorations-left {
         height: 100%;
         width: 14%;
         background-image: url(/images/left-beach-decorations.png);
@@ -195,7 +195,7 @@ a {
 }
 
 @media (min-width: 992px) {
-    .bg-beach-decoraions-right {
+    .kid-camps-decoraions-right {
         height: 100%;
         width: 14%;
         background-image: url(/images/right-beach-decorations.png);
@@ -227,7 +227,7 @@ a {
 }
 
 @media (min-width: 1200px) {
-    .bg-beach-decoraions-right {
+    .kid-camps-decoraions-right {
         background-size: 73%;
     }
 }
@@ -250,70 +250,44 @@ a {
 
 
 /**
- * Медицинский туризм
+ * Детский отдых
  */
 
 @media (min-width: 992px) {
-    .bg-beach-decoraions-left {
+    .kid-camps-decorations-left {
         height: 100%;
-        width: 14%;
-        background-image: url(/images/left-beach-decorations.png);
+        width: 26%;
+        background-image: url(/images/kid-camps/decoration-left-big-min.png);
         background-repeat: no-repeat;
         background-position-x: center;
-        background-size: 78%;
-    }
-}
-
-@media (min-width: 992px) {
-    .bg-beach-decoraions-right {
-        height: 100%;
-        width: 14%;
-        background-image: url(/images/right-beach-decorations.png);
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-size: 78%;
-    }
-}
-
-@media (min-width: 992px) {
-    .bg-beach-decorations-umbrella {
-        height: 300px;
-        width: 334px;
-        right: -170px;
-        background-image: url(/images/umbrella.png);
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-size: 86%;
-        z-index: 50;
-        top: 236px;
-    }
-}
-
-
-@media (min-width: 1200px) {
-    .bg-beach-decoraions-left {
-        background-size: 73%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .bg-beach-decoraions-right {
-        background-size: 73%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .bg-beach-decorations-umbrella {
-        height: 400px;
-        width: 400px;
-        right: -185px;
-        background-size: 84%;
-        top: 281px;
-    }
-}
-
-@media (min-width: 1400px) {
-    .bg-beach-decorations-umbrella {
         background-size: 100%;
+        margin-left: -135px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .kid-camps-decoraions-right {
+        height: 100%;
+        width: 26%;
+        background-image: url(/images/kid-camps/decoration-right-big-min.png);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-size: 100%;
+        margin-right: -126px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .kid-camps-decorations-left {
+        background-size: 52%;
+        background-position-x: right;
+        margin-left: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .kid-camps-decoraions-right {
+        background-size: 52%;
+        margin-right: 0;
     }
 }
