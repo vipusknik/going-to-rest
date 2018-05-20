@@ -13,6 +13,12 @@ class MedicalCenterSearch
             $q->nameLike(request('query'));
         }
 
+        if ($request->filled('type')) {
+            $q->whereHas('features', function ($query) {
+                $query->where('id', 'type');
+            });
+        }
+
         return $q;
     }
 }

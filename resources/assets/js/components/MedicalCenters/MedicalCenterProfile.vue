@@ -34,6 +34,7 @@
                 </div>
 
                 <div v-if="model.city_id" class="text-base text-grey-dark">Город: {{ model.city.name }}</div>
+
                 <div v-if="model.region_id" class="text-base text-grey-dark">Регион: {{ model.region.name }}</div>
 
                 <div class="text-sm text-grey-dark">

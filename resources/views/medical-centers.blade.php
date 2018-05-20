@@ -20,7 +20,11 @@
             <!-- Header -->
             <div class="bg-yellow-light lg:hidden">
                 <div class="container mx-auto">
-                    <medical-centers-search :types="{{ json_encode($types) }}" @resultsupdated="updateModels"></medical-centers-search>
+                    <medical-centers-search :types="{{ json_encode($types) }}"
+                                            :cities="{{ json_encode($cities) }}"
+                                            :regions="{{ json_encode($regions) }}"
+                                            @resultsupdated="updateModels">
+                    </medical-centers-search>
                 </div>
             </div>
 

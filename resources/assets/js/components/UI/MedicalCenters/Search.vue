@@ -35,7 +35,8 @@
                 <div class="w-full mb-4">
                     <select v-model="search.region" class="w-full rounded-lg p-2">
                         <option value="">Регион</option>
-                        <!-- <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option> -->
+                        <option v-for="city in cities" :value="`city_${city.id}`">г. {{ city.name }}</option>
+                        <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
                     </select>
                 </div>
 
@@ -66,7 +67,8 @@
                         <div class="w-3/5">
                             <select name="guestCount" v-model="search.region" class="w-full rounded-lg px-3 py-2">
                                 <option value="">Регион</option>
-                                <option v-for="n in 30" :value="n">{{ n }} человек</option>
+                                <option v-for="city in cities" :value="`city_${city.id}`">г. {{ city.name }}</option>
+                                <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
                             </select>
                         </div>
                     </div>
@@ -80,6 +82,16 @@
     export default {
         props: {
             types: {
+                type: Array,
+                required: true
+            },
+
+            cities: {
+                type: Array,
+                required: true
+            },
+
+            regions: {
                 type: Array,
                 required: true
             }

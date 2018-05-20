@@ -6,6 +6,8 @@ use App\MedicalCenter;
 use Illuminate\Http\Request;
 use App\Search\MedicalCenterSearch;
 use App\Feature;
+use App\City;
+use App\Region;
 
 class MedicalCentersController extends Controller
 {
@@ -28,7 +30,10 @@ class MedicalCentersController extends Controller
             ->whereCategory(Feature::CATEGORY_TREATMENT_TYPES)
             ->get();
 
-        return view('medical-centers', compact('types'));
+        $cities = City::all();
+        $regions = Region::all();
+
+        return view('medical-centers', compact('types', 'cities', 'regions'));
     }
 
     /**
