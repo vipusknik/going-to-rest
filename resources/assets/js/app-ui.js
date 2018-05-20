@@ -27,6 +27,9 @@ Vue.component('rest-center', require('./components/UI/RestCenters/RestCenter.vue
 Vue.component('medical-centers-search', require('./components/UI/MedicalCenters/Search.vue'));
 Vue.component('medical-center', require('./components/UI/MedicalCenters/MedicalCenter.vue'));
 
+Vue.component('kid-camps-search', require('./components/UI/KidCamps/Search.vue'));
+Vue.component('kid-camp', require('./components/UI/KidCamps/KidCamp.vue'));
+
 window.events = new Vue();
 
 window.flash = function(message, level = 'success') {
