@@ -11,9 +11,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(RegionsAndCitiesTableSeeder::class);
-
         if (App::environment('local')) {
+            $this->call(RegionsAndCitiesTableSeeder::class);
             $this->call(ReservoirsTableSeeder::class);
             $this->call(FeaturesTableSeeder::class);
             $this->call(UsersTableSeeder::class);
