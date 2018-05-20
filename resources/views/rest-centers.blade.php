@@ -84,7 +84,7 @@
                 <main class="lg:px-20">
 
                     <!-- Page heading -->
-                    <h1 class="hidden lg:block lg:text-3xl lg:text-grey-darkest lg:text-center lg:italic lg:mb-6">
+                    <h1 class="hidden font-hortensia lg:block lg:text-4xl lg:text-grey-darkest lg:text-center lg:font-hairline lg:mb-6">
                         Пляжный отдых
                     </h1>
 

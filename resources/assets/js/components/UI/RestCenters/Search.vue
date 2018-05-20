@@ -5,7 +5,7 @@
                 <img src="/images/icons/menu.svg" alt="menu" class="block w-8 h-8">
             </div>
 
-            <div class="flex-1 text-center text-2xl italic">Пляжный отдых</div>
+            <div class="flex-1 text-center text-2xl font-hortensia -mb-2">Пляжный отдых</div>
 
             <div class="hidden p-1 border-2 border-white rounded bg-yellow-dark mr-2 md:block" @click="showSorting = !showSorting">
                 <img src="/images/icons/sorting-black.png" alt="menu" class="block w-8 h-8">

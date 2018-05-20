@@ -5420,6 +5420,15 @@ button:focus {
           order: 6;
 }
 
+@font-face {
+  font-family: 'Hortensia';
+  src: url('/fonts/Hortensia.ttf');
+}
+
+.font-hortensia {
+  font-family: Hortensia;
+}
+
 [v-cloak] {
   display: none;
 }
