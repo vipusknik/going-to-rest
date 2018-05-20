@@ -61,6 +61,29 @@
                             </div>
                         </div>
 
+                        <div class="field-body flex mb-6">
+                          <div class="field w-full">
+                            <label class="label">Город</label>
+                            <div class="control">
+                              <div class="select w-full {{ $errors->has('city_id') ? ' is-danger' : '' }}">
+                                <select name="city_id" class="w-full">
+                                  <option value="">Не выбран</option>
+                                  @foreach ($cities as $city)
+                                      <option value="{{ $city->id }}"
+                                              {{ (old('city_id', $kidCamp->city_id) == $city->id) ? 'selected' : '' }}>
+                                          {{ $city->name }}
+                                      </option>
+                                  @endforeach
+                                </select>
+                              </div>
+                            </div>
+
+                            @if ($errors->has('city_id'))
+                              <p class="help is-danger">{{ $errors->first('city_id') }}</p>
+                            @endif
+                          </div>
+                        </div>
+
                         @include('admin.partials.contact-inputs', [ 'model' => $kidCamp ])
 
                         <features-attach :features="{{ json_encode($features) }}"

@@ -16,7 +16,7 @@ class KidCampsController extends Controller
     public function index(Request $request)
     {
         if ($request->expectsJson()) {
-            $models = KidCamp::with([ 'social_media', 'features', 'media' ])
+            $models = KidCamp::with([ 'social_media', 'features', 'media', 'city' ])
                 ->get();
 
             return compact('models');

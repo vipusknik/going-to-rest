@@ -21,4 +21,9 @@ class KidCamp extends Model implements HasMediaInterface
     protected $casts = [
         'is_paid' => 'boolean'
     ];
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
 }

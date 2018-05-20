@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\KidCampsRequest;
 
 use App\Feature;
+use App\City;
 
 class KidCampsController extends Controller
 {
@@ -42,7 +43,9 @@ class KidCampsController extends Controller
             ->get()
             ->groupBy('category');
 
-        return view('admin.kid-camps.create', compact('features'));
+        $cities = City::all();
+
+        return view('admin.kid-camps.create', compact('features', 'cities'));
     }
 
     /**
@@ -70,7 +73,7 @@ class KidCampsController extends Controller
      */
     public function show(KidCamp $kidCamp)
     {
-        $kidCamp->load('features', 'media', 'social_media');
+        $kidCamp->load('features', 'media', 'social_media', 'city');
 
         return [ 'model' => $kidCamp ];
     }
@@ -89,7 +92,9 @@ class KidCampsController extends Controller
             ->get()
             ->groupBy('category');
 
-        return view('admin.kid-camps.edit', compact('kidCamp', 'features'));
+        $cities = City::all();
+
+        return view('admin.kid-camps.edit', compact('kidCamp', 'features', 'cities'));
     }
 
     /**
