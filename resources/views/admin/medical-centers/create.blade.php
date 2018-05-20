@@ -65,7 +65,8 @@
                               <label class="label">Город</label>
                               <div class="control">
                                 <div class="select w-full {{ $errors->has('city_id') ? ' is-danger' : '' }}">
-                                  <select name="city_id" class="w-full" required="true">
+                                  <select name="city_id" class="w-full">
+                                    <option value="">Не выбран</option>
                                     @foreach ($cities as $city)
                                         <option value="{{ $city->id }}"
                                                 {{ (old('city_id') == $city->id) ? 'selected' : '' }}>
@@ -85,7 +86,8 @@
                               <label class="label">Регион</label>
                               <div class="control">
                                 <div class="select w-full {{ $errors->has('region_id') ? ' is-danger' : '' }}">
-                                  <select name="region_id" class="w-full" required="true">
+                                  <select name="region_id" class="w-full">
+                                    <option value="">Не выбран</option>
                                     @foreach ($regions as $region)
                                         <option value="{{ $region->id }}"
                                                 {{ (old('region_id') == $region->id) ? 'selected' : '' }}>

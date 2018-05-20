@@ -15,8 +15,16 @@ class MedicalCenterSearch
 
         if ($request->filled('type')) {
             $q->whereHas('features', function ($query) {
-                $query->where('id', 'type');
+                $query->where('id', request()->type);
             });
+        }
+
+        if ($request->filled('region')) {
+            if (starts_with(request()->region, 'city_')) {
+                $q->whereCityId(str_after(request()->region, 'city_'));
+            } else {
+                $q->whereRegionId(request()->region);
+            }
         }
 
         return $q;
