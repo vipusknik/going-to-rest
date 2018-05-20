@@ -77,7 +77,7 @@ class MedicalCentersController extends Controller
      */
     public function show(MedicalCenter $medicalCenter)
     {
-        $medicalCenter->load('features', 'media', 'social_media');
+        $medicalCenter->load('features', 'media', 'social_media', 'city', 'region');
 
         return [ 'model' => $medicalCenter ];
     }

@@ -22,4 +22,14 @@ class MedicalCenter extends Model implements HasMediaInterface
     protected $casts = [
         'is_paid' => 'boolean'
     ];
+
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
 }
