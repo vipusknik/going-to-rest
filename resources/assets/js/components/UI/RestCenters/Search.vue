@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-if="! showSearchDrowdown" class="flex space-between items-center py-3 px-4">
+        <div v-if="! showSearchDropdown" class="flex space-between items-center py-3 px-4">
             <div @click="$parent.showMainMenu = true">
                 <img src="/images/icons/menu.svg" alt="menu" class="block w-8 h-8">
             </div>
@@ -11,34 +11,35 @@
                 <img src="/images/icons/sorting.png" alt="menu" class="block w-8 h-8">
             </div>
 
-            <div class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDrowdown = true">
+            <div class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDropdown = true">
                 <img src="/images/icons/search.png" alt="menu" class="block w-6 h-6">
             </div>
         </div>
 
         <div v-else class="flex space-between items-center py-3 px-4">
             <div class="flex-1 h-10 border-2 border-white rounded-l-lg">
-                <input type="text" v-model="filters.query" class="w-full h-full px-2 main-search-input" placeholder="Введите название">
+                <input type="text" v-model="search.query" class="w-full h-full px-2 main-search-input" placeholder="Введите название">
             </div>
 
-            <div class="p-2 border border-white rounded-r-lg bg-yellow-dark">
+            <div class="p-2 border border-white rounded-r-lg bg-yellow-dark" @click="showSearchDropdown = false">
                 <img src="/images/icons/search.png" alt="menu" class="block w-6 h-6">
             </div>
         </div>
 
-        <!-- Dropdown search filters menu for sm and md devices -->
+        <!-- Dropdown search search menu for sm and md devices -->
         <portal to="sm-md-rest-centers-search-filters">
-            <div v-if="showSearchDrowdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
+            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
                 <div class="flex space-between mb-3 sm:w-1/2 sm:pr-6 sm:items-end sm:mb-4">
                     <div class="w-1/2 mr-3">
-                        <select v-model="filters.reservoir" class="w-full rounded-lg p-2">
-                            <option value="" disabled>Водоем</option>
+                        <select v-model="search.reservoir" class="w-full rounded-lg p-2">
+                            <option value="">Водоем</option>
                             <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option>
                         </select>
                     </div>
 
                     <div class="w-1/2">
-                        <select v-model="filters.guestCount" class="w-full rounded-lg p-2">
+                        <select v-model="search.guest_count" class="w-full rounded-lg p-2">
+                            <option value="">Вмещаемость</option>
                             <option v-for="n in 30" :value="n">{{ n }} человек</option>
                         </select>
                     </div>
@@ -56,7 +57,7 @@
                             </div>
 
                             <div class="h-10">
-                                <input type="text" v-model="filters.priceFrom" class="rounded-r-lg w-full h-full px-2">
+                                <input type="text" v-model="search.price_from" class="rounded-r-lg w-full h-full px-2">
                             </div>
                         </div>
 
@@ -66,7 +67,7 @@
                             </div>
 
                             <div class="h-10">
-                                <input type="text" v-model="filters.priceTo" class="rounded-r-lg w-full h-full px-2">
+                                <input type="text" v-model="search.price_to" class="rounded-r-lg w-full h-full px-2">
                             </div>
                         </div>
                     </div>
@@ -77,7 +78,7 @@
                         Тип размещения
                     </div>
 
-                    <select v-model="filters.accomodationType" class="w-full rounded-lg p-2">
+                    <select v-model="search.accomodation_type" class="w-full rounded-lg p-2">
                         <option value="">Любой</option>
                         <option value="room">Гостинница / Номер</option>
                         <option value="house">Коттедж / Домик</option>
@@ -87,7 +88,7 @@
                 <div class="flex sm:w-1/2 sm:items-end">
                     <div class="flex items-center w-1/2 mr-4">
                         <div class="mr-3 styled-checkbox">
-                            <input type="checkbox" v-model="filters.hasFood" id="has-food-checkbox" class="hidden">
+                            <input type="checkbox" v-model="search.has_food" id="has-food-checkbox" class="hidden">
                             <label for="has-food-checkbox" class="flex items-center justify-center h-8 w-8 rounded-lg bg-white">
                                 <i class="fas fa-check text-black hidden"></i>
                             </label>
@@ -96,7 +97,7 @@
                     </div>
 
                     <div class="flex justify-center w-1/2">
-                        <button class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-full h-10">
+                        <button @click="showSearchDropdown = false" class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-full h-10">
                             Поиск
                         </button>
                     </div>
@@ -124,23 +125,23 @@
                 <div v-if="showSorting" class="mt-3 px-8 md:flex md:items-start">
                     <div class="mb-6 md:flex md:flex-wrap md:space-between md:mb-0 md:w-3/4">
                         <div class="flex items-center mb-2 md:w-1/2 md:flex-order-1">
-                            <label for="cheap-first" class="flex-1 text-2xl text-grey-darker font-bold">
+                            <label for="price_asc" class="flex-1 text-2xl text-grey-darker font-bold">
                                 Сначала дешевые
                             </label>
 
                             <div class="styled-radio-button">
-                                <input type="radio" id="cheap-first" value="cheap-first" name="sorting" class="hidden">
-                                <label for="cheap-first" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
+                                <input type="radio" v-model="search.sort_by" id="price_asc" value="price_asc" name="sorting" class="hidden">
+                                <label for="price_asc" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
                                     <i class="hidden fas fa-circle text-grey-darkest"></i>
                                 </label>
                             </div>
                         </div>
 
                         <div class="flex items-center mb-2 md:w-1/2 md:flex-order-3">
-                            <label for="expensive-first" class="flex-1 text-2xl text-grey-darker font-bold">Сначала дорогие</label>
+                            <label for="price_desc" class="flex-1 text-2xl text-grey-darker font-bold">Сначала дорогие</label>
                             <div class="styled-radio-button">
-                                <input type="radio" id="expensive-first" value="expensive-first" name="sorting" class="hidden">
-                                <label for="expensive-first" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
+                                <input type="radio" v-model="search.sort_by" id="price_desc" value="price_desc" name="sorting" class="hidden">
+                                <label for="price_desc" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
                                     <i class="hidden fas fa-circle text-grey-darkest"></i>
                                 </label>
                             </div>
@@ -149,7 +150,7 @@
                         <div class="flex items-center mb-2 md:w-1/2 md:flex-order-2 md:justify-end">
                             <label for="a-z" class="flex-1 text-2xl text-grey-darker font-bold md:flex-initial mr-6">От А до Я</label>
                             <div class="styled-radio-button">
-                                <input type="radio" id="a-z" name="sorting" value="a-z" class="hidden">
+                                <input type="radio" v-model="search.sort_by" id="a-z" name="sorting" value="a-z" class="hidden">
                                 <label for="a-z" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
                                     <i class="hidden fas fa-circle text-grey-darkest"></i>
                                 </label>
@@ -159,7 +160,7 @@
                         <div class="flex items-center md:w-1/2 md:flex-order-4 md:justify-end">
                             <label for="z-a" class="flex-1 text-2xl text-grey-darker font-bold md:flex-initial mr-6">От Я до А</label>
                             <div class="styled-radio-button">
-                                <input type="radio" id="z-a" name="sorting" value="z-a" class="hidden">
+                                <input type="radio" v-model="search.sort_by" id="z-a" name="sorting" value="z-a" class="hidden">
                                 <label for="z-a" class="flex items-center justify-center h-10 w-10 rounded-lg bg-white">
                                     <i class="hidden fas fa-circle text-grey-darkest"></i>
                                 </label>
@@ -167,7 +168,7 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-center md:w-1/4 md:justify-end">
+                    <div class="flex justify-center md:w-1/4 md:justify-end" @click="showSorting = false">
                         <button class="text-lg text-white font-bold tracking-wide bg-teal-dark py-2 px-4 rounded-lg md:text-xl">
                             Применить
                         </button>
@@ -181,19 +182,20 @@
             <div class="hidden lg:block lg:mb-6">
                 <div class="flex mb-4">
                     <div class="w-1/3 mr-3">
-                        <input type="text" v-model="filters.query" placeholder="Введите название" class="w-full rounded-lg px-3 py-2">
+                        <input type="text" v-model="search.query" placeholder="Введите название" class="w-full rounded-lg px-3 py-2">
                     </div>
 
                     <div class="w-2/3 flex">
                         <div class="w-1/3 mr-3">
-                            <select v-model="filters.reservoir" class="w-full rounded-lg px-3 py-2">
-                                <option value="" disabled>Водоем</option>
+                            <select v-model="search.reservoir" class="w-full rounded-lg px-3 py-2">
+                                <option value="">Водоем</option>
                                 <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option>
                             </select>
                         </div>
 
                         <div class="w-1/3 mr-3">
-                            <select name="guestCount" class="w-full rounded-lg px-3 py-2">
+                            <select name="guestCount" v-model="search.guest_count" class="w-full rounded-lg px-3 py-2">
+                                <option value="">Вмещаемость</option>
                                 <option v-for="n in 30" :value="n">{{ n }} человек</option>
                             </select>
                         </div>
@@ -204,11 +206,12 @@
                             </div>
 
                             <div class="flex-1 h-full text-grey">
-                                <select name="guestCount" class="w-full px-1 py-2 rounded-lg xl:rounded-none xl:rounded-r-lg">
+                                <select v-model="search.sort_by" name="guestCount" class="w-full px-1 py-2 rounded-lg xl:rounded-none xl:rounded-r-lg">
+                                    <option value="">Сортировка</option>
                                     <option value="a-z">От А до Я</option>
                                     <option value="z-a">От Я до А</option>
-                                    <option value="cheap-first">Сначала дешевые</option>
-                                    <option value="expensive-first">Сначала дорогие</option>
+                                    <option value="price_asc">Сначала дешевые</option>
+                                    <option value="price_desc">Сначала дорогие</option>
                                 </select>
                             </div>
                         </div>
@@ -229,7 +232,7 @@
                                     </div>
 
                                     <div class="h-8">
-                                        <input type="text" v-model="filters.priceFrom" class="rounded-r-lg w-full h-full px-2">
+                                        <input type="text" v-model="search.price_from" class="rounded-r-lg w-full h-full px-2">
                                     </div>
                                 </div>
 
@@ -239,7 +242,7 @@
                                     </div>
 
                                     <div class="h-8">
-                                        <input type="text" v-model="filters.priceTo" class="rounded-r-lg w-full h-full px-2">
+                                        <input type="text" v-model="search.price_to" class="rounded-r-lg w-full h-full px-2">
                                     </div>
                                 </div>
                             </div>
@@ -252,7 +255,7 @@
                                 Тип размещения
                             </div>
 
-                            <select v-model="filters.accomodationType" class="w-full h-8 rounded-lg p-2">
+                            <select v-model="search.accomodation_type" class="w-full h-8 rounded-lg p-2">
                                 <option value="">Любой</option>
                                 <option value="room">Гостинница / Номер</option>
                                 <option value="house">Коттедж / Домик</option>
@@ -267,7 +270,7 @@
                             </label>
 
                             <div class="styled-checkbox">
-                                <input type="checkbox" v-model="filters.hasFood" id="has-food-checkbox-2" class="hidden">
+                                <input type="checkbox" v-model="search.has_food" id="has-food-checkbox-2" class="hidden">
                                 <label for="has-food-checkbox-2" class="flex items-center justify-center h-8 w-8 rounded-lg bg-white cursor-pointer">
                                     <i class="hidden fas fa-check text-black"></i>
                                 </label>
@@ -291,16 +294,17 @@
 
         data () {
             return {
-                showSearchDrowdown: false,
+                showSearchDropdown: false,
                 showSorting: false,
-                filters: {
+                search: {
                     query: '',
                     reservoir: '',
-                    guestCount: 1,
-                    priceFrom: '',
-                    priceTo: '',
-                    accomodationType: null,
-                    hasFood: null
+                    guest_count: '',
+                    price_from: '',
+                    price_to: '',
+                    accomodation_type: null,
+                    has_food: null,
+                    sort_by: ''
                 }
             };
         },
@@ -314,7 +318,7 @@
         },
 
         watch: {
-            filters: {
+            search: {
                 deep: true,
                 handler () {
                     this.fetch();
@@ -325,15 +329,7 @@
         methods: {
             fetch () {
                 axios.get('/pljazhnyj-otdyh', {
-                        params: {
-                            query: this.filters.query,
-                            reservoir: this.filters.reservoir,
-                            guest_count: this.filters.guestCount,
-                            price_from: this.filters.priceFrom,
-                            price_to: this.filters.priceTo,
-                            accomodation_type: this.filters.accomodationType,
-                            has_food: this.filters.hasFood
-                        }
+                        params: this.search
                     })
                     .then(response => {
                         this.$emit('resultsupdated', response.data.models);
