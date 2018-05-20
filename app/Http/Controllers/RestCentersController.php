@@ -18,7 +18,7 @@ class RestCentersController extends Controller
     {
         if ($request->expectsJson()) {
             $models = RestCentersSearch::by($request)
-                ->with([ 'reservoir', 'social_media', 'features', 'media', 'accomodations', 'accomodations.features', 'features' ])
+                ->with([ 'reservoir', 'social_media', 'features', 'media', 'accomodations', 'accomodations.features' ])
                 ->get();
 
             return compact('models');

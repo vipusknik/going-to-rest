@@ -24,6 +24,9 @@ Vue.component('sm-md-main-menu', require('./components/UI/SmMdMainMenu.vue'));
 Vue.component('rest-centers-search', require('./components/UI/RestCenters/Search.vue'));
 Vue.component('rest-center', require('./components/UI/RestCenters/RestCenter.vue'));
 
+Vue.component('medical-centers-search', require('./components/UI/MedicalCenters/Search.vue'));
+Vue.component('medical-center', require('./components/UI/MedicalCenters/MedicalCenter.vue'));
+
 window.events = new Vue();
 
 window.flash = function(message, level = 'success') {
@@ -37,13 +40,13 @@ const app = new Vue({
             showMainMenu: false,
             showSearchDrowdown: false,
             showSorting: false,
-            restCenters: []
+            models: []
         };
     },
 
     methods: {
-        updateRestCenters (restCenters) {
-            this.restCenters = restCenters;
+        updateModels (models) {
+            this.models = models;
         }
     }
 });

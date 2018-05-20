@@ -7,6 +7,11 @@ Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
      * Rest centers
      */
     Route::get('/pljazhnyj-otdyh', 'RestCentersController@index')->name('rest-centers.index');
+
+    /**
+     * Medical centers
+     */
+    Route::get('/medicinskij-turizm', 'MedicalCentersController@index')->name('medical-centers.index');
 });
 
 

@@ -20,7 +20,7 @@
             <!-- Header -->
             <div class="bg-yellow-light lg:hidden">
                 <div class="container mx-auto">
-                    <rest-centers-search :reservoirs="{{ json_encode($reservoirs) }}" @resultsupdated="updateModels"></rest-centers-search>
+                    <medical-centers-search @resultsupdated="updateModels"></medical-centers-search>
                 </div>
             </div>
 
@@ -29,7 +29,7 @@
                 <div class="container mx-auto">
                     <div class="relative">
                         <!-- Dropdown search filters menu -->
-                        <portal-target name="sm-md-rest-centers-search-filters" slim></portal-target>
+                        <portal-target name="sm-md-medical-centers-search-filters" slim></portal-target>
 
                         <!-- Ads -->
                         <div class="flex p-2 lg:px-12">
@@ -38,7 +38,7 @@
                         </div>
 
                         <!-- Sorting for small and medium devices -->
-                        <portal-target name="sm-md-rest-centers-search-sorting" slim></portal-target>
+                        <portal-target name="sm-md-medical-centers-search-sorting" slim></portal-target>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
             <!-- Main menu for large and xl devices -->
             <div class="container mx-auto lg:px-12">
                 <nav class="hidden lg:block lg:flex lg:justify-around">
-                    <div class="px-4 py-1 bg-white rounded">
+                    <div class="px-4 py-1 bg-white opacity-50 rounded">
                         <a href="{{ route('rest-centers.index') }}" class="text-lg text-black">пляжный отдых</a>
                     </div>
 
@@ -65,7 +65,7 @@
                         <a href="#" class="text-lg text-black">рыбалка и охота</a>
                     </div>
 
-                    <div class="px-4 py-1 bg-white opacity-50 rounded">
+                    <div class="px-4 py-1 bg-white rounded">
                         <a href="#" class="text-lg text-black">медицинский туризм</a>
                     </div>
                 </nav>
@@ -89,11 +89,11 @@
                     </h1>
 
                     <!-- Search for large devices -->
-                    <portal-target name="lg-xl-rest-centers-search" slim></portal-target>
+                    <portal-target name="lg-xl-medical-centers-search" slim></portal-target>
 
                     <!-- List -->
                     <div class="px-2 lg:px-0">
-                        <rest-center v-for="center in models" :key="center.id" :center='center'></rest-center>
+                        <medical-center v-for="model in models" :key="model.id" :model="model"></medical-center>
                     </div>
                 </main>
             </div>

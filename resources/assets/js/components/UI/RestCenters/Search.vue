@@ -8,7 +8,7 @@
             <div class="flex-1 text-center text-2xl italic">Пляжный отдых</div>
 
             <div class="hidden p-1 border-2 border-white rounded bg-yellow-dark mr-2 md:block" @click="showSorting = !showSorting">
-                <img src="/images/icons/sorting.png" alt="menu" class="block w-8 h-8">
+                <img src="/images/icons/sorting-black.png" alt="menu" class="block w-8 h-8">
             </div>
 
             <div class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDropdown = true">
@@ -110,7 +110,7 @@
             <div class="md:absolute md:pin-t md:pin-l md:bg-yellow-dark md:w-full md:z-50 lg:hidden">
                 <div class="flex space-between items-center px-4 md:hidden">
                     <div>
-                        <img src="/images/icons/sorting.png" alt="sorting" class="block w-10 h-12">
+                        <img src="/images/icons/sorting-black.png" alt="sorting" class="block w-10 h-12">
                     </div>
 
                     <div class="flex-1 text-center text-2xl text-black font-bold">Сортировка</div>
@@ -202,7 +202,7 @@
 
                         <div class="w-1/3 rounded-lg flex items-center cursor-pointer">
                             <div class="hidden h-full text-lg text-white bg-teal-dark rounded-l-lg xl:block">
-                                <img src="/images/icons/sorting.png" alt="menu" class="block w-8 h-full">
+                                <img src="/images/icons/sorting-white.png" alt="menu" class="block w-8 p-1 h-full">
                             </div>
 
                             <div class="flex-1 h-full text-grey">

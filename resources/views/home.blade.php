@@ -109,7 +109,7 @@
                         </div>
 
                         <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:px-1 sm:py-4 sm:rounded-xl">
-                            <a href="#" class="flex items-center no-underline sm:flex-col">
+                            <a href="{{ route('medical-centers.index') }}" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/medical-tourism.png') }}"
                                          alt="Медицинский туризм"
