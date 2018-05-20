@@ -54,11 +54,9 @@ class RestCentersSearch
             });
         }
 
-        if ($request->filled('has_food') && $request->has_food === true) {
-            $q->whereHas('accomodations', function ($query) {
-                $query->whereHas('features', function ($queryFeatrues) {
-                    $queryFeatrues->where('id', 28);
-                });
+        if ($request->filled('has_food') && $request->has_food == true) {
+            $q->whereHas('accomodations.features', function ($query) {
+                $query->where('id', 28);
             });
         }
 
