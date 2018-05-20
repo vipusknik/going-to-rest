@@ -98,7 +98,7 @@
                     </div>
                 </div>
 
-                <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:border-b-0 md:w-1/2 md:pl-2 md:items-start">
+                <div class="flex items-center border-dotted border-teal-dark py-2 md:w-1/2 md:pl-2 md:items-start">
                     <div class="mr-3 md:w-1/8 md:mr-1">
                         <img src="/images/icons/contacts.png" alt="address" class="block w-8 h-8">
                     </div>

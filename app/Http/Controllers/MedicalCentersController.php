@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\MedicalCenter;
 use Illuminate\Http\Request;
 use App\Search\MedicalCenterSearch;
+use App\Feature;
 
 class MedicalCentersController extends Controller
 {
@@ -23,7 +24,11 @@ class MedicalCentersController extends Controller
             return compact('models');
         }
 
-        return view('medical-centers');
+        $types = Feature::whereBelongsTo(Feature::OF_MEDICAL_CENTER)
+            ->whereCategory(Feature::CATEGORY_TREATMENT_TYPES)
+            ->get();
+
+        return view('medical-centers', compact('types'));
     }
 
     /**

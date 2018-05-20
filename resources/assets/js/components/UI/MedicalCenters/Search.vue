@@ -28,7 +28,7 @@
                 <div class="w-full mb-4">
                     <select v-model="search.type" class="w-full rounded-lg p-2">
                         <option value="">Вид</option>
-                        <!-- <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option> -->
+                        <option v-for="type in types" :value="type.id">{{ type.name }}</option>
                     </select>
                 </div>
 
@@ -59,7 +59,7 @@
                         <div class="w-2/5 mr-3">
                             <select v-model="search.type" class="w-full rounded-lg px-3 py-2">
                                 <option value="">Вид</option>
-                                <!-- <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option> -->
+                                <option v-for="type in types" :value="type.id">{{ type.name }}</option>
                             </select>
                         </div>
 
@@ -78,12 +78,12 @@
 
 <script>
     export default {
-        // props: {
-        //     reservoirs: {
-        //         type: Array,
-        //         required: true
-        //     }
-        // },
+        props: {
+            types: {
+                type: Array,
+                required: true
+            }
+        },
 
         data () {
             return {
@@ -92,8 +92,7 @@
                 search: {
                     query: '',
                     type: '',
-                    region: '',
-                    sort_by: ''
+                    region: ''
                 }
             };
         },
