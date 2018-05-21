@@ -19,9 +19,17 @@ class ActiveRestCompaniesSearch
             });
         }
 
-        // if ($request->filled('city')) {
-        //     $q->whereCityId(request()->city);
-        // }
+        if ($request->filled('activity')) {
+            $q->whereHas('activities', function ($query) {
+                $query->where('id', request()->activity);
+            });
+        }
+
+        if ($request->filled('season')) {
+            $q->whereHas('activities', function ($query) {
+                $query->where(request()->season, 1);
+            });
+        }
 
         return $q;
     }
