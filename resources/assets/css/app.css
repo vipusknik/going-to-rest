@@ -255,70 +255,6 @@ a {
  * Медицинский туризм
  */
 
-/*@media (min-width: 992px) {
-    .bg-beach-decoraions-left {
-        height: 100%;
-        width: 14%;
-        background-image: url(/images/left-beach-decorations.png);
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-size: 78%;
-    }
-}
-
-@media (min-width: 992px) {
-    .bg-beach-decoraions-right {
-        height: 100%;
-        width: 14%;
-        background-image: url(/images/right-beach-decorations.png);
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-size: 78%;
-    }
-}
-
-@media (min-width: 992px) {
-    .bg-beach-decorations-umbrella {
-        height: 300px;
-        width: 334px;
-        right: -170px;
-        background-image: url(/images/umbrella.png);
-        background-repeat: no-repeat;
-        background-position-x: center;
-        background-size: 86%;
-        z-index: 50;
-        top: 236px;
-    }
-}
-
-
-@media (min-width: 1200px) {
-    .bg-beach-decoraions-left {
-        background-size: 73%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .bg-beach-decoraions-right {
-        background-size: 73%;
-    }
-}
-
-@media (min-width: 1200px) {
-    .bg-beach-decorations-umbrella {
-        height: 400px;
-        width: 400px;
-        right: -185px;
-        background-size: 84%;
-        top: 281px;
-    }
-}
-
-@media (min-width: 1400px) {
-    .bg-beach-decorations-umbrella {
-        background-size: 100%;
-    }
-}*/
 
 /**
  * Детский отдых
@@ -375,5 +311,63 @@ a {
         background-size: 52%;
         background-position-x: left;
         margin-right: -136px !important;
+    }
+}
+
+/**
+ * Активный отдых
+ */
+
+@media (min-width: 992px) {
+    .active-rest-decorations-left {
+        height: 100%;
+        width: 23%;
+        background-image: url(/images/active-rest/decoration-left-min.png);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-size: 100%;
+        margin-left: -84px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .active-rest-decorations-right {
+        height: 100%;
+        width: 56%;
+        background-image: url(/images/active-rest/decoration-right-min.png);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-size: 100%;
+        margin-right: -377px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .active-rest-decorations-left {
+        background-size: 52%;
+        margin-left: -85px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .active-rest-decorations-right {
+        background-size: 64%;
+        margin-right: -380px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .active-rest-decorations-left {
+        background-size: 55%;
+        background-position-x: right;
+        margin-left: -99px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .active-rest-decorations-right {
+        background-size: 52%;
+        background-position-x: left;
+        margin-right: -534px !important;
     }
 }
