@@ -73,7 +73,7 @@ class HuntingCompaniesController extends Controller
      */
     public function show(HuntingCompany $huntingCompany)
     {
-        $huntingCompany->load('animals', 'media', 'social_media');
+        $huntingCompany->load('animals', 'region', 'media', 'social_media');
 
         return [ 'model' => $huntingCompany ];
     }

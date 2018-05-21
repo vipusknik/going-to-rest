@@ -29,6 +29,10 @@
 
                 <div class="text-base text-grey-dark" v-text="model.location"></div>
 
+                <div v-if="model.region_id" class="text-base text-grey-dark">Регион: {{ model.region.name }}</div>
+
+                <div v-if="model.place" class="text-base text-grey-dark">Место: {{ model.place }}</div>
+
                 <div class="text-sm text-grey-dark">
                     <span class="text-grey">Распространение путевок:</span> {{ model.distribution_address }}
                 </div>

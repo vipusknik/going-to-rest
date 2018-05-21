@@ -25,4 +25,9 @@ class HuntingCompany extends Model implements HasMediaInterface
     {
         return $this->belongsToMany(Animal::class, 'hunting_company_animal')->withPivot('description');
     }
+
+    public function region()
+    {
+        return $this->belongsTo(Region::class);
+    }
 }
