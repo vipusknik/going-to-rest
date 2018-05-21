@@ -63,25 +63,35 @@
 
                         <div class="flex mb-6">
                             <div class="w-1/3 mr-3">
-                              {{-- <editable-select select-label="Регион"
-                                               select-name="hunting_region_id"
-                                               :select-options-initial="{{ json_encode($regions) }}"
-                                               selected-option-id="{{ old('hunting_region_id', $huntingCompany->hunting_region_id) }}"
-                                               modal-heading="Регионы"
-                                               endpoint="/admin/hunting-places"
-                                               :attach-request-data="{ type: 'region' }">
-                              </editable-select> --}}
+                              <label class="label">Регион</label>
+                              <div class="control">
+                                <div class="select w-full {{ $errors->has('region_id') ? ' is-danger' : '' }}">
+                                  <select name="region_id" class="w-full">
+                                    <option value="">Не выбран</option>
+                                    @foreach ($regions as $region)
+                                        <option value="{{ $region->id }}"
+                                                {{ (old('region_id', $huntingCompany->region_id) == $region->id) ? 'selected' : '' }}>
+                                            {{ $region->name }}
+                                        </option>
+                                    @endforeach
+                                  </select>
+                                </div>
+                              </div>
+
+                              @if ($errors->has('region_id'))
+                                <p class="help is-danger">{{ $errors->first('region_id') }}</p>
+                              @endif
                             </div>
 
                             <div class="w-1/3 mr-3">
-                              {{-- <editable-select select-label="Место"
-                                               select-name="hunting_place_id"
-                                               :select-options-initial="{{ json_encode($places) }}"
-                                               selected-option-id="{{ old('hunting_place_id', $huntingCompany->hunting_place_id) }}"
-                                               modal-heading="Места"
-                                               endpoint="/admin/hunting-places"
-                                               :attach-request-data="{ type: 'place' }">
-                              </editable-select> --}}
+                              <label class="label">Место</label>
+                              <div class="control">
+                                <input class="input"
+                                       type="text"
+                                       name="place"
+                                       value="{{ old('place', $huntingCompany->place) }}"
+                                       placeholder="Место">
+                              </div>
                             </div>
 
                             <div class="w-1/3">
