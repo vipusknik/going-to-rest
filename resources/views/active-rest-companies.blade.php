@@ -82,12 +82,12 @@
                 <main class="lg:px-20">
 
                     <!-- Page heading -->
-                    <h1 class="hidden font-hortensia lg:block lg:text-4xl lg:text-grey-darkest lg:text-center lg:font-hairline lg:mb-6">
-                        Медицинский туризм
+                    <h1 class="hidden font-hortensia lg:block lg:text-4xl lg:text-grey-darkest lg:mr-20 lg:text-center lg:font-hairline lg:mb-6">
+                        Активный отдых
                     </h1>
 
                     <!-- Search for large devices -->
-                    <portal-target name="lg-xl-active-rest-companies-search" slim></portal-target>
+                    <portal-target name="lg-xl-active-rest-companies-search" class="md:mr-20" slim></portal-target>
 
                     <!-- List -->
                     <div class="px-2 lg:px-0">
