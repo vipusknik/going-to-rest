@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\HuntingCompany;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\HuntingPlace;
 use App\Animal;
+use App\Region;
 use App\Http\Requests\HuntingCompanyRequest;
 
 class HuntingCompaniesController extends Controller
@@ -38,11 +38,10 @@ class HuntingCompaniesController extends Controller
      */
     public function create()
     {
-        $regions = HuntingPlace::whereType('region')->get();
-        $places = HuntingPlace::whereType('place')->get();
+        $regions = Region::all();
         $animals = Animal::all();
 
-        return view('admin.hunting-companies.create', compact('regions', 'places', 'animals'));
+        return view('admin.hunting-companies.create', compact('regions', 'animals'));
     }
 
     /**
@@ -88,11 +87,10 @@ class HuntingCompaniesController extends Controller
     public function edit(HuntingCompany $huntingCompany)
     {
         $huntingCompany->load('social_media', 'animals');
-        $regions = HuntingPlace::whereType('region')->get();
-        $places = HuntingPlace::whereType('place')->get();
+        $regions = Region::all();
         $animals = Animal::all();
 
-        return view('admin.hunting-companies.edit', compact('huntingCompany', 'regions', 'places', 'animals'));
+        return view('admin.hunting-companies.edit', compact('huntingCompany', 'regions', 'animals'));
     }
 
     /**

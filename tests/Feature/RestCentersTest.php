@@ -35,28 +35,4 @@ class RestCentersTest extends TestCase
 
         $this->assertCount(2, $response->original['models']);
     }
-
-    /** @test */
-    function rest_centers_can_be_searched_by_guest_count()
-    {
-        // fill
-    }
-
-    /** @test */
-    function rest_centers_can_be_searched_by_accomodation_price()
-    {
-        // fill
-    }
-
-    /** @test */
-    function rest_centers_can_be_searched_by_accomodation_type()
-    {
-        // fill
-    }
-
-    /** @test */
-    function rest_centers_can_be_searched_by_accomodation_food()
-    {
-        // fill
-    }
 }

@@ -19,8 +19,8 @@ class CreateHuntingCompaniesTable extends Migration
             $table->string('slug')->unique();
             $table->boolean('hunting')->default(true);
             $table->boolean('fishing')->default(true);
-            $table->unsignedInteger('hunting_place_id');
-            $table->unsignedInteger('hunting_region_id');
+            $table->string('place')->nullable();
+            $table->unsignedInteger('region_id')->nullable();
             $table->string('distribution_address')->nullable();
             $table->string('contacts')->nullable();
             $table->string('email')->nullable();

@@ -32,8 +32,8 @@ class HuntingCompanyRequest extends FormRequest
 
         return [
             'name' => [ 'required', $uniqueRule ],
-            'hunting_place_id' => [ 'required', Rule::exists('hunting_places', 'id') ],
-            'hunting_region_id' => [ 'required', Rule::exists('hunting_places', 'id') ],
+            'hunting_place_id' => [ Rule::exists('hunting_places', 'id') ],
+            'hunting_region_id' => [ Rule::exists('hunting_places', 'id') ],
         ];
 
         // TODO: at least one hunting type should be true

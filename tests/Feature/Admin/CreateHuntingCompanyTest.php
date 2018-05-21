@@ -36,47 +36,6 @@ class CreateHuntingCompanyTest extends TestCase
             )->assertSessionHasErrors('name');
     }
 
-
-    /** @test */
-    function a_hunting_company_requires_hunting_place()
-    {
-        $company = make('App\HuntingCompany', [ 'hunting_place_id' => '' ]);
-
-        $this->post(
-                route('admin.hunting-companies.store'), $company->getAttributes()
-            )->assertSessionHasErrors('hunting_place_id');
-    }
-
-    /** @test */
-    function a_hunting_company_requires_an_existing_hunting_place()
-    {
-        $company = make('App\HuntingCompany', [ 'hunting_place_id' => 999 ]);
-
-        $this->post(
-                route('admin.hunting-companies.store'), $company->getAttributes()
-            )->assertSessionHasErrors('hunting_place_id');
-    }
-
-    /** @test */
-    function a_hunting_company_requires_hunting_region()
-    {
-        $company = make('App\HuntingCompany', [ 'hunting_region_id' => '' ]);
-
-        $this->post(
-                route('admin.hunting-companies.store'), $company->getAttributes()
-            )->assertSessionHasErrors('hunting_region_id');
-    }
-
-    /** @test */
-    function a_hunting_company_requires_an_existing_hunting_region()
-    {
-        $company = make('App\HuntingCompany', [ 'hunting_region_id' => 999 ]);
-
-        $this->post(
-                route('admin.hunting-companies.store'), $company->getAttributes()
-            )->assertSessionHasErrors('hunting_region_id');
-    }
-
     /** @test */
     function a_hunting_company_can_be_persisted()
     {

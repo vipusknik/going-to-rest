@@ -62,25 +62,25 @@
 
                         <div class="flex mb-6">
                             <div class="w-1/3 mr-3">
-                              <editable-select select-label="Регион"
+                              {{-- <editable-select select-label="Регион"
                                                select-name="hunting_region_id"
                                                :select-options-initial="{{ json_encode($regions) }}"
                                                selected-option-id="{{ old('hunting_region_id') }}"
                                                modal-heading="Регионы"
                                                endpoint="/admin/hunting-places"
                                                :attach-request-data="{ type: 'region' }">
-                              </editable-select>
+                              </editable-select> --}}
                             </div>
 
                             <div class="w-1/3 mr-3">
-                              <editable-select select-label="Место"
+                              {{-- <editable-select select-label="Место"
                                                select-name="hunting_place_id"
                                                :select-options-initial="{{ json_encode($places) }}"
                                                selected-option-id="{{ old('hunting_place_id') }}"
                                                modal-heading="Места"
                                                endpoint="/admin/hunting-places"
                                                :attach-request-data="{ type: 'place' }">
-                              </editable-select>
+                              </editable-select> --}}
                             </div>
 
                             <div class="w-1/3">
