@@ -66,29 +66,37 @@
                     <div class="absolute pin-r pin-t mt-8 flex flex-col">
                         <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'md:hidden': selectedSeason == 'summer' }">
                             <div class="inline-block uppercase cursor-pointer text-yellow text-sm font-semibold rounded-l-lg bg-white p-2">
-                                <img src="" alt="" class="w-4 h-4">
-                                <span v-if="selectedSeason == 'summer'">лето</span>
+                                <div class="flex items-center">
+                                    <img src="/images/icons/summer.png" alt="" class="w-4 h-4 mr-1">
+                                    <span v-if="selectedSeason == 'summer'">лето</span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'md:hidden': selectedSeason == 'spring' }">
                             <div class="inline-block uppercase cursor-pointer text-olive text-sm font-semibold rounded-l-lg bg-white p-2">
-                                <img src="" alt="" class="w-4 h-4">
-                                <span v-if="selectedSeason == 'spring'">весна</span>
+                                <div class="flex items-center">
+                                    <img src="/images/icons/spring.png" alt="" class="w-4 h-4 mr-1">
+                                    <span v-if="selectedSeason == 'spring'">весна</span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'md:hidden': selectedSeason == 'autumn' }">
                             <div class="inline-block uppercase cursor-pointer text-red-autumn text-sm font-semibold rounded-l-lg bg-white p-2">
-                                <img src="" alt="" class="w-4 h-4">
-                                <span v-if="selectedSeason == 'autumn'">осень</span>
+                                <div class="flex items-center">
+                                    <img src="/images/icons/autumn.png" alt="" class="w-4 h-4 mr-1">
+                                    <span v-if="selectedSeason == 'autumn'">осень</span>
+                                </div>
                             </div>
                         </div>
 
                         <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'md:hidden': selectedSeason == 'winter' }">
                             <div class="inline-block uppercase cursor-pointer text-teal-winter text-sm font-semibold rounded-l-lg bg-white p-2">
-                                <img src="" alt="" class="w-4 h-4">
-                                <span v-if="selectedSeason == 'winter'">зима</span>
+                                <div class="flex items-center">
+                                    <img src="/images/icons/winter.png" alt="" class="w-4 h-4 mr-1">
+                                    <span v-if="selectedSeason == 'winter'">зима</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -120,7 +128,7 @@
                 <div class="mb-3 flex justify-start" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'">
                     <div class="inline-block uppercase cursor-pointer text-teal-winter text-sm font-semibold rounded-r-lg bg-white p-2">
                         <span v-if="selectedSeason == 'winter'">зима</span>
-                        <img src="/images/icons/winter.svg" alt="" class="w-4 h-4">
+                        <img src="/images/icons/winter.png" alt="" class="w-4 h-4">
                     </div>
                 </div>
             </div>
@@ -176,29 +184,37 @@
                 <div class="absolute pin-r pin-t mt-10 flex flex-col">
                     <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'md:hidden': selectedSeason == 'summer' }">
                         <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-yellow rounded-l-lg p-2 md:bg-white md:text-yellow">
-                            <img src="/images/icons/summer.png" alt="" class="w-4 h-4">
-                            <span v-if="selectedSeason == 'summer'">лето</span>
+                            <div class="flex items-center">
+                                <img src="/images/icons/summer.png" alt="" class="w-4 h-4 mr-1">
+                                <span v-if="selectedSeason == 'summer'">лето</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'md:hidden': selectedSeason == 'spring' }">
                         <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-olive rounded-l-lg p-2 md:bg-white md:text-olive">
-                            <img src="/images/icons/spring.png" alt="" class="w-4 h-4">
-                            <span v-if="selectedSeason == 'spring'">весна</span>
+                            <div class="flex items-center">
+                                <img src="/images/icons/spring.png" alt="" class="w-4 h-4 mr-1">
+                                <span v-if="selectedSeason == 'spring'">весна</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'md:hidden': selectedSeason == 'autumn' }">
                         <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-red-autumn rounded-l-lg p-2 md:bg-white md:text-red-autumn">
-                            <img src="/images/icons/autumn.png" alt="" class="w-4 h-4">
-                            <span v-if="selectedSeason == 'autumn'">осень</span>
+                            <div class="flex items-center">
+                                <img src="/images/icons/autumn.png" alt="" class="w-4 h-4 mr-1">
+                                <span v-if="selectedSeason == 'autumn'">осень</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'md:hidden': selectedSeason == 'winter' }">
                         <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-teal-winter rounded-l-lg p-2 md:bg-white md:text-teal-winter">
-                            <img src="/images/icons/winter.svg" alt="" class="w-4 h-4">
-                            <span v-if="selectedSeason == 'winter'">зима</span>
+                            <div class="flex items-center">
+                                <img src="/images/icons/winter.png" alt="" class="w-4 h-4 mr-1">
+                                <span v-if="selectedSeason == 'winter'">зима</span>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -229,7 +245,7 @@
                 <div class="mb-3 flex justify-end" v-if="selectedSeason == 'winter'">
                     <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-teal-winter rounded-r-lg p-2 md:bg-white md:text-teal-winter">
                         <span>зима</span>
-                        <img src="/images/icons/winter.svg" alt="" class="w-4 h-4">
+                        <img src="/images/icons/winter.png" alt="" class="w-4 h-4">
                     </div>
                 </div>
             </div>
