@@ -84,7 +84,7 @@
                           </div>
 
                           <div class="field w-1/3">
-                            <label class="label">Регион</label>
+                            <label class="label">Район</label>
                             <div class="control">
                               <div class="select w-full {{ $errors->has('region_id') ? ' is-danger' : '' }}">
                                 <select name="region_id" class="w-full">
