@@ -37,8 +37,8 @@
 @endsection
 
 @section('content')
-    <!-- Bee decoration (left) -->
-    <div class="hidden lg:block lg:absolute bg-bee-decoraions-left lg:pin-t lg:mt-6 lg:pin-l xl:mt-3"></div>
+    <!-- Decoration (left) -->
+    <div class="hidden lg:block lg:absolute medical-centers-decorations-left lg:pin-t lg:mt-6 lg:pin-l xl:mt-3"></div>
 
     <div class="container mx-auto lg:px-20">
         <main class="lg:px-20">
@@ -58,6 +58,6 @@
         </main>
     </div>
 
-    <!-- Tea decoration (right) -->
-    <div class="hidden lg:block lg:absolute bg-tea-decoraions-right lg:pin-t lg:pin-r"></div>
+    <!-- Decoration (right) -->
+    <div class="hidden lg:block lg:absolute medical-centers-decorations-right lg:pin-t lg:pin-r"></div>
 @endsection

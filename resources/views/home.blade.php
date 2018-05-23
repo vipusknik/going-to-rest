@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <title>{{ config('app.name') }}</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body class="font-sans antialiased bg-yellow-dark">
@@ -67,7 +67,7 @@
                         </div>
 
                         <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
-                            <a href="#" class="flex items-center no-underline sm:flex-col">
+                            <a href="{{ route('active-rest-companies.index') }}" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/active-rest.png') }}"
                                          alt="Активный отдых"
