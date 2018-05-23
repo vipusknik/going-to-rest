@@ -105,6 +105,11 @@ a {
 .zoom { transition: transform .2s; }
 .zoom:hover { transform: scale(1.1); }
 
+.pin-center {
+    bottom: 50%;
+    transform: translateY(50%);
+}
+
 /**
  * Главная страница
  */
@@ -135,7 +140,6 @@ a {
   }
 }
 
-
 @media (min-width: 992px) {
   .main-page-upper-part {
     height: 500px;
@@ -161,9 +165,7 @@ a {
 /**
  * Пляжный отдых
  */
-/**
- * Пляжный отдых
- */
+
 .main-search-input::placeholder {
     @apply text-xl text-grey-darker font-bold;
 }
@@ -255,6 +257,59 @@ a {
  * Медицинский туризм
  */
 
+@media (min-width: 992px) {
+    .medical-centers-decorations-left {
+        height: 100%;
+        width: 26%;
+        background-image: url(/images/medical-centers/decorations-left.png);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-size: 100%;
+        margin-left: -135px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .medical-centers-decorations-right {
+        height: 100%;
+        width: 26%;
+        background-image: url(/images/medical-centers/decorations-right.png);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-size: 100%;
+        margin-right: -126px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .medical-centers-decorations-left {
+        background-size: 52%;
+        margin-left: -85px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .medical-centers-decorations-right {
+        background-size: 52%;
+        margin-right: -89px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .medical-centers-decorations-left {
+        background-size: 53%;
+        background-position-x: right;
+        margin-left: -136px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .medical-centers-decorations-right {
+        background-size: 52%;
+        background-position-x: left;
+        margin-right: -136px !important;
+    }
+}
 
 /**
  * Детский отдых

@@ -44,7 +44,7 @@
                                 <img src="/images/icons/accomodation.png" alt="address" class="block w-8 h-8">
                             </div>
 
-                            <div class="flex items-center md:w-3/4 md:relative">
+                            <div class="w-5/6 flex items-center md:w-7/8 md:relative">
                                 <div class="flex-1 mr-2 self-end">
                                     <span v-for="(activity, index) in activities">
                                         {{ activity.name }}
@@ -64,38 +64,38 @@
                     </div>
 
                     <div class="absolute pin-r pin-t mt-8 flex flex-col">
-                        <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'md:hidden': selectedSeason == 'summer' }">
+                        <div class="mb-2 flex justify-end" v-if="hasActivitiesAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'md:hidden': selectedSeason == 'summer' }">
                             <div class="inline-block uppercase cursor-pointer text-yellow text-sm font-semibold rounded-l-lg bg-white p-2">
                                 <div class="flex items-center">
-                                    <img src="/images/icons/summer.png" alt="" class="w-4 h-4 mr-1">
-                                    <span v-if="selectedSeason == 'summer'">лето</span>
+                                    <img src="/images/icons/summer.png" alt="" class="w-4 h-4">
+                                    <span v-if="selectedSeason == 'summer'" class="ml-1">лето</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'md:hidden': selectedSeason == 'spring' }">
+                        <div class="mb-2 flex justify-end" v-if="hasActivitiesAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'md:hidden': selectedSeason == 'spring' }">
                             <div class="inline-block uppercase cursor-pointer text-olive text-sm font-semibold rounded-l-lg bg-white p-2">
                                 <div class="flex items-center">
-                                    <img src="/images/icons/spring.png" alt="" class="w-4 h-4 mr-1">
-                                    <span v-if="selectedSeason == 'spring'">весна</span>
+                                    <img src="/images/icons/spring.png" alt="" class="w-4 h-4">
+                                    <span v-if="selectedSeason == 'spring'" class="ml-1">весна</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'md:hidden': selectedSeason == 'autumn' }">
+                        <div class="mb-2 flex justify-end" v-if="hasActivitiesAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'md:hidden': selectedSeason == 'autumn' }">
                             <div class="inline-block uppercase cursor-pointer text-red-autumn text-sm font-semibold rounded-l-lg bg-white p-2">
                                 <div class="flex items-center">
-                                    <img src="/images/icons/autumn.png" alt="" class="w-4 h-4 mr-1">
-                                    <span v-if="selectedSeason == 'autumn'">осень</span>
+                                    <img src="/images/icons/autumn.png" alt="" class="w-4 h-4">
+                                    <span v-if="selectedSeason == 'autumn'" class="ml-1">осень</span>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'md:hidden': selectedSeason == 'winter' }">
+                        <div class="mb-2 flex justify-end" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'md:hidden': selectedSeason == 'winter' }">
                             <div class="inline-block uppercase cursor-pointer text-teal-winter text-sm font-semibold rounded-l-lg bg-white p-2">
                                 <div class="flex items-center">
-                                    <img src="/images/icons/winter.png" alt="" class="w-4 h-4 mr-1">
-                                    <span v-if="selectedSeason == 'winter'">зима</span>
+                                    <img src="/images/icons/winter.png" alt="" class="w-4 h-4">
+                                    <span v-if="selectedSeason == 'winter'" class="ml-1">зима</span>
                                 </div>
                             </div>
                         </div>
@@ -181,68 +181,68 @@
                     </div>
                 </div>
 
-                <div class="absolute pin-r pin-t mt-10 flex flex-col">
-                    <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'md:hidden': selectedSeason == 'summer' }">
+                <div class="absolute pin-r pin-center mt-10 flex flex-col">
+                    <div class="mb-2 flex justify-end" v-if="hasActivitiesAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'md:hidden': selectedSeason == 'summer' }">
                         <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-yellow rounded-l-lg p-2 md:bg-white md:text-yellow">
                             <div class="flex items-center">
-                                <img src="/images/icons/summer.png" alt="" class="w-4 h-4 mr-1">
-                                <span v-if="selectedSeason == 'summer'">лето</span>
+                                <img src="/images/icons/summer-white.png" alt="" class="w-4 h-4">
+                                <span v-if="selectedSeason == 'summer'" class="ml-1">лето</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'md:hidden': selectedSeason == 'spring' }">
-                        <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-olive rounded-l-lg p-2 md:bg-white md:text-olive">
+                    <div class="mb-2 flex justify-end" v-if="hasActivitiesAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'md:hidden': selectedSeason == 'spring' }">
+                        <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-olive rounded-l-lg p-2 md:text-olive md:bg-transparent">
                             <div class="flex items-center">
-                                <img src="/images/icons/spring.png" alt="" class="w-4 h-4 mr-1">
-                                <span v-if="selectedSeason == 'spring'">весна</span>
+                                <img src="/images/icons/spring-white.png" alt="" class="w-4 h-4">
+                                <span v-if="selectedSeason == 'spring'" class="ml-1">весна</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'md:hidden': selectedSeason == 'autumn' }">
+                    <div class="mb-2 flex justify-end" v-if="hasActivitiesAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'md:hidden': selectedSeason == 'autumn' }">
                         <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-red-autumn rounded-l-lg p-2 md:bg-white md:text-red-autumn">
                             <div class="flex items-center">
-                                <img src="/images/icons/autumn.png" alt="" class="w-4 h-4 mr-1">
-                                <span v-if="selectedSeason == 'autumn'">осень</span>
+                                <img src="/images/icons/autumn-white.png" alt="" class="w-4 h-4">
+                                <span v-if="selectedSeason == 'autumn'" class="ml-1">осень</span>
                             </div>
                         </div>
                     </div>
 
-                    <div class="mb-3 flex justify-end" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'md:hidden': selectedSeason == 'winter' }">
+                    <div class="mb-2 flex justify-end" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'md:hidden': selectedSeason == 'winter' }">
                         <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-teal-winter rounded-l-lg p-2 md:bg-white md:text-teal-winter">
                             <div class="flex items-center">
-                                <img src="/images/icons/winter.png" alt="" class="w-4 h-4 mr-1">
-                                <span v-if="selectedSeason == 'winter'">зима</span>
+                                <img src="/images/icons/winter-white.png" alt="" class="w-4 h-4">
+                                <span v-if="selectedSeason == 'winter'" class="ml-1">зима</span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="hidden md:block md:absolute md:pin-r md:pin-t md:mt-10 md:flex md:flex-col md:mr-4 md:mt-6">
-                <div class="mb-3 flex justify-end" v-if="selectedSeason == 'summer'">
+            <div class="hidden md:block md:absolute pin-center md:pin-r md:mt-10 md:flex md:flex-col md:mr-4 md:mt-6">
+                <div class="mb-2 flex justify-end" v-if="selectedSeason == 'summer'">
                     <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-yellow rounded-r-lg p-2 md:bg-white md:text-yellow">
                         <span>лето</span>
                         <img src="/images/icons/summer.png" alt="" class="w-4 h-4">
                     </div>
                 </div>
 
-                <div class="mb-3 flex justify-end" v-if="selectedSeason == 'spring'">
+                <div class="mb-2 flex justify-end" v-if="selectedSeason == 'spring'">
                     <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-olive rounded-r-lg p-2 md:bg-white md:text-olive">
                         <span>весна</span>
                         <img src="/images/icons/spring.png" alt="" class="w-4 h-4">
                     </div>
                 </div>
 
-                <div class="mb-3 flex justify-end" v-if="selectedSeason == 'autumn'">
+                <div class="mb-2 flex justify-end" v-if="selectedSeason == 'autumn'">
                     <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-red-autumn rounded-r-lg p-2 md:bg-white md:text-red-autumn">
                         <span>осень</span>
                         <img src="/images/icons/autumn.png" alt="" class="w-4 h-4">
                     </div>
                 </div>
 
-                <div class="mb-3 flex justify-end" v-if="selectedSeason == 'winter'">
+                <div class="mb-2 flex justify-end" v-if="selectedSeason == 'winter'">
                     <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-teal-winter rounded-r-lg p-2 md:bg-white md:text-teal-winter">
                         <span>зима</span>
                         <img src="/images/icons/winter.png" alt="" class="w-4 h-4">
