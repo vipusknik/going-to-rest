@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\ActiveRestCompany;
 use Illuminate\Http\Request;
 use App\Search\HuntingCompaniesSearch;
-use App\Animal;
 use App\Region;
 
 class HuntingCompaniesController extends Controller

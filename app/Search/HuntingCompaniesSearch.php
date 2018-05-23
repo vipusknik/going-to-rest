@@ -13,23 +13,15 @@ class HuntingCompaniesSearch
             $q->nameLike(request('query'));
         }
 
-        // if ($request->filled('animal')) {
-        //     $q->whereHas('animal', function ($query) {
-        //         $query->where('id', request()->animal);
-        //     });
-        // }
+        if ($request->filled('region')) {
+            $q->whereRegionId(request()->region);
+        }
 
-        // if ($request->filled('activity')) {
-        //     $q->whereHas('activities', function ($query) {
-        //         $query->where('id', request()->activity);
-        //     });
-        // }
-
-        // if ($request->filled('season')) {
-        //     $q->whereHas('activities', function ($query) {
-        //         $query->where(request()->season, 1);
-        //     });
-        // }
+        if ($request->filled('type')) {
+            $q->whereHas('animals', function ($query) {
+                $query->where(request()->type, 1);
+            });
+        }
 
         return $q;
     }
