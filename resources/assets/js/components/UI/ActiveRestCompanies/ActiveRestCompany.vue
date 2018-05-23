@@ -205,7 +205,7 @@
                         </div>
 
                         <div class="mb-2 flex justify-end md:mb-1" v-if="hasActivitiesAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'md:hidden': selectedSeason == 'spring' }">
-                            <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-olive rounded-l-lg p-2 md:text-olive md:bg-transparent">
+                            <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-olive rounded-l-lg p-2 md:text-olive md:bg-white">
                                 <div class="flex items-center">
                                     <img src="/images/icons/spring-white.png" alt="" class="w-4 h-4 md:hidden">
                                     <img src="/images/icons/spring.png" alt="" class="hidden w-4 h-4 md:block">
