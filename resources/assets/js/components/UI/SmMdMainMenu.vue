@@ -56,7 +56,7 @@
                     </div>
 
                     <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">
-                        <div class="flex items-center sm:flex-col">
+                        <a href="/ohota-i-rybalka" class="flex items-center sm:flex-col">
                             <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                 <img src="/images/icons/site-category-icons/fishing-and-hunting.png"
                                      alt="Рыбалка и охота"
@@ -66,7 +66,7 @@
                             <div class="text-center text-black font-thin break-words lowercase w-3/4 sm:w-24 md:w-auto">
                                 <h2 class="text-lg font-normal">Рыбалка и охота</h2>
                             </div>
-                        </div>
+                        </a>
                     </div>
 
                     <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-3 sm:px-1 sm:py-4 sm:rounded-xl">

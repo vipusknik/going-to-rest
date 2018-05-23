@@ -16,8 +16,8 @@
             <a href="{{ route('kid-camps.index') }}" class="text-lg text-black">детский отдых</a>
         </div>
 
-        <div class="px-4 py-1 bg-white opacity-50 rounded hover:opacity-100">
-            <a href="#" class="text-lg text-black">рыбалка и охота</a>
+        <div class="px-4 py-1 bg-white rounded hover:opacity-100 {{ Route::is('hunting-companies.index') ? 'opacity-100' : 'opacity-50' }}">
+            <a href="{{ route('hunting-companies.index') }}" class="text-lg text-black">рыбалка и охота</a>
         </div>
 
         <div class="px-4 py-1 bg-white rounded hover:opacity-100 {{ Route::is('medical-centers.index') ? 'opacity-100' : 'opacity-50' }}">
