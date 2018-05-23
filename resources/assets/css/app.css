@@ -425,3 +425,61 @@ a {
         margin-right: -534px !important;
     }
 }
+
+/**
+ * Рыбалка и охота
+ */
+
+@media (min-width: 992px) {
+    .hunting-companies-decorations-left {
+        height: 100%;
+        width: 23%;
+        background-image: url(/images/hunting-companies/decoration-left.png);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-size: 100%;
+        margin-left: -84px !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .hunting-companies-decorations-right {
+        height: 100%;
+        width: 30%;
+        background-image: url(/images/hunting-companies/decoration-right.png);
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-size: 100%;
+        margin-right: -146px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hunting-companies-decorations-left {
+        background-size: 52%;
+        margin-left: -85px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hunting-companies-decorations-right {
+        background-size: 64%;
+        margin-right: -135px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .hunting-companies-decorations-left {
+        background-size: 55%;
+        background-position-x: right;
+        margin-left: -99px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .hunting-companies-decorations-right {
+        background-size: 52%;
+        background-position-x: left;
+        margin-right: -134px !important;
+    }
+}
