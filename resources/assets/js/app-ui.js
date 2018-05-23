@@ -33,6 +33,9 @@ Vue.component('kid-camp', require('./components/UI/KidCamps/KidCamp.vue'));
 Vue.component('active-rest-companies-search', require('./components/UI/ActiveRestCompanies/Search.vue'));
 Vue.component('active-rest-company', require('./components/UI/ActiveRestCompanies/ActiveRestCompany.vue'));
 
+Vue.component('hunting-companies-search', require('./components/UI/HuntingCompanies/Search.vue'));
+Vue.component('hunting-company', require('./components/UI/HuntingCompanies/HuntingCompany.vue'));
+
 window.events = new Vue();
 
 window.flash = function(message, level = 'success') {

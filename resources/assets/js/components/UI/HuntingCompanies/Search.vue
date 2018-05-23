@@ -53,22 +53,22 @@
         <!-- Search for lg and xl devices -->
         <portal to="lg-xl-hunting-companies-search">
             <div class="hidden lg:block lg:mb-8">
-                <div class="mb-4">
-                    <div class="w-full mb-4">
-                        <input type="text" v-model="search.query" placeholder="Введите название" class="w-full rounded-lg px-3 py-2">
+                <div class="mb-4 flex">
+                    <div class="w-1/2 mr-4">
+                        <input type="text" v-model="search.query" placeholder="Введите название" class="w-full h-10 rounded-lg px-3 py-2">
                     </div>
 
-                    <div class="w-full flex">
-                        <div class="w-1/2 mr-3">
-                            <select v-model="search.type" class="w-full rounded-lg px-3 py-2">
+                    <div class="w-1/2 flex">
+                        <div class="w-2/5 mr-3">
+                            <select v-model="search.type" class="w-full h-10 rounded-lg px-3 py-2">
                                 <option value="">Охота и рыбалка</option>
                                 <option value="hunting">охота</option>
                                 <option value="fishing">рыбалка</option>
                             </select>
                         </div>
 
-                        <div class="w-1/2">
-                            <select name="region" v-model="search.region" class="w-full rounded-lg px-3 py-2">
+                        <div class="w-3/5">
+                            <select name="region" v-model="search.region" class="w-full h-10 rounded-lg px-3 py-2">
                                 <option value="">Район</option>
                                 <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
                             </select>

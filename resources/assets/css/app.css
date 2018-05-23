@@ -45,6 +45,10 @@ button:focus {
  */
 
 
+.pin-center {
+    bottom: 50%;
+    transform: translateY(55%);
+}
 
 /**
  * This injects all of Tailwind's utility classes, generated based on your
@@ -104,11 +108,6 @@ a {
 
 .zoom { transition: transform .2s; }
 .zoom:hover { transform: scale(1.1); }
-
-.pin-center {
-    bottom: 50%;
-    transform: translateY(50%);
-}
 
 /**
  * Главная страница
