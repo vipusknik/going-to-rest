@@ -52,8 +52,8 @@ class ActiveRestCompaniesController extends Controller
     {
         $activities = [];
 
-        foreach ((array) $request->activities as $id => $cost) {
-            $activities[$id] = [ 'cost' => $cost ];
+        foreach ((array) $request->activities as $id => $description) {
+            $activities[$id] = [ 'description' => $description ];
         }
 
         ActiveRestCompany::create($request->except([ 'activities', 'social_media' ]))
@@ -106,8 +106,8 @@ class ActiveRestCompaniesController extends Controller
 
         $activities = [];
 
-        foreach ((array) $request->activities as $id => $cost) {
-            $activities[$id] = [ 'cost' => $cost ];
+        foreach ((array) $request->activities as $id => $description) {
+            $activities[$id] = [ 'description' => $description ];
         }
 
         $activeRestCompany

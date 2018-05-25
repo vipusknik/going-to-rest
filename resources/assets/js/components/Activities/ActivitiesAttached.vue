@@ -8,7 +8,7 @@
                             Вид отдыха
                         </th>
                         <th class="w-1/8 text-white whitespace-no-wrap p-2 border-r border-blue-lighter">
-                            Цена
+                            Описание
                         </th>
                     </tr>
                 </thead>
@@ -18,7 +18,7 @@
                         <td class="p-2 border-r border-blue-lighter">
                             <div v-text="activity.name" class="mb-1"></div>
                         </td>
-                        <td v-text="activity.pivot.cost" class="p-2"></td>
+                        <td v-text="activity.pivot.description" class="p-2"></td>
                     </tr>
                 </tbody>
             </table>

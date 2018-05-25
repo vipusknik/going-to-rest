@@ -9,6 +9,7 @@ class UpdateActiveRestCompaniesTest extends TestCase
     /** @test */
     function active_rest_edit_page_can_be_visited()
     {
+        $this->se();
         $company = create('App\ActiveRestCompany');
 
         $this->get(route('admin.active-rest-companies.edit', $company))
@@ -48,7 +49,7 @@ class UpdateActiveRestCompaniesTest extends TestCase
 
         $company->activities()
             ->attach([
-                create('App\Activity')->id => [ 'cost' => '123000' ]
+                create('App\Activity')->id => [ 'description' => '123000' ]
             ]);
 
         $this->assertCount(1, $company->activities);

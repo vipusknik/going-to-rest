@@ -22,6 +22,6 @@ class ActiveRestCompany extends Model implements HasMediaInterface
 
     public function activities()
     {
-        return $this->belongsToMany(Activity::class)->withPivot('cost');
+        return $this->belongsToMany(Activity::class)->withPivot('description');
     }
 }

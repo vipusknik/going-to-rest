@@ -82,17 +82,6 @@ class CreateActiveRestCompaniesTest extends TestCase
     }
 
     /** @test */
-    function active_rest_company_activity_cost_has_to_be_an_integer()
-    {
-        $activities = [ create('App\Activity', [])->id => 'string' ];
-
-        $this->post(
-            route('admin.active-rest-companies.store'),
-            make('App\ActiveRestCompany')->getAttributes() + compact('activities')
-        )->assertSessionHasErrors('activities.1');
-    }
-
-    /** @test */
     function social_media_can_be_attached_to_an_active_rest_company()
     {
         $this->post(

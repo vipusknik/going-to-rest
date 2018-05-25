@@ -81,7 +81,7 @@ class ActivityTest extends TestCase
         $activity = create('App\Activity');
 
         $company->activities()->attach([
-            $activity->id => [ 'cost' => 7816254712 ]
+            $activity->id => [ 'description' => '7816254712' ]
         ]);
 
         $this->delete(route('admin.activities.destroy', $activity))->assertStatus(422);

@@ -34,7 +34,6 @@ class ActiveRestCompaniesRequest extends FormRequest
             'name' => [ 'required', $uniqueRule ],
             'location' => 'required',
             'activities' => 'required', // there must be at least one activity,
-            'activities.*' => 'nullable|integer',
         ];
     }
 
@@ -46,8 +45,7 @@ class ActiveRestCompaniesRequest extends FormRequest
 
             'location.required' => 'Расположение - обязательное поле',
 
-            'activities.required' => 'Должен быть добавлен хотя бы 1 вид отдыха',
-            'activities.*.required' => 'Цена - обязательное поле'
+            'activities.required' => 'Должен быть добавлен хотя бы 1 вид отдыха'
         ];
     }
 }

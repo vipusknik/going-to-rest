@@ -71,8 +71,8 @@
                                                 :items-initial="{{ json_encode($activities) }}"
                                                 endpoint="/admin/activities"
                                                 description-input-name="activities"
-                                                description-input-placeholder="Цена"
-                                                description-field="cost"
+                                                description-input-placeholder="Описание"
+                                                description-field="description"
                                                 modal-heading="Виды отдыха"
                                                 class="mb-6">
                           </activity-select-list>
