@@ -41,7 +41,7 @@
 
                     <div class="flex items-center border-teal-dark py-2 md:w-5/6 md:border-b-0 md:border-dotted md:border-teal-dark md:pl-3 md:items-start">
                         <div class="w-1/5 mr-3 md:w-1/8 md:mr-1">
-                            <img src="/images/icons/accomodation.png" alt="address" class="block w-8 h-8">
+                            <img src="/images/icons/list.png" alt="address" class="block w-8 h-8">
                         </div>
 
                         <div class="flex items-center md:w-3/4 md:relative">
@@ -100,7 +100,7 @@
 
                 <div class="flex items-center border-dotted border-teal-dark py-2 md:w-1/2 md:pl-2 md:items-start">
                     <div class="mr-3 md:w-1/8 md:mr-1">
-                        <img src="/images/icons/contacts.png" alt="address" class="block w-8 h-8">
+                        <img src="/images/icons/list.png" alt="address" class="block w-8 h-8">
                     </div>
 
                     <div class="w-4/5 md:w-3/4">
