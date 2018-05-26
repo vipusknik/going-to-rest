@@ -8,25 +8,20 @@
    <!-- Header -->
     <div class="bg-yellow-light lg:hidden">
         <div class="container mx-auto">
-            <rest-centers-search :reservoirs="{{ json_encode($reservoirs) }}" @resultsupdated="updateModels"></rest-centers-search>
+            <rest-centers-search :show-dropdown-button="false" :reservoirs="{{ json_encode($reservoirs) }}" @resultsupdated="updateModels"></rest-centers-search>
         </div>
     </div>
 
-    <!-- Ads filtering and sorting  -->
+    <!-- Ads -->
     <div class="mb-2">
         <div class="container mx-auto">
             <div class="relative">
-                <!-- Dropdown search filters menu -->
-                <portal-target name="sm-md-rest-centers-search-filters" slim></portal-target>
 
                 <!-- Ads -->
                 <div class="flex p-2 lg:px-12">
                     <img src="{{ asset('images/ads.png') }}" alt="ads" class="block w-full h-24 md:w-1/2 md:mr-2 lg:rounded-xl lg:h-32 lg:mr-6 lg:border-2 lg:border-white">
                     <img src="{{ asset('images/ads.png') }}" alt="ads" class="hidden w-full h-24 md:block md:w-1/2 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
                 </div>
-
-                <!-- Sorting for small and medium devices -->
-                {{-- <portal-target name="sm-md-rest-centers-search-sorting" slim></portal-target> --}}
             </div>
         </div>
     </div>
@@ -44,10 +39,6 @@
                 Пляжный отдых
             </h1>
 
-            <!-- Search for large devices -->
-            <portal-target name="lg-xl-rest-centers-search" slim></portal-target>
-
-            <!-- List -->
             <div class="px-2 lg:px-0">
                 <div class="bg-white rounded-lg mb-4 md:rounded-2xl md:pb-6 md:mb-6 lg:border-2 lg:border-dashed">
                     <!-- List item name -->

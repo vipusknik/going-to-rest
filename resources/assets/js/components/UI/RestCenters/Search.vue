@@ -11,7 +11,7 @@
                 <img src="/images/icons/sorting-black.png" alt="menu" class="block w-8 h-8">
             </div> -->
 
-            <div class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDropdown = true">
+            <div :class="{ 'invisible': !showDropdownButton }" class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDropdown = true">
                 <img src="/images/icons/search.png" alt="menu" class="block w-6 h-6">
             </div>
         </div>
@@ -246,6 +246,12 @@
             reservoirs: {
                 type: Array,
                 required: true
+            },
+
+            showDropdownButton: {
+                type: Boolean,
+                required: false,
+                default: true
             }
         },
 
