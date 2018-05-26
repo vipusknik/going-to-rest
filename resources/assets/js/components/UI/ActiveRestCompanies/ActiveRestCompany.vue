@@ -93,7 +93,7 @@
                             </div>
 
                             <div class="mb-2 flex justify-end md:hidden" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'md:hidden': selectedSeason == 'winter' }">
-                                <div class="inline-block uppercase cursor-pointer text-teal-winter text-sm font-semibold rounded-l-lg bg-white p-2">
+                                <div class="inline-block uppercase cursor-pointer text-teal-dark text-sm font-semibold rounded-l-lg bg-white p-2">
                                     <div class="flex items-center">
                                         <img src="/images/icons/winter.png" alt="" class="w-4 h-4">
                                         <span v-if="selectedSeason == 'winter'" class="ml-1">зима</span>
@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="mb-3 flex justify-start md:mb-2" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'">
-                    <div class="inline-block uppercase cursor-pointer text-teal-winter text-sm font-semibold rounded-r-lg bg-white p-2">
+                    <div class="inline-block uppercase cursor-pointer text-teal-dark text-sm font-semibold rounded-r-lg bg-white p-2">
                         <div class="flex items-center">
                             <span v-if="selectedSeason == 'winter'" class="w-10 mr-1">зима</span>
                             <img src="/images/icons/winter.png" alt="" class="w-4 h-4">
@@ -225,7 +225,7 @@
                         </div>
 
                         <div class="mb-2 flex justify-end md:mb-1" v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'md:hidden': selectedSeason == 'winter' }">
-                            <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-teal-winter rounded-l-lg p-2 md:bg-white md:text-teal-winter">
+                            <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-teal-dark rounded-l-lg p-2 md:bg-white md:text-teal-dark">
                                 <div class="flex items-center">
                                     <img src="/images/icons/winter-white.png" alt="" class="w-4 h-4 md:hidden">
                                     <img src="/images/icons/winter.png" alt="" class="hidden w-4 h-4 md:block">
@@ -266,7 +266,7 @@
                 </div>
 
                 <div class="mb-2 flex justify-end" v-if="selectedSeason == 'winter'">
-                    <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-teal-winter rounded-r-lg md:bg-white md:text-teal-winter">
+                    <div class="inline-block uppercase cursor-pointer text-white text-sm font-semibold bg-teal-dark rounded-r-lg md:bg-white md:text-teal-dark">
                         <div class="flex items-center p-2">
                             <span class="mr-1">зима</span>
                             <img src="/images/icons/winter.png" alt="" class="w-4 h-4">
