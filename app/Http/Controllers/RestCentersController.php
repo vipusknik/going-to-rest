@@ -26,7 +26,7 @@ class RestCentersController extends Controller
 
         $reservoirs = Reservoir::orderBy('name')->get();
 
-        return view('rest-centers', compact('reservoirs'));
+        return view('rest-centers.index', compact('reservoirs'));
     }
 
     /**
@@ -37,6 +37,13 @@ class RestCentersController extends Controller
      */
     public function show(RestCenter $restCenter)
     {
-        //
+        $restCenter->load([ 'reservoir', 'social_media', 'features', 'media', 'accomodations', 'accomodations.features' ]);
+
+        $reservoirs = Reservoir::orderBy('name')->get();
+
+        return view('rest-centers.show', [
+            'model' => $restCenter,
+            'reservoirs' => $reservoirs
+        ]);
     }
 }
