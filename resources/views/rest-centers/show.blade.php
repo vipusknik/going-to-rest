@@ -49,7 +49,7 @@
 
             <!-- List -->
             <div class="px-2 lg:px-0">
-                <div class="bg-white rounded-lg mb-4 md:rounded-2xl md:mb-6 lg:border-2 lg:border-dashed">
+                <div class="bg-white rounded-lg mb-4 md:rounded-2xl md:pb-6 md:mb-6 lg:border-2 lg:border-dashed">
                     <!-- List item name -->
                     <div class="flex justify-center p-3 mb-2">
                         <div class="w-full h-3 text-center border-b-3 border-teal-dark">
@@ -61,37 +61,48 @@
 
                     <div class="flex flex-col md:flex-row">
                         <!-- List item image -->
-                        <div class="md:self-end md:w-2/5">
-                            <img src="" alt="" class="block w-full h-48 md:rounded-bl-2xl md:rounded-tr-2xl" style="object-fit: cover; object-position: top">
+                        <div class="mb-8 md:w-2/5 md:mb-0">
+                            <carousel>
+                                @foreach ($model->media as $image)
+                                    <img src="{{ str_replace('http://localhost', 'http://otdyh-vko.kz', $image->getUrl()) }}"
+                                         class="carousel-cell md:rounded-tr-2xl md:rounded-bl-2xl">
+                                @endforeach
+
+                                <template slot="nav">
+                                    @foreach ($model->media as $image)
+                                        <img src="{{ str_replace('http://localhost', 'http://otdyh-vko.kz', $image->getUrl()) }}" class="mr-2 rounded-sm">
+                                    @endforeach
+                                </template>
+                            </carousel>
                         </div>
 
                         <div class="pt-3 px-4 pb-1 md:w-3/5 md:flex md:flex-wrap md:relative">
                             <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:border-r-2 md:pb-3 md:pr-1 md:items-start">
-                                <div class="mr-3 md:w-1/4 md:mr-1">
-                                    <img src="/images/icons/location.png" alt="address" class="block w-8 h-8">
+                                <div class="w-8 h-8 mr-3">
+                                    <img src="/images/icons/location.png" alt="address" class="block">
                                 </div>
 
-                                <div class="w-4/5 md:w-3/4">
+                                <div class="flex-1">
                                     <strong>{{ $model->reservoir->name }}. </strong>{{ $model->location }}
                                 </div>
                             </div>
 
                             <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:pb-3 md:pl-3 md:items-start">
-                                <div class="mr-3 md:w-1/4 md:mr-1">
-                                    <img src="/images/icons/contacts.png" alt="address" class="block w-8 h-8">
+                                <div class="w-8 h-8 mr-3">
+                                    <img src="/images/icons/contacts.png" alt="address" class="block">
                                 </div>
 
-                                <div class="w-4/5 md:w-3/4">
+                                <div class="flex-1">
                                     {{ $model->contacts }}
                                 </div>
                             </div>
 
-                            <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
-                                <div class="mr-3 md:w-1/4 md:mr-1">
-                                    <img src="/images/icons/list.png" alt="address" class="block w-8 h-8">
+                            <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:border-r-2 md:pr-2 md:items-start">
+                                <div class="w-8 h-8 mr-3">
+                                    <img src="/images/icons/list.png" alt="address" class="block">
                                 </div>
 
-                                <div class="w-4/5 md:w-3/4">
+                                <div class="flex-1">
                                     @foreach ($model->features->where('category', \App\Feature::CATEGORY_FACILITIES) as $feature)
                                         {{ $feature->name }}
                                         {{ !$loop->last ? ',' : '' }}
@@ -99,12 +110,12 @@
                                 </div>
                             </div>
 
-                            <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
-                                <div class="mr-3 md:w-1/4 md:mr-1">
-                                    <img src="/images/icons/walker.png" alt="address" class="block w-8 h-8">
+                            <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:pl-3 md:border-b-2 md:items-start">
+                                <div class="w-8 h-8 mr-3">
+                                    <img src="/images/icons/walker.png" alt="address" class="block">
                                 </div>
 
-                                <div class="w-4/5 md:w-3/4">
+                                <div class="flex-1">
                                     @foreach ($model->features->where('category', \App\Feature::CATEGORY_LEASURES) as $feature)
                                         {{ $feature->name }}
                                         {{ !$loop->last ? ',' : '' }}
@@ -112,43 +123,88 @@
                                 </div>
                             </div>
 
-                            <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
-                                <div class="mr-3 md:w-1/4 md:mr-1">
-                                    <img src="/images/icons/pencil.png" alt="address" class="block w-8 h-8">
+                            <div class="md:hidden">
+                                <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
+                                    <div class="mr-3 md:w-1/4 md:mr-1">
+                                        <img src="/images/icons/pencil.png" alt="address" class="block w-8 h-8">
+                                    </div>
+
+                                    <div class="w-4/5 md:w-3/4">
+                                        {!! $model->description !!}
+                                    </div>
                                 </div>
 
-                                <div class="w-4/5 md:w-3/4">
-                                    {!! $model->description !!}
+                                @foreach ($model->accomodations as $accomodation)
+                                <div class="flex border-teal-dark py-2 md:w-1/2 md:pr-2 md:items-start">
+                                    <div class="mr-3 md:w-1/4 md:mr-1">
+                                        <img src="/images/icons/accomodation.png" alt="address" class="block w-8 h-8">
+                                    </div>
+
+                                    <div class="w-4/5 md:w-3/4">
+                                        <strong class="font-semibold">{{ $accomodation->guest_count }}-и местные домики,</strong>
+
+                                        @foreach ($accomodation->features as $feature)
+                                            {{ $feature->name }}
+                                            {{ !$loop->last ? ',' : '' }}
+                                        @endforeach
+                                    </div>
                                 </div>
+
+                                <div class="flex border-dotted {{ !$loop->last ? 'border-b': '' }} border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
+                                    <div class="mr-3 md:w-1/4 md:mr-1">
+                                        <img src="/images/icons/price.png" alt="address" class="block w-8 h-8">
+                                    </div>
+
+                                    <div class="w-4/5 md:w-3/4">
+                                        стоимость поживания от: {{ $accomodation->price_per_day }} тг в сутки
+                                    </div>
+                                </div>
+                                @endforeach
                             </div>
-
-                            @foreach ($model->accomodations as $accomodation)
-                            <div class="flex border-teal-dark py-2 md:w-1/2 md:pr-2 md:items-start">
-                                <div class="mr-3 md:w-1/4 md:mr-1">
-                                    <img src="/images/icons/accomodation.png" alt="address" class="block w-8 h-8">
-                                </div>
-
-                                <div class="w-4/5 md:w-3/4">
-                                    <strong class="font-semibold">{{ $accomodation->guest_count }}-и местные домики,</strong>
-
-                                    @foreach ($accomodation->features as $feature)
-                                        {{ $feature->name }}
-                                        {{ !$loop->last ? ',' : '' }}
-                                    @endforeach
-                                </div>
-                            </div>
-
-                            <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
-                                <div class="mr-3 md:w-1/4 md:mr-1">
-                                    <img src="/images/icons/price.png" alt="address" class="block w-8 h-8">
-                                </div>
-
-                                <div class="w-4/5 md:w-3/4">
-                                    стоимость поживания от: {{ $accomodation->price_per_day }} тг в сутки
-                                </div>
-                            </div>
-                            @endforeach
                         </div>
+                    </div>
+
+                    <div class="hidden md:block md:px-3 md:mt-3">
+                        <div class="flex">
+                            <div class="h-8 w-8 mt-1 mr-4">
+                                <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
+                            </div>
+
+                            <div class="flex-1 pb-3 border-b-2 border-teal-dark border-dotted">
+                                {!! $model->description !!}
+                            </div>
+                        </div>
+
+                        @foreach ($model->accomodations as $accomodation)
+                        <div class="flex">
+                            <div class="h-8 w-8 mt-1 mr-4">
+                                <img src="/images/icons/accomodation.png" alt="" class="block w-full h-full">
+                            </div>
+
+                            <div class="flex-1 flex p-1 border-b-2 border-teal-dark border-dotted">
+                                <div class="w-3/4 border-r-2 border-teal-dark border-dotted">
+                                    <div>
+                                        <strong class="font-semibold">{{ $accomodation->guest_count }}-и местные домики,</strong>
+
+                                        @foreach ($accomodation->features as $feature)
+                                            {{ $feature->name }}
+                                            {{ !$loop->last ? ',' : '' }}
+                                        @endforeach
+                                    </div>
+                                </div>
+
+                                <div class="flex w-1/4">
+                                    <div class="h-8 w-8 mt-1 ml-2 mr-4">
+                                        <img src="/images/icons/price.png" alt="" class="block w-full h-full">
+                                    </div>
+
+                                    <div class="flex-1">
+                                        <div class="pr-1">стоимость поживания от: {{ $accomodation->price_per_day }} тг в сутки</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
