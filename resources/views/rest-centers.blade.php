@@ -13,7 +13,7 @@
     </div>
 
     <!-- Ads filtering and sorting  -->
-    <div class="mb-6">
+    <div class="mb-2">
         <div class="container mx-auto">
             <div class="relative">
                 <!-- Dropdown search filters menu -->
@@ -26,7 +26,7 @@
                 </div>
 
                 <!-- Sorting for small and medium devices -->
-                <portal-target name="sm-md-rest-centers-search-sorting" slim></portal-target>
+                {{-- <portal-target name="sm-md-rest-centers-search-sorting" slim></portal-target> --}}
             </div>
         </div>
     </div>
