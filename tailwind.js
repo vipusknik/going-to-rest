@@ -66,8 +66,6 @@ let colors = {
 
   'red-autumn': '#E31E25',
 
-  'teal-winter': '#F9194',
-
   'orange-darkest': '#462a16',
   'orange-darker': '#613b1f',
   'orange-dark': '#de751f',
