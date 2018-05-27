@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ActiveRestCompany;
+use App\HuntingCompany;
 use Illuminate\Http\Request;
 use App\Search\HuntingCompaniesSearch;
 use App\Region;
@@ -26,17 +26,24 @@ class HuntingCompaniesController extends Controller
 
         $regions = Region::all();
 
-        return view('hunting-companies', compact('regions'));
+        return view('hunting-companies.index', compact('regions'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\ActiveRestCompany  $activeRestCompany
+     * @param  \App\HuntingCompany  $HuntingCompany
      * @return \Illuminate\Http\Response
      */
-    public function show(ActiveRestCompany $activeRestCompany)
+    public function show(HuntingCompany $huntingCompany)
     {
-        //
+        $huntingCompany->load([ 'social_media', 'animals', 'media', 'region' ]);
+
+        $regions = Region::all();
+
+        return view('hunting-companies.show', [
+            'model' => $huntingCompany,
+            'regions' => $regions
+        ]);
     }
 }

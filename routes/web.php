@@ -30,6 +30,7 @@ Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
      * Fishing and hunting
      */
     Route::get('/ohota-i-rybalka', 'HuntingCompaniesController@index')->name('hunting-companies.index');
+    Route::get('/ohota-i-rybalka/{hunting_company}', 'HuntingCompaniesController@show')->name('hunting-companies.show');
 });
 
 
