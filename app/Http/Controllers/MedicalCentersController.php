@@ -33,7 +33,7 @@ class MedicalCentersController extends Controller
         $cities = City::all();
         $regions = Region::all();
 
-        return view('medical-centers', compact('types', 'cities', 'regions'));
+        return view('medical-centers.index', compact('types', 'cities', 'regions'));
     }
 
     /**
@@ -44,6 +44,18 @@ class MedicalCentersController extends Controller
      */
     public function show(MedicalCenter $medicalCenter)
     {
-        //
+        $medicalCenter->load([ 'social_media', 'features', 'media' ]);
+
+        $cities = City::all();
+        $regions = Region::all();
+
+        $types = []; // ugh
+
+        return view('medical-centers.show', [
+            'model' => $medicalCenter,
+            'cities' => $cities,
+            'regions' => $regions,
+            'types' => $types
+        ]);
     }
 }

@@ -22,7 +22,7 @@
     }
 
     @media (min-width: 768px) {
-        .carousel-cell {
+        .main-carousel .carousel-cell {
             height: 200px;
             width: 100%;
             object-fit: cover;

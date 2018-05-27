@@ -58,13 +58,13 @@
                             <div class="flex-1" v-html="center.accomodation"></div>
 
                             <div class="md:hidden">
-                                <a :href="`/pljazhnyj-otdyh/${center.slug}`" class="text-sm text-white font-bold bg-teal-dark rounded px-4 py-2">Подробнее</a>
+                                <a :href="`/pljazhnyj-otdyh/${center.slug}`" class="block text-sm text-white font-bold bg-teal-dark rounded px-4 py-2">Подробнее</a>
                             </div>
                         </div>
                     </div>
 
                     <div class="hidden md:block md:absolute md:pin-b md:pin-r">
-                        <a :href="`/pljazhnyj-otdyh/${center.slug}`" class="text-base text-white font-bold bg-teal-dark rounded-tl-lg rounded-br-xl px-4 py-1">Подробнее</a>
+                        <a :href="`/pljazhnyj-otdyh/${center.slug}`" class="block text-base text-white font-bold bg-teal-dark rounded-tl-lg rounded-br-xl px-4 py-1">Подробнее</a>
                     </div>
                 </div>
             </div>

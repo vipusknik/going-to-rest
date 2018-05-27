@@ -7,7 +7,7 @@
 
             <div class="flex-1 text-center text-2xl font-hortensia -mb-2">Медицинский туризм</div>
 
-            <div class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDropdown = true">
+            <div :class="{ 'invisible': !showSearchDropdown }" class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDropdown = true">
                 <img src="/images/icons/search.png" alt="menu" class="block w-6 h-6">
             </div>
         </div>
@@ -94,6 +94,12 @@
             regions: {
                 type: Array,
                 required: true
+            },
+
+            showDropdownButton: {
+                type: Boolean,
+                required: false,
+                default: true
             }
         },
 

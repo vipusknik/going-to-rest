@@ -13,6 +13,7 @@ Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
      * Medical centers
      */
     Route::get('/medicinskij-turizm', 'MedicalCentersController@index')->name('medical-centers.index');
+    Route::get('/medicinskij-turizm/{medical_center}', 'MedicalCentersController@show')->name('medical-centers.show');
 
     /**
      * Kid camps
