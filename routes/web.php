@@ -19,6 +19,7 @@ Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
      * Kid camps
      */
     Route::get('/detskij-otdyh', 'KidCampsController@index')->name('kid-camps.index');
+    Route::get('/detskij-otdyh/{kid_camp}', 'KidCampsController@show')->name('kid-camps.show');
 
     /**
      * Active Rest Companies

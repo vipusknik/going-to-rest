@@ -26,7 +26,7 @@ class KidCampsController extends Controller
 
         $cities = City::all();
 
-        return view('kid-camps', compact('cities'));
+        return view('kid-camps.index', compact('cities'));
     }
 
     /**
@@ -37,6 +37,13 @@ class KidCampsController extends Controller
      */
     public function show(KidCamp $kidCamp)
     {
-        //
+        $kidCamp->load([ 'social_media', 'features', 'media', 'city' ]);
+
+         $cities = City::all();
+
+        return view('kid-camps.show', [
+            'model' => $kidCamp,
+            'cities' => $cities
+        ]);
     }
 }
