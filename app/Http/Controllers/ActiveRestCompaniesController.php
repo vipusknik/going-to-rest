@@ -26,7 +26,7 @@ class ActiveRestCompaniesController extends Controller
 
         $activities = Activity::all();
 
-        return view('active-rest-companies', compact('activities'));
+        return view('active-rest-companies.index', compact('activities'));
     }
 
     /**
@@ -37,6 +37,13 @@ class ActiveRestCompaniesController extends Controller
      */
     public function show(ActiveRestCompany $activeRestCompany)
     {
-        //
+        $activeRestCompany->load([ 'social_media', 'activities', 'media' ]);
+
+        $activities = Activity::all();
+
+        return view('active-rest-companies.show', [
+            'model' => $activeRestCompany,
+            'activities' => $activities
+        ]);
     }
 }

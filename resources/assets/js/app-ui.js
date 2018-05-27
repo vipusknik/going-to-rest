@@ -33,9 +33,11 @@ Vue.component('kid-camp', require('./components/UI/KidCamps/KidCamp.vue'));
 
 Vue.component('active-rest-companies-search', require('./components/UI/ActiveRestCompanies/Search.vue'));
 Vue.component('active-rest-company', require('./components/UI/ActiveRestCompanies/ActiveRestCompany.vue'));
+Vue.component('active-rest-company-page', require('./components/UI/ActiveRestCompanies/ActiveRestCompanyPage.vue'));
 
 Vue.component('hunting-companies-search', require('./components/UI/HuntingCompanies/Search.vue'));
 Vue.component('hunting-company', require('./components/UI/HuntingCompanies/HuntingCompany.vue'));
+Vue.component('hunting-company-page', require('./components/UI/HuntingCompanies/HuntingCompanyPage.vue'));
 
 window.events = new Vue();
 

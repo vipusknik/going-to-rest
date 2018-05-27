@@ -25,6 +25,7 @@ Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
      * Active Rest Companies
      */
     Route::get('/aktivnyj-otdyh', 'ActiveRestCompaniesController@index')->name('active-rest-companies.index');
+    Route::get('/aktivnyj-otdyh/{active_rest_company}', 'ActiveRestCompaniesController@show')->name('active-rest-companies.show');
 
     /**
      * Fishing and hunting

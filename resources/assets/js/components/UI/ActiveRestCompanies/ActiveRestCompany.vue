@@ -54,13 +54,13 @@
                                     </div>
 
                                     <div class="self-end md:hidden">
-                                        <button class="text-sm text-white font-bold bg-teal-dark rounded px-4 py-2">Подробнее</button>
+                                        <a :href="`/aktivnyj-otdyh/${model.slug}`" class="block text-sm text-white font-bold bg-teal-dark rounded px-4 py-2">Подробнее</a>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="hidden md:block md:absolute md:pin-b md:pin-r">
-                                <button class="text-base text-white font-bold bg-teal-dark rounded-tl-lg rounded-br-2xl px-4 py-1">Подробнее</button>
+                                <a :href="`/aktivnyj-otdyh/${model.slug}`" class="block text-base text-white font-bold bg-teal-dark rounded-tl-lg rounded-br-2xl px-4 py-1">Подробнее</a>
                             </div>
                         </div>
 

@@ -8,8 +8,8 @@
     <!-- Header -->
     <div class="bg-yellow-light lg:hidden">
         <div class="container mx-auto">
-            <hunting-companies-search :regions="{{ json_encode($regions) }}" @resultsupdated="updateModels">
-            </hunting-companies-search>
+            <active-rest-companies-search :activities="{{ json_encode($activities) }}" @resultsupdated="updateModels">
+            </active-rest-companies-search>
         </div>
     </div>
 
@@ -18,7 +18,7 @@
         <div class="container mx-auto">
             <div class="relative">
                 <!-- Dropdown search filters menu -->
-                <portal-target name="sm-md-hunting-companies-search-filters" slim></portal-target>
+                <portal-target name="sm-md-active-rest-companies-search-filters" slim></portal-target>
 
                 <!-- Ads -->
                 <div class="flex p-2 lg:px-12">
@@ -27,7 +27,7 @@
                 </div>
 
                 <!-- Sorting for small and medium devices -->
-                <portal-target name="sm-md-hunting-companies-search-sorting" slim></portal-target>
+                <portal-target name="sm-md-active-rest-companies-search-sorting" slim></portal-target>
             </div>
         </div>
     </div>
@@ -35,15 +35,15 @@
 
 @section('content')
     <!-- Decoration (left) -->
-    <div class="hidden lg:block lg:absolute hunting-companies-decorations-left lg:pin-t lg:mt-6 lg:pin-l xl:mt-3"></div>
+    <div class="hidden lg:block lg:absolute active-rest-decorations-left lg:pin-t lg:mt-6 lg:pin-l xl:mt-3"></div>
 
-    <div class="container mx-auto lg:px-20">
-        <hunting-company-page :model="{{ json_encode($model) }}" inline-template>
+    <active-rest-company-page :model="{{ json_encode($model) }}" inline-template>
+        <div class="container mx-auto lg:px-20">
             <main class="lg:px-20">
 
                 <!-- Page heading -->
                 <h1 class="hidden font-hortensia lg:block lg:text-4xl lg:text-grey-darkest lg:text-center lg:font-hairline lg:mb-6">
-                    Рыбалка и охота
+                    Активный отдых
                 </h1>
 
                 <div class="px-2 lg:px-0">
@@ -81,13 +81,7 @@
                                     </div>
 
                                     <div class="flex-1">
-                                        @if ($model->region)
-                                            р-н. {{ $model->region->name }},
-                                        @endif
-
-                                        @if ($model->place)
-                                            {{ $model->place }}
-                                        @endif
+                                        {{ $model->location }}
                                     </div>
                                 </div>
 
@@ -102,7 +96,7 @@
                                 </div>
 
                                 <div class="flex items-center border-b border-dotted border-teal-dark pt-2 md:hidden">
-                                    <div v-if="hasAnimalsAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'px-2': selectedSeason !== 'summer' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-yellow cursor-pointer">
+                                    <div v-if="hasActivitiesAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'px-2': selectedSeason !== 'summer' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-yellow cursor-pointer">
                                         <div class="w-6 h-6">
                                             <img src="/images/icons/summer-white.png" alt="" class="block">
                                         </div>
@@ -112,7 +106,7 @@
                                         </div>
                                     </div>
 
-                                    <div v-if="hasAnimalsAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'px-2': selectedSeason !== 'spring' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-olive cursor-pointer">
+                                    <div v-if="hasActivitiesAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'px-2': selectedSeason !== 'spring' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-olive cursor-pointer">
                                         <div class="w-6 h-6">
                                             <img src="/images/icons/spring-white.png" alt="" class="block">
                                         </div>
@@ -122,7 +116,7 @@
                                         </div>
                                     </div>
 
-                                    <div v-if="hasAnimalsAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'px-2': selectedSeason !== 'autumn' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-red-autumn cursor-pointer">
+                                    <div v-if="hasActivitiesAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'px-2': selectedSeason !== 'autumn' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-red-autumn cursor-pointer">
                                         <div class="w-6 h-6">
                                             <img src="/images/icons/autumn-white.png" alt="" class="block">
                                         </div>
@@ -132,7 +126,7 @@
                                         </div>
                                     </div>
 
-                                    <div v-if="hasAnimalsAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'px-2': selectedSeason !== 'winter' }" class="flex items-center p-1 rounded-t-lg bg-teal cursor-pointer">
+                                    <div v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'px-2': selectedSeason !== 'winter' }" class="flex items-center p-1 rounded-t-lg bg-teal cursor-pointer">
                                         <div class="w-6 h-6">
                                             <img src="/images/icons/winter-white.png" alt="" class="block h-6">
                                         </div>
@@ -144,31 +138,16 @@
                                 </div>
 
                                 <div class="flex flex-col border-b border-dotted border-teal-dark pt-3 smd:px-2 md:border-b-2 md:hidden">
-                                    <div v-if="animals.length" class="flex items-center mb-2">
+                                    <div v-if="activities.length" class="flex items-center mb-2">
                                         <div class="flex items-center mb-3">
                                             <div class="w-8 h-8 mr-2">
-                                                <img src="/images/icons/bird.png" alt="" class="block">
+                                                <img src="/images/icons/list.png" alt="" class="block">
                                             </div>
 
                                             <div class="flex-1">
-                                                <span v-for="(animal, index) in animals">
-                                                    @{{ animal.name }}
-                                                    <template v-if="index !== animals.length - 1">, </template>
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div v-if="fishes.length" class="flex items-center">
-                                        <div class="flex items-center mb-3">
-                                            <div class="w-8 h-8 mr-2">
-                                                <img src="/images/icons/fish.png" alt="" class="block">
-                                            </div>
-
-                                            <div class="flex-1">
-                                                <span v-for="(fish, index) in fishes">
-                                                    @{{ fish.name }}
-                                                    <template v-if="index !== fishes.length - 1">, </template>
+                                                <span v-for="(activity, index) in activities">
+                                                    @{{ activity.name }}
+                                                    <template v-if="index !== activities.length - 1">, </template>
                                                 </span>
                                             </div>
                                         </div>
@@ -231,7 +210,7 @@
                                 </div>
 
                                 <div class="hidden md:flex md:items-center md:w-full md:border-b-2 md:border-dotted md:border-teal-dark md:pt-3">
-                                    <div v-if="hasAnimalsAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'px-2': selectedSeason !== 'summer' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-yellow cursor-pointer">
+                                    <div v-if="hasActivitiesAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'px-2': selectedSeason !== 'summer' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-yellow cursor-pointer">
                                         <div class="w-6 h-6">
                                             <img src="/images/icons/summer-white.png" alt="" class="block">
                                         </div>
@@ -241,7 +220,7 @@
                                         </div>
                                     </div>
 
-                                    <div v-if="hasAnimalsAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'px-2': selectedSeason !== 'spring' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-olive cursor-pointer">
+                                    <div v-if="hasActivitiesAt('spring')" @click="selectedSeason = 'spring'" :class="{ 'px-2': selectedSeason !== 'spring' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-olive cursor-pointer">
                                         <div class="w-6 h-6">
                                             <img src="/images/icons/spring-white.png" alt="" class="block">
                                         </div>
@@ -251,7 +230,7 @@
                                         </div>
                                     </div>
 
-                                    <div v-if="hasAnimalsAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'px-2': selectedSeason !== 'autumn' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-red-autumn cursor-pointer">
+                                    <div v-if="hasActivitiesAt('autumn')" @click="selectedSeason = 'autumn'" :class="{ 'px-2': selectedSeason !== 'autumn' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-red-autumn cursor-pointer">
                                         <div class="w-6 h-6">
                                             <img src="/images/icons/autumn-white.png" alt="" class="block">
                                         </div>
@@ -261,7 +240,7 @@
                                         </div>
                                     </div>
 
-                                    <div v-if="hasAnimalsAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'px-2': selectedSeason !== 'winter' }" class="flex items-center p-1 rounded-t-lg bg-teal cursor-pointer">
+                                    <div v-if="hasActivitiesAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'px-2': selectedSeason !== 'winter' }" class="flex items-center p-1 rounded-t-lg bg-teal cursor-pointer">
                                         <div class="w-6 h-6">
                                             <img src="/images/icons/winter-white.png" alt="" class="block h-6">
                                         </div>
@@ -277,31 +256,16 @@
                         </div>
 
                         <div class="hidden md:flex md:border-b-2 md:border-dotted md:border-teal-dark md:pt-3 md:mx-2 md:md:border-b-2">
-                            <div v-if="animals.length" class="flex items-center w-1/2 mr-2">
+                            <div v-if="activities.length" class="flex items-center w-1/2 mr-2">
                                 <div class="flex items-center mb-3">
                                     <div class="w-8 h-8 mr-2">
-                                        <img src="/images/icons/bird.png" alt="" class="block">
+                                        <img src="/images/icons/list.png" alt="" class="block">
                                     </div>
 
                                     <div class="flex-1">
-                                        <span v-for="(animal, index) in animals">
-                                            @{{ animal.name }}
-                                            <template v-if="index !== animals.length - 1">, </template>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div v-if="fishes.length" class="flex items-center w-1/2">
-                                <div class="flex items-center mb-3">
-                                    <div class="w-8 h-8 mr-2">
-                                        <img src="/images/icons/fish.png" alt="" class="block">
-                                    </div>
-
-                                    <div class="flex-1">
-                                        <span v-for="(fish, index) in fishes">
-                                            @{{ fish.name }}
-                                            <template v-if="index !== fishes.length - 1">, </template>
+                                        <span v-for="(activity, index) in activities">
+                                            @{{ activity.name }}
+                                            <template v-if="index !== activities.length - 1">, </template>
                                         </span>
                                     </div>
                                 </div>
@@ -330,9 +294,9 @@
                     </div>
                 </div>
             </main>
-        </hunting-company-page>
-    </div>
+        </div>
+    </active-rest-company-page>
 
     <!-- Decoration (right) -->
-    <div class="hidden lg:block lg:absolute hunting-companies-decorations-right lg:pin-t lg:pin-r"></div>
+    <div class="hidden lg:block lg:absolute active-rest-decorations-right lg:pin-t lg:pin-r"></div>
 @endsection

@@ -38,7 +38,7 @@
 
             <!-- Page heading -->
             <h1 class="hidden font-hortensia lg:block lg:text-4xl lg:text-grey-darkest lg:text-center lg:font-hairline lg:mb-6">
-                Пляжный отдых
+                Детский отдых
             </h1>
 
             <div class="px-2 lg:px-0">

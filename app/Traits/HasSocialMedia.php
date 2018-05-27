@@ -18,7 +18,7 @@ trait HasSocialMedia
             $socialMedia[$item->service] = $item->link;
         }
 
-        return (object) $socialMedia;
+        return optional((object) $socialMedia);
     }
 
     /**
