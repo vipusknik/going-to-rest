@@ -87,6 +87,7 @@
 
                                 <div class="flex-1">
                                     {{ $model->contacts }}
+                                    <div>{{ $model->email }}</div>
                                 </div>
                             </div>
 
