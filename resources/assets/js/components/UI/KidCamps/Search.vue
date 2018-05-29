@@ -81,7 +81,7 @@
         },
 
         mounted () {
-            axios.get('/detskij-otdyh')
+            axios.get('/detskij-otdyh/search')
                 .then(response => {
                     this.$emit('resultsupdated', response.data.models);
                 })
@@ -99,7 +99,7 @@
 
         methods: {
             fetch () {
-                axios.get('/detskij-otdyh', {
+                axios.get('/detskij-otdyh/search', {
                         params: this.search
                     })
                     .then(response => {

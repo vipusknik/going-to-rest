@@ -16,16 +16,8 @@ class MedicalCentersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->expectsJson()) {
-            $models = MedicalCenterSearch::by($request)
-                ->with([ 'social_media', 'features', 'media' ])
-                ->get();
-
-            return compact('models');
-        }
-
         $types = Feature::whereBelongsTo(Feature::OF_MEDICAL_CENTER)
             ->whereCategory(Feature::CATEGORY_TREATMENT_TYPES)
             ->get();
@@ -34,6 +26,15 @@ class MedicalCentersController extends Controller
         $regions = Region::all();
 
         return view('medical-centers.index', compact('types', 'cities', 'regions'));
+    }
+
+    public function search(Request $request)
+    {
+        $models = MedicalCenterSearch::by($request)
+            ->with([ 'social_media', 'features', 'media' ])
+            ->get();
+
+        return compact('models');
     }
 
     /**

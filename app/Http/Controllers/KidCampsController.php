@@ -14,19 +14,20 @@ class KidCampsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->expectsJson()) {
-            $models = KidCampsSearch::by($request)
-                ->with([ 'social_media', 'features', 'media', 'city' ])
-                ->get();
-
-            return compact('models');
-        }
-
         $cities = City::all();
 
         return view('kid-camps.index', compact('cities'));
+    }
+
+    public function search(Request $request)
+    {
+        $models = KidCampsSearch::by($request)
+            ->with([ 'social_media', 'features', 'media', 'city' ])
+            ->get();
+
+        return compact('models');
     }
 
     /**

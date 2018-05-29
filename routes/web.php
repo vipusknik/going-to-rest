@@ -7,30 +7,35 @@ Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
      * Rest centers
      */
     Route::get('/pljazhnyj-otdyh', 'RestCentersController@index')->name('rest-centers.index');
+    Route::get('/pljazhnyj-otdyh/search', 'RestCentersController@search')->name('rest-centers.search');
     Route::get('/pljazhnyj-otdyh/{rest_center}', 'RestCentersController@show')->name('rest-centers.show');
 
     /**
      * Medical centers
      */
     Route::get('/medicinskij-turizm', 'MedicalCentersController@index')->name('medical-centers.index');
+    Route::get('/medicinskij-turizm/search', 'MedicalCentersController@search')->name('medical-centers.search');
     Route::get('/medicinskij-turizm/{medical_center}', 'MedicalCentersController@show')->name('medical-centers.show');
 
     /**
      * Kid camps
      */
     Route::get('/detskij-otdyh', 'KidCampsController@index')->name('kid-camps.index');
+    Route::get('/detskij-otdyh/search', 'KidCampsController@search')->name('kid-camps.search');
     Route::get('/detskij-otdyh/{kid_camp}', 'KidCampsController@show')->name('kid-camps.show');
 
     /**
      * Active Rest Companies
      */
     Route::get('/aktivnyj-otdyh', 'ActiveRestCompaniesController@index')->name('active-rest-companies.index');
+    Route::get('/aktivnyj-otdyh/search', 'ActiveRestCompaniesController@search')->name('active-rest-companies.search');
     Route::get('/aktivnyj-otdyh/{active_rest_company}', 'ActiveRestCompaniesController@show')->name('active-rest-companies.show');
 
     /**
      * Fishing and hunting
      */
     Route::get('/ohota-i-rybalka', 'HuntingCompaniesController@index')->name('hunting-companies.index');
+    Route::get('/ohota-i-rybalka/search', 'HuntingCompaniesController@search')->name('hunting-companies.search');
     Route::get('/ohota-i-rybalka/{hunting_company}', 'HuntingCompaniesController@show')->name('hunting-companies.show');
 });
 

@@ -273,7 +273,7 @@
         },
 
         mounted () {
-            axios.get('/pljazhnyj-otdyh')
+            axios.get('/pljazhnyj-otdyh/search')
                 .then(response => {
                     this.$emit('resultsupdated', response.data.models);
                 })
@@ -291,7 +291,7 @@
 
         methods: {
             fetch () {
-                axios.get('/pljazhnyj-otdyh', {
+                axios.get('/pljazhnyj-otdyh/search', {
                         params: this.search
                     })
                     .then(response => {

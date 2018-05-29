@@ -116,7 +116,7 @@
         },
 
         mounted () {
-            axios.get('/medicinskij-turizm')
+            axios.get('/medicinskij-turizm/search')
                 .then(response => {
                     this.$emit('resultsupdated', response.data.models);
                 })
@@ -134,7 +134,7 @@
 
         methods: {
             fetch () {
-                axios.get('/medicinskij-turizm', {
+                axios.get('/medicinskij-turizm/search', {
                         params: this.search
                     })
                     .then(response => {

@@ -14,19 +14,20 @@ class ActiveRestCompaniesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->expectsJson()) {
-            $models = ActiveRestCompaniesSearch::by($request)
-                ->with([ 'social_media', 'activities', 'media' ])
-                ->get();
-
-            return compact('models');
-        }
-
         $activities = Activity::all();
 
         return view('active-rest-companies.index', compact('activities'));
+    }
+
+    public function search(Request $request)
+    {
+        $models = ActiveRestCompaniesSearch::by($request)
+            ->with([ 'social_media', 'activities', 'media' ])
+            ->get();
+
+        return compact('models');
     }
 
     /**

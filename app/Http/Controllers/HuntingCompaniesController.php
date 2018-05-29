@@ -14,19 +14,20 @@ class HuntingCompaniesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->expectsJson()) {
-            $models = HuntingCompaniesSearch::by($request)
-                ->with([ 'social_media', 'animals', 'media' ])
-                ->get();
-
-            return compact('models');
-        }
-
         $regions = Region::all();
 
         return view('hunting-companies.index', compact('regions'));
+    }
+
+    public function search(Request $request)
+    {
+        $models = HuntingCompaniesSearch::by($request)
+            ->with([ 'social_media', 'animals', 'media' ])
+            ->get();
+
+        return compact('models');
     }
 
     /**

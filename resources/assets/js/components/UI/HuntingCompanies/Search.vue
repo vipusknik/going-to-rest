@@ -102,7 +102,7 @@
         },
 
         mounted () {
-            axios.get('/ohota-i-rybalka')
+            axios.get('/ohota-i-rybalka/search')
                 .then(response => {
                     this.$emit('resultsupdated', response.data.models);
                 })
@@ -120,7 +120,7 @@
 
         methods: {
             fetch () {
-                axios.get('/ohota-i-rybalka', {
+                axios.get('/ohota-i-rybalka/search', {
                         params: this.search
                     })
                     .then(response => {

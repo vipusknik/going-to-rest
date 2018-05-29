@@ -14,19 +14,20 @@ class RestCentersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-        if ($request->expectsJson()) {
-            $models = RestCentersSearch::by($request)
-                ->with([ 'reservoir', 'social_media', 'features', 'media', 'accomodations', 'accomodations.features' ])
-                ->get();
-
-            return compact('models');
-        }
-
         $reservoirs = Reservoir::orderBy('name')->get();
 
         return view('rest-centers.index', compact('reservoirs'));
+    }
+
+    public function search(Request $request)
+    {
+        $models = RestCentersSearch::by($request)
+            ->with([ 'reservoir', 'social_media', 'features', 'media', 'accomodations', 'accomodations.features' ])
+            ->get();
+
+        return compact('models');
     }
 
     /**
