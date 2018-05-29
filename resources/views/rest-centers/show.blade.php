@@ -114,6 +114,8 @@
                                 </div>
                             </div>
 
+                            @include ('partials.links-sm')
+
                             <div class="md:hidden">
                                 <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
                                     <div class="mr-3 md:w-1/4 md:mr-1">
@@ -154,6 +156,8 @@
                             </div>
                         </div>
                     </div>
+
+                    @include ('partials.links-md')
 
                     <div class="hidden md:block md:px-3 md:mt-3">
                         <div class="flex">
