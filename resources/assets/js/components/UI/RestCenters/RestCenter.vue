@@ -36,6 +36,7 @@
 
                         <div class="w-4/5 md:w-3/4">
                             {{ center.contacts }}
+                            <div>{{ center.email }}</div>
                         </div>
                     </div>
 
@@ -100,6 +101,7 @@
 
                     <div class="w-4/5 md:w-3/4">
                         {{ center.contacts }}
+                        <div>{{ center.email }}</div>
                     </div>
                 </div>
 
