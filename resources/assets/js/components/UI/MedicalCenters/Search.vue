@@ -26,14 +26,14 @@
         <portal to="sm-md-medical-centers-search-filters">
             <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-10 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
                 <div class="w-full mb-4">
-                    <select v-model="search.type" class="w-full rounded-lg p-2">
+                    <select v-model="search.type" class="w-full rounded-lg p-2 styled-select">
                         <option value="">Вид</option>
                         <option v-for="type in types" :value="type.id">{{ type.name }}</option>
                     </select>
                 </div>
 
                 <div class="w-full mb-4">
-                    <select v-model="search.region" class="w-full rounded-lg p-2">
+                    <select v-model="search.region" class="w-full rounded-lg p-2 styled-select">
                         <option value="">Регион</option>
                         <option v-for="city in cities" :value="`city_${city.id}`">г. {{ city.name }}</option>
                         <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
@@ -53,19 +53,19 @@
             <div class="hidden lg:block lg:mb-8">
                 <div class="flex mb-4">
                     <div class="w-1/2 mr-3">
-                        <input type="text" v-model="search.query" placeholder="Введите название" class="w-full rounded-lg px-3 py-2">
+                        <input type="text" v-model="search.query" placeholder="Введите название" class="w-full h-10 rounded-lg px-3 py-2">
                     </div>
 
                     <div class="w-1/2 flex">
                         <div class="w-2/5 mr-3">
-                            <select v-model="search.type" class="w-full rounded-lg px-3 py-2">
+                            <select v-model="search.type" class="w-full h-10 rounded-lg px-3 py-2 styled-select">
                                 <option value="">Вид</option>
                                 <option v-for="type in types" :value="type.id">{{ type.name }}</option>
                             </select>
                         </div>
 
                         <div class="w-3/5">
-                            <select name="guestCount" v-model="search.region" class="w-full rounded-lg px-3 py-2">
+                            <select name="guestCount" v-model="search.region" class="w-full h-10 rounded-lg px-3 py-2 styled-select">
                                 <option value="">Регион</option>
                                 <option v-for="city in cities" :value="`city_${city.id}`">г. {{ city.name }}</option>
                                 <option v-for="region in regions" :value="region.id">{{ region.name }}</option>

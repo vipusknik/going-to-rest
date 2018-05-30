@@ -26,7 +26,7 @@
         <portal to="sm-md-kid-camps-search-filters">
             <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 sm:z-10 sm:flex sm:py-6 lg:hidden">
                 <div class="w-full mb-4 md:w-5/6 md:mr-3 md:h-10">
-                    <select v-model="search.city" class="w-full h-full rounded-lg p-2">
+                    <select v-model="search.city" class="w-full h-full rounded-lg p-2 styled-select">
                         <option value="">Город</option>
                         <option v-for="city in cities" :value="city.id">{{ city.name }}</option>
                     </select>
@@ -45,11 +45,11 @@
             <div class="hidden lg:block lg:mb-10">
                 <div class="flex mb-4">
                     <div class="w-3/4 mr-3">
-                        <input type="text" v-model="search.query" placeholder="Введите название" class="w-full rounded-lg px-3 py-2">
+                        <input type="text" v-model="search.query" placeholder="Введите название" class="w-full h-10 rounded-lg px-3 py-2">
                     </div>
 
                     <div class="w-1/4 flex">
-                        <select v-model="search.city" class="w-full rounded-lg px-3 py-2">
+                        <select v-model="search.city" class="w-full h-10 rounded-lg px-3 py-2 styled-select">
                             <option value="">Город</option>
                             <option v-for="city in cities" :value="city.id">{{ city.name }}</option>
                         </select>

@@ -31,7 +31,7 @@
             <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
                 <div class="flex space-between mb-3 sm:w-1/2 sm:pr-6 sm:items-end sm:mb-4">
                     <div class="w-full">
-                        <select v-model="search.reservoir" class="w-full rounded-lg p-2">
+                        <select v-model="search.reservoir" class="w-full rounded-lg p-2 styled-select">
                             <option value="">Водоем</option>
                             <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option>
                         </select>
@@ -78,7 +78,7 @@
                         Тип размещения
                     </div> -->
 
-                    <select v-model="search.accomodation_type" class="w-full rounded-lg p-2">
+                    <select v-model="search.accomodation_type" class="w-full rounded-lg p-2 styled-select">
                         <option value="">Тип размещения</option>
                         <option value="room">Гостинница / Номер</option>
                         <option value="house">Коттедж / Домик</option>
@@ -185,8 +185,8 @@
                     </div>
 
                     <div class="flex w-3/5">
-                        <div class="w-1/2 mr-3">
-                            <select v-model="search.reservoir" class="w-full h-10 rounded-lg px-3 py-2">
+                        <div class="w-1/2 mr-3 relative">
+                            <select v-model="search.reservoir" class="w-full h-10 rounded-lg px-3 py-2 styled-select">
                                 <option value="">Водоем</option>
                                 <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option>
                             </select>
@@ -194,7 +194,7 @@
 
                         <div class="w-1/2">
                             <div class="">
-                                <select v-model="search.accomodation_type" class="w-full h-10 rounded-lg p-2">
+                                <select v-model="search.accomodation_type" class="w-full h-10 rounded-lg p-2 styled-select">
                                     <option value="">Тип размещения</option>
                                     <option value="room">Гостинница / Номер</option>
                                     <option value="house">Коттедж / Домик</option>

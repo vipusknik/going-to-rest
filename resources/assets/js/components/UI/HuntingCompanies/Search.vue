@@ -27,7 +27,7 @@
             <div v-if="showSearchDropdown" class="absolute z-20 bg-yellow-dark w-full px-10 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
                 <div class="w-full md:flex md:mb-4">
                     <div class="w-full mb-4 md:mb-0 md:w-1/2 md:mr-3">
-                        <select v-model="search.type" class="w-full rounded-lg p-2">
+                        <select v-model="search.type" class="w-full rounded-lg p-2 styled-select">
                             <option value="">Охота и рыбалка</option>
                             <option value="hunting">охота</option>
                             <option value="fishing">рыбалка</option>
@@ -35,7 +35,7 @@
                     </div>
 
                     <div class="w-full mb-4 md:mb-0 md:w-1/2">
-                        <select v-model="search.region" class="w-full rounded-lg p-2">
+                        <select v-model="search.region" class="w-full rounded-lg p-2 styled-select">
                             <option value="">Район</option>
                             <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
                         </select>
@@ -60,7 +60,7 @@
 
                     <div class="w-1/2 flex">
                         <div class="w-2/5 mr-3">
-                            <select v-model="search.type" class="w-full h-10 rounded-lg px-3 py-2">
+                            <select v-model="search.type" class="w-full h-10 rounded-lg px-3 py-2 styled-select">
                                 <option value="">Охота и рыбалка</option>
                                 <option value="hunting">охота</option>
                                 <option value="fishing">рыбалка</option>
@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="w-3/5">
-                            <select name="region" v-model="search.region" class="w-full h-10 rounded-lg px-3 py-2">
+                            <select name="region" v-model="search.region" class="w-full h-10 rounded-lg px-3 py-2 styled-select">
                                 <option value="">Район</option>
                                 <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
                             </select>

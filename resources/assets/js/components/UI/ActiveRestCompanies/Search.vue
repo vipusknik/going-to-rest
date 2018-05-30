@@ -27,7 +27,7 @@
             <div v-if="showSearchDropdown" class="absolute z-20 bg-yellow-dark w-full px-10 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
                 <div class="w-full md:flex md:mb-4">
                     <div class="w-full mb-4 md:mb-0 md:w-1/2 md:mr-3">
-                        <select v-model="search.season" class="w-full rounded-lg p-2">
+                        <select v-model="search.season" class="w-full rounded-lg p-2 styled-select">
                             <option value="">Все сезоны</option>
                             <option value="spring">весна</option>
                             <option value="summer">лето</option>
@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="w-full mb-4 md:mb-0 md:w-1/2">
-                        <select v-model="search.activity" class="w-full rounded-lg p-2">
+                        <select v-model="search.activity" class="w-full rounded-lg p-2 styled-select">
                             <option value="">Вид отдыха</option>
                             <option v-for="activity in activities" :value="activity.id">{{ activity.name }}</option>
                         </select>
@@ -62,7 +62,7 @@
 
                     <div class="w-full flex">
                         <div class="w-1/2 mr-3">
-                            <select v-model="search.season" class="w-full rounded-lg px-3 py-2">
+                            <select v-model="search.season" class="w-full rounded-lg px-3 py-2 styled-select">
                                 <option value="">Все сезоны</option>
                                 <option value="spring">весна</option>
                                 <option value="summer">лето</option>
@@ -72,7 +72,7 @@
                         </div>
 
                         <div class="w-1/2">
-                            <select name="guestCount" v-model="search.activity" class="w-full rounded-lg px-3 py-2">
+                            <select name="guestCount" v-model="search.activity" class="w-full rounded-lg px-3 py-2 styled-select">
                                 <option value="">Вид отдыха</option>
                                 <option v-for="activity in activities" :value="activity.id">{{ activity.name }}</option>
                             </select>
