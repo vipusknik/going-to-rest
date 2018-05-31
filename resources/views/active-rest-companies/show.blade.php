@@ -76,21 +76,21 @@
 
                             <div class="pt-3 px-4 pb-1 md:w-3/5 md:flex md:flex-wrap md:relative">
                                 <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:border-r-2 md:pb-3 md:pr-1 md:items-start">
-                                    <div class="w-8 h-8 mr-3">
+                                    <div class="w-8 h-8 flex-no-shrink mr-3">
                                         <img src="/images/icons/location.png" alt="address" class="block">
                                     </div>
 
-                                    <div class="flex-1">
+                                    <div class="flex-1 break-words min-w-0">
                                         {{ $model->location }}
                                     </div>
                                 </div>
 
                                 <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:pb-3 md:pl-3 md:items-start">
-                                    <div class="w-8 h-8 mr-3">
+                                    <div class="w-8 h-8 flex-no-shrink mr-3">
                                         <img src="/images/icons/contacts.png" alt="address" class="block">
                                     </div>
 
-                                    <div class="flex-1">
+                                    <div class="flex-1 break-words min-w-0">
                                         {{ $model->contacts }}
                                         <div>{{ $model->email }}</div>
                                     </div>
@@ -159,25 +159,25 @@
                                 <div class="hidden md:flex md:flex-col md:w-full md:py-4 md:border-b-2 md:border-teal-dark md:border-dotted">
                                     <div class="md:flex md:mb-3">
                                         <div class="flex md:w-1/2 md:items-center">
-                                            <div class="w-8 h-8 mr-3">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3">
                                                 <a href="{{ $model->site_link }}">
                                                     <img src="/images/icons/www.png" alt="address" class="block">
                                                 </a>
                                             </div>
 
-                                            <div class="flex-1">
+                                            <div class="flex-1 break-words min-w-0">
                                                 <a href="{{ $model->site_link }}" class="block text-black">{{ base_url($model->site_link) }}</a>
                                             </div>
                                         </div>
 
                                         <div class="flex md:w-1/2 md:items-center">
-                                            <div class="w-8 h-8 mr-3">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3">
                                                 <a href="{{ $model->socialMedia()->instagram }}">
                                                     <img src="/images/icons/instagram.png" alt="address" class="block">
                                                 </a>
                                             </div>
 
-                                            <div class="flex-1">
+                                            <div class="flex-1 break-words min-w-0">
                                                 <a href="{{ $model->socialMedia()->instagram }}" class="block text-black">{{ base_url($model->socialMedia()->instagram) }}</a>
                                             </div>
                                         </div>
@@ -185,25 +185,25 @@
 
                                     <div class="md:flex">
                                         <div class="flex md:w-1/2 md:items-center">
-                                            <div class="w-8 h-8 mr-3">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3">
                                                 <a href="{{ $model->socialMedia()->facebook }}">
                                                     <img src="/images/icons/facebook.png" alt="address" class="block">
                                                 </a>
                                             </div>
 
-                                            <div class="flex-1">
+                                            <div class="flex-1 break-words min-w-0">
                                                 <a href="{{ $model->socialMedia()->facebook }}" class="block text-black">{{ base_url($model->socialMedia()->facebook) }}</a>
                                             </div>
                                         </div>
 
                                         <div class="flex md:w-1/2 md:items-center">
-                                            <div class="w-8 h-8 mr-3">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3">
                                                 <a href="{{ $model->socialMedia()->vk }}">
                                                     <img src="/images/icons/vk.png" alt="address" class="block">
                                                 </a>
                                             </div>
 
-                                            <div class="flex-1">
+                                            <div class="flex-1 break-words min-w-0">
                                                 <a href="{{ $model->socialMedia()->vk }}" class="block text-black">{{ base_url($model->socialMedia()->vk) }}</a>
                                             </div>
                                         </div>
@@ -274,21 +274,21 @@
                         </div>
 
                         <div class="flex px-3 mt-3 pb-3 md:hidden">
-                            <div class="h-8 w-8 mt-1 mr-4">
+                            <div class="w-8 h-8 flex-no-shrink mr-3">
                                 <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
                             </div>
 
-                            <div class="flex-1">
+                            <div class="flex-1 break-words min-w-0">
                                 {!! $model->description !!}
                             </div>
                         </div>
 
                         <div class="hidden md:flex md:py-2 md:w-full md:pl-2 md:items-start">
-                            <div class="w-8 h-8 mr-3">
+                            <div class="w-8 h-8 flex-no-shrink mr-3">
                                 <img src="/images/icons/pencil.png" alt="address" class="block">
                             </div>
 
-                            <div class="flex-1">
+                            <div class="flex-1 break-words min-w-0">
                                 {!! $model->description !!}
                             </div>
                         </div>

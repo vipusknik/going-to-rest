@@ -73,32 +73,32 @@
 
                         <div class="pt-3 px-4 pb-1 md:w-3/5 md:flex md:flex-wrap md:relative">
                             <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:border-r-2 md:pb-3 md:pr-1 md:items-start">
-                                <div class="w-8 h-8 mr-3">
+                                <div class="w-8 h-8 flex-no-shrink mr-3">
                                     <img src="/images/icons/location.png" alt="address" class="block">
                                 </div>
 
-                                <div class="flex-1">
+                                <div class="flex-1 break-words min-w-0">
                                     {{ $model->location }}
                                 </div>
                             </div>
 
                             <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:pb-3 md:pl-3 md:items-start">
-                                <div class="w-8 h-8 mr-3">
+                                <div class="w-8 h-8 flex-no-shrink mr-3">
                                     <img src="/images/icons/contacts.png" alt="address" class="block">
                                 </div>
 
-                                <div class="flex-1">
+                                <div class="flex-1 break-words min-w-0">
                                     {{ $model->contacts }}
                                     <div>{{ $model->email }}</div>
                                 </div>
                             </div>
 
                             <div class="flex border-b border-dotted border-teal-dark py-2 md:border-b-2 md:items-start">
-                                <div class="w-8 h-8 mr-3">
+                                <div class="w-8 h-8 flex-no-shrink mr-3">
                                     <img src="/images/icons/list.png" alt="address" class="block">
                                 </div>
 
-                                <div class="flex-1">
+                                <div class="flex-1 break-words min-w-0">
                                     @foreach ($model->features->where('category', \App\Feature::CATEGORY_PROCEDURES) as $feature)
                                         {{ $feature->name }}
                                         {{ !$loop->last ? ',' : '' }}
@@ -107,11 +107,11 @@
                             </div>
 
                             <div class="flex border-b border-dotted border-teal-dark py-2 md:border-b-2 md:items-start">
-                                <div class="w-8 h-8 mr-3">
+                                <div class="w-8 h-8 flex-no-shrink mr-3">
                                     <img src="/images/icons/medicine.png" alt="address" class="block">
                                 </div>
 
-                                <div class="flex-1">
+                                <div class="flex-1 break-words min-w-0">
                                     @foreach ($model->features->where('category', \App\Feature::CATEGORY_TREATMENT_TYPES) as $feature)
                                         {{ $feature->name }}
                                         {{ !$loop->last ? ',' : '' }}
@@ -123,11 +123,11 @@
 
                             <div class="md:hidden">
                                 <div class="flex py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
-                                    <div class="mr-3 md:w-1/4 md:mr-1">
+                                    <div class="w-8 h-8 flex-no-shrink mr-3">
                                         <img src="/images/icons/pencil.png" alt="address" class="block w-8 h-8">
                                     </div>
 
-                                    <div class="w-4/5 md:w-3/4">
+                                    <div class="flex-1 break-words min-w-0">
                                         {!! $model->description !!}
                                     </div>
                                 </div>
@@ -139,11 +139,11 @@
 
                     <div class="hidden md:block md:px-3 md:mt-3">
                         <div class="flex">
-                            <div class="h-8 w-8 mt-1 mr-4">
+                            <div class="w-8 h-8 flex-no-shrink mr-3 mt-1">
                                 <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
                             </div>
 
-                            <div class="flex-1 pb-3">
+                            <div class="flex-1 break-words min-w-0 pb-3">
                                 {!! $model->description !!}
                             </div>
                         </div>

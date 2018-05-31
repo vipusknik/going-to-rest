@@ -20,32 +20,32 @@
 
                 <div class="pt-3 px-4 pb-1 md:w-3/5 md:flex md:flex-wrap md:relative">
                     <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:border-r-2 md:pb-3 md:pr-1 md:items-start">
-                        <div class="mr-3 md:w-1/4 md:mr-1">
+                        <div class="w-8 h-8 flex-no-shrink mr-3">
                             <img src="/images/icons/location.png" alt="address" class="block w-8 h-8">
                         </div>
 
-                        <div class="w-4/5 md:w-3/4">
+                        <div class="flex-1 break-words min-w-0">
                             {{ model.location }}
                         </div>
                     </div>
 
                     <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:pb-3 md:pl-3 md:items-start">
-                        <div class="mr-3 md:w-1/4 md:mr-1">
+                        <div class="w-8 h-8 flex-no-shrink mr-3">
                             <img src="/images/icons/contacts.png" alt="address" class="block w-8 h-8">
                         </div>
 
-                        <div class="w-4/5 md:w-3/4">
+                        <div class="flex-1 break-words min-w-0">
                             {{ model.contacts }}
                             <div>{{ model.email }}</div>
                         </div>
                     </div>
 
                     <div class="flex items-center border-teal-dark py-2 md:w-5/6 md:border-b-0 md:border-dotted md:border-teal-dark md:pl-3 md:items-start">
-                        <div class="w-1/5 mr-3 md:w-1/8 md:mr-1">
+                        <div class="w-8 h-8 flex-no-shrink mr-3">
                             <img src="/images/icons/list.png" alt="address" class="block w-8 h-8">
                         </div>
 
-                        <div class="flex items-center md:w-3/4 md:relative">
+                        <div class="flex-1 break-words min-w-0 flex items-center md:relative">
                             <div class="flex-1 mr-2 self-end">
                                 <span v-for="(type, index) in types">
                                     {{ type.name }}
@@ -80,32 +80,32 @@
 
             <div class="pt-3 px-4 pb-1 md:flex">
                 <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:border-b-0 md:border-r-2 md:w-1/4 md:items-start">
-                    <div class="mr-3 md:w-1/4 md:mr-1">
+                    <div class="w-8 h-8 flex-no-shrink mr-3">
                         <img src="/images/icons/location.png" alt="address" class="block w-8 h-8">
                     </div>
 
-                    <div class="w-4/5 md:w-3/4">
+                    <div class="flex-1 break-words min-w-0">
                         {{ model.location }}
                     </div>
                 </div>
 
                 <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:border-b-0 md:border-r-2 md:w-1/4 md:pl-2 md:items-start">
-                    <div class="mr-3 md:w-1/4 md:mr-1">
+                    <div class="w-8 h-8 flex-no-shrink mr-3">
                         <img src="/images/icons/contacts.png" alt="address" class="block w-8 h-8">
                     </div>
 
-                    <div class="w-4/5 md:w-3/4">
+                    <div class="flex-1 break-words min-w-0">
                         {{ model.contacts }}
                         <div>{{ model.email }}</div>
                     </div>
                 </div>
 
                 <div class="flex items-center border-dotted border-teal-dark py-2 md:w-1/2 md:pl-2 md:items-start">
-                    <div class="mr-3 md:w-1/8 md:mr-1">
+                    <div class="w-8 h-8 flex-no-shrink mr-3">
                         <img src="/images/icons/list.png" alt="address" class="block w-8 h-8">
                     </div>
 
-                    <div class="w-4/5 md:w-3/4">
+                    <div class="flex-1 break-words min-w-0">
                         <span v-for="(type, index) in types">
                             {{ type.name }}
                             <template v-if="index !== types.length - 1">, </template>
