@@ -1,6 +1,6 @@
 <?php
 
-Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
+// Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
     Route::view('/', 'home');
 
     /**
@@ -37,7 +37,7 @@ Route::group([ 'middleware' => [ 'auth', 'admin' ] ], function () {
     Route::get('/ohota-i-rybalka', 'HuntingCompaniesController@index')->name('hunting-companies.index');
     Route::get('/ohota-i-rybalka/search', 'HuntingCompaniesController@search')->name('hunting-companies.search');
     Route::get('/ohota-i-rybalka/{hunting_company}', 'HuntingCompaniesController@show')->name('hunting-companies.show');
-});
+// });
 
 
 /**
