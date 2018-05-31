@@ -25,6 +25,7 @@ class KidCampsController extends Controller
     {
         $models = KidCampsSearch::by($request)
             ->with([ 'social_media', 'features', 'media', 'city' ])
+            ->orderBy('name')
             ->get();
 
         return compact('models');

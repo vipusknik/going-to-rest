@@ -32,6 +32,7 @@ class MedicalCentersController extends Controller
     {
         $models = MedicalCenterSearch::by($request)
             ->with([ 'social_media', 'features', 'media' ])
+            ->orderBy('name')
             ->get();
 
         return compact('models');

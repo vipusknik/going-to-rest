@@ -25,6 +25,7 @@ class RestCentersController extends Controller
     {
         $models = RestCentersSearch::by($request)
             ->with([ 'reservoir', 'social_media', 'features', 'media', 'accomodations', 'accomodations.features' ])
+            ->orderBy('name')
             ->get();
 
         return compact('models');
