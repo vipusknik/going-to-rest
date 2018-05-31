@@ -140,7 +140,7 @@
 
         computed: {
             previewImageUrl () {
-                if (this.center.media.length === 0) return 'http://via.placeholder.com/350x150';
+                if (this.center.media.length === 0) return '/images/defaults/beach.jpg';
 
                 let mainImage = this.center.media.find(item => item.collection === 'main-image');
 
