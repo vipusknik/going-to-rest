@@ -188,7 +188,7 @@
                                     </div>
 
                                     <div class="w-4/5 md:w-3/4">
-                                        стоимость путевки от: {{ $model->cost }}
+                                        от {{ $model->cost }}
                                     </div>
                                 </div>
                             </div>
@@ -224,7 +224,7 @@
                                     </div>
 
                                     <div class="flex-1">
-                                        <div class="pr-1">стоимость путевки от: {{ $model->cost }}</div>
+                                        <div class="pr-1">от {{ $model->cost }}</div>
                                     </div>
                                 </div>
                             </div>

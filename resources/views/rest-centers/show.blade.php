@@ -150,7 +150,7 @@
                                     </div>
 
                                     <div class="w-4/5 md:w-3/4">
-                                        стоимость поживания от: {{ $accomodation->price_per_day }} тг в сутки
+                                        от {{ $accomodation->price_per_day }} тг в сутки
                                     </div>
                                 </div>
                                 @endforeach
@@ -195,7 +195,7 @@
                                     </div>
 
                                     <div class="flex-1">
-                                        <div class="pr-1">стоимость поживания от: {{ $accomodation->price_per_day }} тг в сутки</div>
+                                        <div class="pr-1">от {{ $accomodation->price_per_day }} тг в сутки</div>
                                     </div>
                                 </div>
                             </div>

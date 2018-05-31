@@ -46,7 +46,7 @@
                         </div>
 
                         <div class="w-4/5 md:w-3/4">
-                            стоимость проживания от {{ chepestAccomodationPrice }} тг <span v-if="hasFood" class="text-red-light">возможно питание</span>
+                            от {{ chepestAccomodationPrice }} тг <span v-if="hasFood" class="text-red-light">возможно питание</span>
                         </div>
                     </div>
 
@@ -111,7 +111,7 @@
                     </div>
 
                     <div class="w-4/5 md:w-3/4">
-                        стоимость проживания от  {{ chepestAccomodationPrice }} тг <span v-if="hasFood" class="text-red-light">возможно питание</span>
+                        от {{ chepestAccomodationPrice }} тг <span v-if="hasFood" class="text-red-light">возможно питание</span>
                     </div>
                 </div>
 
