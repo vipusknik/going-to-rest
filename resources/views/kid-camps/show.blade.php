@@ -19,10 +19,10 @@
                 <!-- Dropdown search filters menu -->
                 <portal-target name="sm-md-kid-camps-search-filters" slim></portal-target>
 
-                <!-- Ads -->
                 <div class="flex p-2 lg:px-12">
-                    <img src="{{ asset('images/ads.png') }}" alt="ads" class="block w-full h-24 md:w-1/2 md:mr-2 lg:rounded-xl lg:h-32 lg:mr-6 lg:border-2 lg:border-white">
-                    <img src="{{ asset('images/ads.png') }}" alt="ads" class="hidden w-full h-24 md:block md:w-1/2 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
+                    <img src="{{ asset('images/promo/kid/sm-1.gif') }}" class="block md:hidden w-full h-24 md:w-1/2 md:mr-2 lg:rounded-xl lg:h-32 lg:mr-6 lg:border-2 lg:border-white">
+                    <img src="{{ asset('images/promo/kid/lg-1.gif') }}" class="hidden w-full h-24 md:block md:w-1/2 md:mr-2 lg:rounded-xl lg:h-32 lg:mr-6 lg:border-2 lg:border-white">
+                    <img src="{{ asset('images/promo/kid/lg-2.gif') }}" class="hidden w-full h-24 md:block md:w-1/2 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
                 </div>
             </div>
         </div>
