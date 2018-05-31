@@ -93,56 +93,62 @@
 
                             {{-- Site and social media links for md and bigger devices --}}
                             <div class="hidden md:flex md:flex-col md:w-full md:py-4 md:border-b-2 md:border-teal-dark md:border-dotted">
-                                <div class="md:flex md:mb-3">
-                                    <div class="flex md:w-1/2 md:items-center">
-                                        <div class="w-8 h-8 flex-no-shrink mr-3">
-                                            <a href="{{ $model->site_link }}">
-                                                <img src="/images/icons/www.png" alt="address" class="block">
-                                            </a>
-                                        </div>
+                                <div class="md:flex md:flex-wrap">
+                                    @if ($model->site_link)
+                                        <div class="flex md:w-1/2 md:items-center pr-2 mb-4">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3">
+                                                <a href="{{ $model->site_link }}">
+                                                    <img src="/images/icons/www.png" alt="address" class="block">
+                                                </a>
+                                            </div>
 
-                                        <div class="flex-1 break-words min-w-0">
-                                            <a href="{{ $model->site_link }}" class="block text-black">{{ base_url($model->site_link) }}</a>
+                                            <div class="flex-1 break-words min-w-0">
+                                                <a href="{{ $model->site_link }}" class="block text-black">{{ base_url($model->site_link) }}</a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
 
-                                    <div class="flex md:w-1/2 md:items-center">
-                                        <div class="w-8 h-8 flex-no-shrink mr-3">
-                                            <a href="{{ $model->socialMedia()->instagram }}">
-                                                <img src="/images/icons/instagram.png" alt="address" class="block">
-                                            </a>
-                                        </div>
+                                    @if ($model->socialMedia()->instagram)
+                                        <div class="flex md:w-1/2 md:items-center pr-2 mb-4">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3">
+                                                <a href="{{ $model->socialMedia()->instagram }}">
+                                                    <img src="/images/icons/instagram.png" alt="address" class="block">
+                                                </a>
+                                            </div>
 
-                                        <div class="flex-1 break-words min-w-0">
-                                            <a href="{{ $model->socialMedia()->instagram }}" class="block text-black">{{ base_url($model->socialMedia()->instagram) }}</a>
+                                            <div class="flex-1 break-words min-w-0">
+                                                <a href="{{ $model->socialMedia()->instagram }}" class="block text-black">{{ base_url($model->socialMedia()->instagram) }}</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
+                                    @endif
 
-                                <div class="md:flex">
-                                    <div class="flex md:w-1/2 md:items-center">
-                                        <div class="w-8 h-8 flex-no-shrink mr-3">
-                                            <a href="{{ $model->socialMedia()->facebook }}">
-                                                <img src="/images/icons/facebook.png" alt="address" class="block">
-                                            </a>
-                                        </div>
+                                    @if ($model->socialMedia()->facebook)
+                                        <div class="flex md:w-1/2 md:items-center pr-2 mb-4">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3">
+                                                <a href="{{ $model->socialMedia()->facebook }}">
+                                                    <img src="/images/icons/facebook.png" alt="address" class="block">
+                                                </a>
+                                            </div>
 
-                                        <div class="flex-1 break-words min-w-0">
-                                            <a href="{{ $model->socialMedia()->facebook }}" class="block text-black">{{ base_url($model->socialMedia()->facebook) }}</a>
+                                            <div class="flex-1 break-words min-w-0">
+                                                <a href="{{ $model->socialMedia()->facebook }}" class="block text-black">{{ base_url($model->socialMedia()->facebook) }}</a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
 
-                                    <div class="flex md:w-1/2 md:items-center">
-                                        <div class="w-8 h-8 flex-no-shrink mr-3">
-                                            <a href="{{ $model->socialMedia()->vk }}">
-                                                <img src="/images/icons/vk.png" alt="address" class="block">
-                                            </a>
-                                        </div>
+                                    @if ($model->socialMedia()->vk)
+                                        <div class="flex md:w-1/2 md:items-center pr-2 mb-4">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3">
+                                                <a href="{{ $model->socialMedia()->vk }}">
+                                                    <img src="/images/icons/vk.png" alt="address" class="block">
+                                                </a>
+                                            </div>
 
-                                        <div class="flex-1 break-words min-w-0">
-                                            <a href="{{ $model->socialMedia()->vk }}" class="block text-black">{{ base_url($model->socialMedia()->vk) }}</a>
+                                            <div class="flex-1 break-words min-w-0">
+                                                <a href="{{ $model->socialMedia()->vk }}" class="block text-black">{{ base_url($model->socialMedia()->vk) }}</a>
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
 
