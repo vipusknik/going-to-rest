@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
                 $category = Banner::CATEGORY_MEDICAL_CENTERS;
             }
 
-            if (Route::is('active-rest.*')) {
+            if (Route::is('active-rest-companies.*')) {
                 $category = Banner::CATEGORY_ACTIVE_REST;
             }
 

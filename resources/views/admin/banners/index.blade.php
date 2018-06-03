@@ -4,7 +4,7 @@
 
 @section ('content')
     <div class="container mx-auto py-6">
-        <div class="text-center">
+        <div class="text-center text-red-light font-bold bg-white shadow mb-6 py-1">
             Для нормальной работы отключите блокировку рекламы на этой странице!
         </div>
 
