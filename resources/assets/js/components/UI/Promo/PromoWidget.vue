@@ -1,5 +1,6 @@
 <template>
     <div class="flex w-full">
+        <!-- Carousel for sm screens -->
         <promo-carousel class="block md:hidden w-full">
             <img v-if="getBanner(1)" :src="getBanner(1).image_link" class="w-full h-24">
             <img v-if="getBanner(2)" :src="getBanner(2).image_link" class="w-full h-24">
@@ -7,6 +8,8 @@
             <img v-if="getBanner(4)" :src="getBanner(4).image_link" class="w-full h-24">
         </promo-carousel>
 
+
+        <!-- Carousels for md+ screens -->
         <promo-carousel class="hidden md:block md:w-1/2 md:mr-3">
             <img v-if="getBanner(1)" :src="getBanner(1).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
             <img v-if="getBanner(3)" :src="getBanner(3).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
