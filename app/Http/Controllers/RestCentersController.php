@@ -18,9 +18,8 @@ class RestCentersController extends Controller
     public function index()
     {
         $reservoirs = Reservoir::orderBy('name')->get();
-        $banners = Banner::whereCategory(Banner::CATEGORY_REST_CENTERS)->get();
 
-        return view('rest-centers.index', compact('reservoirs', 'banners'));
+        return view('rest-centers.index', compact('reservoirs'));
     }
 
     public function search(Request $request)

@@ -20,11 +20,7 @@
                 <!-- Dropdown search filters menu -->
                 <portal-target name="sm-md-active-rest-companies-search-filters" slim></portal-target>
 
-                <div class="flex p-2 lg:px-12">
-                    <img src="{{ asset('images/promo/active-rest/sm-1.gif') }}" class="block md:hidden w-full h-24 md:w-1/2 md:mr-2 lg:rounded-xl lg:h-32 lg:mr-6 lg:border-2 lg:border-white">
-                    <img src="{{ asset('images/promo/active-rest/lg-1.gif') }}" class="hidden w-full h-24 md:block md:w-1/2 md:mr-2 lg:rounded-xl lg:h-32 lg:mr-6 lg:border-2 lg:border-white">
-                    <img src="{{ asset('images/promo/active-rest/lg-2.gif') }}" class="hidden w-full h-24 md:block md:w-1/2 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
-                </div>
+                @include('partials.banners')
 
                 <!-- Sorting for small and medium devices -->
                 <portal-target name="sm-md-active-rest-companies-search-sorting" slim></portal-target>
