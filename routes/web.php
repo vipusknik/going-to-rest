@@ -134,4 +134,4 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => [ 'au
     Route::post('banners-image', 'BannersController@storeImage');
 });
 
-// Auth::routes();
+Auth::routes();

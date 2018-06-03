@@ -4,6 +4,10 @@
 
 @section ('content')
     <div class="container mx-auto py-6">
+        <div class="text-center">
+            Для нормальной работы отключите блокировку рекламы на этой странице!
+        </div>
+
         @foreach ($categories as $category => $title)
             <div class="mb-8">
                 <banners-widget title="{{ $title }}"
