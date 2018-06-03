@@ -2,26 +2,59 @@
     <div class="flex w-full">
         <!-- Carousel for sm screens -->
         <promo-carousel class="block md:hidden w-full">
-            <img v-if="getBanner(1)" :src="getBanner(1).image_link" class="w-full h-24">
-            <img v-if="getBanner(2)" :src="getBanner(2).image_link" class="w-full h-24">
-            <img v-if="getBanner(3)" :src="getBanner(3).image_link" class="w-full h-24">
-            <img v-if="getBanner(4)" :src="getBanner(4).image_link" class="w-full h-24">
+            <a v-if="getBanner(1)" :href="getBanner(1).external_link" target="_blank" class="w-full h-24">
+                <img :src="getBanner(1).image_link">
+            </a>
+
+            <a v-if="getBanner(2)" :href="getBanner(2).external_link" target="_blank" class="w-full h-24">
+                <img :src="getBanner(2).image_link">
+            </a>
+
+            <a v-if="getBanner(3)" :href="getBanner(3).external_link" target="_blank" class="w-full h-24">
+                <img :src="getBanner(3).image_link">
+            </a>
+
+            <a v-if="getBanner(4)" :href="getBanner(4).external_link" target="_blank" class="w-full h-24">
+                <img :src="getBanner(4).image_link">
+            </a>
         </promo-carousel>
 
 
         <!-- Carousels for md+ screens -->
         <promo-carousel class="hidden md:block md:w-1/2 md:mr-3">
-            <img v-if="getBanner(1)" :src="getBanner(1).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
-            <img v-if="getBanner(3)" :src="getBanner(3).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
-            <img v-if="getBanner(3) && getBanner(1)" :src="getBanner(3).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
-            <img v-if="getBanner(1) && getBanner(3)" :src="getBanner(1).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
+            <a v-if="getBanner(1)" :href="getBanner(1).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
+                <img :src="getBanner(1).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+            </a>
+
+            <a v-if="getBanner(3)" :href="getBanner(3).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
+                <img :src="getBanner(3).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+            </a>
+
+            <a v-if="getBanner(3) && getBanner(1)" :href="getBanner(3).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
+                <img :src="getBanner(3).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+            </a>
+
+            <a v-if="getBanner(1) && getBanner(3)" :href="getBanner(1).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
+                <img :src="getBanner(1).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+            </a>
         </promo-carousel>
 
         <promo-carousel class="hidden md:block md:w-1/2">
-            <img v-if="getBanner(2)" :src="getBanner(2).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
-            <img v-if="getBanner(2) && getBanner(4)" :src="getBanner(2).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
-            <img v-if="getBanner(4)" :src="getBanner(4).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
-            <img v-if="getBanner(4) && getBanner(2)" :src="getBanner(4).image_link" class="carousel-cell w-full h-24 lg:rounded-xl lg:h-32 lg:border-2 lg:border-white">
+            <a v-if="getBanner(2)" :href="getBanner(2).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
+                <img :src="getBanner(2).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+            </a>
+
+            <a v-if="getBanner(2) && getBanner(4)" :href="getBanner(2).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
+                <img :src="getBanner(2).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+            </a>
+
+            <a v-if="getBanner(4)" :href="getBanner(4).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
+                <img :src="getBanner(4).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+            </a>
+
+            <a v-if="getBanner(4) && getBanner(2)" :href="getBanner(4).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
+                <img :src="getBanner(4).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+            </a>
         </promo-carousel>
     </div>
 </template>
@@ -59,6 +92,12 @@
       line-height: 300px;
       font-size: 2rem;
       font-family: sans-serif;
+    }
+
+    .promo-carousel .carousel-cell img {
+        display: block;
+        width: 100%;
+        height: 100%;
     }
 
     /* Fade CSS */
