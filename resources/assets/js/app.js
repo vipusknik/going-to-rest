@@ -46,6 +46,8 @@ Vue.component('editable-select', require('./components/EditableList/EditableSele
 Vue.component('wysiwig', require('./components/Wysiwig.vue'));
 Vue.component("flash", require("./components/Flash.vue"));
 
+Vue.component("banners-widget", require("./components/Banners/CategoryWidget.vue"));
+
 
 window.events = new Vue();
 

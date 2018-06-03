@@ -31,6 +31,10 @@
         <a class="navbar-item text-black font-semibold" href="{{ route('admin.hunting-companies.index') }}">
           Охота и рыбалка
         </a>
+
+        <a class="navbar-item text-black font-semibold" href="{{ route('admin.banners.index') }}">
+          Реклама
+        </a>
       </div>
 
       <div class="navbar-end">
