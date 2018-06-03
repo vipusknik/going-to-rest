@@ -6,6 +6,7 @@ use App\RestCenter;
 use App\Reservoir;
 use Illuminate\Http\Request;
 use App\Search\RestCentersSearch;
+use App\Banner;
 
 class RestCentersController extends Controller
 {
@@ -17,8 +18,9 @@ class RestCentersController extends Controller
     public function index()
     {
         $reservoirs = Reservoir::orderBy('name')->get();
+        $banners = Banner::whereCategory(Banner::CATEGORY_REST_CENTERS)->get();
 
-        return view('rest-centers.index', compact('reservoirs'));
+        return view('rest-centers.index', compact('reservoirs', 'banners'));
     }
 
     public function search(Request $request)

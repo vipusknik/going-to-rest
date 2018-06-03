@@ -21,6 +21,7 @@ Vue.use(PortalVue);
 
 Vue.component('sm-md-main-menu', require('./components/UI/SmMdMainMenu.vue'));
 Vue.component('carousel', require('./components/UI/Carousel.vue'));
+Vue.component('promo-widget', require('./components/UI/Promo/PromoWidget.vue'));
 
 Vue.component('rest-centers-search', require('./components/UI/RestCenters/Search.vue'));
 Vue.component('rest-center', require('./components/UI/RestCenters/RestCenter.vue'));
