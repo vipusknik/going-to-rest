@@ -101,7 +101,7 @@
     }
 
     /* Fade CSS */
-    .flickity-slider {
+    .promo-carousel .flickity-slider {
       transform: none !important;
     }
 
