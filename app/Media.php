@@ -13,11 +13,11 @@ class Media extends BaseMedia
 
     public function getPathAttribute()
     {
-        return $this->getUrl();
+        return config('app.url') . '/storage' . str_after($this->getUrl(), '/storage');
     }
 
     public function getThumbnailPathAttribute()
     {
-        return $this->getUrl('thumb');
+        return config('app.url') . '/storage' . str_after($this->getUrl('thumb'), '/storage');
     }
 }
