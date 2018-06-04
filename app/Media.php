@@ -20,4 +20,9 @@ class Media extends BaseMedia
     {
         return config('app.url') . '/storage' . str_after($this->getUrl('thumb'), '/storage');
     }
+
+    public function getLink()
+    {
+        return config('app.url') . '/storage' . str_after($this->getUrl(), '/storage');
+    }
 }

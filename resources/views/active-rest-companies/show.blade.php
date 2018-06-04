@@ -58,13 +58,13 @@
                             <div class="mb-8 md:w-2/5 md:mb-0">
                                 <carousel>
                                     @foreach ($model->media as $image)
-                                        <img src="{{ $image->getUrl() }}"
+                                        <img src="{{ $image->getLink() }}"
                                              class="carousel-cell md:rounded-tr-2xl md:rounded-bl-2xl">
                                     @endforeach
 
                                     <template slot="nav">
                                         @foreach ($model->media as $image)
-                                            <img src="{{ $image->getUrl() }}" class="mr-2 rounded-sm">
+                                            <img src="{{ $image->getLink() }}" class="mr-2 rounded-sm">
                                         @endforeach
                                     </template>
                                 </carousel>
