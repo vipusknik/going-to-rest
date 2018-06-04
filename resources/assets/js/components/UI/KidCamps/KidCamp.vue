@@ -148,7 +148,7 @@
                     mainImage = this.model.media[0];
                 }
 
-                return 'http://otdyh-vko.kz' + mainImage.thumbnail_path.replace('http://localhost', '');
+                return mainImage.thumbnail_path;
             }
         }
     }
