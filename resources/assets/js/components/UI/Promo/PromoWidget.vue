@@ -107,8 +107,6 @@
         //12 32 34 14
         // 1 3 3 1
         // 2 2 4 4
-        // 1 3 1
-        // 2 4
         methods: {
             getBanner(order) {
                 return this.banners.find(banner => banner.order === order);
