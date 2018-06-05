@@ -7,7 +7,7 @@
 
             <div class="flex-1 text-center text-2xl font-hortensia -mb-2">Медицинский туризм</div>
 
-            <div :class="{ 'invisible': !showSearchDropdown }" class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDropdown = true">
+            <div :class="{ 'invisible': !showDropdownButton }" class="p-2 border-2 border-white rounded bg-yellow-dark" @click="showSearchDropdown = true">
                 <img src="/images/icons/search.png" alt="menu" class="block w-6 h-6">
             </div>
         </div>
@@ -24,7 +24,7 @@
 
         <!-- Dropdown search search menu for sm and md devices -->
         <portal to="sm-md-medical-centers-search-filters">
-            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-10 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
+            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-10 py-10 pb-4 z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
                 <div class="w-full mb-4">
                     <select v-model="search.type" class="w-full rounded-lg p-2 styled-select">
                         <option value="">Вид</option>

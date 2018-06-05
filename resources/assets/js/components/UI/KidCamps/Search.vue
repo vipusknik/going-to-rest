@@ -24,7 +24,7 @@
 
         <!-- Dropdown search search menu for sm and md devices -->
         <portal to="sm-md-kid-camps-search-filters">
-            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 sm:z-10 sm:flex sm:py-6 lg:hidden">
+            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 z-10 sm:flex sm:py-6 lg:hidden">
                 <div class="w-full mb-4 md:w-5/6 md:mr-3 md:h-10">
                     <select v-model="search.city" class="w-full h-full rounded-lg p-2 styled-select">
                         <option value="">Город</option>

@@ -28,7 +28,7 @@
 
         <!-- Dropdown search search menu for sm and md devices -->
         <portal to="sm-md-rest-centers-search-filters">
-            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
+            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 z-10 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
                 <div class="flex space-between mb-3 sm:w-1/2 sm:pr-6 sm:items-end sm:mb-4">
                     <div class="w-full">
                         <select v-model="search.reservoir" class="w-full rounded-lg p-2 styled-select">
