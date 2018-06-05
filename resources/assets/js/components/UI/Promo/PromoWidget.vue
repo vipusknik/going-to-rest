@@ -1,27 +1,27 @@
 <template>
     <div class="flex w-full">
         <!-- Carousel for sm screens -->
-        <promo-carousel class="block md:hidden w-full">
-            <a v-if="getBanner(1)" :href="getBanner(1).external_link" target="_blank" class="w-full h-24">
+        <div class="promo-carousel block md:hidden w-full">
+            <a v-if="getBanner(1)" :href="getBanner(1).external_link" target="_blank" class="carousel-cell w-full h-24">
                 <img :src="getBanner(1).image_link">
             </a>
 
-            <a v-if="getBanner(2)" :href="getBanner(2).external_link" target="_blank" class="w-full h-24">
+            <a v-if="getBanner(2)" :href="getBanner(2).external_link" target="_blank" class="carousel-cell w-full h-24">
                 <img :src="getBanner(2).image_link">
             </a>
 
-            <a v-if="getBanner(3)" :href="getBanner(3).external_link" target="_blank" class="w-full h-24">
+            <a v-if="getBanner(3)" :href="getBanner(3).external_link" target="_blank" class="carousel-cell w-full h-24">
                 <img :src="getBanner(3).image_link">
             </a>
 
-            <a v-if="getBanner(4)" :href="getBanner(4).external_link" target="_blank" class="w-full h-24">
+            <a v-if="getBanner(4)" :href="getBanner(4).external_link" target="_blank" class="carousel-cell w-full h-24">
                 <img :src="getBanner(4).image_link">
             </a>
-        </promo-carousel>
+        </div>
 
 
         <!-- Carousels for md+ screens -->
-        <promo-carousel class="hidden md:block md:w-1/2 md:mr-3">
+        <div class="promo-carousel hidden md:block md:w-1/2 md:mr-3">
             <a v-if="getBanner(1)" :href="getBanner(1).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
                 <img :src="getBanner(1).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
             </a>
@@ -37,9 +37,9 @@
             <a v-if="getBanner(1) && getBanner(3)" :href="getBanner(1).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
                 <img :src="getBanner(1).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
             </a>
-        </promo-carousel>
+        </div>
 
-        <promo-carousel class="hidden md:block md:w-1/2">
+        <div class="promo-carousel hidden md:block md:w-1/2">
             <a v-if="getBanner(2)" :href="getBanner(2).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
                 <img :src="getBanner(2).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
             </a>
@@ -55,16 +55,15 @@
             <a v-if="getBanner(4) && getBanner(2)" :href="getBanner(4).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
                 <img :src="getBanner(4).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
             </a>
-        </promo-carousel>
+        </div>
     </div>
 </template>
 
 <script>
-    import PromoCarousel from './PromoCarousel.vue';
+    import Flickity from 'flickity';
+    import 'flickity/dist/flickity.min.css';
 
     export default {
-        components: { PromoCarousel },
-
         props: {
             banners: {
                 type: Array,
@@ -72,7 +71,28 @@
             }
         },
 
+        mounted() {
+            let sliders = document.querySelectorAll(".promo-carousel");
+
+            for (let i = 0; i < sliders.length; i++) {
+                new Flickity(sliders[i], {
+                    autoPlay: true,
+                    wrapAround: true,
+                    cellAlign: 'left',
+                    contain: true,
+                    pageDots: false,
+                    prevNextButtons: false,
+                    // selectedAttraction: 0.001,
+                    // friction: 0.01
+                })
+            }
+        },
+
         //12 32 34 14
+        // 1 3 3 1
+        // 2 2 4 4
+        // 1 3 1
+        // 2 4
         methods: {
             getBanner(order) {
                 return this.banners.find(banner => banner.order === order);
@@ -108,7 +128,7 @@
     .promo-carousel .carousel-cell {
       left: 0 !important;
       opacity: 0;
-      transition: opacity 0.6s ease-in-out;
+      /*transition: opacity 0.6s ease-in-out;*/
       z-index: -1;
     }
 
