@@ -82,8 +82,24 @@
                     contain: true,
                     pageDots: false,
                     prevNextButtons: false,
-                    // selectedAttraction: 0.001,
-                    // friction: 0.01
+
+                    on: {
+                        ready: function() {
+                            this.pausePlayer();
+
+                            setTimeout(() => {
+                                this.unpausePlayer();
+                            }, 7000)
+                        },
+
+                        change: function () {
+                            this.pausePlayer();
+
+                            setTimeout(() => {
+                                this.unpausePlayer();
+                            }, 7000)
+                        }
+                    }
                 })
             }
         },
