@@ -20,8 +20,13 @@
     </script>
 
     <div class="h-screen lg:relative" id="app" style="overflow-x: hidden" v-cloak>
+        <!-- Main menu for small and medium devices -->
+        <sm-md-main-menu></sm-md-main-menu>
+
         <div class="rest-centers-page-upper-part lg:pt-16 lg:mb-4">
             @yield('header')
+
+            {{-- Main nav menu for lg+ devices --}}
             @include('main-nav')
         </div>
 

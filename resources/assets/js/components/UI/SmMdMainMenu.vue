@@ -1,6 +1,8 @@
 <template>
-    <div>
-        <nav v-if="$parent.showMainMenu" class="fixed pin-t pin-l h-full w-64 bg-yellow-dark overflow-x-hidden z-50 sm:w-full sm:h-auto lg:hidden">
+    <div v-if="$parent.showMainMenu">
+        <div @click.self="$parent.showMainMenu = false" class="fixed w-full h-full overflow-y-auto z-50" style="background: rgba(255, 255, 255, .4);"></div>
+
+        <nav class="fixed pin-t pin-l h-full w-64 bg-yellow-dark overflow-x-hidden z-50 sm:w-full sm:h-auto lg:hidden">
             <menu class="m-0 p-0">
                 <div class="flex items-center justify-center bg-yellow-light w-full py-6 px-2 mb-4">
                     <div class="text-xl font-bold mr-2">

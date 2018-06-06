@@ -1,6 +1,3 @@
-<!-- Main menu for small and medium devices -->
-<sm-md-main-menu></sm-md-main-menu>
-
 <!-- Main menu for large and xl devices -->
 <div class="container mx-auto lg:px-12">
     <nav class="hidden lg:block lg:flex lg:justify-around">
