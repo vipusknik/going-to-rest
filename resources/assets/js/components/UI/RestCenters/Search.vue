@@ -28,81 +28,83 @@
 
         <!-- Dropdown search search menu for sm and md devices -->
         <portal to="sm-md-rest-centers-search-filters">
-            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 z-10 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
-                <div class="flex space-between mb-3 sm:w-1/2 sm:pr-6 sm:items-end sm:mb-4">
-                    <div class="w-full">
-                        <select v-model="search.reservoir" class="w-full rounded-lg p-2 styled-select">
-                            <option value="">Водоем</option>
-                            <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option>
+            <faded v-if="showSearchDropdown" @blur="showSearchDropdown = false" bg-classes="lg:hidden">
+                <div class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 z-10 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
+                    <div class="flex space-between mb-3 sm:w-1/2 sm:pr-6 sm:items-end sm:mb-4">
+                        <div class="w-full">
+                            <select v-model="search.reservoir" class="w-full rounded-lg p-2 styled-select">
+                                <option value="">Водоем</option>
+                                <option v-for="reservoir in reservoirs" :value="reservoir.id">{{ reservoir.name }}</option>
+                            </select>
+                        </div>
+
+                        <!-- <div class="w-1/2">
+                            <select v-model="search.guest_count" class="w-full rounded-lg p-2">
+                                <option value="">Вмещаемость</option>
+                                <option v-for="n in 30" :value="n">{{ n }} человек</option>
+                            </select>
+                        </div> -->
+                    </div>
+
+                    <!-- <div class="mb-4 sm:w-1/2 sm:flex sm:flex-col sm:justify-end">
+                        <div class="text-2xl text-grey-darker text-center font-bold mb-3">
+                            Цена за сутки
+                        </div>
+
+                        <div class="flex space-between">
+                            <div class="w-1/2 mr-3 flex items-center">
+                                <div class="text-lg text-white bg-teal-dark rounded-l-lg h-10 px-2 pt-2">
+                                    от
+                                </div>
+
+                                <div class="h-10">
+                                    <input type="text" v-model="search.price_from" class="rounded-r-lg w-full h-full px-2">
+                                </div>
+                            </div>
+
+                            <div class="w-1/2 mr-3 flex items-center">
+                                <div class="text-lg text-white bg-teal-dark rounded-l-lg h-10 px-2 pt-2">
+                                    до
+                                </div>
+
+                                <div class="h-10">
+                                    <input type="text" v-model="search.price_to" class="rounded-r-lg w-full h-full px-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="mb-4 sm:w-1/2 sm:mb-0">
+                        <!-- <div class="text-2xl text-grey-darker text-center font-bold mb-3">
+                            Тип размещения
+                        </div> -->
+
+                        <select v-model="search.accomodation_type" class="w-full rounded-lg p-2 styled-select">
+                            <option value="">Тип размещения</option>
+                            <option value="room">Гостинница / Номер</option>
+                            <option value="house">Коттедж / Домик</option>
                         </select>
                     </div>
 
-                    <!-- <div class="w-1/2">
-                        <select v-model="search.guest_count" class="w-full rounded-lg p-2">
-                            <option value="">Вмещаемость</option>
-                            <option v-for="n in 30" :value="n">{{ n }} человек</option>
-                        </select>
-                    </div> -->
-                </div>
-
-                <!-- <div class="mb-4 sm:w-1/2 sm:flex sm:flex-col sm:justify-end">
-                    <div class="text-2xl text-grey-darker text-center font-bold mb-3">
-                        Цена за сутки
-                    </div>
-
-                    <div class="flex space-between">
-                        <div class="w-1/2 mr-3 flex items-center">
-                            <div class="text-lg text-white bg-teal-dark rounded-l-lg h-10 px-2 pt-2">
-                                от
+                    <div class="flex sm:w-1/2 sm:items-end md:w-2/3 md:justify-between">
+                        <div class="flex items-center w-1/2 mr-4 md:w-1/3">
+                            <div class="mr-3 styled-checkbox">
+                                <input type="checkbox" v-model="search.has_food" id="has-food-checkbox" class="hidden">
+                                <label for="has-food-checkbox" class="flex items-center justify-center h-8 w-8 rounded-lg bg-white">
+                                    <i class="fas fa-check text-black hidden"></i>
+                                </label>
                             </div>
-
-                            <div class="h-10">
-                                <input type="text" v-model="search.price_from" class="rounded-r-lg w-full h-full px-2">
-                            </div>
+                            <label class="block flex-1 text-xl text-grey-darker font-bold" for="has-food-checkbox">Только с питанием</label>
                         </div>
 
-                        <div class="w-1/2 mr-3 flex items-center">
-                            <div class="text-lg text-white bg-teal-dark rounded-l-lg h-10 px-2 pt-2">
-                                до
-                            </div>
-
-                            <div class="h-10">
-                                <input type="text" v-model="search.price_to" class="rounded-r-lg w-full h-full px-2">
-                            </div>
+                        <div class="flex justify-center w-1/2">
+                            <button @click="showSearchDropdown = false" class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-full h-10">
+                                Поиск
+                            </button>
                         </div>
                     </div>
-                </div> -->
-
-                <div class="mb-4 sm:w-1/2 sm:mb-0">
-                    <!-- <div class="text-2xl text-grey-darker text-center font-bold mb-3">
-                        Тип размещения
-                    </div> -->
-
-                    <select v-model="search.accomodation_type" class="w-full rounded-lg p-2 styled-select">
-                        <option value="">Тип размещения</option>
-                        <option value="room">Гостинница / Номер</option>
-                        <option value="house">Коттедж / Домик</option>
-                    </select>
                 </div>
-
-                <div class="flex sm:w-1/2 sm:items-end md:w-2/3 md:justify-between">
-                    <div class="flex items-center w-1/2 mr-4 md:w-1/3">
-                        <div class="mr-3 styled-checkbox">
-                            <input type="checkbox" v-model="search.has_food" id="has-food-checkbox" class="hidden">
-                            <label for="has-food-checkbox" class="flex items-center justify-center h-8 w-8 rounded-lg bg-white">
-                                <i class="fas fa-check text-black hidden"></i>
-                            </label>
-                        </div>
-                        <label class="block flex-1 text-xl text-grey-darker font-bold" for="has-food-checkbox">Только с питанием</label>
-                    </div>
-
-                    <div class="flex justify-center w-1/2">
-                        <button @click="showSearchDropdown = false" class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-full h-10">
-                            Поиск
-                        </button>
-                    </div>
-                </div>
-            </div>
+            </faded>
         </portal>
 
         <!-- Sorting for sm and md devices -->

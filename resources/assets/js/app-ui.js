@@ -40,6 +40,8 @@ Vue.component('hunting-companies-search', require('./components/UI/HuntingCompan
 Vue.component('hunting-company', require('./components/UI/HuntingCompanies/HuntingCompany.vue'));
 Vue.component('hunting-company-page', require('./components/UI/HuntingCompanies/HuntingCompanyPage.vue'));
 
+Vue.component('faded', require('./components/UI/Faded.vue'));
+
 window.events = new Vue();
 
 window.flash = function(message, level = 'success') {

@@ -24,32 +24,34 @@
 
         <!-- Dropdown search search menu for sm and md devices -->
         <portal to="sm-md-active-rest-companies-search-filters">
-            <div v-if="showSearchDropdown" class="absolute z-20 bg-yellow-dark w-full px-10 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
-                <div class="w-full md:flex md:mb-4">
-                    <div class="w-full mb-4 md:mb-0 md:w-1/2 md:mr-3">
-                        <select v-model="search.season" class="w-full rounded-lg p-2 styled-select">
-                            <option value="">Все сезоны</option>
-                            <option value="spring">весна</option>
-                            <option value="summer">лето</option>
-                            <option value="autumn">осень</option>
-                            <option value="winter">зима</option>
-                        </select>
+            <faded v-if="showSearchDropdown" @blur="showSearchDropdown = false" bg-classes="lg:hidden">
+                <div class="absolute z-20 bg-yellow-dark w-full px-10 py-10 pb-4 sm:z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
+                    <div class="w-full md:flex md:mb-4">
+                        <div class="w-full mb-4 md:mb-0 md:w-1/2 md:mr-3">
+                            <select v-model="search.season" class="w-full rounded-lg p-2 styled-select">
+                                <option value="">Все сезоны</option>
+                                <option value="spring">весна</option>
+                                <option value="summer">лето</option>
+                                <option value="autumn">осень</option>
+                                <option value="winter">зима</option>
+                            </select>
+                        </div>
+
+                        <div class="w-full mb-4 md:mb-0 md:w-1/2">
+                            <select v-model="search.activity" class="w-full rounded-lg p-2 styled-select">
+                                <option value="">Вид отдыха</option>
+                                <option v-for="activity in activities" :value="activity.id">{{ activity.name }}</option>
+                            </select>
+                        </div>
                     </div>
 
-                    <div class="w-full mb-4 md:mb-0 md:w-1/2">
-                        <select v-model="search.activity" class="w-full rounded-lg p-2 styled-select">
-                            <option value="">Вид отдыха</option>
-                            <option v-for="activity in activities" :value="activity.id">{{ activity.name }}</option>
-                        </select>
+                    <div class="sm:w-full flex justify-end">
+                        <button @click="showSearchDropdown = false" class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-1/2 h-8 md:w-1/4">
+                            Поиск
+                        </button>
                     </div>
                 </div>
-
-                <div class="sm:w-full flex justify-end">
-                    <button @click="showSearchDropdown = false" class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-1/2 h-8 md:w-1/4">
-                        Поиск
-                    </button>
-                </div>
-            </div>
+            </faded>
         </portal>
 
         <!-- Search for lg and xl devices -->

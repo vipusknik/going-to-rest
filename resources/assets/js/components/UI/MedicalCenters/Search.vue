@@ -24,28 +24,30 @@
 
         <!-- Dropdown search search menu for sm and md devices -->
         <portal to="sm-md-medical-centers-search-filters">
-            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-10 py-10 pb-4 z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
-                <div class="w-full mb-4">
-                    <select v-model="search.type" class="w-full rounded-lg p-2 styled-select">
-                        <option value="">Вид</option>
-                        <option v-for="type in types" :value="type.id">{{ type.name }}</option>
-                    </select>
-                </div>
+            <faded v-if="showSearchDropdown" @blur="showSearchDropdown = false" bg-classes="lg:hidden">
+                <div class="absolute bg-yellow-dark w-full px-10 py-10 pb-4 z-10 sm:flex sm:flex-wrap sm:py-6 lg:hidden">
+                    <div class="w-full mb-4">
+                        <select v-model="search.type" class="w-full rounded-lg p-2 styled-select">
+                            <option value="">Вид</option>
+                            <option v-for="type in types" :value="type.id">{{ type.name }}</option>
+                        </select>
+                    </div>
 
-                <div class="w-full mb-4">
-                    <select v-model="search.region" class="w-full rounded-lg p-2 styled-select">
-                        <option value="">Регион</option>
-                        <option v-for="city in cities" :value="`city_${city.id}`">г. {{ city.name }}</option>
-                        <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
-                    </select>
-                </div>
+                    <div class="w-full mb-4">
+                        <select v-model="search.region" class="w-full rounded-lg p-2 styled-select">
+                            <option value="">Регион</option>
+                            <option v-for="city in cities" :value="`city_${city.id}`">г. {{ city.name }}</option>
+                            <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
+                        </select>
+                    </div>
 
-                <div class="sm:w-full flex justify-end">
-                    <button @click="showSearchDropdown = false" class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-1/2 h-8 md:w-1/4">
-                        Поиск
-                    </button>
+                    <div class="sm:w-full flex justify-end">
+                        <button @click="showSearchDropdown = false" class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-1/2 h-8 md:w-1/4">
+                            Поиск
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </faded>
         </portal>
 
         <!-- Search for lg and xl devices -->

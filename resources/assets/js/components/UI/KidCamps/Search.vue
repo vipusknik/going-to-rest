@@ -24,20 +24,22 @@
 
         <!-- Dropdown search search menu for sm and md devices -->
         <portal to="sm-md-kid-camps-search-filters">
-            <div v-if="showSearchDropdown" class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 z-10 sm:flex sm:py-6 lg:hidden">
-                <div class="w-full mb-4 md:w-5/6 md:mr-3 md:h-10">
-                    <select v-model="search.city" class="w-full h-full rounded-lg p-2 styled-select">
-                        <option value="">Город</option>
-                        <option v-for="city in cities" :value="city.id">{{ city.name }}</option>
-                    </select>
-                </div>
+            <faded v-if="showSearchDropdown" @blur="showSearchDropdown = false" bg-classes="lg:hidden">
+                <div class="absolute bg-yellow-dark w-full px-6 py-10 pb-4 z-10 sm:flex sm:py-6 lg:hidden">
+                    <div class="w-full mb-4 md:w-5/6 md:mr-3 md:h-10">
+                        <select v-model="search.city" class="w-full h-full rounded-lg p-2 styled-select">
+                            <option value="">Город</option>
+                            <option v-for="city in cities" :value="city.id">{{ city.name }}</option>
+                        </select>
+                    </div>
 
-                <div class="sm:w-full flex justify-end md:w-1/6 md:h-10">
-                    <button @click="showSearchDropdown = false" class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-1/2 h-8 md:w-full md:h-full">
-                        Поиск
-                    </button>
+                    <div class="sm:w-full flex justify-end md:w-1/6 md:h-10">
+                        <button @click="showSearchDropdown = false" class="text-lg text-white font-bold tracking-wide bg-teal-dark px-4 rounded-lg w-1/2 h-8 md:w-full md:h-full">
+                            Поиск
+                        </button>
+                    </div>
                 </div>
-            </div>
+            </faded>
         </portal>
 
         <!-- Search for lg and xl devices -->
