@@ -89,7 +89,7 @@
 
                             setTimeout(() => {
                                 this.unpausePlayer();
-                            }, 7000)
+                            }, 2000)
                         },
 
                         change: function () {
@@ -97,7 +97,7 @@
 
                             setTimeout(() => {
                                 this.unpausePlayer();
-                            }, 7000)
+                            }, 2000)
                         }
                     }
                 })
