@@ -56,6 +56,8 @@
     }
 
     .main-carousel .carousel-cell {
+        height: 200px;
+        width: 100%;
         margin-right: 10px;
         display: flex;
         align-items: center;
