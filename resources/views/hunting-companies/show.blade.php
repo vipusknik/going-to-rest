@@ -300,25 +300,27 @@
                             </div>
                         </div>
 
-                        <div class="flex px-3 mt-3 pb-3 md:hidden">
-                            <div class="w-8 h-8 flex-no-shrink mr-3">
-                                <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
+                        @if ($model->description)
+                            <div class="flex px-3 mt-3 pb-3 md:hidden">
+                                <div class="w-8 h-8 flex-no-shrink mr-3">
+                                    <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
+                                </div>
+
+                                <div class="flex-1 break-words min-w-0">
+                                    {!! $model->description !!}
+                                </div>
                             </div>
 
-                            <div class="flex-1 break-words min-w-0">
-                                {!! $model->description !!}
-                            </div>
-                        </div>
+                            <div class="hidden md:flex md:py-2 md:w-full md:pl-2 md:items-start">
+                                <div class="w-8 h-8 flex-no-shrink mr-3">
+                                    <img src="/images/icons/pencil.png" alt="address" class="block">
+                                </div>
 
-                        <div class="hidden md:flex md:py-2 md:w-full md:pl-2 md:items-start">
-                            <div class="w-8 h-8 flex-no-shrink mr-3">
-                                <img src="/images/icons/pencil.png" alt="address" class="block">
+                                <div class="flex-1 break-words min-w-0">
+                                    {!! $model->description !!}
+                                </div>
                             </div>
-
-                            <div class="flex-1 break-words min-w-0">
-                                {!! $model->description !!}
-                            </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </main>

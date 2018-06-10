@@ -111,15 +111,17 @@
                             @include ('partials.links-sm')
 
                             <div class="md:hidden">
-                                <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
-                                    <div class="w-8 h-8 flex-no-shrink mr-3">
-                                        <img src="/images/icons/pencil.png" alt="address" class="block w-8 h-8">
-                                    </div>
+                                @if ($model->description)
+                                    <div class="flex border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
+                                        <div class="w-8 h-8 flex-no-shrink mr-3">
+                                            <img src="/images/icons/pencil.png" alt="address" class="block w-8 h-8">
+                                        </div>
 
-                                    <div class="flex-1 break-words min-w-0">
-                                        {!! $model->description !!}
+                                        <div class="flex-1 break-words min-w-0">
+                                            {!! $model->description !!}
+                                        </div>
                                     </div>
-                                </div>
+                                @endif
 
                                 @foreach ($model->accomodations as $accomodation)
                                 <div class="flex border-teal-dark py-2 md:w-1/2 md:pr-2 md:items-start">
@@ -163,15 +165,17 @@
                     @include ('partials.links-md')
 
                     <div class="hidden md:block md:px-3 md:mt-3">
-                        <div class="flex">
-                            <div class="w-8 h-8 flex-no-shrink mr-3">
-                                <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
-                            </div>
+                        @if ($model->description)
+                            <div class="flex">
+                                <div class="w-8 h-8 flex-no-shrink mr-3">
+                                    <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
+                                </div>
 
-                            <div class="flex-1 break-words min-w-0 pb-3 pt-2 border-b-2 border-teal-dark border-dotted">
-                                {!! $model->description !!}
+                                <div class="flex-1 break-words min-w-0 pb-3 pt-2 border-b-2 border-teal-dark border-dotted">
+                                    {!! $model->description !!}
+                                </div>
                             </div>
-                        </div>
+                        @endif
 
                         @foreach ($model->accomodations as $accomodation)
                         <div class="flex">
@@ -190,7 +194,7 @@
                                     </div>
                                 </div>
 
-                                <div class="flex items-center w-1/4 border-r-2 border-teal-dark border-dotted">
+                                <div class="flex w-1/4 border-r-2 border-teal-dark border-dotted">
                                     <div class="w-8 h-8 flex-no-shrink mr-3 ml-2">
                                         <img src="/images/icons/price.png" alt="" class="block w-full h-full">
                                     </div>
@@ -200,7 +204,7 @@
                                     </div>
                                 </div>
 
-                                <div class="flex items-center w-1/4">
+                                <div class="flex w-1/4">
                                     <div class="w-8 h-8 flex-no-shrink mr-3 ml-2">
                                         <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
                                     </div>
