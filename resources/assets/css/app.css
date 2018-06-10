@@ -198,7 +198,7 @@ a {
         height: 100%;
         width: 14%;
         background-image: url(/images/left-beach-decorations.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 78%;
     }
@@ -209,7 +209,7 @@ a {
         height: 100%;
         width: 14%;
         background-image: url(/images/right-beach-decorations.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 78%;
     }
@@ -267,7 +267,7 @@ a {
         height: 100%;
         width: 26%;
         background-image: url(/images/medical-centers/decorations-left.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 100%;
         margin-left: -135px !important;
@@ -279,7 +279,7 @@ a {
         height: 100%;
         width: 26%;
         background-image: url(/images/medical-centers/decorations-right.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 100%;
         margin-right: -126px;
@@ -325,7 +325,7 @@ a {
         height: 100%;
         width: 26%;
         background-image: url(/images/kid-camps/decoration-left-big-min.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 100%;
         margin-left: -135px !important;
@@ -337,7 +337,7 @@ a {
         height: 100%;
         width: 26%;
         background-image: url(/images/kid-camps/decoration-right-big-min.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 100%;
         margin-right: -126px;
@@ -383,7 +383,7 @@ a {
         height: 100%;
         width: 23%;
         background-image: url(/images/active-rest/decoration-left-min.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 100%;
         margin-left: -84px !important;
@@ -395,7 +395,7 @@ a {
         height: 100%;
         width: 56%;
         background-image: url(/images/active-rest/decoration-right-min.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 100%;
         margin-right: -377px;
@@ -441,7 +441,7 @@ a {
         height: 100%;
         width: 23%;
         background-image: url(/images/hunting-companies/decoration-left.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 100%;
         margin-left: -84px !important;
@@ -453,7 +453,7 @@ a {
         height: 100%;
         width: 30%;
         background-image: url(/images/hunting-companies/decoration-right.png);
-        background-repeat: no-repeat;
+        background-repeat: repeat-y;
         background-position-x: center;
         background-size: 100%;
         margin-right: -146px;
