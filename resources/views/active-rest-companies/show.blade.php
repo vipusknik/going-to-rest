@@ -211,7 +211,7 @@
                                     </div>
                                 </div>
 
-                                <div class="hidden md:flex md:items-center md:w-full md:border-b-2 md:border-dotted md:border-teal-dark md:pt-3">
+                                <div class="hidden md:flex md:items-end md:w-full md:border-b-2 md:border-dotted md:border-teal-dark md:pt-3">
                                     <div v-if="hasActivitiesAt('summer')" @click="selectedSeason = 'summer'" :class="{ 'px-2': selectedSeason !== 'summer' }" class="flex items-center p-1 mr-3 rounded-t-lg bg-yellow cursor-pointer">
                                         <div class="w-6 h-6">
                                             <img src="/images/icons/summer-white.png" alt="" class="block">
