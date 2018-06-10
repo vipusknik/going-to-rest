@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="hidden md:block md:absolute md:pin-b md:pin-r">
-                        <a :href="`/pljazhnyj-otdyh/${center.slug}`" class="block text-base text-white font-bold bg-teal-dark rounded-tl-lg rounded-br-xl px-4 py-1">Подробнее</a>
+                        <a :href="`/pljazhnyj-otdyh/${center.slug}`" class="block text-base text-white font-bold bg-teal-dark rounded-tl-lg rounded-br-2xl px-4 py-1">Подробнее</a>
                     </div>
                 </div>
             </div>
