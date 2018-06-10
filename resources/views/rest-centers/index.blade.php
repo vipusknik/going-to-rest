@@ -6,14 +6,14 @@
 
 @section('header')
    <!-- Header -->
-    <div class="bg-yellow-light lg:hidden">
+    <div class="bg-yellow-light fixed w-full z-40 h-17 lg:hidden">
         <div class="container mx-auto">
             <rest-centers-search :reservoirs="{{ json_encode($reservoirs) }}" @resultsupdated="updateModels"></rest-centers-search>
         </div>
     </div>
 
     <!-- Ads filtering and sorting  -->
-    <div class="mb-2">
+    <div class="mb-2 pt-16 lg:pt-0">
         <div class="container mx-auto">
             <div class="relative">
                 <!-- Dropdown search filters menu -->

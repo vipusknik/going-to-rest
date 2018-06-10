@@ -6,7 +6,7 @@
 
 @section('header')
     <!-- Header -->
-    <div class="bg-yellow-light lg:hidden">
+    <div class="bg-yellow-light fixed w-full z-40 h-17 lg:hidden">
         <div class="container mx-auto">
             <medical-centers-search :types="{{ json_encode($types) }}"
                                     :cities="{{ json_encode($cities) }}"
@@ -17,7 +17,7 @@
     </div>
 
     <!-- Ads filtering and sorting  -->
-    <div class="mb-6">
+    <div class="mb-6 pt-16 lg:pt-0">
         <div class="container mx-auto">
             <div class="relative">
                 <!-- Dropdown search filters menu -->
