@@ -8,8 +8,7 @@
     <!-- Header -->
     <div class="bg-yellow-light lg:hidden">
         <div class="container mx-auto">
-            <active-rest-companies-search :activities="{{ json_encode($activities) }}" @resultsupdated="updateModels">
-            </active-rest-companies-search>
+            <sm-md-nav title="Активный отдых" back-url="{{ route('active-rest-companies.index') }}"></sm-md-nav>
         </div>
     </div>
 

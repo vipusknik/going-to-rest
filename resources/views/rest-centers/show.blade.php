@@ -8,7 +8,7 @@
    <!-- Header -->
     <div class="bg-yellow-light lg:hidden">
         <div class="container mx-auto">
-            <rest-centers-search :show-dropdown-button="false" :reservoirs="{{ json_encode($reservoirs) }}" @resultsupdated="updateModels"></rest-centers-search>
+            <sm-md-nav title="Пляжный отдых" back-url="{{ route('rest-centers.index') }}"></sm-md-nav>
         </div>
     </div>
 

@@ -8,12 +8,7 @@
    <!-- Header -->
     <div class="bg-yellow-light lg:hidden">
         <div class="container mx-auto">
-            <medical-centers-search :show-dropdown-button="false"
-                                    :types="{{ json_encode($types) }}"
-                                    :cities="{{ json_encode($cities) }}"
-                                    :regions="{{ json_encode($regions) }}"
-                                    @resultsupdated="updateModels">
-            </medical-centers-search>
+            <sm-md-nav title="Медицинский туризм" back-url="{{ route('medical-centers.index') }}"></sm-md-nav>
         </div>
     </div>
 

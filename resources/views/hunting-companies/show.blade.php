@@ -8,8 +8,7 @@
     <!-- Header -->
     <div class="bg-yellow-light lg:hidden">
         <div class="container mx-auto">
-            <hunting-companies-search :regions="{{ json_encode($regions) }}" @resultsupdated="updateModels">
-            </hunting-companies-search>
+            <sm-md-nav title="Рыбалка и охота" back-url="{{ route('hunting-companies.index') }}"></sm-md-nav>
         </div>
     </div>
 

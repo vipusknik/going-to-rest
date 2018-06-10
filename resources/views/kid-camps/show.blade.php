@@ -8,7 +8,7 @@
     <!-- Header -->
     <div class="bg-yellow-light lg:hidden">
         <div class="container mx-auto">
-            <kid-camps-search :cities="{{ json_encode($cities) }}" @resultsupdated="updateModels"></kid-camps-search>
+            <sm-md-nav title="Детский отдых" back-url="{{ route('kid-camps.index') }}"></sm-md-nav>
         </div>
     </div>
 
