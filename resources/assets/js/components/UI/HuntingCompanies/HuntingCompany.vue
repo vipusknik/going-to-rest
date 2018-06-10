@@ -49,8 +49,7 @@
                                 <div class="flex-1 break-words min-w-0 flex items-center md:relative">
                                     <div class="flex-1 mr-2 self-end">
                                         <span v-for="(animal, index) in animals">
-                                            {{ animal.name }}
-                                            <template v-if="index !== animals.length - 1">, </template>
+                                            {{ animal.name }}<template v-if="index !== animals.length - 1">, </template>
                                         </span>
                                     </div>
                                 </div>
@@ -64,8 +63,7 @@
                                 <div class="flex-1 break-words min-w-0 flex items-center md:relative">
                                     <div class="flex-1 mr-2 self-end">
                                         <span v-for="(fish, index) in fishes">
-                                            {{ fish.name }}
-                                            <template v-if="index !== fishes.length - 1">, </template>
+                                            {{ fish.name }}<template v-if="index !== fishes.length - 1">, </template>
                                         </span>
                                     </div>
                                 </div>
@@ -202,8 +200,7 @@
 
                             <div class="flex-1 break-words min-w-0">
                                 <span v-for="(animal, index) in animals">
-                                    {{ animal.name }}
-                                    <template v-if="index !== animals.length - 1">, </template>
+                                    {{ animal.name }}<template v-if="index !== animals.length - 1">, </template>
                                 </span>
                             </div>
                         </div>
@@ -215,8 +212,7 @@
 
                             <div class="flex-1 break-words min-w-0">
                                 <span v-for="(fish, index) in fishes">
-                                    {{ fish.name }}
-                                    <template v-if="index !== fishes.length - 1">, </template>
+                                    {{ fish.name }}<template v-if="index !== fishes.length - 1">, </template>
                                 </span>
                             </div>
                         </div>

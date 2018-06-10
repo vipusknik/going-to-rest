@@ -48,8 +48,7 @@
                                 <div class="flex-1 break-words min-w-0 flex items-center md:relative">
                                     <div class="flex-1 mr-2 self-end">
                                         <span v-for="(activity, index) in activities">
-                                            {{ activity.name }}
-                                            <template v-if="index !== activities.length - 1">, </template>
+                                            {{ activity.name }}<template v-if="index !== activities.length - 1">, </template>
                                         </span>
                                     </div>
 
@@ -186,8 +185,7 @@
 
                             <div class="flex-1 break-words min-w-0">
                                 <span v-for="(activity, index) in activities">
-                                    {{ activity.name }}
-                                    <template v-if="index !== activities.length - 1">, </template>
+                                    {{ activity.name }}<template v-if="index !== activities.length - 1">, </template>
                                 </span>
                             </div>
                         </div>

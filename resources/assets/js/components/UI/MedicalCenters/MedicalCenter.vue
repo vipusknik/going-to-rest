@@ -48,8 +48,7 @@
                         <div class="flex-1 break-words min-w-0 flex items-center md:relative">
                             <div class="flex-1 mr-2 self-end">
                                 <span v-for="(type, index) in types">
-                                    {{ type.name }}
-                                    <template v-if="index !== types.length - 1">, </template>
+                                    {{ type.name }}<template v-if="index !== types.length - 1">, </template>
                                 </span>
                             </div>
 
@@ -107,8 +106,7 @@
 
                     <div class="flex-1 break-words min-w-0">
                         <span v-for="(type, index) in types">
-                            {{ type.name }}
-                            <template v-if="index !== types.length - 1">, </template>
+                            {{ type.name }}<template v-if="index !== types.length - 1">, </template>
                         </span>
                     </div>
                 </div>

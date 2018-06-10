@@ -155,8 +155,7 @@
 
                                 <div class="flex-1 break-words min-w-0">
                                     @foreach ($model->features->where('category', \App\Feature::CATEGORY_OCCUPATIONS) as $feature)
-                                        {{ $feature->name }}
-                                        {{ !$loop->last ? ',' : '' }}
+                                        {{ $feature->name }}{{ !$loop->last ? ',' : '' }}
                                     @endforeach
                                 </div>
                             </div>
