@@ -11,8 +11,8 @@
     <div class="h-screen">
         <div class="mb-6 main-page-upper-part md:mb-2 lg:mb-8 xl:-mb-3">
             <div class="container mx-auto">
-                <div class="flex flex-col items-center pt-12 mb-8 lg:pt-20">
-                    <div class="mb-2 md:mb-4 lg:w-2/5">
+                <div class="flex flex-col items-center pt-12 mb-8 sm:pt-16 md:pt-12 lg:pt-20">
+                    <div class="mb-2 md:mb-4 lg:w-1/2 xl:w-2/5">
                         {{-- Heading --}}
                         <div class="h-10 mb-1 heading-bg-text md:h-16"></div>
 
@@ -53,7 +53,7 @@
             <div class="container mx-auto">
                 <div>
                     <div class="flex flex-col justify-around items-center sm:flex-row sm:justify-center md:px-4">
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-0 sm:py-4 sm:rounded-xl md:px-1 md:mr-8 xl:mr-12">
                             <a href="{{ route('rest-centers.index') }}" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/beach-holidays.png') }}"
@@ -67,7 +67,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-0 sm:py-4 sm:rounded-xl md:px-1 md:mr-8 xl:mr-12">
                             <a href="{{ route('active-rest-companies.index') }}" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/active-rest.png') }}"
@@ -81,7 +81,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-0 sm:py-4 sm:rounded-xl md:px-1 md:mr-8 xl:mr-12">
                             <a href="{{ route('kid-camps.index') }}" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/children-holidays.png') }}"
@@ -95,7 +95,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-1 sm:py-4 sm:rounded-xl md:mr-8 xl:mr-12">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:mr-6 sm:px-0 sm:py-4 sm:rounded-xl md:px-1 md:mr-8 xl:mr-12">
                             <a href="{{ route('hunting-companies.index') }}" class="flex items-center sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/fishing-and-hunting.png') }}"
@@ -109,7 +109,7 @@
                             </a>
                         </div>
 
-                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:px-1 sm:py-4 sm:rounded-xl">
+                        <div class="mb-4 py-2 px-2 w-52 border-2 border-dotted border-white rounded-lg shadow-lg cursor-pointer zoom hover:bg-yellow-light hover:opacity-9 sm:w-32 sm:px-0 sm:py-4 sm:rounded-xl md:px-1">
                             <a href="{{ route('medical-centers.index') }}" class="flex items-center no-underline sm:flex-col">
                                 <div class="w-1/4 mr-4 sm:w-auto sm:mb-4 sm:mr-0">
                                     <img src="{{ asset('images/icons/site-category-icons/medical-tourism.png') }}"

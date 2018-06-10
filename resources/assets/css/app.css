@@ -124,22 +124,27 @@ a {
 }
 
 .main-page-upper-part {
-    height: 300px;
+    height: 330px;
     background-image: url(/images/main-page/main-page-upper-bg-min.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position-x: center;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 420px) {
   .main-page-upper-part {
-    height: 415px;
+    height: 430px;
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 530px) {
   .main-page-upper-part {
-    height: 400px;
+    height: 506px;
+  }
+}
+
+@media (min-width: 730px) {
+  .main-page-upper-part {
     background-image: url(/images/main-page/main-page-upper-bg-medium-min.png);
     background-size: 100% 132%;
   }
