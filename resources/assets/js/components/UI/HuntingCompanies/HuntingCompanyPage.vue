@@ -9,8 +9,15 @@
 
         data() {
             return {
-                selectedSeason: 'summer'
+                selectedSeason: null
             };
+        },
+
+        created() {
+            if (this.hasAnimalsAt('summer')) return this.selectedSeason = 'summer';
+            if (this.hasAnimalsAt('spring')) return this.selectedSeason = 'spring';
+            if (this.hasAnimalsAt('autumn')) return this.selectedSeason = 'autumn';
+            if (this.hasAnimalsAt('winter')) return this.selectedSeason = 'winter';
         },
 
         computed: {
