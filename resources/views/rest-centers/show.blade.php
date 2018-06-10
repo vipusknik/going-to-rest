@@ -136,13 +136,23 @@
                                     </div>
                                 </div>
 
-                                <div class="flex border-dotted {{ !$loop->last ? 'border-b': '' }} border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
+                                <div class="flex border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
                                     <div class="w-8 h-8 flex-no-shrink mr-3">
                                         <img src="/images/icons/price.png" alt="address" class="block w-8 h-8">
                                     </div>
 
                                     <div class="flex-1 break-words min-w-0">
                                         от {{ $accomodation->price_per_day }} тг в сутки
+                                    </div>
+                                </div>
+
+                                <div class="flex border-dotted {{ !$loop->last ? 'border-b': '' }} border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
+                                    <div class="w-8 h-8 flex-no-shrink mr-3">
+                                        <img src="/images/icons/pencil.png" alt="address" class="block w-8 h-8">
+                                    </div>
+
+                                    <div class="flex-1 break-words min-w-0">
+                                        {{ $accomodation->description }}
                                     </div>
                                 </div>
                                 @endforeach
@@ -170,7 +180,7 @@
                             </div>
 
                             <div class="flex-1 break-words min-w-0 flex p-1 pt-2 border-b-2 border-teal-dark border-dotted">
-                                <div class="w-3/4 border-r-2 border-teal-dark border-dotted">
+                                <div class="w-1/2 border-r-2 border-teal-dark border-dotted">
                                     <div>
                                         <strong class="font-semibold">{{ $accomodation->guest_count }}-и местные домики,</strong>
 
@@ -180,13 +190,23 @@
                                     </div>
                                 </div>
 
-                                <div class="flex items-center w-1/4">
+                                <div class="flex items-center w-1/4 border-r-2 border-teal-dark border-dotted">
                                     <div class="w-8 h-8 flex-no-shrink mr-3 ml-2">
                                         <img src="/images/icons/price.png" alt="" class="block w-full h-full">
                                     </div>
 
                                     <div class="flex-1 break-words min-w-0">
                                         <div class="pr-1">от {{ $accomodation->price_per_day }} тг в сутки</div>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center w-1/4">
+                                    <div class="w-8 h-8 flex-no-shrink mr-3 ml-2">
+                                        <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
+                                    </div>
+
+                                    <div class="flex-1 break-words min-w-0">
+                                        <div class="pr-1">{{ $accomodation->description }}</div>
                                     </div>
                                 </div>
                             </div>
