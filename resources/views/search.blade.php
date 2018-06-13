@@ -1,5 +1,7 @@
 @extends('master')
 
+@section('title', 'Поиск')
+
 @section('header')
     <!-- Header -->
     <div class="bg-yellow-light fixed w-full z-40 h-17 lg:hidden">

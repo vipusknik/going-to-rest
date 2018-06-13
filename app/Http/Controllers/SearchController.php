@@ -12,9 +12,9 @@ class SearchController extends Controller
         $results = collect([]);
 
         $models = [
-            // \App\KidCamp::class,
-            // \App\RestCenter::class,
-            // \App\MedicalCenter::class,
+            \App\KidCamp::class,
+            \App\RestCenter::class,
+            \App\MedicalCenter::class,
             \App\HuntingCompany::class,
             \App\ActiveRestCompany::class,
         ];
