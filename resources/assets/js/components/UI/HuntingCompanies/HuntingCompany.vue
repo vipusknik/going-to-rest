@@ -21,7 +21,7 @@
                     <div class="relative flex flex-col md:flex-row">
                         <!-- List item image -->
                         <div class="md:self-end md:w-2/5">
-                            <img :src="previewImageUrl" alt="" class="block w-full h-48 md:rounded-tr-2xl" :class="{ 'lg:rounded-bl-none': showCategory }" style="object-fit: cover; object-position: top">
+                            <img :src="previewImageUrl" alt="" class="block w-full h-48 md:rounded-tr-2xl md:rounded-bl-2xl" :class="{ 'lg:rounded-bl-none': showCategory }" style="object-fit: cover; object-position: top">
                         </div>
 
                         <div class="pt-3 px-4 pb-1 md:w-3/5 md:flex md:flex-wrap md:relative">
@@ -75,11 +75,11 @@
                             </div>
 
                             <div class="absolute pin-b pin-r mb-2 mr-2 md:hidden">
-                                <a :href="`/ohota-i-rybalka/${model.slug}`" class="block text-sm text-white font-bold bg-teal-dark rounded px-4 py-2">Подробнее</a>
+                                <a :href="`/ohota-i-rybalka/${model.slug}` + (showCategory ? '?search=1' : '')" class="block text-sm text-white font-bold bg-teal-dark rounded px-4 py-2">Подробнее</a>
                             </div>
 
                             <div class="hidden md:block md:absolute md:pin-b md:pin-r">
-                                <a :href="`/ohota-i-rybalka/${model.slug}`" class="block text-base text-white font-bold bg-teal-dark rounded-tl-lg rounded-br-2xl px-4 py-1">Подробнее</a>
+                                <a :href="`/ohota-i-rybalka/${model.slug}` + (showCategory ? '?search=1' : '')" class="block text-base text-white font-bold bg-teal-dark rounded-tl-lg rounded-br-2xl px-4 py-1">Подробнее</a>
                             </div>
                         </div>
 
