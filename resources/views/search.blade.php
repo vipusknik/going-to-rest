@@ -22,7 +22,7 @@
 
 @section('content')
     <!-- Decoration (left) -->
-    <div class="hidden lg:block lg:absolute medical-centers-decorations-left lg:pin-t lg:mt-6 lg:pin-l xl:mt-3"></div>
+    <div class="hidden lg:block lg:absolute search-decorations-left lg:pin-t lg:mt-6 lg:pin-l xl:mt-3"></div>
 
     <div class="container mx-auto pt-2 lg:px-20 lg:pt-0">
         <main class="lg:px-20">
@@ -45,5 +45,5 @@
     </div>
 
     <!-- Decoration (right) -->
-    <div class="hidden lg:block lg:absolute medical-centers-decorations-right lg:pin-t lg:pin-r"></div>
+    <div class="hidden lg:block lg:absolute search-decorations-right lg:pin-t lg:pin-r"></div>
 @endsection

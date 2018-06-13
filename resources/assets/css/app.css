@@ -507,3 +507,61 @@ a {
         margin-right: -134px !important;
     }
 }
+
+/**
+ * Search page
+ */
+
+ @media (min-width: 992px) {
+     .search-decorations-left {
+         height: 100%;
+         width: 26%;
+         background-image: url(/images/search/decorations-left.png);
+         background-repeat: repeat-y;
+         background-position-x: center;
+         background-size: 100%;
+         margin-left: -135px !important;
+     }
+ }
+
+ @media (min-width: 992px) {
+     .search-decorations-right {
+         height: 100%;
+         width: 26%;
+         background-image: url(/images/search/decorations-right.png);
+         background-repeat: repeat-y;
+         background-position-x: center;
+         background-size: 100%;
+         margin-right: -126px;
+     }
+ }
+
+ @media (min-width: 1200px) {
+     .search-decorations-left {
+         background-size: 52%;
+         margin-left: -85px !important;
+     }
+ }
+
+ @media (min-width: 1200px) {
+     .search-decorations-right {
+         background-size: 52%;
+         margin-right: -89px;
+     }
+ }
+
+ @media (min-width: 1400px) {
+     .search-decorations-left {
+         background-size: 53%;
+         background-position-x: right;
+         margin-left: -136px !important;
+     }
+ }
+
+ @media (min-width: 1400px) {
+     .search-decorations-right {
+         background-size: 52%;
+         background-position-x: left;
+         margin-right: -136px !important;
+     }
+ }
