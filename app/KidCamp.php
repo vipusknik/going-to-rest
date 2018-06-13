@@ -26,4 +26,9 @@ class KidCamp extends Model implements HasMediaInterface
     {
         return $this->belongsTo(City::class);
     }
+
+    public static function relations()
+    {
+        return [ 'social_media', 'features', 'media', 'city' ];
+    }
 }

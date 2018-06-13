@@ -42,6 +42,7 @@ Vue.component('hunting-company', require('./components/UI/HuntingCompanies/Hunti
 Vue.component('hunting-company-page', require('./components/UI/HuntingCompanies/HuntingCompanyPage.vue'));
 
 Vue.component('faded', require('./components/UI/Faded.vue'));
+Vue.component('model-category', require('./components/UI/ModelCategory.vue'));
 
 window.events = new Vue();
 

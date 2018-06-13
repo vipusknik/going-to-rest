@@ -45,7 +45,7 @@
 
             <!-- List -->
             <div class="px-2 lg:px-0">
-                <rest-center v-for="center in models" :key="center.id" :center='center'></rest-center>
+                <rest-center v-for="model in models" :key="model.id" :model="model"></rest-center>
             </div>
         </main>
     </div>

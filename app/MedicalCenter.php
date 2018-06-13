@@ -32,4 +32,9 @@ class MedicalCenter extends Model implements HasMediaInterface
     {
         return $this->belongsTo(Region::class);
     }
+
+    public static function relations()
+    {
+        return [ 'social_media', 'features', 'media' ];
+    }
 }

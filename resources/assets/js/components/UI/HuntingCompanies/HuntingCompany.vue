@@ -2,8 +2,13 @@
     <div>
         <!-- List item with image -->
         <div v-if="model.is_paid" class="relative mb-4 md:mb-6">
-            <div class="md:mr-20 md:rounded-2xl md:border-2 md:border-white md:border-dashed">
-                <div class="bg-white rounded-lg md:rounded-2xl">
+            <div class="flex flex-col md:mr-20 md:rounded-2xl md:border-2 md:border-white md:border-dashed lg:flex-row">
+                <model-category v-if="showCategory"
+                                title="активный отдых"
+                                image="/images/icons/site-category-icons/active-rest.png">
+                </model-category>
+
+                <div class="bg-white rounded-lg rounded-2xl" :class="{ 'rounded-t-none lg:rounded-tr-2xl lg:rounded-l-none': showCategory }">
                     <!-- List item name -->
                     <div class="flex justify-center p-3 mb-2">
                         <div class="w-full h-3 text-center border-b-3 border-teal-dark">
@@ -16,7 +21,7 @@
                     <div class="relative flex flex-col md:flex-row">
                         <!-- List item image -->
                         <div class="md:self-end md:w-2/5">
-                            <img :src="previewImageUrl" alt="" class="block w-full h-48 md:rounded-bl-2xl md:rounded-tr-2xl" style="object-fit: cover; object-position: top">
+                            <img :src="previewImageUrl" alt="" class="block w-full h-48 md:rounded-tr-2xl" :class="{ 'lg:rounded-bl-none': showCategory }" style="object-fit: cover; object-position: top">
                         </div>
 
                         <div class="pt-3 px-4 pb-1 md:w-3/5 md:flex md:flex-wrap md:relative">
@@ -160,8 +165,13 @@
 
         <!-- List item without image -->
         <div v-else class="relative mb-4">
-            <div class="rounded-2xl md:mr-20 md:border-2 md:border-white md:border-dashed">
-                <div class="relative bg-white rounded-2xl">
+            <div class="flex flex-col rounded-2xl md:mr-20 md:border-2 md:border-white md:border-dashed lg:flex-row">
+                <model-category v-if="showCategory"
+                                title="рыбалка и охота"
+                                image="/images/icons/site-category-icons/fishing-and-hunting.png">
+                </model-category>
+
+                <div class="relative bg-white rounded-2xl flex-1" :class="{ 'rounded-t-none lg:rounded-tr-2xl lg:rounded-l-none': showCategory }">
                     <!-- List item name -->
                     <div class="flex justify-center p-3 mb-2">
                         <div class="w-full h-3 text-center border-b-3 border-teal-dark">
@@ -310,6 +320,12 @@
             model: {
                 type: Object,
                 required: true
+            },
+
+            showCategory: {
+                type: Boolean,
+                required: false,
+                default: false
             }
         },
 

@@ -23,20 +23,24 @@ class AppServiceProvider extends ServiceProvider
                 $category = Banner::CATEGORY_REST_CENTERS;
             }
 
-            if (Route::is('medical-centers.*')) {
+            elseif (Route::is('medical-centers.*')) {
                 $category = Banner::CATEGORY_MEDICAL_CENTERS;
             }
 
-            if (Route::is('active-rest-companies.*')) {
+            elseif (Route::is('active-rest-companies.*')) {
                 $category = Banner::CATEGORY_ACTIVE_REST;
             }
 
-            if (Route::is('kid-camps.*')) {
+            elseif (Route::is('kid-camps.*')) {
                 $category = Banner::CATEGORY_KID_CAMPS;
             }
 
-            if (Route::is('hunting-companies.*')) {
+            elseif (Route::is('hunting-companies.*')) {
                 $category = Banner::CATEGORY_HUNTING;
+            }
+
+            else {
+                $category = Banner::CATEGORY_REST_CENTERS;
             }
 
             $banners = Banner::whereCategory($category)->get();

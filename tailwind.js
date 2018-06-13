@@ -77,7 +77,7 @@ let colors = {
   'yellow-darkest': '#453411',
   'yellow-darker': '#684f1d',
   'yellow-dark': '#ebc54a', //custom
-  'yellow': '#EBC54A', // custom
+  'yellow': '#F1D67D', // custom
   'yellow-light': '#fff382',
   'yellow-lighter': '#fff9c2',
   'yellow-lightest': '#fcfbeb',

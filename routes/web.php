@@ -4,6 +4,11 @@
 Route::view('/', 'home');
 
 /**
+ * Global Search
+ */
+Route::get('/search', 'SearchController@index')->name('search.index');
+
+/**
  * Rest centers
  */
 Route::get('/pljazhnyj-otdyh', 'RestCentersController@index')->name('rest-centers.index');

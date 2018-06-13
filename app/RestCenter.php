@@ -33,6 +33,11 @@ class RestCenter extends Model implements HasMediaInterface
         return $this->hasMany(Accomodation::class);
     }
 
+    public static function relations()
+    {
+        return [ 'reservoir', 'social_media', 'features', 'media', 'accomodations', 'accomodations.features' ];
+    }
+
     public function reservoir()
     {
         return $this->belongsTo(Reservoir::class);

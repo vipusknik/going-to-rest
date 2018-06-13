@@ -93,6 +93,19 @@ button:focus {
     font-family: Hortensia;
 }
 
+
+
+@media (min-width: 992px) {
+    .lg\:-rotate-90 {
+        transform: rotate(-90deg);
+    }
+
+    .lg\:write-bottom-to-top {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+    }
+}
+
 [v-cloak] {
     display: none;
 }
