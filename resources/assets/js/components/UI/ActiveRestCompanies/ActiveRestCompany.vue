@@ -9,7 +9,7 @@
                                     image="/images/icons/site-category-icons/active-rest.png">
                     </model-category>
 
-                    <div>
+                    <div class="flex-1">
                         <!-- List item name -->
                         <div class="flex justify-center p-3 mb-2">
                             <div class="w-full h-3 text-center border-b-3 border-teal-dark">
