@@ -125,6 +125,13 @@ a {
     @apply bg-right bg-no-repeat appearance-none;
 }
 
+@-moz-document url-prefix() {
+    .styled-select {
+        background-size: 1.25rem 1rem;
+        background-position-x: 97%;
+    }
+}
+
 .zoom { transition: transform .2s; }
 .zoom:hover { transform: scale(1.1); }
 
