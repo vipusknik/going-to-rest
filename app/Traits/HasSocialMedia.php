@@ -15,7 +15,10 @@ trait HasSocialMedia
         $socialMedia = [];
 
         foreach ($this->social_media as $item) {
-            $socialMedia[$item->service] = $item->link;
+            $socialMedia[$item->service] = [
+                'link' => $item->link,
+                'link_placeholder' => $item->link_placeholder,
+            ];
         }
 
         return optional((object) $socialMedia);
@@ -32,12 +35,18 @@ trait HasSocialMedia
 
     public function attachSocialMedia($socialMedia)
     {
-        $socialMedia = array_filter((array) $socialMedia);
+        $socialMedia = array_filter((array) $socialMedia, function($site) {
+            return ! empty($site['link']);
+        });
 
         $attachableSocialMedia = [];
 
-        foreach ($socialMedia as $service => $link) {
-            $attachableSocialMedia[] = [ 'service' => $service, 'link' => $link ];
+        foreach ($socialMedia as $service => $data) {
+            $attachableSocialMedia[] = [
+                'service' => $service,
+                'link' => $data['link'],
+                'link_placeholder' => $data['link_placeholder']
+            ];
         }
 
         $this->social_media()->createMany($attachableSocialMedia);

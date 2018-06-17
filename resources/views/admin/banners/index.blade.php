@@ -12,7 +12,8 @@
             <div class="mb-8">
                 <banners-widget title="{{ $title }}"
                                 category="{{ $category }}"
-                               :banners-initial="{{ json_encode($banners[$category] ?? []) }}">
+                                :banners-initial="{{ json_encode($banners[$category] ?? []) }}"
+                                class="p-4 shadow">
                 </banners-widget>
             </div>
         @endforeach

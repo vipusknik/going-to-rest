@@ -22,35 +22,35 @@ export default Vue.extend({
                 </span>
             </div>
 
-            <div v-if="model.social_media_sites.vk" class="text-sm mr-3 pr-3 border-r border-grey">
+            <div v-if="socialMediaSite('vk')" class="text-sm mr-3 pr-3 border-r border-grey">
                 <span class="text-red-lighter mr-1"><i class="fab fa-vk"></i></span>
                 <span>
-                    <a :href="model.social_media_sites.vk"
-                       v-text="model.social_media_sites.vk"
+                    <a :href="socialMediaSite('vk').link"
+                       v-text="socialMediaSite('vk').link_placeholder || socialMediaSite('vk').link"
                        target="_blank"
                        class="text-red-lighter no-underline hover:underline">
                     </a>
                 </span>
             </div>
 
-            <div v-if="model.social_media_sites.instagram"
+            <div v-if="socialMediaSite('instagram')"
                  class="text-sm mr-3 pr-3 border-r border-grey">
                 <span class="text-red-lighter mr-1"><i class="fab fa-instagram"></i></span>
                 <span>
-                    <a :href="model.social_media_sites.instagram"
-                       v-text="model.social_media_sites.instagram"
+                    <a :href="socialMediaSite('instagram').link"
+                       v-text="socialMediaSite('instagram').link_placeholder || socialMediaSite('instagram').link"
                        target="_blank"
                        class="text-red-lighter no-underline hover:underline">
                     </a>
                 </span>
             </div>
 
-            <div v-if="model.social_media_sites.facebook"
+            <div v-if="socialMediaSite('facebook')"
                  class="text-sm mr-3 pr-3 border-r border-grey">
                 <span class="text-red-lighter mr-1"><i class="fab fa-facebook"></i></span>
                 <span>
-                    <a :href="model.social_media_sites.facebook"
-                       v-text="model.social_media_sites.facebook"
+                    <a :href="socialMediaSite('facebook').link"
+                       v-text="socialMediaSite('facebook').link_placeholder || socialMediaSite('facebook').link"
                        target="_blank"
                        class="text-red-lighter no-underline hover:underline">
                     </a>
@@ -63,6 +63,12 @@ export default Vue.extend({
         model: {
             type: Object,
             required: true
+        }
+    },
+
+    methods: {
+        socialMediaSite(service) {
+            return this.model.social_media.find(item => item.service == service);
         }
     }
 });

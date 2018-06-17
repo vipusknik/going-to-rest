@@ -23,16 +23,4 @@ class RestCentersTest extends TestCase
 
         $this->assertCount(2, $response->original['models']);
     }
-
-    /** @test */
-    function rest_centers_can_be_searched_by_reservoir()
-    {
-        create('App\RestCenter', [ 'reservoir_id' => '1' ]);
-        create('App\RestCenter', [ 'reservoir_id' => '1' ]);
-        create('App\RestCenter', [ 'reservoir_id' => '3' ]);
-
-        $response = $this->getJson(route('rest-centers.index') . '?reservoir=1');
-
-        $this->assertCount(2, $response->original['models']);
-    }
 }
