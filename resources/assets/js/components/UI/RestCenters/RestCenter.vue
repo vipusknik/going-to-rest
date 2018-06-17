@@ -12,17 +12,17 @@
                     <!-- List item name -->
                     <div class="flex justify-center p-3 mb-2">
                         <div class="w-full h-3 text-center border-b-3 border-teal-dark">
-                            <h3 class="inline text-xl text-teal-dark px-2 bg-white font-bold">
+                            <a :href="'/pljazhnyj-otdyh/' + model.slug" class="inline text-xl text-teal-dark px-2 bg-white font-bold">
                                 {{ model.name }}
-                            </h3>
+                            </a>
                         </div>
                     </div>
 
                     <div class="flex flex-col md:flex-row">
                         <!-- List item image -->
-                        <div class="md:self-end md:w-2/5">
+                        <a :href="'/pljazhnyj-otdyh/' + model.slug" class="block md:self-end md:w-2/5">
                             <img :src="previewImageUrl" alt="" class="block w-full h-48 md:rounded-tr-2xl md:rounded-bl-2xl" :class="{ 'lg:rounded-bl-none': showCategory }" style="object-fit: cover; object-position: top">
-                        </div>
+                        </a>
 
                         <div class="pt-3 px-4 pb-1 md:w-3/5 md:flex md:flex-wrap md:relative">
                             <div class="flex items-center border-b border-dotted border-teal-dark py-2 md:w-1/2 md:border-b-2 md:border-r-2 md:pb-3 md:pr-1 md:items-start">

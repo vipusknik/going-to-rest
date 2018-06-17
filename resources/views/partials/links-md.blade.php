@@ -8,7 +8,7 @@
             </div>
 
             <div class="flex-1 break-words min-w-0">
-                <a href="{{ $model->site_link }}" class="block text-black" target="_blank">{{ str_limit(base_url($model->site_link), 10, '') }}</a>
+                <a href="{{ $model->site_link }}" class="block text-black underline hover:text-teal-dark" target="_blank">сайт</a>
             </div>
         </div>
     @endif
@@ -22,7 +22,7 @@
             </div>
 
             <div class="flex-1 break-words min-w-0">
-                <a href="{{ $model->socialMedia()->instagram }}" class="block text-black" target="_blank">{{ str_limit(base_url($model->socialMedia()->instagram), 10, '') }}</a>
+                <a href="{{ $model->socialMedia()->instagram }}" class="block text-black underline hover:text-teal-dark" target="_blank">{{ str_limit(base_url($model->socialMedia()->instagram), 10, '') }}</a>
             </div>
         </div>
     @endif
@@ -36,7 +36,7 @@
             </div>
 
             <div class="flex-1 break-words min-w-0">
-                <a href="{{ $model->socialMedia()->facebook }}" class="block text-black" target="_blank">{{ str_limit(base_url($model->socialMedia()->facebook), 10, '') }}</a>
+                <a href="{{ $model->socialMedia()->facebook }}" class="block text-black underline hover:text-teal-dark" target="_blank">{{ str_limit(base_url($model->socialMedia()->facebook), 10, '') }}</a>
             </div>
         </div>
     @endif
@@ -50,7 +50,7 @@
             </div>
 
             <div class="flex-1 break-words min-w-0">
-                <a href="{{ $model->socialMedia()->vk }}" class="block text-black" target="_blank">{{ str_limit(base_url($model->socialMedia()->vk), 10, '') }}</a>
+                <a href="{{ $model->socialMedia()->vk }}" class="block text-black underline hover:text-teal-dark" target="_blank">{{ str_limit(base_url($model->socialMedia()->vk), 10, '') }}</a>
             </div>
         </div>
     @endif
