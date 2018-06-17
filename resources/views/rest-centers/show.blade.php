@@ -213,15 +213,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="flex w-1/4">
-                                        <div class="w-8 h-8 flex-no-shrink mr-3 ml-2">
-                                            <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
-                                        </div>
+                                    @if ($accomodation->description)
+                                        <div class="flex w-1/4">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3 ml-2">
+                                                <img src="/images/icons/pencil.png" alt="" class="block w-full h-full">
+                                            </div>
 
-                                        <div class="flex-1 break-words min-w-0">
-                                            <div class="pr-1">{{ $accomodation->description }}</div>
+                                                <div class="flex-1 break-words min-w-0">
+                                                    <div class="pr-1">{{ $accomodation->description }}</div>
+                                                </div>
                                         </div>
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
                             @endforeach
