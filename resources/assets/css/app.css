@@ -192,6 +192,23 @@ a {
   }
 }
 
+#main-page-search-input::placeholder,
+#search-page-search-input::placeholder {
+    @apply text-sm;
+}
+
+@media (min-width: 768px) {
+    #main-page-search-input::placeholder {
+        @apply text-base;
+    }
+}
+
+@media (min-width: 768px) {
+    #search-page-search-input::placeholder {
+        @apply text-lg;
+    }
+}
+
 /**
  * Пляжный отдых
  */

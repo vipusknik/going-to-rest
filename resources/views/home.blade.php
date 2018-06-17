@@ -24,7 +24,7 @@
 
                     <form action="{{ route('search.index') }}" method="GET" class="flex items-center w-5/6 md:w-3/4 lg:w-1/2">
                         <div class="flex-1">
-                            <input type="search" name="q" class="text-xs w-full p-2 rounded-l-lg md:h-10 lg:rounded-l-xl lg:px-3">
+                            <input type="search" name="q" placeholder="Введите название места отдыха" id="main-page-search-input" class="text-xs w-full p-2 rounded-l-lg md:h-10 lg:rounded-l-xl lg:px-3">
                         </div>
 
                         <div>
