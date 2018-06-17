@@ -1,0 +1,25 @@
+<template>
+    <div @click="onClick" class="hidden lg:block lg:z-40 lg:fixed lg:pin-b lg:pin-r lg:mb-12 lg:mr-12 lg:cursor-pointer">
+        <img src="/images/icons/up.png" class="block w-8 h-8">
+    </div>
+</template>
+
+<script>
+    import jump from 'jump.js'
+
+    export default {
+        props: {
+            target: {
+                type: String,
+                required: false,
+                default: '#top'
+            }
+        },
+
+        methods: {
+            onClick() {
+                jump(this.target, { duration: 1000 })
+            }
+        }
+    }
+</script>

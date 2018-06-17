@@ -12,14 +12,14 @@
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
 </head>
-<body class="font-sans antialiased bg-yellow-dark lg:text-sm xl:text-base">
+<body class="font-sans antialiased bg-yellow-dark lg:text-sm xl:text-base" id="top">
     <script>
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
     </script>
 
-    <div class="h-screen lg:relative" id="app" style="overflow-x: hidden" v-cloak>
+    <div class="h-screen lg:h-auto lg:relative" id="app" style="overflow-x: hidden" v-cloak>
         <!-- Main menu for small and medium devices -->
         <sm-md-main-menu></sm-md-main-menu>
 
@@ -36,6 +36,9 @@
         </div>
 
         @yield('extra')
+
+        {{-- Кнопка наверх --}}
+        <jump-up-button></jump-up-button>
     </div>
 
     <script src="{{ mix('js/app-ui.js') }}"></script>

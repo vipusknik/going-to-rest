@@ -25,7 +25,11 @@ class RestCenter extends Model implements HasMediaInterface
 
     public function scopeNameLike($query, $string)
     {
-        return $query->where('name', 'like', "%$string%");
+        return $query
+            ->where('name', 'like', "%$string%")
+            ->orWhereHas('reservoir', function ($query) use ($string) {
+                $query->where('name', 'like', "%$string%");
+            });
     }
 
     public function accomodations()
