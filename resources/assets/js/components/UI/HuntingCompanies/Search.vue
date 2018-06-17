@@ -61,7 +61,7 @@
                     </div>
 
                     <div class="w-1/2 flex">
-                        <div class="w-2/5 mr-3">
+                        <div class="w-2/5 mr-3 lg:w-1/2 xl:w-2/5">
                             <select v-model="search.type" class="w-full h-10 rounded-lg px-3 py-2 styled-select">
                                 <option value="">Охота и рыбалка</option>
                                 <option value="hunting">охота</option>
@@ -69,7 +69,7 @@
                             </select>
                         </div>
 
-                        <div class="w-3/5">
+                        <div class="w-3/5 lg:w-1/2 xl:w-3/5">
                             <select name="region" v-model="search.region" class="w-full h-10 rounded-lg px-3 py-2 styled-select">
                                 <option value="">Район</option>
                                 <option v-for="region in regions" :value="region.id">{{ region.name }}</option>
