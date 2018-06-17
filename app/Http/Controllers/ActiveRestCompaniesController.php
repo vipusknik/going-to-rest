@@ -25,6 +25,7 @@ class ActiveRestCompaniesController extends Controller
     {
         $models = ActiveRestCompaniesSearch::by($request)
             ->with([ 'social_media', 'activities', 'media' ])
+            ->orderBy('is_paid', 'DESC')
             ->orderBy('name')
             ->get();
 

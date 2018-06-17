@@ -25,6 +25,7 @@ class HuntingCompaniesController extends Controller
     {
         $models = HuntingCompaniesSearch::by($request)
             ->with([ 'social_media', 'animals', 'media' ])
+            ->orderBy('is_paid', 'DESC')
             ->orderBy('name')
             ->get();
 
