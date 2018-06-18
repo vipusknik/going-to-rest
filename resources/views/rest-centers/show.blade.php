@@ -157,15 +157,17 @@
                                         </div>
                                     </div>
 
-                                    <div class="flex border-dotted {{ !$loop->last ? 'border-b': '' }} border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
-                                        <div class="w-8 h-8 flex-no-shrink mr-3">
-                                            <img src="/images/icons/pencil.png" alt="address" class="block w-8 h-8">
-                                        </div>
+                                    @if ($accomodation->description)
+                                        <div class="flex border-dotted {{ !$loop->last ? 'border-b': '' }} border-teal-dark py-2 md:w-1/2 md:border-b-0 md:border-r-2 md:pr-2 md:items-start">
+                                            <div class="w-8 h-8 flex-no-shrink mr-3">
+                                                <img src="/images/icons/pencil.png" alt="address" class="block w-8 h-8">
+                                            </div>
 
-                                        <div class="flex-1 break-words min-w-0">
-                                            {{ $accomodation->description }}
+                                            <div class="flex-1 break-words min-w-0">
+                                                {{ $accomodation->description }}
+                                            </div>
                                         </div>
-                                    </div>
+                                    @endif
                                     @endforeach
                                 </div>
                             </div>
