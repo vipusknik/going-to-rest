@@ -29,7 +29,9 @@ class SearchController extends Controller
             });
         }
 
-        $results = $results->sortBy('name');
+        $results = $results->sortBy(function($post) {
+            return sprintf('%-12s%s', !$post->is_paid, $post->name);
+        });
 
         return view('search', compact('results'));
     }
