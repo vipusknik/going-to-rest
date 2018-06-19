@@ -139,7 +139,7 @@
                                         </div>
 
                                         <div class="flex-1 break-words min-w-0">
-                                            <strong class="font-semibold">{{ $accomodation->guest_count }}-и местные домики,</strong>
+                                            <strong class="font-semibold">{{ $accomodation->guest_count }} местные домики,</strong>
 
                                             @foreach ($accomodation->features as $feature)
                                                 {{ $feature->name }}{{ !$loop->last ? ',' : '' }}
@@ -197,7 +197,7 @@
                                 <div class="flex-1 break-words min-w-0 flex p-1 pt-2 border-b-2 border-teal-dark border-dotted">
                                     <div class="w-1/2 border-r-2 border-teal-dark border-dotted">
                                         <div>
-                                            <strong class="font-semibold">{{ $accomodation->guest_count }}-и местные домики,</strong>
+                                            <strong class="font-semibold">{{ $accomodation->guest_count }} местные домики,</strong>
 
                                             @foreach ($accomodation->features as $feature)
                                                 {{ $feature->name }}{{ !$loop->last ? ',' : '' }}
