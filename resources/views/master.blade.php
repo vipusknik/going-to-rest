@@ -19,7 +19,7 @@
         ]); ?>
     </script>
 
-    <div class="h-screen lg:h-auto lg:relative" id="app" style="overflow-x: hidden" v-cloak>
+    <div class="lg:relative" id="app" style="overflow-x: hidden" v-cloak>
         <!-- Main menu for small and medium devices -->
         <sm-md-main-menu></sm-md-main-menu>
 
