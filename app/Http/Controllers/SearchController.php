@@ -29,6 +29,7 @@ class SearchController extends Controller
             });
         }
 
+        // Сортировка сначала платники + по алфавиту
         $results = $results->sortBy(function($model) {
             return sprintf('%-12s%s', !$model->is_paid, $model->name);
         });
