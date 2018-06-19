@@ -8,7 +8,7 @@
    <!-- Header -->
     <div class="bg-yellow-light fixed w-full z-40 h-17 lg:hidden">
         <div class="container mx-auto">
-            <rest-centers-search :reservoirs="{{ json_encode($reservoirs) }}" @resultsupdated="updateModels"></rest-centers-search>
+            <rest-centers-search :reservoirs="{{ json_encode($reservoirs) }}"></rest-centers-search>
         </div>
     </div>
 
@@ -32,23 +32,25 @@
     <!-- Ball decoration (left) -->
     <div class="hidden lg:block lg:absolute bg-beach-decoraions-left lg:pin-t lg:mt-6 lg:pin-l xl:mt-3"></div>
 
-    <div class="container mx-auto lg:px-20">
-        <main class="lg:px-20">
+    <models-page inline-template :models-initial="{{ json_encode($models) }}">
+        <div class="container mx-auto lg:px-20">
+            <main class="lg:px-20">
 
-            <!-- Page heading -->
-            <h1 class="hidden font-hortensia lg:block lg:text-4xl lg:text-grey-darkest lg:text-center lg:font-hairline lg:mb-6">
-                Пляжный отдых
-            </h1>
+                <!-- Page heading -->
+                <h1 class="hidden font-hortensia lg:block lg:text-4xl lg:text-grey-darkest lg:text-center lg:font-hairline lg:mb-6">
+                    Пляжный отдых
+                </h1>
 
-            <!-- Search for large devices -->
-            <portal-target name="lg-xl-rest-centers-search" slim></portal-target>
+                <!-- Search for large devices -->
+                <portal-target name="lg-xl-rest-centers-search" slim></portal-target>
 
-            <!-- List -->
-            <div class="px-2 lg:px-0">
-                <rest-center v-for="model in models" :key="model.id" :model="model"></rest-center>
-            </div>
-        </main>
-    </div>
+                <!-- List -->
+                <div class="px-2 lg:px-0">
+                    <rest-center v-for="model in models" :key="model.id" :model="model"></rest-center>
+                </div>
+            </main>
+        </div>
+    </models-page>
 
     <!-- Coctail decoration (right) -->
     <div class="hidden lg:block lg:absolute bg-beach-decoraions-right lg:pin-t lg:pin-r"></div>

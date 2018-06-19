@@ -18,6 +18,11 @@ class MedicalCentersController extends Controller
      */
     public function index()
     {
+        $models = MedicalCenter::with([ 'social_media', 'features', 'media' ])
+            ->orderBy('is_paid', 'DESC')
+            ->orderBy('name')
+            ->get();
+
         $types = Feature::whereBelongsTo(Feature::OF_MEDICAL_CENTER)
             ->whereCategory(Feature::CATEGORY_TREATMENT_TYPES)
             ->get();
@@ -25,7 +30,7 @@ class MedicalCentersController extends Controller
         $cities = City::all();
         $regions = Region::all();
 
-        return view('medical-centers.index', compact('types', 'cities', 'regions'));
+        return view('medical-centers.index', compact('models', 'types', 'cities', 'regions'));
     }
 
     public function search(Request $request)

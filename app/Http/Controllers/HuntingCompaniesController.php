@@ -16,9 +16,14 @@ class HuntingCompaniesController extends Controller
      */
     public function index()
     {
+        $models = HuntingCompany::with([ 'social_media', 'animals', 'media' ])
+            ->orderBy('is_paid', 'DESC')
+            ->orderBy('name')
+            ->get();
+
         $regions = Region::all();
 
-        return view('hunting-companies.index', compact('regions'));
+        return view('hunting-companies.index', compact('models', 'regions'));
     }
 
     public function search(Request $request)

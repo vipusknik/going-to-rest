@@ -16,9 +16,14 @@ class KidCampsController extends Controller
      */
     public function index()
     {
+        $models = KidCamp::with([ 'social_media', 'features', 'media', 'city' ])
+            ->orderBy('is_paid', 'DESC')
+            ->orderBy('name')
+            ->get();
+
         $cities = City::all();
 
-        return view('kid-camps.index', compact('cities'));
+        return view('kid-camps.index', compact('models', 'cities'));
     }
 
     public function search(Request $request)

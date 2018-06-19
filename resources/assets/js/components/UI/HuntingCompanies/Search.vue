@@ -103,14 +103,6 @@
             };
         },
 
-        mounted () {
-            axios.get('/ohota-i-rybalka/search')
-                .then(response => {
-                    this.$emit('resultsupdated', response.data.models);
-                })
-                .catch(error => flash('Ошибка при выполнении.', 'danger'));
-        },
-
         watch: {
             search: {
                 deep: true,
@@ -126,7 +118,7 @@
                         params: this.search
                     })
                     .then(response => {
-                        this.$emit('resultsupdated', response.data.models);
+                        window.events.$emit('models-updated', response.data.models);
                     })
                     .catch(error => flash('Ошибка при выполнении.', 'danger'));
             }

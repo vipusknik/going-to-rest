@@ -23,6 +23,7 @@ Vue.component('sm-md-main-menu', require('./components/UI/SmMdMainMenu.vue'));
 Vue.component('sm-md-nav', require('./components/UI/SmMdNav.vue'));
 Vue.component('carousel', require('./components/UI/Carousel.vue'));
 Vue.component('promo-widget', require('./components/UI/Promo/PromoWidget.vue'));
+Vue.component('models-page', require('./components/UI/ModelsPage.vue'));
 
 Vue.component('rest-centers-search', require('./components/UI/RestCenters/Search.vue'));
 Vue.component('rest-center', require('./components/UI/RestCenters/RestCenter.vue'));
@@ -57,14 +58,7 @@ const app = new Vue({
         return {
             showMainMenu: false,
             showSearchDrowdown: false,
-            showSorting: false,
-            models: []
+            showSorting: false
         };
-    },
-
-    methods: {
-        updateModels (models) {
-            this.models = models;
-        }
     }
 });

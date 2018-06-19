@@ -16,9 +16,14 @@ class ActiveRestCompaniesController extends Controller
      */
     public function index()
     {
+        $models = ActiveRestCompany::with([ 'social_media', 'activities', 'media' ])
+            ->orderBy('is_paid', 'DESC')
+            ->orderBy('name')
+            ->get();
+
         $activities = Activity::all();
 
-        return view('active-rest-companies.index', compact('activities'));
+        return view('active-rest-companies.index', compact('models', 'activities'));
     }
 
     public function search(Request $request)

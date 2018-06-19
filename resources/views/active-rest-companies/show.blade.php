@@ -6,7 +6,7 @@
     <!-- Header -->
     <div class="bg-yellow-light lg:hidden">
         <div class="container mx-auto">
-            <sm-md-nav title="Активный отдых" back-url="{{ route('active-rest-companies.index') }}"></sm-md-nav>
+            <sm-md-nav title="Активный отдых"></sm-md-nav>
         </div>
     </div>
 
