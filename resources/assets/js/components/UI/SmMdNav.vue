@@ -7,9 +7,10 @@
 
             <div class="flex-1 text-center text-2xl font-hortensia -mb-2">{{ title }}</div>
 
-            <a :href="backUrl" class="block p-2 border-2 border-white rounded bg-yellow-dark">
+            <!-- Кнопка назад -->
+            <button @click="onClickBack" class="block p-2 border-2 border-white rounded bg-yellow-dark">
                 <img src="/images/icons/back.png" alt="menu" class="block w-6 h-6">
-            </a>
+            </button>
         </div>
     </div>
 </template>
@@ -20,11 +21,12 @@
             title: {
                 type: String,
                 required: true
-            },
+            }
+        },
 
-            backUrl: {
-                type: String,
-                required: true
+        methods: {
+            onClickBack() {
+                window.history.back();
             }
         }
     }
