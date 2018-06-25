@@ -19,7 +19,6 @@
             </a>
         </div>
 
-
         <!-- Carousels for md+ screens -->
         <div class="promo-carousel hidden md:block md:w-1/2 md:mr-3">
             <a v-if="getBanner(1)" :href="getBanner(1).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
@@ -71,6 +70,16 @@
             }
         },
 
+        data() {
+            return {
+                bannersLocal: []
+            }
+        },
+
+        created() {
+            this.bannersLocal = this.banners.sort(() => 0.5 - Math.random())
+        },
+
         mounted() {
             let sliders = document.querySelectorAll(".promo-carousel");
 
@@ -108,8 +117,8 @@
         // 1 3 3 1
         // 2 2 4 4
         methods: {
-            getBanner(order) {
-                return this.banners.find(banner => banner.order === order);
+            getBanner(index) {
+                return this.bannersLocal[--index] || null
             }
         }
     }
