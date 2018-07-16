@@ -39,6 +39,8 @@
 
         {{-- Кнопка наверх --}}
         <jump-up-button></jump-up-button>
+
+        @include ('partials.yandex-metrica')
     </div>
 
     <script src="{{ mix('js/app-ui.js') }}"></script>

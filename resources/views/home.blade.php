@@ -127,5 +127,6 @@
             </div>
         </nav>
     </div>
+    @include ('partials.yandex-metrica')
 </body>
 </html>
