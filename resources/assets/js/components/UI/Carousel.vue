@@ -2,13 +2,13 @@
     <div>
         <div class="main-carousel mb-3">
             <slot>
-                <img src="/images/defaults/beach.jpg" class="carousel-cell md:rounded-tr-2xl md:rounded-bl-2xl">
+                <img src="/images/defaults/beach.jpg" class="carousel-cell md:rounded-tr-2xl md:rounded-bl-2xl" alt="Дом отдыха">
             </slot>
         </div>
 
         <div class="carousel-nav">
             <slot name="nav">
-                <img src="/images/defaults/beach.jpg" class="mr-2 rounded-sm">
+                <img src="/images/defaults/beach.jpg" class="mr-2 rounded-sm" alt="отдых вко">
             </slot>
         </div>
     </div>

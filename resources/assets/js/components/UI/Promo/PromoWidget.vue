@@ -3,56 +3,56 @@
         <!-- Carousel for sm screens -->
         <div class="promo-carousel block md:hidden w-full">
             <a v-if="getBanner(1)" :href="getBanner(1).external_link" target="_blank" class="carousel-cell w-full h-24">
-                <img :src="getBanner(1).image_link">
+                <img :src="getBanner(1).image_link" alt="База отдыха">
             </a>
 
             <a v-if="getBanner(2)" :href="getBanner(2).external_link" target="_blank" class="carousel-cell w-full h-24">
-                <img :src="getBanner(2).image_link">
+                <img :src="getBanner(2).image_link" alt="Бухтарма">
             </a>
 
             <a v-if="getBanner(3)" :href="getBanner(3).external_link" target="_blank" class="carousel-cell w-full h-24">
-                <img :src="getBanner(3).image_link">
+                <img :src="getBanner(3).image_link" alt="Базы отдыха ">
             </a>
 
             <a v-if="getBanner(4)" :href="getBanner(4).external_link" target="_blank" class="carousel-cell w-full h-24">
-                <img :src="getBanner(4).image_link">
+                <img :src="getBanner(4).image_link" alt="Пляжи">
             </a>
         </div>
 
         <!-- Carousels for md+ screens -->
         <div class="promo-carousel hidden md:block md:w-1/2 md:mr-3">
             <a v-if="getBanner(1)" :href="getBanner(1).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
-                <img :src="getBanner(1).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+                <img :src="getBanner(1).image_link" class="lg:rounded-xl lg:border-2 lg:border-white" alt="Вко">
             </a>
 
             <a v-if="getBanner(3)" :href="getBanner(3).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
-                <img :src="getBanner(3).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+                <img :src="getBanner(3).image_link" class="lg:rounded-xl lg:border-2 lg:border-white" alt="Лагерь для детей">
             </a>
 
             <a v-if="getBanner(3) && getBanner(1)" :href="getBanner(3).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
-                <img :src="getBanner(3).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+                <img :src="getBanner(3).image_link" class="lg:rounded-xl lg:border-2 lg:border-white" alt="Детский лагерь">
             </a>
 
             <a v-if="getBanner(1) && getBanner(3)" :href="getBanner(1).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
-                <img :src="getBanner(1).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+                <img :src="getBanner(1).image_link" class="lg:rounded-xl lg:border-2 lg:border-white" alt="Санатории">
             </a>
         </div>
 
         <div class="promo-carousel hidden md:block md:w-1/2">
             <a v-if="getBanner(2)" :href="getBanner(2).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
-                <img :src="getBanner(2).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+                <img :src="getBanner(2).image_link" class="lg:rounded-xl lg:border-2 lg:border-white" alt="Алаколь">
             </a>
 
             <a v-if="getBanner(2) && getBanner(4)" :href="getBanner(2).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
-                <img :src="getBanner(2).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+                <img :src="getBanner(2).image_link" class="lg:rounded-xl lg:border-2 lg:border-white" alt="Панты">
             </a>
 
             <a v-if="getBanner(4)" :href="getBanner(4).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
-                <img :src="getBanner(4).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+                <img :src="getBanner(4).image_link" class="lg:rounded-xl lg:border-2 lg:border-white" alt="Охота">
             </a>
 
             <a v-if="getBanner(4) && getBanner(2)" :href="getBanner(4).external_link" target="_blank" class="carousel-cell w-full h-24 lg:h-32 lg:rounded-xl">
-                <img :src="getBanner(4).image_link" class="lg:rounded-xl lg:border-2 lg:border-white">
+                <img :src="getBanner(4).image_link" class="lg:rounded-xl lg:border-2 lg:border-white" alt="Рыбалка">
             </a>
         </div>
     </div>
