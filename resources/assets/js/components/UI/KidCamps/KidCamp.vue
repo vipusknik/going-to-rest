@@ -20,7 +20,7 @@
                 <div class="flex flex-col md:flex-row">
                     <!-- List item image -->
                     <a :href="'/detskij-otdyh/' + model.slug" class="block md:self-end md:w-2/5">
-                        <img :src="previewImageUrl" alt="" class="block w-full h-48 md:rounded-tr-2xl md:rounded-bl-2xl" :class="{ 'lg:rounded-bl-none': showCategory }" style="object-fit: cover; object-position: top">
+                        <img :src="previewImageUrl" :alt="model.name" class="block w-full h-48 md:rounded-tr-2xl md:rounded-bl-2xl" :class="{ 'lg:rounded-bl-none': showCategory }" style="object-fit: cover; object-position: top">
                     </a>
 
                     <div class="pt-3 px-4 pb-1 md:w-3/5 md:flex md:flex-wrap md:relative">
