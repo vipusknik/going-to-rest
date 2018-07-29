@@ -112,7 +112,7 @@
                             </div>
 
                             <div class="mb-2 flex justify-end md:hidden" v-if="hasAnimalsAt('winter')" @click="selectedSeason = 'winter'" :class="{ 'md:hidden': selectedSeason == 'winter' }">
-                                <div class="inline-block uppercase cursor-pointer text-teal-winter text-sm font-semibold rounded-l-lg bg-white p-2">
+                                <div class="inline-block uppercase cursor-pointer text-teal text-sm font-semibold rounded-l-lg bg-white p-2">
                                     <div class="flex items-center">
                                         <img src="/images/icons/winter.png" alt="" class="w-4 h-4">
                                         <span v-if="selectedSeason == 'winter'" class="ml-1">зима</span>
