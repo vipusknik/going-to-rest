@@ -100,7 +100,7 @@
 
                                     <div class="flex-1 break-words min-w-0">
                                         @foreach ($model->features->where('category', \App\Feature::CATEGORY_FACILITIES) as $feature)
-                                            {{ $feature->name }}{{ !$loop->last ? ',' : '' }}
+                                            {{ $feature->name }}@if ($feature->pivot->description) ({{ $feature->pivot->description }})@endif{{ !$loop->last ? ',' : '' }}
                                         @endforeach
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@
 
                                     <div class="flex-1 break-words min-w-0">
                                         @foreach ($model->features->where('category', \App\Feature::CATEGORY_LEASURES) as $feature)
-                                            {{ $feature->name }}{{ !$loop->last ? ',' : '' }}
+                                            {{ $feature->name }}@if ($feature->pivot->description) ({{ $feature->pivot->description }})@endif{{ !$loop->last ? ',' : '' }}
                                         @endforeach
                                     </div>
                                 </div>
@@ -142,7 +142,7 @@
                                             <strong class="font-semibold">{{ $accomodation->guest_count }}-местные домики,</strong>
 
                                             @foreach ($accomodation->features as $feature)
-                                                {{ $feature->name }}{{ !$loop->last ? ',' : '' }}
+                                                {{ $feature->name }}@if ($feature->pivot->description) ({{ $feature->pivot->description }})@endif{{ !$loop->last ? ',' : '' }}
                                             @endforeach
                                         </div>
                                     </div>
@@ -200,7 +200,7 @@
                                             <strong class="font-semibold">{{ $accomodation->guest_count }}-местные домики,</strong>
 
                                             @foreach ($accomodation->features as $feature)
-                                                {{ $feature->name }}{{ !$loop->last ? ',' : '' }}
+                                                {{ $feature->name }}@if ($feature->pivot->description) ({{ $feature->pivot->description }})@endif{{ !$loop->last ? ',' : '' }}
                                             @endforeach
                                         </div>
                                     </div>
