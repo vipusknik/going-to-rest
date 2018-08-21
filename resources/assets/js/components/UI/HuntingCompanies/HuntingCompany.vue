@@ -31,7 +31,12 @@
                                 </div>
 
                                 <div class="flex-1 break-words min-w-0">
-                                    {{ model.place }}
+                                    <template v-if="model.region">
+                                        р-н. {{ model.region.name }},
+                                    </template>
+                                    <template v-if="model.place">
+                                        {{ model.place }}
+                                    </template>
                                 </div>
                             </div>
 
@@ -188,7 +193,12 @@
                             </div>
 
                             <div class="flex-1 break-words min-w-0">
-                                {{ model.place }}
+                                <template v-if="model.region">
+                                    р-н. {{ model.region.name }},
+                                </template>
+                                <template v-if="model.place">
+                                    {{ model.place }}
+                                </template>
                             </div>
                         </div>
 

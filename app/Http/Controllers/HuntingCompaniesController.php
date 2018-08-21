@@ -16,7 +16,7 @@ class HuntingCompaniesController extends Controller
      */
     public function index()
     {
-        $models = HuntingCompany::with([ 'social_media', 'animals', 'media' ])
+        $models = HuntingCompany::with([ 'social_media', 'animals', 'media', 'region' ])
             ->orderBy('is_paid', 'DESC')
             ->orderBy('name')
             ->get();
