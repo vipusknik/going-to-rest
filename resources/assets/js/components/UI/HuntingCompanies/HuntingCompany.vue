@@ -356,7 +356,7 @@
             previewImageUrl () {
                 if (this.model.media.length === 0) return '/images/defaults/beach.jpg';
 
-                let mainImage = this.model.media.find(item => item.collection === 'main-image');
+                let mainImage = this.model.media.find(item => item.collection_name === 'main-image');
 
                 if (! mainImage) {
                     mainImage = this.model.media[0];

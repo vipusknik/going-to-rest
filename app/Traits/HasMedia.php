@@ -22,4 +22,9 @@ trait HasMedia
         $this->addMediaCollection('images');
         $this->addMediaCollection('main-image')->singleFile();
     }
+
+    public function media()
+    {
+        return $this->morphMany(config('medialibrary.media_model'), 'model')->orderByDesc('collection_name');
+    }
 }
