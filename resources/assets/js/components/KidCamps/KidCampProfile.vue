@@ -54,7 +54,14 @@
 
                     <div>
                         <span class="text-grey-darker font-bold">Стоимость: </span>
-                        <span v-text="model.cost" class="text-sm"></span>
+
+
+                        <template v-if="model.cost != '0'">
+                            <span v-text="model.cost" class="text-sm"></span>
+                        </template>
+                        <template v-else>
+                            <span class="text-sm">{{ model.cost }} (договорная цена)</span>
+                        </template>
                     </div>
                 </div>
 

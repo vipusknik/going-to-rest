@@ -85,7 +85,12 @@
                                 </td>
                                 <td v-text="accomodation.guest_count" class="p-2 border-r border-blue-lighter"></td>
                                 <td class="p-2 border-r border-blue-lighter">
-                                    <span class="text-grey-dark">от</span> {{ accomodation.price_per_day }}
+                                    <template v-if="accomodation.price_per_day != '0'">
+                                        <span class="text-grey-dark">от</span> {{ accomodation.price_per_day }}
+                                    </template>
+                                    <template v-else>
+                                        <span class="text-grey-dark">{{ accomodation.price_per_day }}</span> (договорная цена)
+                                    </template>
                                 </td>
                                 <td v-text="accomodation.description" class="p-2"></td>
                             </tr>
