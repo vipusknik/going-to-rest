@@ -31,7 +31,7 @@
                                 </div>
 
                                 <div class="flex-1 break-words min-w-0">
-                                    {{ model.location }}
+                                    {{ model.place }}
                                 </div>
                             </div>
 
