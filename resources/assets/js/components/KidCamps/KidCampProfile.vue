@@ -55,7 +55,6 @@
                     <div>
                         <span class="text-grey-darker font-bold">Стоимость: </span>
 
-
                         <template v-if="model.cost != '0'">
                             <span v-text="model.cost" class="text-sm"></span>
                         </template>
