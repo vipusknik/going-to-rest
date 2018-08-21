@@ -52,7 +52,14 @@
                                 </div>
 
                                 <div class="flex-1 break-words min-w-0">
-                                    от {{ chepestAccomodationPrice }} тг <span v-if="hasFood" class="text-red-light">возможно питание</span>
+                                    <template v-if="chepestAccomodationPrice == '0'">
+                                        цена договорная
+                                    </template>
+                                    <template v-else>
+                                        от {{ chepestAccomodationPrice }} тг
+                                    </template>
+
+                                    <span v-if="hasFood" class="text-red-light">возможно питание</span>
                                 </div>
                             </div>
 
@@ -125,7 +132,14 @@
                             </div>
 
                             <div class="flex-1 break-words min-w-0">
-                                от {{ chepestAccomodationPrice }} тг <span v-if="hasFood" class="text-red-light">возможно питание</span>
+                                <template v-if="chepestAccomodationPrice == '0'">
+                                    цена договорная
+                                </template>
+                                <template v-else>
+                                    от {{ chepestAccomodationPrice }} тг
+                                </template>
+
+                                <span v-if="hasFood" class="text-red-light">возможно питание</span>
                             </div>
                         </div>
 

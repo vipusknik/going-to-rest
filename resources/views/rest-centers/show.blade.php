@@ -153,7 +153,11 @@
                                         </div>
 
                                         <div class="flex-1 break-words min-w-0">
-                                            от {{ $accomodation->price_per_day }} тг в сутки
+                                            @if ($accomodation->price_per_day == '0')
+                                                цена договорная
+                                            @else
+                                                от {{ $accomodation->price_per_day }} тг в сутки
+                                            @endif
                                         </div>
                                     </div>
 
@@ -211,7 +215,13 @@
                                         </div>
 
                                         <div class="flex-1 break-words min-w-0">
-                                            <div class="pr-1">от {{ $accomodation->price_per_day }} тг в сутки</div>
+                                            <div class="pr-1">
+                                                @if ($accomodation->price_per_day == '0')
+                                                    цена договорная
+                                                @else
+                                                    от {{ $accomodation->price_per_day }} тг в сутки
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
 

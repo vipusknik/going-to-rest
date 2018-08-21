@@ -51,7 +51,12 @@
                             </div>
 
                             <div class="flex-1 break-words min-w-0">
-                                от {{ model.cost }}
+                                <template v-if="model.cost == '0'">
+                                    цена договорная
+                                </template>
+                                <template v-else>
+                                    от {{ model.cost }}
+                                </template>
                             </div>
                         </div>
 
@@ -122,7 +127,12 @@
                         </div>
 
                         <div class="flex-1 break-words min-w-0">
-                            от {{ model.cost }}
+                            <template v-if="model.cost == 0">
+                                цена договорная
+                            </template>
+                            <template v-else>
+                                от {{ model.cost }}
+                            </template>
                         </div>
                     </div>
 

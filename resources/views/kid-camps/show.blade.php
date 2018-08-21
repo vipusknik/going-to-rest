@@ -200,7 +200,11 @@
                                         </div>
 
                                         <div class="flex-1 break-words min-w-0">
-                                            от {{ $model->cost }}
+                                            @if ($model->cost == '0')
+                                                цена договорная
+                                            @else
+                                                от {{ $model->cost }}
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -238,7 +242,13 @@
                                         </div>
 
                                         <div class="flex-1 break-words min-w-0">
-                                            <div class="pr-1">от {{ $model->cost }}</div>
+                                            <div class="pr-1">
+                                                @if ($model->cost == '0')
+                                                    цена договорная
+                                                @else
+                                                    от {{ $model->cost }}
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
