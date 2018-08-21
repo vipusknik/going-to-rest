@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('title')
-    Активный отдых
+    Активный отдых (+ прокат/продажа снаряжения)
 @endsection
 
 @section('header')
@@ -38,7 +38,7 @@
             <main class="lg:px-20">
                 <!-- Page heading -->
                 <h1 class="hidden font-hortensia lg:block lg:text-4xl lg:text-grey-darkest lg:mr-20 lg:text-center lg:font-hairline lg:mb-6">
-                    Активный отдых
+                    Активный отдых (+ прокат/продажа снаряжения)
                 </h1>
 
                 <!-- Search for large devices -->
