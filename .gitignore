@@ -17,3 +17,4 @@ package-lock.json
 public/mix-manifest.json
 mix-manifest.json
 composer.lock
+config/going-to-rest.php
