@@ -39,7 +39,7 @@ export default Vue.extend({
                     </div>
 
                     <div class="w-3/5 p-4">
-                        <model-profile v-if="selectedModel" :model="selectedModel" :endpoint="endpoint" @destroyed="remove">
+                        <model-profile v-if="selectedModel" :model="selectedModel" :endpoint="endpoint" @destroyed="remove" class="sticky" style="top: 20px">
                         </model-profile>
                     </div>
                 </div>
