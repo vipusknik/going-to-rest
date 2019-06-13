@@ -125,7 +125,7 @@
                         window.events.$emit('models-updated', response.data.models);
                     })
                     .catch(error => flash('Ошибка при выполнении.', 'danger'));
-                }, 150)
+                }, 250)
         }
     }
 </script>

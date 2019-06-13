@@ -127,7 +127,7 @@
         },
 
         methods: {
-            fetch () {
+            fetch: _.debounce(function () {
                 axios.get('/medicinskij-turizm/search', {
                         params: this.search
                     })
@@ -135,7 +135,7 @@
                         window.events.$emit('models-updated', response.data.models);
                     })
                     .catch(error => flash('Ошибка при выполнении.', 'danger'));
-            }
+            }, 250)
         }
     }
 </script>
