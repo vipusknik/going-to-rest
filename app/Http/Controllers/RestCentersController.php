@@ -26,7 +26,19 @@ class RestCentersController extends Controller
 
         return view('rest-centers.index', compact('models', 'reservoirs'));
     }
+    //rus s
+    public function newb()
+    {
+        $models = RestCenter::with([ 'reservoir', 'social_media', 'features', 'media', 'accomodations', 'accomodations.features' ])
+            ->orderBy('is_paid', 'DESC')
+            ->orderBy('name')
+            ->get();
 
+        $reservoirs = Reservoir::orderBy('name')->get();
+
+        return view('rest-centers.new', compact('models', 'reservoirs'));
+    }
+    //rus f
     public function search(Request $request)
     {
         $models = RestCentersSearch::by($request)

@@ -2,7 +2,8 @@
 
 
 Route::view('/', 'home');
-
+Route::view('/karty', 'maps');
+Route::get('/newb', 'RestCentersController@newb')->name('rest-centers.new');//rus
 /**
  * Global Search
  */

@@ -116,13 +116,13 @@
                                         @if ($model->socialMedia()->instagram)
                                             <div class="flex md:w-1/2 md:items-center pr-2 mb-4">
                                                 <div class="w-8 h-8 flex-no-shrink mr-3">
-                                                    <a href="{{ $model->socialMedia()->instagram }}" target="_blank">
+                                                    <a href="{{ $model->socialMedia()->instagram['link'] }}" target="_blank">
                                                         <img src="/images/icons/instagram.png" alt="address" class="block">
                                                     </a>
                                                 </div>
 
                                                 <div class="flex-1 break-words min-w-0">
-                                                    <a href="{{ $model->socialMedia()->instagram }}" target="_blank" class="block text-black">{{ base_url($model->socialMedia()->instagram) }}</a>
+                                                    <a href="{{ $model->socialMedia()->instagram['link'] }}" target="_blank" class="block text-black">{{ base_url($model->socialMedia()->instagram['link_placeholder'] ?? $model->socialMedia()->instagram['link']) }}</a>
                                                 </div>
                                             </div>
                                         @endif
@@ -130,13 +130,13 @@
                                         @if ($model->socialMedia()->facebook)
                                             <div class="flex md:w-1/2 md:items-center pr-2 mb-4">
                                                 <div class="w-8 h-8 flex-no-shrink mr-3">
-                                                    <a href="{{ $model->socialMedia()->facebook }}" target="_blank">
+                                                    <a href="{{ $model->socialMedia()->facebook['link'] }}" target="_blank">
                                                         <img src="/images/icons/facebook.png" alt="address" class="block">
                                                     </a>
                                                 </div>
 
                                                 <div class="flex-1 break-words min-w-0">
-                                                    <a href="{{ $model->socialMedia()->facebook }}" target="_blank" class="block text-black">{{ base_url($model->socialMedia()->facebook) }}</a>
+                                                    <a href="{{ $model->socialMedia()->facebook['link'] }}" target="_blank" class="block text-black">{{ base_url($model->socialMedia()->facebook['link_placeholder'] ?? $model->socialMedia()->facebook['link']) }}</a>
                                                 </div>
                                             </div>
                                         @endif
@@ -144,13 +144,13 @@
                                         @if ($model->socialMedia()->vk)
                                             <div class="flex md:w-1/2 md:items-center pr-2 mb-4">
                                                 <div class="w-8 h-8 flex-no-shrink mr-3">
-                                                    <a href="{{ $model->socialMedia()->vk }}" target="_blank">
+                                                    <a href="{{ $model->socialMedia()->vk['link'] }}" target="_blank">
                                                         <img src="/images/icons/vk.png" alt="address" class="block">
                                                     </a>
                                                 </div>
 
                                                 <div class="flex-1 break-words min-w-0">
-                                                    <a href="{{ $model->socialMedia()->vk }}" target="_blank" class="block text-black">{{ base_url($model->socialMedia()->vk) }}</a>
+                                                    <a href="{{ $model->socialMedia()->vk['link'] }}" target="_blank" class="block text-black">{{ base_url($model->socialMedia()->vk['link_placeholder'] ?? $model->socialMedia()->vk['link']) }}</a>
                                                 </div>
                                             </div>
                                         @endif
