@@ -10,8 +10,6 @@ import VModal from 'vue-js-modal';
 require('./bootstrap');
 require('./utils/functions.js');
 
-window._ = require('lodash')
-
 window.Vue = require('vue');
 Vue.use(VModal);
 

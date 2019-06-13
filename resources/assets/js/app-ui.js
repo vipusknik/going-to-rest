@@ -8,6 +8,7 @@ import 'babel-polyfill';
 import PortalVue from 'portal-vue';
 require('./bootstrap');
 require('./utils/functions.js');
+window._ = require('lodash')
 
 window.Vue = require('vue');
 
